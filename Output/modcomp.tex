@@ -1,0 +1,577 @@
+\documentclass[11pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Type I and II Error Rates in Modularity Hypothesis Testing},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Type I and II Error Rates in Modularity Hypothesis Testing}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+%--- USEPACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage[brazilian,english]{babel}
+\usepackage{hyperref}
+\usepackage{subfigure, epsfig}
+\usepackage{ae}
+\usepackage{aecompl}
+\usepackage{booktabs}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,wrapfig} % para incluir figuras
+\usepackage{amsfonts, amssymb,amsthm, amsmath, amscd} % pacote AMS
+\usepackage{color, bbm, multicol}
+\usepackage{verbatim, listings, booktabs}
+\usepackage{fancyhdr} % FANCYHEADER
+\usepackage{setspace}
+\usepackage{times} % bookman,palatino,courier,times FONTES
+\usepackage{lineno}
+\usepackage{url}
+\usepackage{rotating}
+\usepackage{longtable}
+% \usepackage{rotfloat}
+% \usepackage{appendix}
+\usepackage{mathptmx}
+% \usepackage{cmbright}
+% \usepackage[adobe-utopia]{mathdesign}
+\usepackage[flushleft]{threeparttable}
+\usepackage{multirow}
+% \usepackage{float}
+\usepackage {tocvsec2} % controlar profundidade de table of contents
+\setcounter {secnumdepth}{0}
+\usepackage {caption}
+\usepackage {floatrow}
+\floatsetup[table]{capposition=top}
+
+\usepackage {xr}
+\externaldocument[s]{supplemental}
+
+\selectlanguage{english}
+
+\hypersetup{colorlinks=false}
+
+
+\begin{document}
+
+\maketitle
+
+
+\linenumbers
+\modulolinenumbers[2]
+
+\onehalfspacing
+
+\section{Introduction}\label{introduction}
+
+\section{Methods}\label{methods}
+
+\subsection{Sample}\label{sample}
+
+The database used here (\autoref{tab:modcomp_otu}) consists of 21
+species, distributed across all taxonomic denominations of Anthropoidea
+above the genus level. These species were selected from a broader
+database (Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009) in
+order to reduce the effects of low sample sizes over estimates of
+modularity patterns. Individuals in our sample are represented by 36
+registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS
+for Platyrrhini and Catarrhini, respectively. Twenty-two unique
+landmarks represent each individual (\autoref{fig:landmarks},
+\autoref{tab:lms}), since 14 of the 36 registered landmarks are
+bilaterally symmetrical. For more details on landmark registration, see
+Marroig \& Cheverud (2001) and Oliveira et al. (2009).
+
+\input{Tables/modcomp_otu}
+
+For each OTU, we estimated phenotypic covariance and correlation
+matrices for three different types of variables: tangent space
+residuals, estimated from a Procrustes superimposition for the entire
+sample, using the set of landmarks described on both \autoref{tab:lms}
+and \autoref{fig:landmarks}; interlandmark distances, as described in
+\autoref{tab:dist}; and local shape variables (Márquez \emph{et al.},
+2012), which are measurements of infinitesimal log volume
+transformations between each sample unit and a reference (mean) shape.
+These transformations were calculated at 38 points, corresponding to the
+locations of the mipoints between pairs of landmarks used to calculate
+interlandmark distances, in order to produce a dataset that represents
+shape (i.e., form without isometric variation; Bookstein, 1991; Zelditch
+\emph{et al.}, 2004) while retaining the same overall properties of the
+interlandmark distance dataset.
+
+For each dataset, we estimated covariance and correlation matrices after
+removing fixed effects of little interest in the present context, such
+as sexual dimorphism, for example. For interlandmark distances and local
+shape variables, these effects were removed through a multivariate
+linear model adjusted for each species, according to
+\autoref{tab:modcomp_otu}; for Procrustes residuals, the same effects
+were removed by centering all group means to each species' mean shape,
+since the loss of degrees of freedom imposed by the GPA prohibits the
+use of a full multivariate linear model over this kind of data to
+removed fixed effects.
+
+In order to consider the effects of size variation over modularity
+patterns, we used a different procedure to remove the influence of size,
+according to the different properties of each type of variable.
+
+De maneira a considerar o efeito da variação de tamanho sobre padrões de
+modularidade, utilizamos um procedimento de remoção de tamanho sobre
+matrizes de covaripara cada tipo de variável: para distâncias
+euclidianas, utilizamos o procedimento delineado em Marroig \& Cheverud
+(2004), baseado em Bookstein et al. (1985). No caso dos resíduos de
+Procrustes e variáveis locais de forma, apesar do efeito de escala ser
+removido, ao normalizar cada indivíduo por seu tamanho do centróide
+associado, o efeito da alometria se encontra presente. De maneira a
+remover este efeito, utilizamos o procedimento delineado por
+Mitteroecker et al. (2004). Desta forma, obtivemos matrizes de
+covariância que representam os padrões de associação entre variáveis
+livres dos efeitos integradores de tamanho.
+
+\subsection{Testes de Hipótese de Modularidade \emph{a
+priori}}\label{testes-de-hipotese-de-modularidade-a-priori}
+
+A partir dos seis conjuntos de matrizes de covariância, testamos as
+hipóteses de associação entre marcos anatômicos delimitadas na
+\autoref{tab:lms} para matrizes derivadas de resíduos de Procrustes;
+para distâncias euclidianas e variáveis locais de forma, utilizamos as
+hipóteses conforme a delimitação exposta na \autoref{tab:dist}, visto
+que estes dois conjuntos de dados possuem, por construção, o mesmo
+número de caracteres posicionados de modo similar sobre o crânio.
+
+Para cada hipótese de associação testada, calculamos o índice AVG (Porto
+\emph{et al.}, 2013), da forma
+\[ AVGi = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV} \] onde
+$\bar{\rho}_{+}$ representa a média de correlações entre caracteres
+pertencentes àquela hipótese de associação, $\bar{\rho}_{-}$ representa
+a média de correlações do conjunto complementar a este, ou seja,
+considerando tanto correlações entre aqueles caracteres que não
+pertencem ao conjunto de associações considerada quanto correlações
+entre os dois conjuntos; $ICV$ representa o coeficiente de variação dos
+autovalores da matriz de covariância associada (Shirai \& Marroig,
+2010). No caso da distinção entre caracteres Faciais e Neurocraniais,
+calculamos também o contraste entre correlações contidas na união entre
+os dois conjuntos e o conjunto complementar; neste caso, a hipótese
+associada é denominada Neuroface.
+
+Também calculamos o índice RV (Klingenberg, 2009), da forma \[
+RV = \frac{tr(\mathbf{S}_{12}\mathbf{S}_{21})}{\sqrt{tr(\mathbf{S}_1 \mathbf{S}_1)tr(\mathbf{S}_2 \mathbf{S}_2)}}
+\] onde $\mathbf{S}_{12} = \mathbf{S}'_{21}$ representa o bloco de
+covariâncias entre o conjunto considerado e seu complemento, e
+$\mathbf{S}_1$ e $\mathbf{S}_2$ representam os blocos de covariância
+dentre caracteres do conjunto considerado e dentre caracteres do
+conjunto complementar, respectivamente; a operação $tr$ consiste na soma
+dos elementos da diagonal da matriz ($tr \mathbf{A} = \sum_i a_{ii}$).
+Para o caso da distinção entre caracteres Faciais e Neurocraniais, visto
+que estes dois conjuntos são complementares e contém conjuntamente todos
+os caracteres, valores do índice RV calculados para os dois conjuntos
+são idênticos; dessa forma, apenas um valor, denominado Neuroface é
+reportado
+
+De modo a testar a hipótese de que cada um destes conjuntos de
+caracteres representam módulos variacionais, utilizamos um procedimento
+de aleatorização sobre cada um dos conjuntos, de maneira que, para cada
+matriz e hipótese, 1000 aleatorizações são geradas, e índices AVG e RV
+são calculados para cada iteração. O valor do índice calculado sobre o
+particionamento real é comparado às 1000 iterações: no caso do índice
+AVG, considera-se válida a particão com índices maiores que a
+distribuição de índices gerados pelo particionamento aleatório, dado um
+certo valor de significância; no caso do índice RV, considera-se válida
+aquela partição com índices menores que aqueles gerados ao acaso. Para o
+caso particular dos resíduos de Procrustes, o procedimento de
+aleatorização mantém unidas as estruturas de covariância associadas às
+coordenadas de um mesmo marco anatômico, conforme Polly (2005).
+
+\subsection{Simulações}\label{simulacoes}
+
+De maneira a avaliar as propriedades estatísticas dos dois índices e do
+procedimento de aleatorização, construímos matrizes de correlação
+teóricas na forma \[
+\mathbf{C}_{s} =
+\begin{bmatrix}
+\mathbf{W}_1 & \mathbf{B} \\
+\mathbf{B} & \mathbf{W}_2 \\
+\end{bmatrix}
+\] onde $\mathbf{W}_1$ e $\mathbf{W}_2$ representam blocos de correlação
+associados a dois conjuntos de associação entre caracteres e
+$\mathbf{B}$ representa o bloco de correlações entre elementos dos dois
+conjuntos; esta forma mimetiza o particionamento da matriz em blocos
+necessário ao cômputo do índice RV.
+
+A partir dos seis conjuntos de matrizes de correlação empíricas
+utilizadas na seção anterior, obtivemos distribuições de correlações
+médias dentre e entre as hipóteses de associação de caracteres
+consideradas (\autoref{fig:cor_dist}). De maneira a construir um
+conjunto de matrizes $\mathbf{C}_{s}$ representativas das distribuições
+de correlação encontradas nos diferentes tipos de variáveis, sorteamos
+valores das distribuições de correlação média obtidas para cada conjunto
+de matrizes e utilizamos os valores sorteados para construir matrizes
+$\mathbf{C}_{s}$. Assim, três valores são necessários para a construção
+de uma destas matrizes: dois valores sorteados da distribuição de
+correlação média dentre elementos de um mesmo conjunto, que irão
+preencher as correlações dos blocos $\mathbf{W}_1$ e $\mathbf{W}_2$, e
+um valor derivado da correlação dentre elementos de conjuntos distintos,
+que irá preencher o bloco $\mathbf{B}$. Dessa forma, para quatro
+caracteres divididos em dois conjuntos de mesmo tamanho, se sorteamos os
+valores $0.5$ e $0.3$ da primeira distribuição e $-0.1$ da segunda, a
+matriz $\mathbf{C}_{s}$ associada será da forma \[
+\mathbf{C}_s =
+\begin{bmatrix}
+1 & 0.5 & -0.1 & -0.1 \\
+0.5 & 1 & -0.1 & -0.1 \\
+-0.1 & -0.1 & 1 & 0.3 \\
+-0.1 & -0.1 & 0.3 & 1 \\
+\end{bmatrix}
+\] de modo que todos as correlações associadas a um determinado bloco
+serão idênticas ao valor sorteado correspondente. Desta maneira,
+abstraímos os diferentes tipos de variáveis em distribuições de
+correlações distintas, e construímos matrizes representativas destas
+diferentes situações.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/cor_dist-1.pdf}
+\caption{Distribution of correlation derived from empirical correlation
+matrices. \label{fig:cor_dist}}
+\end{figure}
+
+Para cada par de distribuições de correlação obtidas a partir dos seis
+tipos de variáveis, construímos 1000 matrizes de tamanho $40 \times 40$
+desta forma; apenas matrizes de correlação positivas-definidas foram
+consideradas, resorteando valores quando a matriz construída não se
+adequava a este pré-requisito. Este procedimento garante que, ainda que
+estas matrizes possuam estruturas de correlação simplificadas, elas são
+de fato matrizes de correlação que poderiam ser estimadas em uma amostra
+real. Para cada matriz, o número de caracteres pertecentes a cada
+conjunto foi determinado arbitrariamente, desde que nenhuma partição em
+nenhuma matriz construída tenha menos do que cinco caracteres.
+
+Dessa forma, construímos matrizes de correlação associadas a cada um dos
+tipos de variáveis cuja estrutura de particionamento é conhecida. Para
+construir matrizes cuja estrutura não é conhecida, apenas tomamos cada
+uma destas matrizes e embaralhamos as linhas e colunas desta matriz,
+gerando assim para cada matriz $\mathbf{C}_s$ uma matriz $\mathbf{C}_r$
+associada. A partir destes pares de matrizes, sorteamos amostras de 20,
+40, 60, 80 e 100 indíviduos, e re-estimamos as matrizes de correlação
+associadas, considerando dessa forma a incerteza derivada de amostragem.
+A partir das matrizes estimadas, testamos a hipótese de associação que
+gerou a matriz teórica da mesma maneira descrita na seção anterior,
+considerando a situação onde testamos, no caso do índice AVG, a
+distinção entre caracteres integrados e não integrados pelas duas
+partições, de forma similar a hipótese da Neuroface.
+
+Para o caso de amostras geradas a partir de uma matriz $\mathbf{C}_r$
+(aleatórias), o teste é representativo de uma situação onde sabemos que
+a hipótese nula do teste é verdadeira, em ambos os casos (RV ou AVGi),
+visto que a matriz foi gerada a partir de uma aleatorização daquela
+hipótese que está sendo testada. Assim, buscamos neste caso estimar as
+taxas de erro tipo I do teste, isto é, a proporção de casos onde a
+hipótese nula é rejeitada mesmo sendo verdadeira, dado um certo nível de
+significância. Neste caso, esperamos que as taxas de erro I acompanhem o
+nível de significância estabelecido de forma direta, isto é, seguindo
+uma relação de identidade.
+
+No caso das amostras geradas a partir das matrizes $\mathbf{C}_s$
+(estruturadas), este teste é representativo de uma situação em que
+sabemos que a hipótese nula do teste é falsa, isto é, de que aquela
+partição testada de fato representa a estrutura da matriz de correlação
+frente a partições geradas ao acaso. Buscamos portanto estimar as taxas
+de erro tipo II dos testes, isto é, a proporção de casos em que a
+hipótese nula não é rejeitada, mesmo sendo falsa, dado um certo nível de
+significância; nesse caso, é possível parametrizar o problema utilizando
+o poder associado ao teste, que é apenas complementar à taxa de erro
+tipo II, representando a proporção de casos em que $H_0$ é rejeitada por
+ser de fato falsa. No caso, esperamos que os testes sigam uma relação
+crescente com o nível de significância, ainda que, ao contrário das
+taxas de erro tipo I, esperamos que um aumento pequeno em $P(\alpha)$
+implique em um aumento grande no poder do teste.
+
+Neste caso, o tamanho do efeito é importante, visto que os valores de
+correlação sorteados podem gerar um estrutura de correlação que não é
+detectada pelo teste simplesmente devido a uma diferença pequena entre
+correlações dentro e entre partições. Para contornar este problema,
+utilizamos a correlação entre partições ao quadrado ($b^2$), uma medida
+que não é particularmente associada a nenhuma das métricas testadas e
+que deve ser suficiente para descrever e corrigir o problema. Esperamos
+portanto que, para valores de $b^2$ pequenos, o poder de ambos testes
+(AVGi e RV) será maior do que em casos onde este valor é maior.
+
+\section{Resultados}\label{resultados}
+
+\subsection{Testes Empíricos}\label{testes-empiricos}
+
+Em relação às hipóteses locais (Oral, Nasal, Zigomático, Órbita, Base e
+Abóbada), estimativas de AVGi (\autoref{fig:MI_Func}) e RV
+(\autoref{fig:RV_Func}) demonstram que os testes discordam a respeito
+das regiões detectadas como hipóteses válidas. No caso particular dos
+testes sobre resíduos de Procrustes, ambos os testes detectam como
+válidas um número reduzido de hipóteses, em regiões e espécies díspares.
+Desconsiderando resíduos de Procrustes, o teste associado ao índice AVG
+detecta partições nos dois tipos de variáveis de forma consistente entre
+as diferentes espécies, ainda que as regiões detectadas em cada tipo de
+variável sejam diferentes. No caso do índice RV, ainda que um número
+maior de hipótese sejam detectados em relação aos resíduos de
+Procrustes, não há consistência entre as partições detectadas em cada
+tipo de variável dentre as diferentes espécies. O mesmo padrão pode ser
+observado para a distinção entre Face e Neurocrânio (Figuras
+\ref{fig:MI_Dev} e \ref{fig:RV_Dev}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/MI_Func-1.pdf}
+\caption{AVG Index values for local functional/developmental hypotheses.
+Circles indicate whether a hypothesis is recognized in a given OTU,
+according to the legend \label{fig:MI_Func}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/RV_Func-1.pdf}
+\caption{RV Coefficient values for local functional/developmental
+hypotheses. Circles indicate whether a hypothesis is recognized in a
+given OTU, according to the legend \label{fig:RV_Func}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/MI_Dev-1.pdf}
+\caption{AVG Index values for global developmental hypotheses. Circles
+indicate whether a hypothesis is recognized in a given OTU, according to
+the legend \label{fig:MI_Dev}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/RV_Dev-1.pdf}
+\caption{RV Coefficient values for global developmental hypotheses.
+Circles indicate whether a hypothesis is recognized in a given OTU,
+according to the legend \label{fig:RV_Dev}}
+\end{figure}
+
+\subsection{Simulações}\label{simulacoes-1}
+
+A distribuição de valores de AVGi e RV recuperadas da simulação
+(\autoref{fig:stat_dist_sim}) indica que, no caso de variáveis locais de
+forma, as distribuições de valores obtidos a partir de matrizes
+$\mathbf{C}_s$ e $\mathbf{C}_r$ são disjuntas, enquanto nos demais tipos
+de variáveis, há uma sobreposição razoável das distribuições para os
+dois tipos de matrizes, ainda que essa sobreposição seja maior no caso
+dos resíduos de Procustes e também no caso do índice RV. A distribuição
+de índices AVG para matrizes $\mathbf{C}_r$ é bastante estreita e
+centrada no valor nulo, enquanto que no caso do índice RV, essa
+distribuição é mais larga.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/stat_dist_sim-1.pdf}
+\caption{Distribution of AVG Index and RV Coefficient for simulated
+correlation matrices. \label{fig:stat_dist_sim}}
+\end{figure}
+
+Considerando a relação entre níveis de significância e taxas de erro
+tipo I (\autoref{fig:type1}), esta relação, para os diferentes tipos de
+variáveis e tamanhos amostrais, segue muito próxima à reta-identidade,
+de maneira que ambos os testes baseados no dois índices apresentam um
+comportamento próximo do ideal, exceto no caso das matrizes derivadas
+das distribuições de correlação de variáveis locais de forma sem remoção
+de tamanho, onde taxas de erro tipo I são menores que os níveis de
+significância atribuídos (painel superior à esquerda da
+\autoref{fig:type1}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/type1-1.pdf}
+\caption{Type I error rates as a function of the chosen significance
+level regarding tests for modular structure applied on random
+($\mathbf{C}_r$) matrices. \label{fig:type1}}
+\end{figure}
+
+Quando consideramos o poder associado aos testes, é possível observar
+que existem diferenças substanciais neste parâmetro dentre os diferentes
+tipos de variáveis. No caso das distâncias euclidianas
+(\autoref{fig:type2_ed}), é possiível observar que o poder rapidamente
+se aproxima assintoticamente ao valor máximo no caso do índice AVG para
+a distribuição onde o tamanho é mantido, enquanto que no caso onde
+tamanho é removido, o poder é sempre menor, mas há um incremento em
+função do tamanho amostral. Para o índice RV, o poder é sempre menor do
+que no caso do AVGi; nas matrizes da distribuição sem tamanho, essa
+diferença é ainda mais marcante.
+
+Para as matrizes derivadas das correlações entre variáveis de forma
+(\autoref{fig:type2_def}), a distribuição de poder em função de
+$P(\alpha)$ se comporta de maneira similar em ambos os casos (AVGi e
+RV), sempre em valores bastante altos. No caso das matrizes derivadas
+das distribuições de correlação de resíduos de Procrustes
+(\autoref{fig:type2_sym}), há uma diferença substancial no poder de
+ambos os testes; ainda que para o índice AVG, o poder dos testes seja
+consideravelmente mais baixo do que em outros tipos de variáveis, ele se
+aproxima de 75\% para tamanhos amostrais elevados, no caso do índice RV,
+o poder se aproxima da reta identidade em relação a $P(\alpha)$.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/type2_ed-1.pdf}
+\caption{Power for both AVGi and RV metrics as a function of the chosen
+significance levels with respect to tests for modular structure applied
+on $\mathbf{C}_s$ matrices, with correlations sampled from the
+interlandmark correlation distribution. \label{fig:type2_ed}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/type2_def-1.pdf}
+\caption{Power for both AVGi and RV metrics as a function of the chosen
+significance levels with respect to tests for modular structure applied
+on $\mathbf{C}_s$ matrices, with correlations sampled from the local
+shape variables correlation distribution. \label{fig:type2_def}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/modcomp_files/figure-latex/type2_sym-1.pdf}
+\caption{Power for both AVGi and RV metrics as a function of the chosen
+significance levels with respect to tests for modular structure applied
+on $\mathbf{C}_s$ matrices, with correlations sampled from the local
+shape variables correlation distribution. \label{fig:type2_sym}}
+\end{figure}
+
+\section{Discussão}\label{discussao}
+
+Considerando os resultados obtidos a partir das matrizes teóricas,
+observamos que a distribuição de correlações derivadas de cada tipo de
+variável (\autoref{fig:cor_dist}) são particularmente importantes para o
+seu entendimento, visto que estas matrizes teóricas são derivadas destas
+distribuições. No caso dos resíduos de Procrustes, o procedimento de
+superposição e a premissa de variação isotrópica em torno de cada marco
+anatômico acaba por gerar uma distribuição de correlações médias dentro
+e entre regiões que é marcada por uma diferença pequena entre estes dois
+tipos de correlações, independentemente se consideramos a distribuição
+com tamanho mantido ou removido. Visto que esta diferença é pequena, o
+poder de ambos os teste se reduz bastante em testes realizados nas
+matrizes $\mathbf{C}_s$ derivadas desta distribuição.
+
+Ademais, estas correlações médias derivadas de resíduos de Procrustes
+são bastante próximas de zero, de modo que o poder do índice RV é
+bastante prejudicado neste caso, visto que o cômputo do RV envolve
+variâncias e covariâncias ao quadrado. Como o índice AVG lida com
+correlações em sua escala natural, sua performance em matrizes
+$\mathbf{C}_s$ não é drasticamente prejudicada.
+
+Bookstein, F.L. 1991. \emph{Morphometric tools for landmark data:
+geometry and biology}. Cambridge University Press, Cambridge.
+
+Bookstein, F.L., Chernoff, B., Elder, R., Humphries, Smith, G. \&
+Strauss, R. 1985. \emph{Morphometrics in Evolutionary Biology}. The
+Academy of Natural Sciences of Philadelphia, Philadelphia.
+
+Klingenberg, C.P. 2009. Morphometric integration and modularity in
+configurations of landmarks: tools for evaluating a priori hypotheses.
+\emph{Evolution \& Development} \textbf{11}: 405--421.
+
+Marroig, G. \& Cheverud, J.M. 2001. A comparison of phenotypic variation
+and covariation patterns and the role of phylogeny, ecology, and
+ontogeny during cranial evolution of new world monkeys. \emph{Evolution}
+\textbf{55}: 2576--2600.
+
+Marroig, G. \& Cheverud, J.M. 2004. Cranial evolution in sakis
+(Pithecia, Platyrrhini) I: Interspecific differentiation and allometric
+patterns. \emph{American Journal of Physical Anthropology} \textbf{125}:
+266--278.
+
+Márquez, E.J., Cabeen, R., Woods, R.P. \& Houle, D. 2012. The
+Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
+\textbf{39}: 419--439.
+
+Mitteroecker, P., Gunz, P., Bernhard, M., Bookstein, F.L. \& Schaefer,
+K. 2004. Comparison of cranial ontogenetic trajectories among great apes
+and humans. \emph{Journal of Human Evolution} \textbf{46}: 679--697.
+
+Oliveira, F.B., Porto, A. \& Marroig, G. 2009. Covariance structure in
+the skull of Catarrhini: a case of pattern stasis and magnitude
+evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
+
+Polly, P.D. 2005. Development and phenotypic correlations: the evolution
+of tooth shape in sorex araneus. \emph{Evolution \& Development}
+\textbf{7}: 29--41.
+
+Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
+Variation, Growth Strategies, and the Evolution of Modularity in the
+Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
+
+Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
+marsupials and monkeys: size variation and evolutionary constraint and
+flexibility. \emph{Journal of experimental zoology. Part B, Molecular
+and developmental evolution} \textbf{314B}: 663--683.
+
+Zelditch, M.L., Swiderski, D.L., Sheets, H.D. \& Fink, W.L. 2004.
+\emph{Geometric Morphometrics for Biologists: A Primer}, 1st ed.
+Elsevier.
+
+\end{document}

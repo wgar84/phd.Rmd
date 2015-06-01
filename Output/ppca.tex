@@ -1,0 +1,341 @@
+\documentclass[11pt,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={A Phylogenetic Analysis of Covariance Structure in Anthropoids},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{A Phylogenetic Analysis of Covariance Structure in Anthropoids}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+%--- USEPACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage[brazilian,english]{babel}
+\usepackage{hyperref}
+\usepackage{subfigure, epsfig}
+\usepackage{ae}
+\usepackage{aecompl}
+\usepackage{booktabs}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,wrapfig} % para incluir figuras
+\usepackage{amsfonts, amssymb,amsthm, amsmath, amscd} % pacote AMS
+\usepackage{color, bbm, multicol}
+\usepackage{verbatim, listings, booktabs}
+\usepackage{fancyhdr} % FANCYHEADER
+\usepackage{setspace}
+\usepackage{times} % bookman,palatino,courier,times FONTES
+\usepackage{lineno}
+\usepackage{url}
+\usepackage{rotating}
+\usepackage{longtable}
+% \usepackage{rotfloat}
+% \usepackage{appendix}
+\usepackage{mathptmx}
+% \usepackage{cmbright}
+% \usepackage[adobe-utopia]{mathdesign}
+\usepackage[flushleft]{threeparttable}
+\usepackage{multirow}
+% \usepackage{float}
+\usepackage {tocvsec2} % controlar profundidade de table of contents
+\setcounter {secnumdepth}{0}
+\usepackage {caption}
+\usepackage {floatrow}
+\floatsetup[table]{capposition=top}
+
+\usepackage {xr}
+\externaldocument[s]{supplemental}
+
+\selectlanguage{english}
+
+\hypersetup{colorlinks=false}
+
+
+\begin{document}
+
+\maketitle
+
+
+\linenumbers
+\modulolinenumbers[2]
+
+\onehalfspacing
+
+\section{Introdução}\label{introducao}
+
+Sistemas morfológicas tendem a apresentar covariação entre seus
+componentes devido à interações durante o desenvolvimento. No crânio de
+mamíferos, por exemplo, fenótipos adultos são compostos pela
+sobreposição de diferentes processos de desenvolvimento; portanto, a
+variação no tempo, ritmo e escopo de tais processos estrutura os padrões
+de covariância entre caracteres cranianos em adultos. Esta estrutura de
+covariância em fenótipos adultos é também influenciada pelos efeitos da
+canalização e seleção estabilizadora, que podem limitar a variação nos
+processos de desenvolvimento. Portanto, espera-se que as alterações na
+estrutura de covariância entre linhagens irmãs irão exibir um padrão
+não-aleatório consistente com estas interações de desenvolvimento e
+funcionais.
+
+\section{Métodos}\label{metodos}
+
+Nós investigamos a evolução da estrutura de covariância de tamanho e
+forma cranianos em primatas antropóides em um contexto filogenético. Nós
+representamos esta estrutura de covariância para cada espécie,
+utilizando matrizes de covariância para o log Tamanho do Centróide e
+variáveis locais de forma (Márquez \emph{et al.}, 2012). Estimamos
+distâncias Riemannianas entre essas matrizes (Mitteroecker \& Bookstein,
+2009), e sujeitamos estas distâncias a uma decomposição de disparidade
+em estrutura de covariância ao longo da filogenia(Pavoine \emph{et al.},
+2010). Usando um procedimento de randomização, avaliamos uma série de
+hipóteses sobre a distribuição desta disparidade ao longo da
+diversificação dos antropóides. Além disso, a fim de descrever
+adequadamente a variação em matrizes de covariância, usamos uma
+decomposição em autotensores (Hine \emph{et al.}, 2009; Aguirre \emph{et
+al.}, 2013). Em seguida, usamos projeções da matriz sobre os
+autotensores como caracteres em uma Análise de Componentes Principais
+filogenética (pPCA; Jombart \emph{et al.}, 2010), que decompõe estes
+caracteres em eixos que estão associados a disparidade global (perto de
+raiz) e local (perto do topo). Para cada eixo recuperado pela pPCA,
+reconstruímos duas matrizes de covariância, associadas aos limites
+inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos
+cada um destes pares de matrizes à decomposição de resposta a seleção
+(SRD; Marroig \emph{et al.}, 2011), a fim de avaliar quais caracteres
+são associados à divergência na estrutura de covariância para cada nível
+hierárquico na filogenia, definidos pelos componentes principais
+filogenéticos.
+
+\section{Resultados}\label{resultados}
+
+Os testes de disparidade de estrutura de covariância ao longo da
+filogenia (\autoref{tab:riem_decdiv}) indicam, em conjunto, que a maior
+parte das diferenças em estrutura de covariância se localizam na base da
+filogenia, associada à divergência entre Platyrrhini e Catarrhini
+(\autoref{fig:phylo_decdiv}).
+
+\input{Tables/riem_decdiv}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/ppca_files/figure-latex/phylo_decdiv-1.pdf}
+\caption{Decomposição de diversidade filogenética em respeito à
+estrutura de covariância utilizando distâncias Riemannianas. O tamanho
+do círculo indica o valor de diversidade associada cada nó, de acordo
+com a legenda. \label{fig:phylo_decdiv}}
+\end{figure}
+
+A análise de componentes principais filogenéticos recupera um conjunto
+de autovalores positivos que, em geral, possuem magnitudes maiores do
+que suas contrapartes negativas (\autoref{fig:ppca_eval}). Isso indica
+que a maior parte da divergência de estrutura de covariância está
+localizada na divergência entre linhagens mais próximas da raiz da
+filogenia do que entre espécies irmãs, em concordância com a análise de
+disparidade.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/ppca_files/figure-latex/ppca_eval-1.pdf}
+\caption{Autovalores da decomposição espectral associada à Análise de
+Componentes Principais Filogenéticos. No painel superior, barras indicam
+o valor associado à cada autovalor; barras em cinza indicam autovalores
+cujos autovetores associados foram considerados nas análises
+subsequentes. No painel inferior, gráfico de dispersão entre a variância
+associada a cada autovetor e o índice de autocorrelação filogenética de
+Moran. \label{fig:ppca_eval}}
+\end{figure}
+
+Podemos observar que as projeções das espécies sobre cada componente
+principal filogenético considerado (\autoref{fig:phylo_gl}) indicam que
+o primeiro componente global está associado a um contraste entre
+Platyrrhini e Catarrhini, enquanto o segundo componente global se
+associa a contrastes dentre estas duas linhagens. Os componentes locais
+representam diferenças locais entre espécies-irmãs, como por exemplo
+entre as duas espécies de \emph{Gorilla} e entre as espécies do gênero
+\emph{Callithrix}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/ppca_files/figure-latex/phylo_gl-1.pdf}
+\caption{Projeções da variação de estrutura de covariância de cada
+espécie sobre os Componentes Principais Filogenéticos considerados,
+segundo a \autoref{fig:ppca_eval}. Círculos azuis e vermelhos indicam
+valores positivos e negativos, respectivamente. A magnitude de cada
+projeção é indicada pelo tamanho do círculo, de acordo com a legenda.
+\label{fig:phylo_gl}}
+\end{figure}
+
+Ao reconstruírmos a variação em termos de estrutura de covariância
+associada a estes componentes, a análise de SRD (Figuras
+\ref{fig:srd_gl} e \ref{fig:srd_shape}) sobre os limites do intervalo de
+confiança de 95\% de cada eixo indicam que em cada nível de divergência
+(associados aos contrastes entre linhagens na pPCA) as maiores
+diferenças em termos de estrutura de covariância se localizam dentre os
+caracteres da Órbita e da Base, conforme indicado pelas médias menores e
+desvios-padrão maiores na \autoref{fig:srd_gl}. Além dos caracteres
+nestas duas regiões, a estrutura de covariância associada ao tamanho do
+centróide também se mostrou divergente nos diferentes níveis delimitados
+pela pPCA.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/ppca_files/figure-latex/srd_gl-1.pdf}
+\caption{Comparações utilizando o método SRD dos limites associados ao
+intervalo de confiança de 95\% cada Componente Principal Filogenético
+considerado, segundo a \autoref{fig:ppca_eval}. \label{fig:srd_gl}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Output/ppca_files/figure-latex/srd_shape-1.pdf}
+\caption{Comparações utilizando o método SRD representados sobre a forma
+craniana de um macaco rhesus (\emph{Macaca mulatta}). Cores próximas ao
+vermelho indicam caracteres que divergem mais em relação à estrutura de
+covariância em cada comparação; cores próximas ao verde indicam pouca
+divergência. \label{fig:srd_shape}}
+\end{figure}
+
+\section{Discussão}\label{discussao}
+
+Os resultados obtidos aqui indicam que a magnitude de disparidade em
+estrutura de covariância para variáveis de forma e tamanho do centróide
+está associada à distância filogenética (\autoref{tab:riem_decdiv},
+\autoref{fig:phylo_decdiv}); entretanto, aqueles caracteres que
+representam estas divergências em estrutura de covariância são os mesmo
+independente da escala taxonômica considerada.
+
+O Basicrânio é composto de um mosaico de células originadas de tecidos
+distintos, que ossificam muito cedo durante o desenvolvimento (Lieberman
+\emph{et al.}, 2008; Lieberman, 2011); ademais, os ossos do basicrânio
+se associam topologicamente a grande maioria dos ossos do crânio
+(Esteve-Altava \& Rasskin-Gutman, 2014), sofrendo, ao longo do
+desenvolvimento, influência do crescimento e diferenciação dos ossos
+circundantes. Em contrapartida, a estrutura de covariância associada ao
+tamanho do centróide reflete principalmente o crescimento e
+diferenciação pós-natal (Porto \emph{et al.}, 2013).
+
+Assim sendo, mudanças na estrutura de covariância estão associadas a
+eventos particulares do desenvolvimento, mostrando um padrão consistente
+ao longo da diversificação dos primatas antropóides, refletindo o efeito
+de interações funcionais e ontogenéticas.
+
+Aguirre, J.D., Hine, E., McGuigan, K. \& Blows, M.W. 2013. Comparing G :
+multivariate analysis of genetic variation in multiple populations.
+\emph{Heredity} \textbf{112}: 21--29.
+
+Esteve-Altava, B. \& Rasskin-Gutman, D. 2014. Beyond the functional
+matrix hypothesis: a network null model of human skull growth for the
+formation of bone articulations. \emph{Journal of Anatomy} \textbf{225}:
+306--316.
+
+Hine, E., Chenoweth, S.F., Rundle, H.D. \& Blows, M.W. 2009.
+Characterizing the evolution of genetic variance using genetic
+covariance tensors. \emph{Philosophical transactions of the Royal
+Society of London. Series B, Biological sciences} \textbf{364}:
+1567--78.
+
+Jombart, T., Pavoine, S., Devillard, S. \& Pontier, D. 2010. Putting
+phylogeny into the analysis of biological traits: A methodological
+approach. \emph{Journal of Theoretical Biology} \textbf{264}: 693--701.
+
+Lieberman, D.E. 2011. Epigenetic Integration, Complexity and
+Evolvability of the Head: Rethinking the Functional Matrix Hypothesis.
+In: \emph{Epigenetics: Linking Genotype and Phenotype in Development and
+Evolution} (B. Hallgrímsson \& B. K. Hall, eds), pp. 271--289.
+University of California Press.
+
+Lieberman, D.E., Hallgrímsson, B., Liu, W., Parsons, T.E. \& Jamniczky,
+H.A. 2008. Spatial packing, cranial base angulation, and craniofacial
+shape variation in the mammalian skull: testing a new model using mice.
+\emph{Journal of Anatomy} \textbf{212}: 720--735.
+
+Marroig, G., Melo, D., Porto, A., Sebastião, H. \& Garcia, G. 2011.
+Selection Response Decomposition (SRD): A New Tool for Dissecting
+Differences and Similarities Between Matrices. \emph{Evolutionary
+Biology} \textbf{38}: 225--241.
+
+Márquez, E.J., Cabeen, R., Woods, R.P. \& Houle, D. 2012. The
+Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
+\textbf{39}: 419--439.
+
+Mitteroecker, P. \& Bookstein, F.L. 2009. The ontogenetic trajectory of
+the phenotypic covariance matrix, with examples from craniofacial shape
+in rats and humans. \emph{Evolution} \textbf{63}: 727--737.
+
+Pavoine, S., Baguette, M. \& Bonsall, M.B. 2010. Decomposition of trait
+diversity among the nodes of a phylogenetic tree. \emph{Ecological
+Monographs} \textbf{80}: 485--507.
+
+Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
+Variation, Growth Strategies, and the Evolution of Modularity in the
+Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
+
+\end{document}

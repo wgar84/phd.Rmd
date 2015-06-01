@@ -1,3 +1,21 @@
+---
+title: "Type I and II Error Rates in Modularity Hypothesis Testing"
+output:
+  pdf_document:
+    includes:
+      in_header: Tex/chap_head.tex
+      before_body: Tex/chap_info.tex
+    fig_caption: true
+    keep_tex: true
+  word_document:
+    fig_caption: true
+    fig_width: 6
+fontsize: 11pt
+csl: Bib/journal-of-evolutionary-biology.csl
+bibliography: Bib/tese.bib
+---	
+
+
 ```{r captions_modcomp, include = FALSE}
 captions $ fig.cor_dist <-
   'Distribution of correlation derived from empirical correlation matrices. \\label{fig:cor_dist}'

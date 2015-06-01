@@ -47,22 +47,18 @@ options(contrasts = c('contr.sum', 'contr.poly'))
 for (i in 1:length (.source.files))
   source (.source.files [i])
 
-.source.files <- dir('../Allo/FuncR/', pattern = '.R', full.names = TRUE)
-.source.files <- .source.files [!grepl ('~', .source.files)]
-for (i in 1:length (.source.files))
-  source (.source.files [i])
-
-.source.files <- dir('../covTensor/Func/', pattern = '.R', full.names = TRUE)
-.source.files <- .source.files [!grepl ('~', .source.files)]
-for (i in 1:length (.source.files))
-  source (.source.files [i])
-
 attach ('Data/modcomp.Results.RData')
 attach ('Data/allo.Results.RData')
 attach ('Data/ppca.RData')
 
-render ('tese.Rmd')
-system ('okular tese.pdf &')
+render('tese.Rmd', output_file = 'Output/tese.pdf')
+system ('okular Output/tese.pdf &')
 
-render('allo.Rmd')
-system ('okular allo.pdf &')
+render('allo.Rmd', output_file = 'Output/allo.pdf')
+system('okular Output/allo.pdf &')
+
+render('ppca.Rmd', output_file = 'Output/ppca.pdf')
+system('okular Output/ppca.pdf &')
+
+render('modcomp.Rmd', output_file = 'Output/modcomp.pdf')
+system('okular Output/modcomp.pdf &')

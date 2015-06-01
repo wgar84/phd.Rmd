@@ -6,6 +6,7 @@ captions $ fig.landmarks <- "Configuração de Marcos Anatômicos. As linhas con
 captions $ fig.phylo_model <- "Tamanhos amostrais e efeitos fixos controlados para as 109 OTUs de primatas antropóides. \\label{fig:phylo_model}"
 
 ```
+
 \input{Tables/lms}
 
 ![`r captions $ fig.landmarks`](Figures/landmarks.png)
