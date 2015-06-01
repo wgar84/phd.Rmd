@@ -1,0 +1,15 @@
+MLMem <- function (node, tree, data, what = 'local')
+  {
+    subtree <- extract.clade (Tree [[5]], node)
+    df <- ldply(data, function (L) L [[what]])
+    formula <-
+      paste('cbind(', paste (colnames (df) [-1], collapse = ','), ') ~ .id - 1',
+            sep = '')
+    model <- lm (as.formula (formula), data = df)
+    anova (model)
+
+    B <- var (coef (model))
+    W <- CalculateMatrix (model)
+
+    list ('B' = B, 'W' = W, 'model' = model)
+  }

@@ -15,6 +15,11 @@ csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/tese.bib
 ---	
 
+```{r options_ppca, include = FALSE}
+opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+```
+
+
 ```{r captions_ppca, include = FALSE}
 
 captions <- list()

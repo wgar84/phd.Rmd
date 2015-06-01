@@ -27,11 +27,11 @@ running title: Allometry and Integration in Primates
 
 key words: 
 
+-->
+
 ```{r options_allo, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 ```
-
--->
 
 ```{r captions_allo, include = FALSE}
 

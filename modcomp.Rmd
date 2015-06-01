@@ -15,6 +15,9 @@ csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/tese.bib
 ---	
 
+```{r options_modcomp, include = FALSE}
+opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+```
 
 ```{r captions_modcomp, include = FALSE}
 captions $ fig.cor_dist <-
