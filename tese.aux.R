@@ -52,13 +52,11 @@ attach ('Data/allo.Results.RData')
 attach ('Data/ppca.RData')
 
 render('tese.Rmd', output_file = 'Output/tese.pdf')
-system ('okular Output/tese.pdf &')
-
 render('allo.Rmd', output_file = 'Output/allo.pdf')
-system('okular Output/allo.pdf &')
-
 render('ppca.Rmd', output_file = 'Output/ppca.pdf')
-system('okular Output/ppca.pdf &')
-
 render('modcomp.Rmd', output_file = 'Output/modcomp.pdf')
+
+system('okular Output/tese.pdf &')
+system('okular Output/allo.pdf &')
+system('okular Output/ppca.pdf &')
 system('okular Output/modcomp.pdf &')
