@@ -1,0 +1,79 @@
+---
+output:
+  pdf_document:
+    includes:
+      in_header: Tex/tese_head.tex
+      before_body: Tex/tese_open.tex
+      after_body: Tex/tese_app.tex
+    fig_caption: true
+    keep_tex: true
+  word_document:
+    fig_caption: true
+    fig_width: 6
+documentclass: report
+classoption: twoside
+fontsize: 11pt
+csl: Bib/journal-of-evolutionary-biology.csl
+bibliography: Bib/tese.bib
+---	
+
+```{r options, include = FALSE}
+opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+```
+
+\listoffixmes
+
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+\fancyhf{}
+\fancyhead[RO]{\leftmark}
+\fancyhead[LE]{\rightmark}
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+\newpage
+\chapter{Introdução}
+\label{ch:intro}
+```{r chapter_intro, child = 'intro.Rmd'}
+```
+
+\def\sectionautorefname{Section}
+\def\chapterautorefname{Chapter}
+\def\figureautorefname{Figure}
+\def\tableautorefname{Table}
+
+\selectlanguage{english}
+
+\newpage
+\chapter{Type I and II Error Rates in Modularity Hypothesis Testing}
+\label{ch:modcomp}
+```{r chapter_modcomp, child = 'modcomp.Rmd'}
+```
+
+\newpage
+\chapter{Allometric Constraints and Modularity}
+\label{ch:allo}
+```{r chapter_allo, child = 'allo.Rmd'}
+```
+
+\newpage
+\chapter{A Phylogenetic Analysis of Shape Covariance Structure}
+\label{ch:ppca}
+```{r chapter_ppca, child = 'ppca.Rmd'}
+```
+
+\def\sectionautorefname{Seção}
+\def\chapterautorefname{Capítulo}
+\def\figureautorefname{Figura}
+\def\tableautorefname{Tabela}
+
+\selectlanguage{brazilian}
+
+\pagestyle{plain}
+
+\chapter*{Referências Bibliográficas}
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}

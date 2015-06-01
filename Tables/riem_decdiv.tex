@@ -1,0 +1,25 @@
+\begin{table}[ht]
+  \centering
+  \begin{threeparttable}
+  \caption{Phylogenetic diversity test for covariance matrix structure. \label{tab:riem_decdiv}}
+  \begin{tabular}{lrrrr}
+    \toprule
+    & \textbf{Value} & \textbf{Expected$^a$} & \textbf{Distance$^b$} & \textbf{P-value} \\ 
+    \midrule
+    Single Node & 0.106 & 0.029 & 13.455 & < $10^{-4}$ \\ 
+    Few Nodes & 0.248 & 0.139 & 13.545 & < $10^{-4}$ \\ 
+    Root/Tip Skewness$^c$ & 0.632 & 0.505 & 12.197 & < $10^{-4}$ \\ 
+    Root/Tip Skewness$^d$ & 0.381 & 0.505 & -11.067 & < $10^{-4}$ \\ 
+    \bottomrule
+  \end{tabular}
+  \begin{tablenotes}
+    \footnotesize
+    {
+    \item[$a$] refers to the distribuition of permutated values;
+    \item[$b$] difference between empirical and expected values in standard deviations of the permutated values distribution;
+    \item[$c$] considering only topology;
+    \item[$d$] including branch lengths.
+    }
+  \end{tablenotes}
+\end{threeparttable}
+\end{table}

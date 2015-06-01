@@ -1,0 +1,210 @@
+---
+title: "Allometric Constraints and Modularity"
+output:
+  pdf_document:
+    includes:
+      in_header: Tex/chap_head.tex
+      before_body: Tex/chap_info.tex
+    fig_caption: true
+    keep_tex: true
+  word_document:
+    fig_caption: true
+    fig_width: 6
+fontsize: 11pt
+csl: Bib/journal-of-evolutionary-biology.csl
+bibliography: Bib/tese.bib
+---	
+
+<!---
+
+Guilherme Garcia^1,2^, Gabriel Marroig^1^
+
+^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
+
+^2^<wgar@usp.br>
+
+running title: Allometry and Integration in Primates
+
+key words: 
+
+```{r options_allo, include = FALSE}
+opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+```
+
+-->
+
+```{r captions_allo, include = FALSE}
+
+captions <- list()
+
+captions $ fig.cac_vs_logCS <- "The relationship between log Centroid Size and the Common Allometric Component for all anthropoid primates. \\label{fig:cac_vs_logCS}"
+
+captions $ fig.cac_shape <- "Shape variation associated with the Common Allometric Component. \\label{fig:cac_shape}"
+
+captions $ fig.phylo_slopeW <- "Static allometric slopes. Distribution of $b_s$ for the regression between the Common Allometric Component and log Centroid Size. Red circles indicate positive slope deviations, while blue circles indicate negative ones. The outer circles indicate whether a given slope deviation is distinct from zero, using 95\\% credible intervals. \\label{fig:phylo_slopeW}"
+
+captions $ fig.phylo_interW <- "Distribution of $a_s$ for the regression between the Common Allometric Component and log Centroid Size. Red circles indicate positive slope deviations, while blue circles indicate negative ones. The outer circles indicate whether a given intercept deviation is distinct from zero, using 95% credible intervals. \\label{fig:phylo_interW}"
+
+captions $ fig.MI_vs_slopeW <- "AVG Index *vs.* static allometric slopes. For each trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_Wslope}"
+
+captions $ fig.lambda_MI <- "Distribution of Pagel's lambda for the mixed regressions between AVG Indexes for each trait set and static allometric slopes ($b_s$). \\label{fig:lambda_MI}"
+
+```
+
+# Introduction
+
+A fundamental feature of morphological systems is their tendency to exhibit correlations due to commom developmental processes and functional interactions, a phenomenon called morphological integration [@olson_morphological_1958; @cheverud_developmental_1996;   @hallgrimsson_deciphering_2009]. Integration can be characterized both by the magnitude of correlation between morphological traits and the pattern described by the inter-trait correlation structure [@marroig_cranial_2004; @porto_size_2013]. In mammal morphological systems, traditional morphometrics analysis of integration emphasize the role of size  variation in determining magnitude of morphological integration and, through allometric relationships, it is argued that size can also affect integration patterns [@porto_evolution_2009; @porto_size_2013].
+
+Esta variação de tamanho emerge a partir do processo de crescimento; ademais, o crescimento heterogêneo de partes distintas em uma dada estrutura morfológica produz alometria, isto é, a associação entre qualquer caráter organísmico de interesse e tamanho corporal [@huxley_problems_1932; @pelabon_evolution_2014]. É possível definir diferentes tipos de alometria de acordo com o nível de organização biológica considerado [@pelabon_relationship_2013]. Assim, alometria ontogénetica refere-se à associação entre caracteres e tamanho corpóreo ao longo do desenvolvimento de um indivíduo; alometria estática refere-se à esta associação medida em uma população, entre indivíduos em uma mesma faixa etária; e alometria evolutiva, medida entre médias em populações ou espécies diferentes. Associações alométricas são classicamente medidas na escala log [@huxley_problems_1932; @jolicoeur_multivariate_1963]; portanto, estabelece-se uma relação alométrica log-linear entre o caráter $x$ e o tamanho corporal $m$ da forma
+$$
+\log x = a + b \log m
+$$
+onde $a$ representa o intercepto alométrico e $b$ representa a inclinação de reta representativa da associação entre $x$ e $m$. Esta equação representa a relação entre $x$ e $m$ em um nível de organização arbitrário; é possível definir interceptos e inclinações estáticos ($a_s$; $b_s$), ontogenéticos ($a_o$; $b_o$) ou evolutivos [$a_e$; $b_e$; @pelabon_relationship_2013; @voje_allometric_2013].
+
+Due to the entanglement between size and shape in representing morphological variation using euclidean distances, traditional morphometrics struggle in representing allometry properly [@bookstein_size_1989; @swiderski_separating_2003]. In this respect, geometric morphometrics [@bookstein_morphometric_1991; @zelditch_geometric_2004] are a proper tool to evaluate allometric relationships. However, due to the influence of the Procrustes superimposition [@walker_ability_2000; @linde_inferring_2009], landmark-based geometric morphometrics are unable to provide good estimates for shape covariance patterns.
+
+Considering both the spatial and temporal dynamics of mammalian cranial development, we expect that changes in allometric parameters within populations will contribute to variation in the strength of integration within Facial and Neurocranial traits, albeit in opposing ways, due to the distinction between early- and late-developmental factors. In order to test this hypothesis, we use a combined approach using both geometric morphometrics to estimate allometric parameters, and traditional morphometrics to evaluate morphological integration.
+
+Using a Bayesian phylogenetic random regression model of allometric shape against size, we estimate static allometric parameters along the phylogeny of Anthropoidea. We show that allometric slopes have remained quite stable through the diversification of anthropoids, except for *Homo* and *Gorilla*, while allometric intercepts have suffered changes in many different branches, such as Callithrichids and *Alouatta*. Using Bayesian phylogenetic regressions, we also demonstrate that allometric slope variation among taxa is responsible for increased Facial integration and decreased Neurocranial integration, indicating that differences in the timing and rate of development, mediated by the spatio-temporal dynamics of the genetic developmental network are paramount to understanding the evolution of morphological integration.
+
+# Methods
+
+## Sample
+Our database consists of `r sum (Aux $ sample.size)` individuals, distributed across `r length (Aux $ sample.size)` species. These species are spread throughout all major Anthropoid clades above the genus level, also comprising all Platyrrhini genera and a substantial portion of Catarrhini genera. We associate this database with a ultrametric phylogenetic hypothesis for Anthropoidea (Figure \ref{sfig:phylo_model}), derived from Springer *et al*.[@springer_macroevolutionary_2012].
+
+Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively. Twenty-two unique landmarks represent each individual (Figure \ref{sfig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009. Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks, from both sides, were  present.
+
+This database of landmark registration data was used to estimate both interlandmark distances and shape variables. For interlandmark distances, those measurements that involve bilaterally symmetrical landmarks were averaged after computing distances; for shape variables, a symmetrical landmark configuration was obtained by taking the mean shape between each individual configuration and its reflection along the sagittal plane [@klingenberg_shape_2002].
+
+## Allometric Slopes and Intercepts
+
+We estimated allometric parameters using local shape variables [@marquez_measurement_2012], which are measurements of infinitesimal log volume transformations, calculated as the natural logarithm determinants of derivatives of the TPS function between each individual in our sample and a reference shape (in our case, the mean shape for the entire sample, estimated from a Generalized Procrustes algorithm). Such derivatives were evaluated at 38 locations, and we chose these locations to match our interlandmark distance database; therefore, these locations are the midpoints between pairs of landmarks used to calculate interlandmark distances (Figure \ref{sfig:landmarks}). After estimating local shape variables, sources of variation of little interest in the present context, such as sexual dimorphism and variation between subspecies or populations were controlled within each OTU, according to Figure \ref{sfig:phylo_model}, using generalized linear models.
+
+We used a phylogenetic random regression model under a Bayesian framework in order to  estimate static allometric intercepts ($a_s$) and slopes ($b_s$) for all OTUs simultaneously while considering their phylogenetic structure. This model assumes that both $a_s$ and $b_s$ evolve under Brownian motion, as both parameters are defined as random variables with a correlation structure among OTUs derived from the phylogenetic hypothesis. This allows the model to estimate $a_s$ and $b_s$ for each terminal OTU and also for ancestral nodes, enabling us to track changes in both parameters along the phylogeny. 
+
+We projected all individuals in our sample along the Common Allometric Component [CAC; @mitteroecker_comparison_2004], which is the pooled within-species slopes between local shape variables and log Centroid Size (logCS). The CAC summarizes all allometric shape variation, and we regress this single variable against logCS in our random regression model. This reduction in dimensionality is necessary because a full multivariate random regression model using all 38 shape variables would be computationally untractable, considering the actual state of MCMC samplers available. Therefore, we limit ourselves to test whether the strength of association between shape and size with respect to the CAC (which we consider the best representation of the ancestral allometric shape variation) has changed during the diversification of anthropoid primates; in order to test whether the direction of allometric shape variation has changed during anthropoid diversification, a full multivariate random regression model would be necessary.
+
+We used uniform prior distributions for all $a_s$ and $b_s$. In order to sample the posterior distribution for our model, we used a MCMC sampler with $100000$ iterations, comprising a burnin period of $50000$ iterations and a thinning interval of $50$ iterations after burnin to avoid autocorrelations in the posterior sample, thus generating $1000$ posterior samples for all parameters we estimate. We performed a handful of runs with different starting values and pseudo-random number generator seeds to ensure convergence; with these values for iteration steps, we achieved convergence in all MCMC runs.
+
+Using these posterior samples for static allometric parameters, we test whether a given intercept or slope in any node of the tree (terminal or ancestral) deviates from the values estimated for the root of the tree by computing 95\% credible intervals for the difference between the parameter estimated at both points. If this interval excludes the null value, we consider that as evidence that the parameter ($a_s$ or $b_s$) has changed in that particular node.
+
+## Morphological Integration
+
+Using our landmark configuration database, we calculated 38 interlandmark distances, based on previous works on mammalian covariance patterns [@cheverud_morphological_1995; @cheverud_quantitative_1996; @marroig_comparison_2001; @oliveira_covariance_2009] (Figure \ref{sfig:landmarks}). Within each OTU, we estimate and remove those fixed effects of little interest within the present context using generalized linear models (Figure \ref{sfig:phylo_model}). Using residuals from each model, we estimated covariance and correlation $P$-matrices for all OTUs.
+
+We estimate magnitude of morphological integration for each OTU using the coefficient of variation of the eigenvalues (ICV[@shirai_skull_2010; @porto_size_2013]), which is a scale-free measure of the overall strength of trait association in a given covariance matrix. 
+
+Estimamos magnitude geral de integração morfológica para cada espécie usando o coeficiente de variação dos autovalores da matriz de covariância [ICV; @shirai_skull_2010; @porto_size_2013], que é uma mensuração da força de associação entre caracteres independente de escala. De maneira a representar a modularidade associada aos conjuntos de caracteres localizados nas regiões e sub-regiões definidas (\autoref{tab:dist}), estimamos o índice AVG [@porto_size_2013], que é definido como a diferença entre a média das correlações entre elementos de um conjunto e a média do correlações do conjunto complementar, dividida pelo ICV associado. Desta forma, o índice AVG captura a força de associação entre caracteres em uma região em relação à associação entre os demais caracteres e também em relação à magnitude global de integração na matriz.
+
+Para avaliar a relação entre parâmetros alométricos e índices AVG, ajustamos modelos lineares controlados para efeitos filogenéticos utilizando os índices AVG separadamente como variáveis resposta e os parâmetros alométricos como variáveis preditoras; tais modelos foram ajustados também segundo uma perspectiva Bayesiana. De modo a avaliar qual combinação destes parâmetros é suficiente para explicar a variação em índices AVG, ajustamos três modelos diferentes: dois utilizando intercepto ($a_s$) e inclinação ($b_s$) separadamente, e um modelo que considera o efeito conjunto dos dois parâmetros ($a_s + b_s$). Estes três modelos foram comparados utilizando o Critério de Informação de Deviância [DIC; @gelman_bayesian_2004], de modo que o modelo com o menor DIC frente ao conjunto de modelos considerados é aquele que melhor se ajusta aos dados. De maneira equivalente ao Critério de Informação de Akaike [@akaike_new_1974], modelos concorrentes cuja diferença em DIC é menor do que dois são considerados equivalentes.
+
+## Software
+
+All analysis were performed under R 3.1.2 [@r_core_team_r:_2014]. Our code for the estimation of local shape variables can be found at <http://github.com/wgar84>. We performed MCMC sampling for all models using the MCMCglmm package in R [@hadfield_mcmc_2010]. In order to obtain symmetrical landmarks configurations, we use code provided by Annat Haber, available at <http://life.bio.sunysb.edu/morph/soft-R.html>.
+
+# Results
+
+```{r cac_shape, echo = FALSE, fig.cap = captions $ fig.cac_shape, fig.width = 9.6, fig.height = 10.8}
+for (i in 1:5)
+  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
+                       Aux $ tessel.38, view = c(1, 2),
+                       center = c(- 1, allo.Data $ cac.value [i], 0),
+                       xlim = c(-2, 2), ylim = c(-2.2, 2.2), bty = 'n', scale = 2.5,
+                       add = ifelse (i == 1, F, T),
+                       ylab = 'Common Allometric Component',
+                       graph.par = list ('mar' = c(2, 4, 0, 0)),
+                       Colors = Aux $ def.hyp [-1, 'Face'] + 1,
+                       palette = colorRampPalette(brewer.pal(3, 'RdBu')))
+
+for (i in 1:5)
+  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
+                       Aux $ tessel.38, view = c(1, 3),
+                       center = c(1, 0, allo.Data $ cac.value [i]),
+                       scale = 2.5, add = TRUE, 
+                       Colors = c(Aux $ def.hyp [-1, 'Face'],
+                         Aux $ def.hyp [-1, 'Face']) + 1,
+                       palette = colorRampPalette(brewer.pal (3, 'RdBu')))
+
+axis(side = 2, labels = allo.Data $ cac.value, at = allo.Data $ cac.value)
+
+legend('bottomright', legend = c('Neuro', 'Face'), lty = 1, lwd = 3, pch = NULL,
+       col = colorRampPalette(brewer.pal (3, 'RdBu'))(2), bty = 'n')
+```
+
+\input{Tables/cac_dir}
+
+Em relação à associação entre o CAC e o log Tamanho do Centróide (\autoref{fig:cac_vs_logCS}), examinando a distribuição *a posteriori* de inclinações (\autoref{fig:phylo_slopeW}) e interceptos (\autoref{fig:phylo_interW}) estáticos dentre os vértices da filogenia, observamos que as inclinações são mais estáveis que interceptos. Apenas em duas linhagens (*Homo* e *Gorilla*) observamos desvios negativos em $b_s$; desvios de $a_s$ negativos e positivos são observados em diferentes linhagens.
+
+```{r cac_vs_logCS, echo = FALSE, fig.cap = captions $ fig.cac_vs_logCS}
+allo.Plots $ CAC.vs.logCS
+```
+
+```{r phylo_slopeW, echo = FALSE, fig.height = 9, fig.width = 11, fig.cap = captions $ fig.phylo_slopeW}
+par (omi = c(0.2, 0.8, 0.2, 0.8))
+plot.phylo(Tree [[1]], type = 'fan',
+           use.edge.length = TRUE, show.tip.label = FALSE,
+           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.5))
+
+tiplabels(tip = allo.Data $ phylo.slope.df $ pMCMC < 0.05, 
+          pch = 21, col = rgb (0, 0, 0, 0.5), bg = NULL, 
+          cex = 1.7 * abs (allo.Data $ phylo.slope.df $ post.mean [
+            allo.Data $ phylo.slope.df $ pMCMC < 0.05]))
+
+tiplabels(tip = 1:217, pch = 20,
+          col = ifelse (allo.Data $ phylo.slope.df $ post.mean < 0,
+            rgb (0,0,1,0.5), rgb (1,0,0,0.5)),
+          cex = abs (allo.Data $ phylo.slope.df $ post.mean) * 1.5)
+
+legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
+       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
+       pch = 20, col = rgb (0,0,0,0.5), title = 'Slope Deviation')
+
+Plot.taxa()
+```
+
+```{r phylo_interW, echo = FALSE, fig.height = 9, fig.width = 11, fig.cap = captions $ fig.phylo_interW}
+par (omi = c(0.2, 0.8, 0.2, 0.8))
+plot.phylo(Tree [[1]], type = 'fan',
+           use.edge.length = TRUE, show.tip.label = FALSE,
+           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.5))
+
+tiplabels(tip = allo.Data $ phylo.inter.df $ pMCMC < 0.05, 
+          pch = 21, col = rgb (0, 0, 0, 0.5), bg = NULL, 
+          cex = 1.7 * abs (allo.Data $ phylo.inter.df $ post.mean [
+            allo.Data $ phylo.inter.df $ pMCMC < 0.05]))
+
+tiplabels(tip = 1:217, pch = 20,
+          col = ifelse (allo.Data $ phylo.inter.df $ post.mean < 0,
+            rgb (0,0,1,0.5), rgb (1,0,0,0.5)),
+          cex = abs (allo.Data $ phylo.inter.df $ post.mean) * 1.5)
+
+legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
+       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
+       pch = 20, col = rgb (0,0,0,0.5), title = 'Intercept Deviation')
+
+Plot.taxa()
+```
+
+Em relação à associação entre parâmetros alométricos e índices AVG, os modelos de regressão indicam, em geral, que o modelo que considera apenas a inclinação alométrica estática $b_s$ como variável preditora possui um Critério de Informação de Deviância menor do que os demais modelos (\autoref{tab:dic_allo_im}), ainda que, na maioria dos casos, o modelo que contém o efeito conjunto de $a_s$ e $b_s$ é equivalente. No caso da subregião da Abóbada, o modelo que contém $a_s$ e $b_s$ possuem valores de DIC menores. No entanto, ao observar a distribuição *a posteriori* de coeficientes de regressão em cada um desses modelos de efeito conjunto, o efeito de $a_s$ não se mostra significativo, considerando um intervalo de credibilidade de 95\% (resultado não apresentado). Assim, consideramos os modelos que contém apenas $b_s$ como variável preditora como aqueles que melhor representam a associação entre parâmetros alométricos e índices AVG.
+
+É importante destacar que, no caso das subregiões da Órbita e Base, todos os modelos de regressão testados indicam que não há associação entre parâmetros alométricos e índices AVG, de maneira que os valores de DIC associados à estas duas regiões não foram incluídos.
+
+\input{Tables/dic_allo_im.tex}
+
+Dessa forma, é possível observar que inclinações alométricas possuem efeitos contrários sobre os índices AVG da Face e do Neurocrânio (\autoref{fig:MI_vs_slopeW}); aquelas subregiões que são contidas em cada uma destas regiões segue a mesma tendência da partição mais inclusiva que as contém.
+
+```{r MI_vs_slopeW, echo = FALSE, fig.width = 8, fig.height = 10, fig.cap = captions $ fig.MI_vs_slopeW}
+allo.Plots $ MI.vs.Wslope
+```
+
+<!-- ```{r lambda_MI, echo = FALSE, fig.width = 5, fig.height = 5, fig.cap = captions $ fig.lambda_MI} -->
+<!-- allo.Plots $ lambda.MI -->
+<!-- ``` -->
+
+# Discussion
+
+Using estimates of allometry derived from the relationship between local shape variables and centroid size, the relationship between magnitude and pattern of morphological integration becomes clear. In the mammalian skull, this relationship is dominated by the interaction between the masticatory muscles and facial bones [@zelditch_ontogenetic_1989; @hallgrimsson_mouse_2008; @hallgrimsson_deciphering_2009], which are more affected by skull growth during the preweaning period and afterwards. Therefore, allometric relationships play a major role in the distinction between early- and late-developmental factors in skull correlation structure. 
+
+Geometric approaches to study morphological integration often eschew the role of size variation in covariance structure, focusing on shape alone; furthermore, landmark-based shape covariance/correlation patterns are poorly estimated due to the effects of Procrustes superimposition. Therefore, conclusions regarding pattern and magnitude of integration considering landmark-based shape alone usually disagree with traditional morphometric approaches. Our results demonstrate that, with a careful consideration of the strengths and weaknesses of both approaches, geometric and traditional morphometrics can be used together to test the effects of the multiple factors that influence morphological integration.
+
+<!-- # References -->

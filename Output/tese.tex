@@ -1,0 +1,1561 @@
+\documentclass[11pt,twoside]{report}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{}
+  \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+  \author{}
+  \preauthor{}\postauthor{}
+  \date{}
+  \predate{}\postdate{}
+
+\usepackage[english,brazilian]{babel} % suporte para línguas
+\usepackage[utf8] {inputenc} % codificação
+
+\usepackage{subfig, epsfig}
+\captionsetup[subfigure]{style=default, 
+  margin=0pt, parskip=0pt, hangindent=0pt, indention=0pt, 
+  singlelinecheck=true, labelformat=parens, labelsep=space}
+
+\usepackage{ae}
+\usepackage{aecompl}
+\usepackage{booktabs}
+\usepackage[T1] {fontenc}
+
+\usepackage{footnote}
+
+% Notas criadas nas tabelas ficam no fim das tabelas
+\makesavenoteenv{tabular}
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}
+{
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\thepage}
+}
+
+\usepackage{graphicx,wrapfig} % para incluir figuras
+\usepackage[all]{xy} % para incluir diagramas
+\usepackage{amsfonts, amssymb, amsthm, amsmath, amscd, textcomp} % pacote AMS
+\usepackage{color, float, bbm, multicol, rotating}
+\usepackage{verbatim, listings, booktabs}
+
+\usepackage{caption} % Customizar as legendas de figuras e tabelas
+\usepackage{array} % Elementos extras para formatação de tabelas
+
+\usepackage{lineno} % números nas linhas
+
+\usepackage {tocvsec2} % controlar profundidade de table of contents
+\setcounter {secnumdepth}{0}
+\setcounter {tocdepth}{1}
+
+%\widowpenalty10000
+%\clubpenalty10000
+
+\usepackage{mathpazo} % fonte palatino
+\usepackage{hyperref}
+
+% Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo
+% Não inclui lista de tabelas e figuras no índice
+\usepackage[nottoc,notlof,notlot, notindex]{tocbibind}
+
+\usepackage{icomma} % Posicionar inteligentemente a vírgula como separador decimal
+\usepackage[tight]{units} % Formatar as unidades com as distâncias corretas
+
+\usepackage{setspace}
+
+\usepackage{lastpage} % Conta o número de páginas
+
+\usepackage{pdflscape} % ambiente landscape
+\usepackage {tabularx}
+
+\usepackage[round]{natbib}
+\usepackage{chapterbib}
+
+\usepackage[flushleft]{threeparttable}
+
+\usepackage[draft]{pdfpages}
+
+\usepackage[draft]{fixme}
+%\usepackage{pdfcomment}
+
+\fxsetup{layout={footnote}}
+
+% --- definições gerais ---
+\newcommand{\barra}{\backslash}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\seq}[1]{\left<#1\right>}
+\newcommand{\norma}[1]{\left\Vert#1\right\Vert}
+\newcommand{\hr}{\par\noindent\hrulefill\par}
+% --- ---
+
+\newcommand{\titulo}{Perspectivas sobre o reconhecimento de padrões de modularidade e suas implicações para a evolução de morfologias complexas}
+\newcommand{\nomedoaluno}{Guilherme Garcia}
+\newcommand{\advisor}{Gabriel Marroig} \newcommand{\ano}{2015}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black,
+  filecolor=black, pagecolor=black, urlcolor=black,
+  pdfauthor={\nomedoaluno}, pdftitle={\titulo}, pdfsubject={Genética e
+    Biologia Evolutiva}, pdfkeywords={Genética Quantitiva, Morfologia
+    Craniana, Roedores}, pdfproducer={Latex}, pdfcreator={pdflatex}}
+ 
+\geometry{bindingoffset=15pt}
+%\geometry{paperwidth=290mm, paperheight=297mm, margin=1in}
+%\setlength{\marginparwidth=80mm}
+
+
+\begin{document}
+
+\maketitle
+
+
+% Capa
+\begin{titlepage}
+\begin{center}
+\par
+\LARGE {\bf \nomedoaluno} \\
+\vspace\fill
+\Huge {\titulo} \\
+\vspace\fill \Large {On the recognition of modularity patterns and its implications for the evolution of complex morphologies} \\
+\vspace\fill
+\Large {\bf \advisor} \\
+\large {Orientador} \\
+\vspace\fill
+{\bf{\large São Paulo}\\
+  {\large \ano}}
+\end{center}
+\end{titlepage}
+
+\pagestyle{empty}
+\newpage
+\cleardoublepage
+
+\pagestyle{plain}
+
+% Números das páginas em algarismos romanos
+\pagenumbering{roman}
+
+% Página de Rosto
+\begin{center}
+\LARGE{\nomedoaluno}
+\par
+\vspace\fill
+\Huge {\titulo}
+\end{center}
+\par
+\vspace\fill \hspace*{150pt}\parbox{10cm}{{\large Tese
+    apresentada ao Instituto de Biociências da Universidade de São
+    Paulo, para a obtenção de Título de Doutor em Ciências, na Área de
+    Genética e Biologia Evolutiva.}}
+
+\par
+\vspace {1 cm}
+\hspace*{150pt}\parbox{10cm}{{\large Orientador: \advisor}}
+
+\par
+\vspace\fill
+\begin{center}
+\textbf{{\large São Paulo}\\
+{\large \ano}}
+\end{center}
+
+\newpage
+
+% Ficha Catalográfica
+\begin {center}
+Ficha Catalográfica \\
+\fbox{
+  \begin{minipage}{10cm}
+    Garcia, Guilherme
+
+    \hspace{2em} \titulo.
+
+    \hspace{2em} \pageref{LastPage} páginas.
+    
+    \hspace{2em}Tese (Doutorado) - 
+    Instituto de Biociências da Universidade de São Paulo. 
+    Departamento de Genética e Biologia Evolutiva.
+    
+    \begin{enumerate}
+    \item Evolução Morfológica;
+    \item Morfologia Craniana;
+    \item Modularidade;
+    \item Integração Morfológica;
+    \item Primatas Antropóides.
+    \end{enumerate}
+    I. Universidade de São Paulo. 
+    Instituto de Biociências. 
+    Departamento de Genética e Biologia Evolutiva.
+  \end{minipage}
+}
+\par
+\vspace\fill
+{\LARGE\textbf{Comissão Julgadora:}}
+
+\par
+\vspace\fill
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l}
+\rule{16em}{1px} 	& \rule{16em}{1px} \\
+Prof. Dr. 		& Prof. Dr. \\
+ & \\
+\end{tabular*}
+
+\par
+\vspace\fill
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l}
+\rule{16em}{1px} 	& \rule{16em}{1px} \\
+Prof. Dr. 		& Prof. Dr. \\
+ & \\
+\end{tabular*}
+
+\par
+\vspace\fill
+
+\parbox{16em}{\rule{16em}{1px} \\
+Prof. Dr. \advisor}
+\end{center}
+
+\newpage
+
+% Dedicatória
+% Posição do texto na página
+\vspace*{0.75\textheight}
+\begin{flushright}
+  \emph{Para Moisés e Ramiro.}
+\end{flushright}
+
+\newpage
+
+% Epígrafe
+\vspace*{0.2\textheight}
+{\noindent 
+If only I could \\
+Clear my eyes \\
+Then I might breathe once more \\
+Then I might breathe again \\
+\vspace{0.2 cm} \\
+Old sun and stars, \\
+And oceans below me \\
+Guide my strides over \\
+Jagged shards, under foot \\
+\vspace{0.2 cm} \\
+To slash to the sound \\
+How many sit on woe or peril? \\
+How many walk on their own? \\
+\vspace{0.2 cm} \\
+Into the truth \\
+Let myself burn \\
+Now it's written \\
+1000 shards \\
+}
+\begin{flushright}
+\emph {Isis - 1000 Shards}
+\end{flushright}
+
+\newpage
+
+% Agradecimentos
+
+% Espaçamento duplo
+
+% \noindent{\LARGE\textbf{Agradecimentos}}
+
+% \vspace{1.0 cm} 
+% \emph{``If I have seen further, it is by standing in
+%   the shoulder of giants.''}
+% \begin{flushright}
+% \emph {Isaac Newton}
+% \end{flushright}
+% \vspace{1.0 cm}
+% \noindent{
+%   \input{thx.tex}
+% }
+
+\newpage
+
+\vspace*{10pt}
+\begin{center}
+  \emph{\begin{large}Resumo\end{large}}\label{resumo}
+\vspace{2pt}
+\end{center}
+
+\noindent
+\par
+\vspace{1em}
+\noindent\textbf{Palavras-chave:} evolução morfológica, morfologia craniana, 
+modularidade, integração morfológica, primatas antropóides
+
+\newpage
+\vspace*{10pt}
+\begin{center}
+  \emph{\begin{large}Abstract\end{large}}\label{abstract}
+\vspace{2pt}
+\end{center}
+
+\selectlanguage{english}
+\noindent
+
+\par
+\vspace{1em}
+\noindent\textbf{Keywords:} morphological evolution, cranial morphology, 
+modularity, morphological integration, anthropoid primates
+
+\selectlanguage{brazilian}
+
+\newpage
+
+% Índice
+\tableofcontents
+%\listoffigures
+%\listoftables
+\newpage
+
+\pagenumbering{arabic}
+
+\def\sectionautorefname{Seção}
+\def\chapterautorefname{Capítulo}
+\def\figureautorefname{Figura}
+\def\tableautorefname{Tabela}
+
+\onehalfspacing
+
+\listoffixmes
+
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+\fancyhf{} \fancyhead[RO]{\leftmark} \fancyhead[LE]{\rightmark}
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+\newpage
+\chapter{Introdução}
+\label{ch:intro}
+
+\input{Tables/lms}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/landmarks.png}
+\caption{Configuração de Marcos Anatômicos. As linhas conectando os
+marcos indicam os caracteres considerados, tanto sob a forma de
+distâncias euclidianas quanto variáveis locais de forma. Linhas
+pontilhadas e tracejadas indicam a associação dos caracteres às
+hipóteses \emph{a priori} de integração (Face e Neurocrânio,
+respectivamente). \label{fig:landmarks}}
+\end{figure}
+
+\input{Tables/dist}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/phylo_model-1.pdf}
+\caption{Tamanhos amostrais e efeitos fixos controlados para as 109 OTUs
+de primatas antropóides. \label{fig:phylo_model}}
+\end{figure}
+
+\def\sectionautorefname{Section} \def\chapterautorefname{Chapter}
+\def\figureautorefname{Figure} \def\tableautorefname{Table}
+
+\selectlanguage{english}
+
+\newpage
+\chapter{Type I and II Error Rates in Modularity Hypothesis Testing}
+\label{ch:modcomp}
+
+\section{Introduction}\label{introduction}
+
+\section{Methods}\label{methods}
+
+\subsection{Sample}\label{sample}
+
+The database used here (\autoref{tab:modcomp_otu}) consists of 21
+species, distributed across all taxonomic denominations of Anthropoidea
+above the genus level. These species were selected from a broader
+database (Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009) in
+order to reduce the effects of low sample sizes over estimates of
+modularity patterns. Individuals in our sample are represented by 36
+registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS
+for Platyrrhini and Catarrhini, respectively. Twenty-two unique
+landmarks represent each individual (\autoref{fig:landmarks},
+\autoref{tab:lms}), since 14 of the 36 registered landmarks are
+bilaterally symmetrical. For more details on landmark registration, see
+Marroig \& Cheverud (2001) and Oliveira et al. (2009).
+
+\input{Tables/modcomp_otu}
+
+For each OTU, we estimated phenotypic covariance and correlation
+matrices for three different types of variables: tangent space
+residuals, estimated from a Procrustes superimposition for the entire
+sample, using the set of landmarks described on both \autoref{tab:lms}
+and \autoref{fig:landmarks}; interlandmark distances, as described in
+\autoref{tab:dist}; and local shape variables (Márquez \emph{et al.},
+2012), which are measurements of infinitesimal log volume
+transformations between each sample unit and a reference (mean) shape.
+These transformations were calculated at 38 points, corresponding to the
+locations of the mipoints between pairs of landmarks used to calculate
+interlandmark distances, in order to produce a dataset that represents
+shape (i.e., form without isometric variation; Bookstein, 1991; Zelditch
+\emph{et al.}, 2004) while retaining the same overall properties of the
+interlandmark distance dataset.
+
+For each dataset, we estimated covariance and correlation matrices after
+removing fixed effects of little interest in the present context, such
+as sexual dimorphism, for example. For interlandmark distances and local
+shape variables, these effects were removed through a multivariate
+linear model adjusted for each species, according to
+\autoref{tab:modcomp_otu}; for Procrustes residuals, the same effects
+were removed by centering all group means to each species' mean shape,
+since the loss of degrees of freedom imposed by the GPA prohibits the
+use of a full multivariate linear model over this kind of data to
+removed fixed effects.
+
+In order to consider the effects of size variation over modularity
+patterns, we used a different procedure to remove the influence of size,
+according to the different properties of each type of variable.
+
+De maneira a considerar o efeito da variação de tamanho sobre padrões de
+modularidade, utilizamos um procedimento de remoção de tamanho sobre
+matrizes de covaripara cada tipo de variável: para distâncias
+euclidianas, utilizamos o procedimento delineado em Marroig \& Cheverud
+(2004), baseado em Bookstein et al. (1985). No caso dos resíduos de
+Procrustes e variáveis locais de forma, apesar do efeito de escala ser
+removido, ao normalizar cada indivíduo por seu tamanho do centróide
+associado, o efeito da alometria se encontra presente. De maneira a
+remover este efeito, utilizamos o procedimento delineado por
+Mitteroecker et al. (2004). Desta forma, obtivemos matrizes de
+covariância que representam os padrões de associação entre variáveis
+livres dos efeitos integradores de tamanho.
+
+\subsection{Testes de Hipótese de Modularidade \emph{a
+priori}}\label{testes-de-hipotese-de-modularidade-a-priori}
+
+A partir dos seis conjuntos de matrizes de covariância, testamos as
+hipóteses de associação entre marcos anatômicos delimitadas na
+\autoref{tab:lms} para matrizes derivadas de resíduos de Procrustes;
+para distâncias euclidianas e variáveis locais de forma, utilizamos as
+hipóteses conforme a delimitação exposta na \autoref{tab:dist}, visto
+que estes dois conjuntos de dados possuem, por construção, o mesmo
+número de caracteres posicionados de modo similar sobre o crânio.
+
+Para cada hipótese de associação testada, calculamos o índice AVG (Porto
+\emph{et al.}, 2013), da forma
+\[ AVGi = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV} \] onde
+$\bar{\rho}_{+}$ representa a média de correlações entre caracteres
+pertencentes àquela hipótese de associação, $\bar{\rho}_{-}$ representa
+a média de correlações do conjunto complementar a este, ou seja,
+considerando tanto correlações entre aqueles caracteres que não
+pertencem ao conjunto de associações considerada quanto correlações
+entre os dois conjuntos; $ICV$ representa o coeficiente de variação dos
+autovalores da matriz de covariância associada (Shirai \& Marroig,
+2010). No caso da distinção entre caracteres Faciais e Neurocraniais,
+calculamos também o contraste entre correlações contidas na união entre
+os dois conjuntos e o conjunto complementar; neste caso, a hipótese
+associada é denominada Neuroface.
+
+Também calculamos o índice RV (Klingenberg, 2009), da forma \[
+RV = \frac{tr(\mathbf{S}_{12}\mathbf{S}_{21})}{\sqrt{tr(\mathbf{S}_1 \mathbf{S}_1)tr(\mathbf{S}_2 \mathbf{S}_2)}}
+\] onde $\mathbf{S}_{12} = \mathbf{S}'_{21}$ representa o bloco de
+covariâncias entre o conjunto considerado e seu complemento, e
+$\mathbf{S}_1$ e $\mathbf{S}_2$ representam os blocos de covariância
+dentre caracteres do conjunto considerado e dentre caracteres do
+conjunto complementar, respectivamente; a operação $tr$ consiste na soma
+dos elementos da diagonal da matriz ($tr \mathbf{A} = \sum_i a_{ii}$).
+Para o caso da distinção entre caracteres Faciais e Neurocraniais, visto
+que estes dois conjuntos são complementares e contém conjuntamente todos
+os caracteres, valores do índice RV calculados para os dois conjuntos
+são idênticos; dessa forma, apenas um valor, denominado Neuroface é
+reportado
+
+De modo a testar a hipótese de que cada um destes conjuntos de
+caracteres representam módulos variacionais, utilizamos um procedimento
+de aleatorização sobre cada um dos conjuntos, de maneira que, para cada
+matriz e hipótese, 1000 aleatorizações são geradas, e índices AVG e RV
+são calculados para cada iteração. O valor do índice calculado sobre o
+particionamento real é comparado às 1000 iterações: no caso do índice
+AVG, considera-se válida a particão com índices maiores que a
+distribuição de índices gerados pelo particionamento aleatório, dado um
+certo valor de significância; no caso do índice RV, considera-se válida
+aquela partição com índices menores que aqueles gerados ao acaso. Para o
+caso particular dos resíduos de Procrustes, o procedimento de
+aleatorização mantém unidas as estruturas de covariância associadas às
+coordenadas de um mesmo marco anatômico, conforme Polly (2005).
+
+\subsection{Simulações}\label{simulacoes}
+
+De maneira a avaliar as propriedades estatísticas dos dois índices e do
+procedimento de aleatorização, construímos matrizes de correlação
+teóricas na forma \[
+\mathbf{C}_{s} =
+\begin{bmatrix}
+\mathbf{W}_1 & \mathbf{B} \\
+\mathbf{B} & \mathbf{W}_2 \\
+\end{bmatrix}
+\] onde $\mathbf{W}_1$ e $\mathbf{W}_2$ representam blocos de correlação
+associados a dois conjuntos de associação entre caracteres e
+$\mathbf{B}$ representa o bloco de correlações entre elementos dos dois
+conjuntos; esta forma mimetiza o particionamento da matriz em blocos
+necessário ao cômputo do índice RV.
+
+A partir dos seis conjuntos de matrizes de correlação empíricas
+utilizadas na seção anterior, obtivemos distribuições de correlações
+médias dentre e entre as hipóteses de associação de caracteres
+consideradas (\autoref{fig:cor_dist}). De maneira a construir um
+conjunto de matrizes $\mathbf{C}_{s}$ representativas das distribuições
+de correlação encontradas nos diferentes tipos de variáveis, sorteamos
+valores das distribuições de correlação média obtidas para cada conjunto
+de matrizes e utilizamos os valores sorteados para construir matrizes
+$\mathbf{C}_{s}$. Assim, três valores são necessários para a construção
+de uma destas matrizes: dois valores sorteados da distribuição de
+correlação média dentre elementos de um mesmo conjunto, que irão
+preencher as correlações dos blocos $\mathbf{W}_1$ e $\mathbf{W}_2$, e
+um valor derivado da correlação dentre elementos de conjuntos distintos,
+que irá preencher o bloco $\mathbf{B}$. Dessa forma, para quatro
+caracteres divididos em dois conjuntos de mesmo tamanho, se sorteamos os
+valores $0.5$ e $0.3$ da primeira distribuição e $-0.1$ da segunda, a
+matriz $\mathbf{C}_{s}$ associada será da forma \[
+\mathbf{C}_s =
+\begin{bmatrix}
+1 & 0.5 & -0.1 & -0.1 \\
+0.5 & 1 & -0.1 & -0.1 \\
+-0.1 & -0.1 & 1 & 0.3 \\
+-0.1 & -0.1 & 0.3 & 1 \\
+\end{bmatrix}
+\] de modo que todos as correlações associadas a um determinado bloco
+serão idênticas ao valor sorteado correspondente. Desta maneira,
+abstraímos os diferentes tipos de variáveis em distribuições de
+correlações distintas, e construímos matrizes representativas destas
+diferentes situações.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/cor_dist-1.pdf}
+\caption{Distribution of correlation derived from empirical correlation
+matrices. \label{fig:cor_dist}}
+\end{figure}
+
+Para cada par de distribuições de correlação obtidas a partir dos seis
+tipos de variáveis, construímos 1000 matrizes de tamanho $40 \times 40$
+desta forma; apenas matrizes de correlação positivas-definidas foram
+consideradas, resorteando valores quando a matriz construída não se
+adequava a este pré-requisito. Este procedimento garante que, ainda que
+estas matrizes possuam estruturas de correlação simplificadas, elas são
+de fato matrizes de correlação que poderiam ser estimadas em uma amostra
+real. Para cada matriz, o número de caracteres pertecentes a cada
+conjunto foi determinado arbitrariamente, desde que nenhuma partição em
+nenhuma matriz construída tenha menos do que cinco caracteres.
+
+Dessa forma, construímos matrizes de correlação associadas a cada um dos
+tipos de variáveis cuja estrutura de particionamento é conhecida. Para
+construir matrizes cuja estrutura não é conhecida, apenas tomamos cada
+uma destas matrizes e embaralhamos as linhas e colunas desta matriz,
+gerando assim para cada matriz $\mathbf{C}_s$ uma matriz $\mathbf{C}_r$
+associada. A partir destes pares de matrizes, sorteamos amostras de 20,
+40, 60, 80 e 100 indíviduos, e re-estimamos as matrizes de correlação
+associadas, considerando dessa forma a incerteza derivada de amostragem.
+A partir das matrizes estimadas, testamos a hipótese de associação que
+gerou a matriz teórica da mesma maneira descrita na seção anterior,
+considerando a situação onde testamos, no caso do índice AVG, a
+distinção entre caracteres integrados e não integrados pelas duas
+partições, de forma similar a hipótese da Neuroface.
+
+Para o caso de amostras geradas a partir de uma matriz $\mathbf{C}_r$
+(aleatórias), o teste é representativo de uma situação onde sabemos que
+a hipótese nula do teste é verdadeira, em ambos os casos (RV ou AVGi),
+visto que a matriz foi gerada a partir de uma aleatorização daquela
+hipótese que está sendo testada. Assim, buscamos neste caso estimar as
+taxas de erro tipo I do teste, isto é, a proporção de casos onde a
+hipótese nula é rejeitada mesmo sendo verdadeira, dado um certo nível de
+significância. Neste caso, esperamos que as taxas de erro I acompanhem o
+nível de significância estabelecido de forma direta, isto é, seguindo
+uma relação de identidade.
+
+No caso das amostras geradas a partir das matrizes $\mathbf{C}_s$
+(estruturadas), este teste é representativo de uma situação em que
+sabemos que a hipótese nula do teste é falsa, isto é, de que aquela
+partição testada de fato representa a estrutura da matriz de correlação
+frente a partições geradas ao acaso. Buscamos portanto estimar as taxas
+de erro tipo II dos testes, isto é, a proporção de casos em que a
+hipótese nula não é rejeitada, mesmo sendo falsa, dado um certo nível de
+significância; nesse caso, é possível parametrizar o problema utilizando
+o poder associado ao teste, que é apenas complementar à taxa de erro
+tipo II, representando a proporção de casos em que $H_0$ é rejeitada por
+ser de fato falsa. No caso, esperamos que os testes sigam uma relação
+crescente com o nível de significância, ainda que, ao contrário das
+taxas de erro tipo I, esperamos que um aumento pequeno em $P(\alpha)$
+implique em um aumento grande no poder do teste.
+
+Neste caso, o tamanho do efeito é importante, visto que os valores de
+correlação sorteados podem gerar um estrutura de correlação que não é
+detectada pelo teste simplesmente devido a uma diferença pequena entre
+correlações dentro e entre partições. Para contornar este problema,
+utilizamos a correlação entre partições ao quadrado ($b^2$), uma medida
+que não é particularmente associada a nenhuma das métricas testadas e
+que deve ser suficiente para descrever e corrigir o problema. Esperamos
+portanto que, para valores de $b^2$ pequenos, o poder de ambos testes
+(AVGi e RV) será maior do que em casos onde este valor é maior.
+
+\section{Resultados}\label{resultados}
+
+\subsection{Testes Empíricos}\label{testes-empiricos}
+
+Em relação às hipóteses locais (Oral, Nasal, Zigomático, Órbita, Base e
+Abóbada), estimativas de AVGi (\autoref{fig:MI_Func}) e RV
+(\autoref{fig:RV_Func}) demonstram que os testes discordam a respeito
+das regiões detectadas como hipóteses válidas. No caso particular dos
+testes sobre resíduos de Procrustes, ambos os testes detectam como
+válidas um número reduzido de hipóteses, em regiões e espécies díspares.
+Desconsiderando resíduos de Procrustes, o teste associado ao índice AVG
+detecta partições nos dois tipos de variáveis de forma consistente entre
+as diferentes espécies, ainda que as regiões detectadas em cada tipo de
+variável sejam diferentes. No caso do índice RV, ainda que um número
+maior de hipótese sejam detectados em relação aos resíduos de
+Procrustes, não há consistência entre as partições detectadas em cada
+tipo de variável dentre as diferentes espécies. O mesmo padrão pode ser
+observado para a distinção entre Face e Neurocrânio (Figuras
+\ref{fig:MI_Dev} e \ref{fig:RV_Dev}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/MI_Func-1.pdf}
+\caption{AVG Index values for local functional/developmental hypotheses.
+Circles indicate whether a hypothesis is recognized in a given OTU,
+according to the legend \label{fig:MI_Func}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/RV_Func-1.pdf}
+\caption{RV Coefficient values for local functional/developmental
+hypotheses. Circles indicate whether a hypothesis is recognized in a
+given OTU, according to the legend \label{fig:RV_Func}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/MI_Dev-1.pdf}
+\caption{AVG Index values for global developmental hypotheses. Circles
+indicate whether a hypothesis is recognized in a given OTU, according to
+the legend \label{fig:MI_Dev}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/RV_Dev-1.pdf}
+\caption{RV Coefficient values for global developmental hypotheses.
+Circles indicate whether a hypothesis is recognized in a given OTU,
+according to the legend \label{fig:RV_Dev}}
+\end{figure}
+
+\subsection{Simulações}\label{simulacoes-1}
+
+A distribuição de valores de AVGi e RV recuperadas da simulação
+(\autoref{fig:stat_dist_sim}) indica que, no caso de variáveis locais de
+forma, as distribuições de valores obtidos a partir de matrizes
+$\mathbf{C}_s$ e $\mathbf{C}_r$ são disjuntas, enquanto nos demais tipos
+de variáveis, há uma sobreposição razoável das distribuições para os
+dois tipos de matrizes, ainda que essa sobreposição seja maior no caso
+dos resíduos de Procustes e também no caso do índice RV. A distribuição
+de índices AVG para matrizes $\mathbf{C}_r$ é bastante estreita e
+centrada no valor nulo, enquanto que no caso do índice RV, essa
+distribuição é mais larga.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/stat_dist_sim-1.pdf}
+\caption{Distribution of AVG Index and RV Coefficient for simulated
+correlation matrices. \label{fig:stat_dist_sim}}
+\end{figure}
+
+Considerando a relação entre níveis de significância e taxas de erro
+tipo I (\autoref{fig:type1}), esta relação, para os diferentes tipos de
+variáveis e tamanhos amostrais, segue muito próxima à reta-identidade,
+de maneira que ambos os testes baseados no dois índices apresentam um
+comportamento próximo do ideal, exceto no caso das matrizes derivadas
+das distribuições de correlação de variáveis locais de forma sem remoção
+de tamanho, onde taxas de erro tipo I são menores que os níveis de
+significância atribuídos (painel superior à esquerda da
+\autoref{fig:type1}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/type1-1.pdf}
+\caption{Type I error rates as a function of the chosen significance
+level regarding tests for modular structure applied on random
+($\mathbf{C}_r$) matrices. \label{fig:type1}}
+\end{figure}
+
+Quando consideramos o poder associado aos testes, é possível observar
+que existem diferenças substanciais neste parâmetro dentre os diferentes
+tipos de variáveis. No caso das distâncias euclidianas
+(\autoref{fig:type2_ed}), é possiível observar que o poder rapidamente
+se aproxima assintoticamente ao valor máximo no caso do índice AVG para
+a distribuição onde o tamanho é mantido, enquanto que no caso onde
+tamanho é removido, o poder é sempre menor, mas há um incremento em
+função do tamanho amostral. Para o índice RV, o poder é sempre menor do
+que no caso do AVGi; nas matrizes da distribuição sem tamanho, essa
+diferença é ainda mais marcante.
+
+Para as matrizes derivadas das correlações entre variáveis de forma
+(\autoref{fig:type2_def}), a distribuição de poder em função de
+$P(\alpha)$ se comporta de maneira similar em ambos os casos (AVGi e
+RV), sempre em valores bastante altos. No caso das matrizes derivadas
+das distribuições de correlação de resíduos de Procrustes
+(\autoref{fig:type2_sym}), há uma diferença substancial no poder de
+ambos os testes; ainda que para o índice AVG, o poder dos testes seja
+consideravelmente mais baixo do que em outros tipos de variáveis, ele se
+aproxima de 75\% para tamanhos amostrais elevados, no caso do índice RV,
+o poder se aproxima da reta identidade em relação a $P(\alpha)$.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/type2_ed-1.pdf}
+\caption{Power for both AVGi and RV metrics as a function of the chosen
+significance levels with respect to tests for modular structure applied
+on $\mathbf{C}_s$ matrices, with correlations sampled from the
+interlandmark correlation distribution. \label{fig:type2_ed}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/type2_def-1.pdf}
+\caption{Power for both AVGi and RV metrics as a function of the chosen
+significance levels with respect to tests for modular structure applied
+on $\mathbf{C}_s$ matrices, with correlations sampled from the local
+shape variables correlation distribution. \label{fig:type2_def}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/type2_sym-1.pdf}
+\caption{Power for both AVGi and RV metrics as a function of the chosen
+significance levels with respect to tests for modular structure applied
+on $\mathbf{C}_s$ matrices, with correlations sampled from the local
+shape variables correlation distribution. \label{fig:type2_sym}}
+\end{figure}
+
+\section{Discussão}\label{discussao}
+
+Considerando os resultados obtidos a partir das matrizes teóricas,
+observamos que a distribuição de correlações derivadas de cada tipo de
+variável (\autoref{fig:cor_dist}) são particularmente importantes para o
+seu entendimento, visto que estas matrizes teóricas são derivadas destas
+distribuições. No caso dos resíduos de Procrustes, o procedimento de
+superposição e a premissa de variação isotrópica em torno de cada marco
+anatômico acaba por gerar uma distribuição de correlações médias dentro
+e entre regiões que é marcada por uma diferença pequena entre estes dois
+tipos de correlações, independentemente se consideramos a distribuição
+com tamanho mantido ou removido. Visto que esta diferença é pequena, o
+poder de ambos os teste se reduz bastante em testes realizados nas
+matrizes $\mathbf{C}_s$ derivadas desta distribuição.
+
+Ademais, estas correlações médias derivadas de resíduos de Procrustes
+são bastante próximas de zero, de modo que o poder do índice RV é
+bastante prejudicado neste caso, visto que o cômputo do RV envolve
+variâncias e covariâncias ao quadrado. Como o índice AVG lida com
+correlações em sua escala natural, sua performance em matrizes
+$\mathbf{C}_s$ não é drasticamente prejudicada.
+
+\newpage
+\chapter{Allometric Constraints and Modularity}
+\label{ch:allo}
+
+\section{Introduction}\label{introduction-1}
+
+A fundamental feature of morphological systems is their tendency to
+exhibit correlations due to commom developmental processes and
+functional interactions, a phenomenon called morphological integration
+(Olson \& Miller, 1958; Cheverud, 1996a; Hallgrímsson \emph{et al.},
+2009). Integration can be characterized both by the magnitude of
+correlation between morphological traits and the pattern described by
+the inter-trait correlation structure (Marroig \& Cheverud, 2004; Porto
+\emph{et al.}, 2013). In mammal morphological systems, traditional
+morphometrics analysis of integration emphasize the role of size
+variation in determining magnitude of morphological integration and,
+through allometric relationships, it is argued that size can also affect
+integration patterns (Porto \emph{et al.}, 2009, 2013).
+
+Esta variação de tamanho emerge a partir do processo de crescimento;
+ademais, o crescimento heterogêneo de partes distintas em uma dada
+estrutura morfológica produz alometria, isto é, a associação entre
+qualquer caráter organísmico de interesse e tamanho corporal (Huxley,
+1932; Pélabon \emph{et al.}, 2014). É possível definir diferentes tipos
+de alometria de acordo com o nível de organização biológica considerado
+(Pélabon \emph{et al.}, 2013). Assim, alometria ontogénetica refere-se à
+associação entre caracteres e tamanho corpóreo ao longo do
+desenvolvimento de um indivíduo; alometria estática refere-se à esta
+associação medida em uma população, entre indivíduos em uma mesma faixa
+etária; e alometria evolutiva, medida entre médias em populações ou
+espécies diferentes. Associações alométricas são classicamente medidas
+na escala log (Huxley, 1932; Jolicoeur, 1963); portanto, estabelece-se
+uma relação alométrica log-linear entre o caráter $x$ e o tamanho
+corporal $m$ da forma \[
+\log x = a + b \log m
+\] onde $a$ representa o intercepto alométrico e $b$ representa a
+inclinação de reta representativa da associação entre $x$ e $m$. Esta
+equação representa a relação entre $x$ e $m$ em um nível de organização
+arbitrário; é possível definir interceptos e inclinações estáticos
+($a_s$; $b_s$), ontogenéticos ($a_o$; $b_o$) ou evolutivos ($a_e$;
+$b_e$; Pélabon \emph{et al.}, 2013; Voje \emph{et al.}, 2013).
+
+Due to the entanglement between size and shape in representing
+morphological variation using euclidean distances, traditional
+morphometrics struggle in representing allometry properly (Bookstein,
+1989; Swiderski, 2003). In this respect, geometric morphometrics
+(Bookstein, 1991; Zelditch \emph{et al.}, 2004) are a proper tool to
+evaluate allometric relationships. However, due to the influence of the
+Procrustes superimposition (Walker, 2000; Linde \& Houle, 2009),
+landmark-based geometric morphometrics are unable to provide good
+estimates for shape covariance patterns.
+
+Considering both the spatial and temporal dynamics of mammalian cranial
+development, we expect that changes in allometric parameters within
+populations will contribute to variation in the strength of integration
+within Facial and Neurocranial traits, albeit in opposing ways, due to
+the distinction between early- and late-developmental factors. In order
+to test this hypothesis, we use a combined approach using both geometric
+morphometrics to estimate allometric parameters, and traditional
+morphometrics to evaluate morphological integration.
+
+Using a Bayesian phylogenetic random regression model of allometric
+shape against size, we estimate static allometric parameters along the
+phylogeny of Anthropoidea. We show that allometric slopes have remained
+quite stable through the diversification of anthropoids, except for
+\emph{Homo} and \emph{Gorilla}, while allometric intercepts have
+suffered changes in many different branches, such as Callithrichids and
+\emph{Alouatta}. Using Bayesian phylogenetic regressions, we also
+demonstrate that allometric slope variation among taxa is responsible
+for increased Facial integration and decreased Neurocranial integration,
+indicating that differences in the timing and rate of development,
+mediated by the spatio-temporal dynamics of the genetic developmental
+network are paramount to understanding the evolution of morphological
+integration.
+
+\section{Methods}\label{methods-1}
+
+\subsection{Sample}\label{sample-1}
+
+Our database consists of 5108 individuals, distributed across 109
+species. These species are spread throughout all major Anthropoid clades
+above the genus level, also comprising all Platyrrhini genera and a
+substantial portion of Catarrhini genera. We associate this database
+with a ultrametric phylogenetic hypothesis for Anthropoidea (Figure
+\ref{sfig:phylo_model}), derived from Springer \emph{et al}.(Springer
+\emph{et al.}, 2012).
+
+Individuals in our sample are represented by 36 registered landmarks,
+using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and
+Catarrhini, respectively. Twenty-two unique landmarks represent each
+individual (Figure \ref{sfig:landmarks}), since fourteen of the 36
+registered landmarks are bilaterally symmetrical. For more details on
+landmark registration, see Marroig \& Cheverud (2001) and Oliveira et
+al. (2009). Databases from both previous studies were merged into a
+single database, retaining only those individuals in which all
+landmarks, from both sides, were present.
+
+This database of landmark registration data was used to estimate both
+interlandmark distances and shape variables. For interlandmark
+distances, those measurements that involve bilaterally symmetrical
+landmarks were averaged after computing distances; for shape variables,
+a symmetrical landmark configuration was obtained by taking the mean
+shape between each individual configuration and its reflection along the
+sagittal plane (Klingenberg \emph{et al.}, 2002).
+
+\subsection{Allometric Slopes and
+Intercepts}\label{allometric-slopes-and-intercepts}
+
+We estimated allometric parameters using local shape variables (Márquez
+\emph{et al.}, 2012), which are measurements of infinitesimal log volume
+transformations, calculated as the natural logarithm determinants of
+derivatives of the TPS function between each individual in our sample
+and a reference shape (in our case, the mean shape for the entire
+sample, estimated from a Generalized Procrustes algorithm). Such
+derivatives were evaluated at 38 locations, and we chose these locations
+to match our interlandmark distance database; therefore, these locations
+are the midpoints between pairs of landmarks used to calculate
+interlandmark distances (Figure \ref{sfig:landmarks}). After estimating
+local shape variables, sources of variation of little interest in the
+present context, such as sexual dimorphism and variation between
+subspecies or populations were controlled within each OTU, according to
+Figure \ref{sfig:phylo_model}, using generalized linear models.
+
+We used a phylogenetic random regression model under a Bayesian
+framework in order to estimate static allometric intercepts ($a_s$) and
+slopes ($b_s$) for all OTUs simultaneously while considering their
+phylogenetic structure. This model assumes that both $a_s$ and $b_s$
+evolve under Brownian motion, as both parameters are defined as random
+variables with a correlation structure among OTUs derived from the
+phylogenetic hypothesis. This allows the model to estimate $a_s$ and
+$b_s$ for each terminal OTU and also for ancestral nodes, enabling us to
+track changes in both parameters along the phylogeny.
+
+We projected all individuals in our sample along the Common Allometric
+Component (CAC; Mitteroecker \emph{et al.}, 2004), which is the pooled
+within-species slopes between local shape variables and log Centroid
+Size (logCS). The CAC summarizes all allometric shape variation, and we
+regress this single variable against logCS in our random regression
+model. This reduction in dimensionality is necessary because a full
+multivariate random regression model using all 38 shape variables would
+be computationally untractable, considering the actual state of MCMC
+samplers available. Therefore, we limit ourselves to test whether the
+strength of association between shape and size with respect to the CAC
+(which we consider the best representation of the ancestral allometric
+shape variation) has changed during the diversification of anthropoid
+primates; in order to test whether the direction of allometric shape
+variation has changed during anthropoid diversification, a full
+multivariate random regression model would be necessary.
+
+We used uniform prior distributions for all $a_s$ and $b_s$. In order to
+sample the posterior distribution for our model, we used a MCMC sampler
+with $100000$ iterations, comprising a burnin period of $50000$
+iterations and a thinning interval of $50$ iterations after burnin to
+avoid autocorrelations in the posterior sample, thus generating $1000$
+posterior samples for all parameters we estimate. We performed a handful
+of runs with different starting values and pseudo-random number
+generator seeds to ensure convergence; with these values for iteration
+steps, we achieved convergence in all MCMC runs.
+
+Using these posterior samples for static allometric parameters, we test
+whether a given intercept or slope in any node of the tree (terminal or
+ancestral) deviates from the values estimated for the root of the tree
+by computing 95\% credible intervals for the difference between the
+parameter estimated at both points. If this interval excludes the null
+value, we consider that as evidence that the parameter ($a_s$ or $b_s$)
+has changed in that particular node.
+
+\subsection{Morphological Integration}\label{morphological-integration}
+
+Using our landmark configuration database, we calculated 38
+interlandmark distances, based on previous works on mammalian covariance
+patterns (Cheverud, 1995, 1996b; Marroig \& Cheverud, 2001; Oliveira
+\emph{et al.}, 2009) (Figure \ref{sfig:landmarks}). Within each OTU, we
+estimate and remove those fixed effects of little interest within the
+present context using generalized linear models (Figure
+\ref{sfig:phylo_model}). Using residuals from each model, we estimated
+covariance and correlation $P$-matrices for all OTUs.
+
+We estimate magnitude of morphological integration for each OTU using
+the coefficient of variation of the eigenvalues (ICV(Shirai \& Marroig,
+2010; Porto \emph{et al.}, 2013)), which is a scale-free measure of the
+overall strength of trait association in a given covariance matrix.
+
+Estimamos magnitude geral de integração morfológica para cada espécie
+usando o coeficiente de variação dos autovalores da matriz de
+covariância (ICV; Shirai \& Marroig, 2010; Porto \emph{et al.}, 2013),
+que é uma mensuração da força de associação entre caracteres
+independente de escala. De maneira a representar a modularidade
+associada aos conjuntos de caracteres localizados nas regiões e
+sub-regiões definidas (\autoref{tab:dist}), estimamos o índice AVG
+(Porto \emph{et al.}, 2013), que é definido como a diferença entre a
+média das correlações entre elementos de um conjunto e a média do
+correlações do conjunto complementar, dividida pelo ICV associado. Desta
+forma, o índice AVG captura a força de associação entre caracteres em
+uma região em relação à associação entre os demais caracteres e também
+em relação à magnitude global de integração na matriz.
+
+Para avaliar a relação entre parâmetros alométricos e índices AVG,
+ajustamos modelos lineares controlados para efeitos filogenéticos
+utilizando os índices AVG separadamente como variáveis resposta e os
+parâmetros alométricos como variáveis preditoras; tais modelos foram
+ajustados também segundo uma perspectiva Bayesiana. De modo a avaliar
+qual combinação destes parâmetros é suficiente para explicar a variação
+em índices AVG, ajustamos três modelos diferentes: dois utilizando
+intercepto ($a_s$) e inclinação ($b_s$) separadamente, e um modelo que
+considera o efeito conjunto dos dois parâmetros ($a_s + b_s$). Estes
+três modelos foram comparados utilizando o Critério de Informação de
+Deviância (DIC; Gelman \emph{et al.}, 2004), de modo que o modelo com o
+menor DIC frente ao conjunto de modelos considerados é aquele que melhor
+se ajusta aos dados. De maneira equivalente ao Critério de Informação de
+Akaike (Akaike, 1974), modelos concorrentes cuja diferença em DIC é
+menor do que dois são considerados equivalentes.
+
+\subsection{Software}\label{software}
+
+All analysis were performed under R 3.1.2 (R Core Team, 2014). Our code
+for the estimation of local shape variables can be found at
+\url{http://github.com/wgar84}. We performed MCMC sampling for all
+models using the MCMCglmm package in R (Hadfield, 2010). In order to
+obtain symmetrical landmarks configurations, we use code provided by
+Annat Haber, available at
+\url{http://life.bio.sunysb.edu/morph/soft-R.html}.
+
+\section{Results}\label{results}
+
+\begin{verbatim}
+## Loading required package: scales
+## 
+## Attaching package: 'scales'
+## 
+## The following object is masked from 'package:geiger':
+## 
+##     rescale
+## 
+## The following object is masked from 'package:plotrix':
+## 
+##     rescale
+\end{verbatim}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/cac_shape-1.pdf}
+\caption{Shape variation associated with the Common Allometric
+Component. \label{fig:cac_shape}}
+\end{figure}
+
+\input{Tables/cac_dir}
+
+Em relação à associação entre o CAC e o log Tamanho do Centróide
+(\autoref{fig:cac_vs_logCS}), examinando a distribuição \emph{a
+posteriori} de inclinações (\autoref{fig:phylo_slopeW}) e interceptos
+(\autoref{fig:phylo_interW}) estáticos dentre os vértices da filogenia,
+observamos que as inclinações são mais estáveis que interceptos. Apenas
+em duas linhagens (\emph{Homo} e \emph{Gorilla}) observamos desvios
+negativos em $b_s$; desvios de $a_s$ negativos e positivos são
+observados em diferentes linhagens.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/cac_vs_logCS-1.pdf}
+\caption{The relationship between log Centroid Size and the Common
+Allometric Component for all anthropoid primates.
+\label{fig:cac_vs_logCS}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/phylo_slopeW-1.pdf}
+\caption{Static allometric slopes. Distribution of $b_s$ for the
+regression between the Common Allometric Component and log Centroid
+Size. Red circles indicate positive slope deviations, while blue circles
+indicate negative ones. The outer circles indicate whether a given slope
+deviation is distinct from zero, using 95\% credible intervals.
+\label{fig:phylo_slopeW}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/phylo_interW-1.pdf}
+\caption{Distribution of $a_s$ for the regression between the Common
+Allometric Component and log Centroid Size. Red circles indicate
+positive slope deviations, while blue circles indicate negative ones.
+The outer circles indicate whether a given intercept deviation is
+distinct from zero, using 95\% credible intervals.
+\label{fig:phylo_interW}}
+\end{figure}
+
+Em relação à associação entre parâmetros alométricos e índices AVG, os
+modelos de regressão indicam, em geral, que o modelo que considera
+apenas a inclinação alométrica estática $b_s$ como variável preditora
+possui um Critério de Informação de Deviância menor do que os demais
+modelos (\autoref{tab:dic_allo_im}), ainda que, na maioria dos casos, o
+modelo que contém o efeito conjunto de $a_s$ e $b_s$ é equivalente. No
+caso da subregião da Abóbada, o modelo que contém $a_s$ e $b_s$ possuem
+valores de DIC menores. No entanto, ao observar a distribuição \emph{a
+posteriori} de coeficientes de regressão em cada um desses modelos de
+efeito conjunto, o efeito de $a_s$ não se mostra significativo,
+considerando um intervalo de credibilidade de 95\% (resultado não
+apresentado). Assim, consideramos os modelos que contém apenas $b_s$
+como variável preditora como aqueles que melhor representam a associação
+entre parâmetros alométricos e índices AVG.
+
+É importante destacar que, no caso das subregiões da Órbita e Base,
+todos os modelos de regressão testados indicam que não há associação
+entre parâmetros alométricos e índices AVG, de maneira que os valores de
+DIC associados à estas duas regiões não foram incluídos.
+
+\input{Tables/dic_allo_im.tex}
+
+Dessa forma, é possível observar que inclinações alométricas possuem
+efeitos contrários sobre os índices AVG da Face e do Neurocrânio
+(\autoref{fig:MI_vs_slopeW}); aquelas subregiões que são contidas em
+cada uma destas regiões segue a mesma tendência da partição mais
+inclusiva que as contém.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/MI_vs_slopeW-1.pdf}
+\caption{AVG Index \emph{vs.} static allometric slopes. For each trait
+set, the shaded region around regression lines indicate 95\% credible
+intervals around estimated regression parameters.
+\label{fig:MI_vs_Wslope}}
+\end{figure}
+
+\section{Discussion}\label{discussion}
+
+Using estimates of allometry derived from the relationship between local
+shape variables and centroid size, the relationship between magnitude
+and pattern of morphological integration becomes clear. In the mammalian
+skull, this relationship is dominated by the interaction between the
+masticatory muscles and facial bones (Zelditch \& Carmichael, 1989;
+Hallgrímsson \& Lieberman, 2008; Hallgrímsson \emph{et al.}, 2009),
+which are more affected by skull growth during the preweaning period and
+afterwards. Therefore, allometric relationships play a major role in the
+distinction between early- and late-developmental factors in skull
+correlation structure.
+
+Geometric approaches to study morphological integration often eschew the
+role of size variation in covariance structure, focusing on shape alone;
+furthermore, landmark-based shape covariance/correlation patterns are
+poorly estimated due to the effects of Procrustes superimposition.
+Therefore, conclusions regarding pattern and magnitude of integration
+considering landmark-based shape alone usually disagree with traditional
+morphometric approaches. Our results demonstrate that, with a careful
+consideration of the strengths and weaknesses of both approaches,
+geometric and traditional morphometrics can be used together to test the
+effects of the multiple factors that influence morphological
+integration.
+
+\newpage
+\chapter{A Phylogenetic Analysis of Shape Covariance Structure}
+\label{ch:ppca}
+
+\section{Introdução}\label{introducao}
+
+Sistemas morfológicas tendem a apresentar covariação entre seus
+componentes devido à interações durante o desenvolvimento. No crânio de
+mamíferos, por exemplo, fenótipos adultos são compostos pela
+sobreposição de diferentes processos de desenvolvimento; portanto, a
+variação no tempo, ritmo e escopo de tais processos estrutura os padrões
+de covariância entre caracteres cranianos em adultos. Esta estrutura de
+covariância em fenótipos adultos é também influenciada pelos efeitos da
+canalização e seleção estabilizadora, que podem limitar a variação nos
+processos de desenvolvimento. Portanto, espera-se que as alterações na
+estrutura de covariância entre linhagens irmãs irão exibir um padrão
+não-aleatório consistente com estas interações de desenvolvimento e
+funcionais.
+
+\section{Métodos}\label{metodos}
+
+Nós investigamos a evolução da estrutura de covariância de tamanho e
+forma cranianos em primatas antropóides em um contexto filogenético. Nós
+representamos esta estrutura de covariância para cada espécie,
+utilizando matrizes de covariância para o log Tamanho do Centróide e
+variáveis locais de forma (Márquez \emph{et al.}, 2012). Estimamos
+distâncias Riemannianas entre essas matrizes (Mitteroecker \& Bookstein,
+2009), e sujeitamos estas distâncias a uma decomposição de disparidade
+em estrutura de covariância ao longo da filogenia(Pavoine \emph{et al.},
+2010). Usando um procedimento de randomização, avaliamos uma série de
+hipóteses sobre a distribuição desta disparidade ao longo da
+diversificação dos antropóides. Além disso, a fim de descrever
+adequadamente a variação em matrizes de covariância, usamos uma
+decomposição em autotensores (Hine \emph{et al.}, 2009; Aguirre \emph{et
+al.}, 2013). Em seguida, usamos projeções da matriz sobre os
+autotensores como caracteres em uma Análise de Componentes Principais
+filogenética (pPCA; Jombart \emph{et al.}, 2010), que decompõe estes
+caracteres em eixos que estão associados a disparidade global (perto de
+raiz) e local (perto do topo). Para cada eixo recuperado pela pPCA,
+reconstruímos duas matrizes de covariância, associadas aos limites
+inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos
+cada um destes pares de matrizes à decomposição de resposta a seleção
+(SRD; Marroig \emph{et al.}, 2011), a fim de avaliar quais caracteres
+são associados à divergência na estrutura de covariância para cada nível
+hierárquico na filogenia, definidos pelos componentes principais
+filogenéticos.
+
+\section{Resultados}\label{resultados-1}
+
+Os testes de disparidade de estrutura de covariância ao longo da
+filogenia (\autoref{tab:riem_decdiv}) indicam, em conjunto, que a maior
+parte das diferenças em estrutura de covariância se localizam na base da
+filogenia, associada à divergência entre Platyrrhini e Catarrhini
+(\autoref{fig:phylo_decdiv}).
+
+\input{Tables/riem_decdiv}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/phylo_decdiv-1.pdf}
+\caption{Decomposição de diversidade filogenética em respeito à
+estrutura de covariância utilizando distâncias Riemannianas. O tamanho
+do círculo indica o valor de diversidade associada cada nó, de acordo
+com a legenda. \label{fig:phylo_decdiv}}
+\end{figure}
+
+A análise de componentes principais filogenéticos recupera um conjunto
+de autovalores positivos que, em geral, possuem magnitudes maiores do
+que suas contrapartes negativas (\autoref{fig:ppca_eval}). Isso indica
+que a maior parte da divergência de estrutura de covariância está
+localizada na divergência entre linhagens mais próximas da raiz da
+filogenia do que entre espécies irmãs, em concordância com a análise de
+disparidade.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/ppca_eval-1.pdf}
+\caption{Autovalores da decomposição espectral associada à Análise de
+Componentes Principais Filogenéticos. No painel superior, barras indicam
+o valor associado à cada autovalor; barras em cinza indicam autovalores
+cujos autovetores associados foram considerados nas análises
+subsequentes. No painel inferior, gráfico de dispersão entre a variância
+associada a cada autovetor e o índice de autocorrelação filogenética de
+Moran. \label{fig:ppca_eval}}
+\end{figure}
+
+Podemos observar que as projeções das espécies sobre cada componente
+principal filogenético considerado (\autoref{fig:phylo_gl}) indicam que
+o primeiro componente global está associado a um contraste entre
+Platyrrhini e Catarrhini, enquanto o segundo componente global se
+associa a contrastes dentre estas duas linhagens. Os componentes locais
+representam diferenças locais entre espécies-irmãs, como por exemplo
+entre as duas espécies de \emph{Gorilla} e entre as espécies do gênero
+\emph{Callithrix}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/phylo_gl-1.pdf}
+\caption{Projeções da variação de estrutura de covariância de cada
+espécie sobre os Componentes Principais Filogenéticos considerados,
+segundo a \autoref{fig:ppca_eval}. Círculos azuis e vermelhos indicam
+valores positivos e negativos, respectivamente. A magnitude de cada
+projeção é indicada pelo tamanho do círculo, de acordo com a legenda.
+\label{fig:phylo_gl}}
+\end{figure}
+
+Ao reconstruírmos a variação em termos de estrutura de covariância
+associada a estes componentes, a análise de SRD (Figuras
+\ref{fig:srd_gl} e \ref{fig:srd_shape}) sobre os limites do intervalo de
+confiança de 95\% de cada eixo indicam que em cada nível de divergência
+(associados aos contrastes entre linhagens na pPCA) as maiores
+diferenças em termos de estrutura de covariância se localizam dentre os
+caracteres da Órbita e da Base, conforme indicado pelas médias menores e
+desvios-padrão maiores na \autoref{fig:srd_gl}. Além dos caracteres
+nestas duas regiões, a estrutura de covariância associada ao tamanho do
+centróide também se mostrou divergente nos diferentes níveis delimitados
+pela pPCA.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/srd_gl-1.pdf}
+\caption{Comparações utilizando o método SRD dos limites associados ao
+intervalo de confiança de 95\% cada Componente Principal Filogenético
+considerado, segundo a \autoref{fig:ppca_eval}. \label{fig:srd_gl}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/srd_shape-1.pdf}
+\caption{Comparações utilizando o método SRD representados sobre a forma
+craniana de um macaco rhesus (\emph{Macaca mulatta}). Cores próximas ao
+vermelho indicam caracteres que divergem mais em relação à estrutura de
+covariância em cada comparação; cores próximas ao verde indicam pouca
+divergência. \label{fig:srd_shape}}
+\end{figure}
+
+\section{Discussão}\label{discussao-1}
+
+Os resultados obtidos aqui indicam que a magnitude de disparidade em
+estrutura de covariância para variáveis de forma e tamanho do centróide
+está associada à distância filogenética (\autoref{tab:riem_decdiv},
+\autoref{fig:phylo_decdiv}); entretanto, aqueles caracteres que
+representam estas divergências em estrutura de covariância são os mesmo
+independente da escala taxonômica considerada.
+
+O Basicrânio é composto de um mosaico de células originadas de tecidos
+distintos, que ossificam muito cedo durante o desenvolvimento (Lieberman
+\emph{et al.}, 2008; Lieberman, 2011); ademais, os ossos do basicrânio
+se associam topologicamente a grande maioria dos ossos do crânio
+(Esteve-Altava \& Rasskin-Gutman, 2014), sofrendo, ao longo do
+desenvolvimento, influência do crescimento e diferenciação dos ossos
+circundantes. Em contrapartida, a estrutura de covariância associada ao
+tamanho do centróide reflete principalmente o crescimento e
+diferenciação pós-natal (Porto \emph{et al.}, 2013).
+
+Assim sendo, mudanças na estrutura de covariância estão associadas a
+eventos particulares do desenvolvimento, mostrando um padrão consistente
+ao longo da diversificação dos primatas antropóides, refletindo o efeito
+de interações funcionais e ontogenéticas.
+
+\def\sectionautorefname{Seção} \def\chapterautorefname{Capítulo}
+\def\figureautorefname{Figura} \def\tableautorefname{Tabela}
+
+\selectlanguage{brazilian}
+
+\pagestyle{plain}
+
+\chapter*{Referências Bibliográficas}
+
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+
+Aguirre, J.D., Hine, E., McGuigan, K. \& Blows, M.W. 2013. Comparing G :
+multivariate analysis of genetic variation in multiple populations.
+\emph{Heredity} \textbf{112}: 21--29.
+
+Akaike, H. 1974. A new look at the statistical model identification.
+\emph{IEEE Transactions on Automatic Control} \textbf{19}: 716--723.
+
+Bookstein, F.L. 1991. \emph{Morphometric tools for landmark data:
+geometry and biology}. Cambridge University Press, Cambridge.
+
+Bookstein, F.L. 1989. ``Size and Shape'': A Comment on Semantics.
+\emph{Systematic Zoology} \textbf{38}: 173--180.
+
+Bookstein, F.L., Chernoff, B., Elder, R., Humphries, Smith, G. \&
+Strauss, R. 1985. \emph{Morphometrics in Evolutionary Biology}. The
+Academy of Natural Sciences of Philadelphia, Philadelphia.
+
+Cheverud, J.M. 1996a. Developmental integration and the evolution of
+pleiotropy. \emph{American Zoology} \textbf{36}: 44--50.
+
+Cheverud, J.M. 1995. Morphological integration in the saddle-back
+tamarin (Saguinus fuscicollis) cranium. \emph{American Naturalist}
+\textbf{145}: 63--89.
+
+Cheverud, J.M. 1996b. Quantitative genetic analysis of cranial
+morphology in the cotton-top (Saguinus oedipus) and saddle-back (S.
+fuscicollis) tamarins. \emph{Journal of Evolutionary Biology}
+\textbf{9}: 5--42.
+
+Esteve-Altava, B. \& Rasskin-Gutman, D. 2014. Beyond the functional
+matrix hypothesis: a network null model of human skull growth for the
+formation of bone articulations. \emph{Journal of Anatomy} \textbf{225}:
+306--316.
+
+Gelman, A., Carlin, J.B., Stern, H.S. \& Rubin, D.B. 2004.
+\emph{Bayesian data analysis}, 2ª ed. CRC Press, New York.
+
+Hadfield, J.D. 2010. MCMC Methods for Multi-Response Generalized Linear
+Mixed Models: The \{MCMCglmm\} \{R\} Package. \emph{Journa of
+Statistical Software} \textbf{33}: 1--22.
+
+Hallgrímsson, B. \& Lieberman, D.E. 2008. Mouse models and the
+evolutionary developmental biology of the skull. \emph{Integrative and
+Comparative Biology} \textbf{48}: 373--384.
+
+Hallgrímsson, B., Jamniczky, H., Young, N.M., Rolian, C., Parsons, T.E.
+\& Boughner, J.C.\emph{et al.} 2009. Deciphering the Palimpsest:
+Studying the Relationship Between Morphological Integration and
+Phenotypic Covariation. \emph{Evolutionary Biology} \textbf{36}:
+355--376.
+
+Hine, E., Chenoweth, S.F., Rundle, H.D. \& Blows, M.W. 2009.
+Characterizing the evolution of genetic variance using genetic
+covariance tensors. \emph{Philosophical transactions of the Royal
+Society of London. Series B, Biological sciences} \textbf{364}:
+1567--78.
+
+Huxley, J.S. 1932. \emph{Problems of relative growth}.
+
+Jolicoeur, P. 1963. The Multivariate Generalization of the Allometry
+Equation. \emph{Biometrics}.
+
+Jombart, T., Pavoine, S., Devillard, S. \& Pontier, D. 2010. Putting
+phylogeny into the analysis of biological traits: A methodological
+approach. \emph{Journal of Theoretical Biology} \textbf{264}: 693--701.
+
+Klingenberg, C.P. 2009. Morphometric integration and modularity in
+configurations of landmarks: tools for evaluating a priori hypotheses.
+\emph{Evolution \& Development} \textbf{11}: 405--421.
+
+Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
+symmetric structures: Quantifying variation among individuals and
+asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
+
+Lieberman, D.E. 2011. Epigenetic Integration, Complexity and
+Evolvability of the Head: Rethinking the Functional Matrix Hypothesis.
+In: \emph{Epigenetics: Linking Genotype and Phenotype in Development and
+Evolution} (B. Hallgrímsson \& B. K. Hall, eds), pp. 271--289.
+University of California Press.
+
+Lieberman, D.E., Hallgrímsson, B., Liu, W., Parsons, T.E. \& Jamniczky,
+H.A. 2008. Spatial packing, cranial base angulation, and craniofacial
+shape variation in the mammalian skull: testing a new model using mice.
+\emph{Journal of Anatomy} \textbf{212}: 720--735.
+
+Linde, K. van der \& Houle, D. 2009. Inferring the Nature of Allometry
+from Geometric Data. \emph{Evolutionary Biology} \textbf{36}: 311--322.
+
+Marroig, G. \& Cheverud, J.M. 2001. A comparison of phenotypic variation
+and covariation patterns and the role of phylogeny, ecology, and
+ontogeny during cranial evolution of new world monkeys. \emph{Evolution}
+\textbf{55}: 2576--2600.
+
+Marroig, G. \& Cheverud, J.M. 2004. Cranial evolution in sakis
+(Pithecia, Platyrrhini) I: Interspecific differentiation and allometric
+patterns. \emph{American Journal of Physical Anthropology} \textbf{125}:
+266--278.
+
+Marroig, G., Melo, D., Porto, A., Sebastião, H. \& Garcia, G. 2011.
+Selection Response Decomposition (SRD): A New Tool for Dissecting
+Differences and Similarities Between Matrices. \emph{Evolutionary
+Biology} \textbf{38}: 225--241.
+
+Márquez, E.J., Cabeen, R., Woods, R.P. \& Houle, D. 2012. The
+Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
+\textbf{39}: 419--439.
+
+Mitteroecker, P. \& Bookstein, F.L. 2009. The ontogenetic trajectory of
+the phenotypic covariance matrix, with examples from craniofacial shape
+in rats and humans. \emph{Evolution} \textbf{63}: 727--737.
+
+Mitteroecker, P., Gunz, P., Bernhard, M., Bookstein, F.L. \& Schaefer,
+K. 2004. Comparison of cranial ontogenetic trajectories among great apes
+and humans. \emph{Journal of Human Evolution} \textbf{46}: 679--697.
+
+Oliveira, F.B., Porto, A. \& Marroig, G. 2009. Covariance structure in
+the skull of Catarrhini: a case of pattern stasis and magnitude
+evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
+
+Olson, E. \& Miller, R. 1958. \emph{Morphological integration}.
+University of Chicago Press, Chicago.
+
+Pavoine, S., Baguette, M. \& Bonsall, M.B. 2010. Decomposition of trait
+diversity among the nodes of a phylogenetic tree. \emph{Ecological
+Monographs} \textbf{80}: 485--507.
+
+Pélabon, C., Bolstad, G.H., Egset, C.K., Cheverud, J.M., Pavlicev, M. \&
+Rosenqvist, G. 2013. On the Relationship between Ontogenetic and Static
+Allometry. \emph{The American Naturalist} \textbf{181}: 195--212.
+
+Pélabon, C., Firmat, C., Bolstad, G.H., Voje, K.L., Houle, D. \&
+Cassara, J.\emph{et al.} 2014. Evolution of morphological allometry.
+\emph{Annals of the New York Academy of Sciences} n/a--n/a.
+
+Polly, P.D. 2005. Development and phenotypic correlations: the evolution
+of tooth shape in sorex araneus. \emph{Evolution \& Development}
+\textbf{7}: 29--41.
+
+Porto, A., Oliveira, F.B., Shirai, L.T., Conto, V. de \& Marroig, G.
+2009. The evolution of modularity in the mammalian skull I:
+morphological integration patterns and magnitudes. \emph{Evolutionary
+Biology} \textbf{36}: 118--135.
+
+Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
+Variation, Growth Strategies, and the Evolution of Modularity in the
+Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
+
+R Core Team. 2014. \emph{R: A Language and Environment for Statistical
+Computing}. R Foundation for Statistical Computing, Vienna, Austria.
+
+Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
+marsupials and monkeys: size variation and evolutionary constraint and
+flexibility. \emph{Journal of experimental zoology. Part B, Molecular
+and developmental evolution} \textbf{314B}: 663--683.
+
+Springer, M.S., Meredith, R.W., Gatesy, J., Emerling, C.A., Park, J. \&
+Rabosky, D.L.\emph{et al.} 2012. Macroevolutionary Dynamics and
+Historical Biogeography of Primate Diversification Inferred from a
+Species Supermatrix. \emph{PLoS ONE} \textbf{7}: e49521.
+
+Swiderski, D.L. 2003. Separating Size from Allometry: Analysis of Lower
+Jaw Morphology in the Fox Squirrel, Sciurus niger. \emph{Journal of
+Mammalogy} \textbf{84}: 861--876.
+
+Voje, K.L., Hansen, T.F., Egset, C.K., Bolstad, G.H. \& Pélabon, C.
+2013. Allometric Constraints and the Evolution of Allometry.
+\emph{Evolution} n/a--n/a.
+
+Walker, J.A. 2000. Ability of Geometric Morphometric Methods to Estimate
+a Known Covariance Matrix. \emph{Systematic Biology} \textbf{49}:
+686--696.
+
+Zelditch, M.L. \& Carmichael, A.C. 1989. Ontogenetic variation in
+patterns of developmental and functional integration in skulls of
+Sigmodon fulviventer. \emph{Evolution} \textbf{43}: 814--824.
+
+Zelditch, M.L., Swiderski, D.L., Sheets, H.D. \& Fink, W.L. 2004.
+\emph{Geometric Morphometrics for Biologists: A Primer}, 1st ed.
+Elsevier.
+
+\chapter*{Apêndice: Artigos Publicados}
+\addcontentsline{toc}{chapter}{Apêndice: Artigo Publicado}
+
+\includepdf[
+            pages=-,
+            width=189mm,
+            height=267.3mm,
+            offset=15pt 0pt,
+            pagecommand={\pagestyle{plain}}
+            ]{Appendix/Marroig2011.pdf}
+
+\includepdf[
+            pages=-,
+            width=189mm,
+            height=267.3mm,
+            offset=15pt 0pt,
+            pagecommand={\pagestyle{plain}}
+            ]{Appendix/Marroig2012.pdf}
+
+\includepdf[
+            pages=-,
+            width=189mm,
+            height=267.3mm,
+            offset=15pt 0pt,
+            pagecommand={\pagestyle{plain}}            
+            ]{Appendix/Garcia2014.pdf}
+
+\end{document}

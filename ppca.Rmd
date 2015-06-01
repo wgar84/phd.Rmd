@@ -1,0 +1,145 @@
+---
+title: "A Phylogenetic Analysis of Covariance Structure in Anthropoids"
+output:
+  pdf_document:
+    includes:
+      in_header: Tex/chap_head.tex
+      before_body: Tex/chap_info.tex
+    fig_caption: true
+    keep_tex: true
+  word_document:
+    fig_caption: true
+    fig_width: 6
+fontsize: 11pt
+csl: Bib/journal-of-evolutionary-biology.csl
+bibliography: Bib/tese.bib
+---	
+
+```{r captions_ppca, include = FALSE}
+
+captions <- list()
+
+captions $ fig.phylo_decdiv <- 'Decomposição de diversidade filogenética em respeito à estrutura de covariância utilizando distâncias Riemannianas. O tamanho do círculo indica o valor de diversidade associada cada nó, de acordo com a legenda. \\label{fig:phylo_decdiv}'
+
+captions $ fig.ppca_eval <- 'Autovalores da decomposição espectral associada à Análise de Componentes Principais Filogenéticos. No painel superior, barras indicam o valor associado à cada autovalor; barras em cinza indicam autovalores cujos autovetores associados foram considerados nas análises subsequentes. No painel inferior, gráfico de dispersão entre a variância associada a cada autovetor e o índice de autocorrelação filogenética de Moran. \\label{fig:ppca_eval}'
+
+captions $ fig.phylo_gl <- 'Projeções da variação de estrutura de covariância de cada espécie sobre os Componentes Principais Filogenéticos considerados, segundo a \\autoref{fig:ppca_eval}. Círculos azuis e vermelhos indicam valores positivos e negativos, respectivamente. A magnitude de cada projeção é indicada pelo tamanho do círculo, de acordo com a legenda. \\label{fig:phylo_gl}'
+
+captions $ fig.srd_gl <- 'Comparações utilizando o método SRD dos limites associados ao intervalo de confiança de 95\\% cada Componente Principal Filogenético considerado, segundo a \\autoref{fig:ppca_eval}. \\label{fig:srd_gl}'
+
+captions $ fig.srd_shape <- 'Comparações utilizando o método SRD representados sobre a forma craniana de um macaco rhesus (\\emph{Macaca mulatta}). Cores próximas ao vermelho indicam caracteres que divergem mais em relação à estrutura de covariância em cada comparação; cores próximas ao verde indicam pouca divergência. \\label{fig:srd_shape}'
+
+```
+
+# Introdução
+
+Sistemas morfológicas tendem a apresentar covariação entre seus componentes devido à interações durante o desenvolvimento. No crânio de mamíferos, por exemplo, fenótipos adultos são compostos pela sobreposição de diferentes processos de desenvolvimento; portanto, a variação no tempo, ritmo e escopo de tais processos estrutura os padrões de covariância entre caracteres cranianos em adultos. Esta estrutura de covariância em fenótipos adultos é também influenciada pelos efeitos da canalização e seleção estabilizadora, que podem limitar a variação nos processos de desenvolvimento. Portanto, espera-se que as alterações na estrutura de covariância entre linhagens irmãs irão exibir um padrão não-aleatório consistente com estas interações de desenvolvimento e funcionais.
+
+# Métodos
+
+Nós investigamos a evolução da estrutura de covariância de tamanho e forma cranianos em primatas antropóides em um contexto filogenético. Nós representamos esta estrutura de covariância para cada espécie, utilizando matrizes de covariância para o log Tamanho do Centróide e variáveis locais de forma [@marquez_measurement_2012]. Estimamos distâncias Riemannianas entre essas matrizes [@mitteroecker_ontogenetic_2009], e sujeitamos estas distâncias a uma decomposição de disparidade em estrutura de covariância ao longo da filogenia[@pavoine_decomposition_2010]. Usando um procedimento de randomização, avaliamos uma série de hipóteses sobre a distribuição desta disparidade ao longo da diversificação dos antropóides. Além disso, a fim de descrever adequadamente a variação em matrizes de covariância, usamos uma decomposição em autotensores [@hine_characterizing_2009; @aguirre_comparing_2013]. Em seguida, usamos projeções da matriz sobre os autotensores como caracteres em uma Análise de Componentes Principais filogenética [pPCA; @jombart_putting_2010], que decompõe estes caracteres em eixos que estão associados a disparidade global (perto de raiz) e local (perto do topo). Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes de covariância, associadas aos limites inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à decomposição de resposta a seleção [SRD; @marroig_selection_2011], a fim de avaliar quais caracteres são associados à divergência na estrutura de covariância para cada nível hierárquico na filogenia, definidos pelos componentes principais filogenéticos.
+
+# Resultados
+
+Os testes de disparidade de estrutura de covariância ao longo da filogenia (\autoref{tab:riem_decdiv}) indicam, em conjunto, que a maior parte das diferenças em estrutura de covariância se localizam na base da filogenia, associada à divergência entre Platyrrhini e Catarrhini (\autoref{fig:phylo_decdiv}).
+
+\input{Tables/riem_decdiv} <!-- tab:decdiv -->
+
+```{r phylo_decdiv, echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = captions $ fig.phylo_decdiv}
+layout(matrix (c(1, 1, 1, 1, 1, 1, 1, 1, 2), nrow = 3, byrow = T))
+
+par(mar = c(0, 0, 0, 0))
+plot (Tree [[1]], type = 'fan', cex = 0.5, show.tip.label = FALSE,
+      x.lim = c(-.6, .6), y.lim = c(-.48, .48))
+nodelabels(cex = ppca.Data $ div.nodes.def * 100 / sum (ppca.Data $ div.nodes.def),
+           frame = 'none', pch = 20)
+Plot.taxa()
+
+par(mar = c(0, 0, 2, 0), bty = 'n', xaxt = 'n', yaxt = 'n')
+plot (c(-2, -1, 0, 1, 2), c(0, 0, 0, 0, 0), pch = 20,
+      cex =  c(0.25, 0.5, 0.75, 1, 1.25) * 100 / sum (ppca.Data $ div.nodes.def), xlim = c(-2.5, 2.5))
+text (x = c(-2, -1, 0, 1, 2), y = c(0, 0, 0, 0, 0) - 0.3,
+      labels = paste (round (c(0.25, 0.5, 0.75, 1, 1.25) * 100 / sum (ppca.Data $ div.nodes.def)), '%', sep = ''))
+
+```
+
+A análise de componentes principais filogenéticos recupera um conjunto de autovalores positivos que, em geral, possuem magnitudes maiores do que suas contrapartes negativas (\autoref{fig:ppca_eval}). Isso indica que a maior parte da divergência de estrutura de covariância está localizada na divergência entre linhagens mais próximas da raiz da filogenia do que entre espécies irmãs, em concordância com a análise de disparidade.
+
+```{r ppca_eval, fig.width = 5, fig.height = 7, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.ppca_eval}
+ppca.Plots $ eval
+```
+
+Podemos observar que as projeções das espécies sobre cada componente principal filogenético considerado (\autoref{fig:phylo_gl}) indicam que o primeiro componente global está associado a um contraste entre Platyrrhini e Catarrhini, enquanto o segundo componente global se associa a contrastes dentre estas duas linhagens. Os componentes locais representam diferenças locais entre espécies-irmãs, como por exemplo entre as duas espécies de *Gorilla* e entre as espécies do gênero *Callithrix*.
+
+```{r phylo_gl, echo = FALSE, fig.width = 10, fig.height = 10, fig.cap = captions $ fig.phylo_gl}
+
+values.axis <- etd.def.ppca $ li [, c(1, 2, 4, 3)]
+
+par (mfrow = c(2, 2), mar = c(1.5, 1.5, 1.5, 1.5))
+for (i in 1:4)
+  {
+
+    plot.phylo(Tree [[1]], type = 'fan',
+               main = unique (ppca.Data $ SRD.limits.df $ axis) [i],
+               use.edge.length = TRUE, show.tip.label = FALSE,
+               y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.5))
+
+    tiplabels(tip = 1:109,
+              pch = 20,
+              col = ifelse (values.axis [, i] < 0,
+                rgb (0,0,1,0.5), rgb (1,0,0,0.5)), bg = NULL,
+              cex = abs (values.axis[, i]))
+
+    Plot.taxa(ifelse(i == 1, T, F))
+
+  }
+
+legend('bottomright', bty = 'n', pt.cex = 1:4, yjust = 0.5,
+       legend = 1:4, cex = 0.6, y.intersp = 2, x.intersp = 2, 
+       pch = 20, col = rgb (0,0,0,0.5))
+```
+
+Ao reconstruírmos a variação em termos de estrutura de covariância associada a estes componentes, a análise de SRD (Figuras \ref{fig:srd_gl} e \ref{fig:srd_shape}) sobre os limites do intervalo de confiança de 95\% de cada eixo indicam que em cada nível de divergência (associados aos contrastes entre linhagens na pPCA) as maiores diferenças em termos de estrutura de covariância se localizam dentre os caracteres da Órbita e da Base, conforme indicado pelas médias menores e desvios-padrão maiores na \autoref{fig:srd_gl}. Além dos caracteres nestas duas regiões, a estrutura de covariância associada ao tamanho do centróide também se mostrou divergente nos diferentes níveis delimitados pela pPCA.
+
+```{r srd_gl, echo = FALSE, fig.width = 10, fig.height = 10, fig.cap = captions $ fig.srd_gl}
+ppca.Plots $ post.srd.def
+```
+
+```{r srd_shape, echo = FALSE, fig.width = 8.6, fig.height = 10.2, fig.cap = captions $ fig.srd_shape}
+ppca.Data $ post.arc %>%
+  filter(Type == 'Local Shape Variables') %>%
+  mutate('trait2' = factor (as.character(trait), levels = rownames (Aux $ def.hyp))) %>%
+  group_by(axis, trait2) %>%
+  summarise_each(funs(mean), value) %$%
+  {
+    for (i in 1:4)
+      {
+        current.value <- value [axis == levels (axis) [i]]
+        PlotShapeDeformation(Reference [, , 'Macaca_mulatta'], Aux $ tessel.38,
+                             ColorsContinuous = c(current.value [-1], current.value [-1]),
+                             palette = colorRamp(c('red', 'green'), space = 'Lab'),
+                             view = c(1, 2), bty = 'n', add = ifelse (i == 1, F, T),
+                             center = c(-0.5, -i, 0),
+                             ylim = c(-4.2, -0.8), xlim = c(-1.3, 1), scale = 1.5,
+                             graph.par = list ('mar' = c(0, 0, 0, 0)))
+        PlotShapeDeformation(Reference [, , 'Macaca_mulatta'], Aux $ tessel.38,
+                             ColorsContinuous = c(current.value [-1], current.value [-1]),
+                             palette = colorRamp(c('red', 'green'), space = 'Lab'),
+                             view = c(1, 3), bty = 'n', add = T, center = c(0.5, 0, -i),
+                             scale = 1.5)
+        if (i < 4)
+          abline(h = - i - 0.5)
+      }
+  }
+text(y = -(1:4), x = rep (-1.2, 4),
+     labels = c('Global 1', 'Global 2', 'Local 1', 'Local 2'))
+```
+
+# Discussão
+
+Os resultados obtidos aqui indicam que a magnitude de disparidade em estrutura de covariância para variáveis de forma e tamanho do centróide está associada à distância filogenética (\autoref{tab:riem_decdiv}, \autoref{fig:phylo_decdiv}); entretanto, aqueles caracteres que representam estas divergências em estrutura de covariância são os mesmo independente da escala taxonômica considerada.
+
+O Basicrânio é composto de um mosaico de células originadas de tecidos distintos, que ossificam muito cedo durante o desenvolvimento [@lieberman_spatial_2008; @lieberman_epigenetic_2011]; ademais, os ossos do basicrânio se associam topologicamente a grande maioria dos ossos do crânio [@esteve-altava_beyond_2014], sofrendo, ao longo do desenvolvimento, influência do crescimento e diferenciação dos ossos circundantes. Em contrapartida, a estrutura de covariância associada ao tamanho do centróide reflete principalmente o crescimento e diferenciação pós-natal [@porto_size_2013].
+
+Assim sendo, mudanças na estrutura de covariância estão associadas a eventos particulares do desenvolvimento, mostrando um padrão consistente ao longo da diversificação dos primatas antropóides, refletindo o efeito de interações funcionais e ontogenéticas.
+

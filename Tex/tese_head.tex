@@ -1,0 +1,96 @@
+\usepackage[english,brazilian]{babel} % suporte para línguas
+\usepackage[utf8] {inputenc} % codificação
+
+\usepackage{subfig, epsfig}
+\captionsetup[subfigure]{style=default, 
+  margin=0pt, parskip=0pt, hangindent=0pt, indention=0pt, 
+  singlelinecheck=true, labelformat=parens, labelsep=space}
+
+\usepackage{ae}
+\usepackage{aecompl}
+\usepackage{booktabs}
+\usepackage[T1] {fontenc}
+
+\usepackage{footnote}
+
+% Notas criadas nas tabelas ficam no fim das tabelas
+\makesavenoteenv{tabular}
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}
+{
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\thepage}
+}
+
+\usepackage{graphicx,wrapfig} % para incluir figuras
+\usepackage[all]{xy} % para incluir diagramas
+\usepackage{amsfonts, amssymb, amsthm, amsmath, amscd, textcomp} % pacote AMS
+\usepackage{color, float, bbm, multicol, rotating}
+\usepackage{verbatim, listings, booktabs}
+
+\usepackage{caption} % Customizar as legendas de figuras e tabelas
+\usepackage{array} % Elementos extras para formatação de tabelas
+
+\usepackage{lineno} % números nas linhas
+
+\usepackage {tocvsec2} % controlar profundidade de table of contents
+\setcounter {secnumdepth}{0}
+\setcounter {tocdepth}{1}
+
+%\widowpenalty10000
+%\clubpenalty10000
+
+\usepackage{mathpazo} % fonte palatino
+\usepackage{hyperref}
+
+% Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo
+% Não inclui lista de tabelas e figuras no índice
+\usepackage[nottoc,notlof,notlot, notindex]{tocbibind}
+
+\usepackage{icomma} % Posicionar inteligentemente a vírgula como separador decimal
+\usepackage[tight]{units} % Formatar as unidades com as distâncias corretas
+
+\usepackage{setspace}
+
+\usepackage{lastpage} % Conta o número de páginas
+
+\usepackage{pdflscape} % ambiente landscape
+\usepackage {tabularx}
+
+\usepackage[round]{natbib}
+\usepackage{chapterbib}
+
+\usepackage[flushleft]{threeparttable}
+
+\usepackage[draft]{pdfpages}
+
+\usepackage[draft]{fixme}
+%\usepackage{pdfcomment}
+
+\fxsetup{layout={footnote}}
+
+% --- definições gerais ---
+\newcommand{\barra}{\backslash}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\seq}[1]{\left<#1\right>}
+\newcommand{\norma}[1]{\left\Vert#1\right\Vert}
+\newcommand{\hr}{\par\noindent\hrulefill\par}
+% --- ---
+
+\newcommand{\titulo}{Perspectivas sobre o reconhecimento de padrões de modularidade e suas implicações para a evolução de morfologias complexas}
+\newcommand{\nomedoaluno}{Guilherme Garcia}
+\newcommand{\advisor}{Gabriel Marroig} \newcommand{\ano}{2015}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black,
+  filecolor=black, pagecolor=black, urlcolor=black,
+  pdfauthor={\nomedoaluno}, pdftitle={\titulo}, pdfsubject={Genética e
+    Biologia Evolutiva}, pdfkeywords={Genética Quantitiva, Morfologia
+    Craniana, Roedores}, pdfproducer={Latex}, pdfcreator={pdflatex}}
+ 
+\geometry{bindingoffset=15pt}
+%\geometry{paperwidth=290mm, paperheight=297mm, margin=1in}
+%\setlength{\marginparwidth=80mm}
