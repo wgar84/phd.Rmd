@@ -10,10 +10,24 @@ output:
   word_document:
     fig_caption: true
     fig_width: 6
-fontsize: 11pt
+fontsize: 12pt
 csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/tese.bib
 ---	
+
+<!---
+
+Guilherme Garcia^1,2^, Gabriel Marroig^1^
+
+^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
+
+^2^<wgar@usp.br>
+
+running title: Allometry and Integration in Primates
+
+key words: 
+
+-->
 
 ```{r options_modcomp, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
@@ -55,25 +69,33 @@ captions $ fig.type2_sym <-
 
 # Introduction
 
+In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using both real data and a simulation-based approach; in this context, simulations are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce a more meaningful comparison between the two methods.
+
 # Methods
 
 ## Sample
 
-The database used here (\autoref{tab:modcomp_otu}) consists of 21 species, distributed across all taxonomic denominations of Anthropoidea above the genus level. These species were selected from a broader database [@marroig_comparison_2001; @oliveira_covariance_2009] in order to reduce the effects of low sample sizes over estimates of modularity patterns. Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively. Twenty-two unique landmarks represent each individual (\autoref{fig:landmarks}, \autoref{tab:lms}), since 14 of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
+The database used here (\autoref{tab:modcomp_otu}) consists of 21 species, distributed across all taxonomic denominations of Anthropoidea above the genus level. These OTUs were selected from a broader database [@marroig_comparison_2001; @oliveira_covariance_2009] in order to reduce the effects of low sample sizes over estimates of modularity patterns. Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively. Twenty-two unique landmarks represent each individual (\autoref{fig:landmarks}, \autoref{tab:lms}), since 14 of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
 
 \input{Tables/modcomp_otu}
 
-For each OTU, we estimated phenotypic covariance and correlation matrices for three different types of variables: tangent space residuals, estimated from a Procrustes superimposition for the entire sample, using the set of landmarks described on both \autoref{tab:lms} and \autoref{fig:landmarks}; interlandmark distances, as described in \autoref{tab:dist}; and local shape variables [@marquez_measurement_2012], which are measurements of infinitesimal log volume transformations between each sample unit and a reference (mean) shape. These transformations were calculated at 38 points, corresponding to the locations of the mipoints between pairs of landmarks used to calculate interlandmark distances, in order to produce a dataset that represents shape [i.e., form without isometric variation; @bookstein_morphometric_1991; @zelditch_geometric_2004] while retaining the same overall properties of the interlandmark distance dataset.
+For each OTU, we estimated phenotypic covariance and correlation matrices for three different types of variables: tangent space residuals, estimated from a Procrustes superimposition for the entire sample, using the set of landmarks described on both \autoref{tab:lms} and \autoref{fig:landmarks} (henceforth refered to as Procrustes residuals); interlandmark distances, as described in \autoref{tab:dist}; and local shape variables [@marquez_measurement_2012], which are measurements of infinitesimal log volume transformations between each sample unit and a reference (mean) shape. These transformations were calculated at 38 points, corresponding to the locations of the mipoints between pairs of landmarks used to calculate interlandmark distances, in order to produce a dataset that represents shape [i.e., form without isometric variation; @bookstein_morphometric_1991; @zelditch_geometric_2004] while retaining the same overall properties of the interlandmark distance dataset, such as dimensionality, for instance. Furthermore, the same hypotheses of trait association can be used on both types of variables since the position of local shape variables through the skull mirrors the position of interlandmark distances, although they are conceptually different types of measurements.
 
 For each dataset, we estimated covariance and correlation matrices after removing fixed effects of little interest in the present context, such as sexual dimorphism, for example. For interlandmark distances and local shape variables, these effects were removed through a multivariate linear model adjusted for each species, according to \autoref{tab:modcomp_otu}; for Procrustes residuals, the same effects were removed by centering all group means to each species' mean shape, since the loss of degrees of freedom imposed by the GPA prohibits the use of a full multivariate linear model over this kind of data to removed fixed effects.
 
-In order to consider the effects of size variation over modularity patterns, we used a different procedure to remove the influence of size, according to the different properties of each type of variable.
+In order to consider the effects of size variation over modularity patterns, we used a different procedure to remove the influence of size, according to the different properties of each type of variable. For interlandmark distances, we use the approach estabilished by @bookstein_morphometrics_1985; if $C$ is a correlation matrix, we obtain a correlation matrix $R$ without the effect of size using the equation
+$$
+R = C - \lambda_1 v_1 v^{t}_1
+$$
+where $\lambda_1$ and $v_1$ refer respectively to the first eigenvalue and eigenvector of the spectral decomposition of $C$, considering that this eigenvector is associated with size variation, a common pattern in mammalian correlation structure, especially when interlandmark distances are considered [@wagner_eigenvalue_1984; @mitteroecker_comparison_2004; @mitteroecker_conceptual_2007]; $t$ denotes matrix transpose. For Procrustes residuals and local shape variables, the effects of isometric variation are removed prior through normalizing each individual to unit centroid size. However, allometric effects still influence covariance or correlation structure. In order to remove such effects, we use a similar procedure, based upon @mitteroecker_comparison_2004, which involves the estimation of an allometric component for each OTU; this allometric component is related to regression coefficents for each of the $m$ variables over log Centroid Size. If $S$ is a covariance matrix, we obtain a covariance matrix $R$ without the influence of allometric relationships using the equation
+$$
+R = (I_m - aa^t) C (I_m - aa^t)
+$$
+where $a$ refers to the normalized allometric component estimated for each OTU and $I_m$ represents the identity matrix of size $m$. Therefore, our empirical dataset consists of six different sets of covariance/correlation matrices, considering both the nature of morphometric variables and the presence or absence of variation associated with size.
 
-De maneira a considerar o efeito da variação de tamanho sobre padrões de modularidade, utilizamos um procedimento de remoção de tamanho sobre matrizes de covaripara cada tipo de variável: para distâncias euclidianas, utilizamos o procedimento delineado em @marroig_cranial_2004, baseado em @bookstein_morphometrics_1985. No caso dos resíduos de Procrustes e variáveis locais de forma, apesar do efeito de escala ser removido, ao normalizar cada indivíduo por seu tamanho do centróide associado, o efeito da alometria se encontra presente. De maneira a remover este efeito, utilizamos o procedimento delineado por @mitteroecker_comparison_2004. Desta forma, obtivemos matrizes de covariância que representam os padrões de associação entre variáveis livres dos efeitos integradores de tamanho.
+## *A priori* Modularity Hypothesis Tests
 
-## Testes de Hipótese de Modularidade *a priori*
-
-A partir dos seis conjuntos de matrizes de covariância, testamos as hipóteses de associação entre marcos anatômicos delimitadas na \autoref{tab:lms} para matrizes derivadas de resíduos de Procrustes; para distâncias euclidianas e variáveis locais de forma, utilizamos as hipóteses conforme a delimitação exposta na \autoref{tab:dist}, visto que estes dois conjuntos de dados possuem, por construção, o mesmo número de caracteres posicionados de modo similar sobre o crânio.
+Using these six sets of covariance/correlation matrices, we test the hypotheses of trait associations described in both \autoref{tab:lms} for Procrustes residuals and \autoref{tab:dist} for interlandmark distances and local shape variables. 
 
 Para cada hipótese de associação testada, calculamos o índice AVG [@porto_size_2013], da forma $$ AVGi = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV} $$ onde $\bar{\rho}_{+}$ representa a média de correlações entre caracteres pertencentes àquela hipótese de associação, $\bar{\rho}_{-}$ representa a média de correlações do conjunto complementar a este, ou seja, considerando tanto correlações entre aqueles caracteres que não pertencem ao conjunto de associações considerada quanto correlações entre os dois conjuntos; $ICV$ representa o coeficiente de variação dos autovalores da matriz de covariância associada [@shirai_skull_2010]. No caso da distinção entre caracteres Faciais e Neurocraniais, calculamos também o contraste entre correlações contidas na união entre os dois conjuntos e o conjunto complementar; neste caso, a hipótese associada é denominada Neuroface.
 

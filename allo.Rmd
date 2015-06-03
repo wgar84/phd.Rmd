@@ -35,8 +35,6 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 
 ```{r captions_allo, include = FALSE}
 
-captions <- list()
-
 captions $ fig.cac_vs_logCS <- "The relationship between log Centroid Size and the Common Allometric Component for all anthropoid primates. \\label{fig:cac_vs_logCS}"
 
 captions $ fig.cac_shape <- "Shape variation associated with the Common Allometric Component. \\label{fig:cac_shape}"

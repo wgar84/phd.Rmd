@@ -1,4 +1,4 @@
-\documentclass[11pt,]{article}
+\documentclass[12pt,]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -110,11 +110,22 @@
 \usepackage {tocvsec2} % controlar profundidade de table of contents
 \setcounter {secnumdepth}{0}
 \usepackage {caption}
+\usepackage {tabularx}
 \usepackage {floatrow}
 \floatsetup[table]{capposition=top}
 
+\usepackage{mathpazo} % fonte palatino
+
+\newcommand{\barra}{\backslash}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\seq}[1]{\left<#1\right>}
+\newcommand{\norma}[1]{\left\Vert#1\right\Vert}
+\newcommand{\hr}{\par\noindent\hrulefill\par}
+
 \usepackage {xr}
-\externaldocument[s]{supplemental}
+\externaldocument{sup_base}
 
 \selectlanguage{english}
 
@@ -133,22 +144,32 @@
 
 \section{Introduction}\label{introduction}
 
+In the present work, we compare the methods described both by Cheverud
+et al. (1989) and Klingenberg (2009) to test \emph{a priori} defined
+modularity patterns, using both real data and a simulation-based
+approach; in this context, simulations are used in order to estimate
+Type I and Type II error rates for both methods. Since these methods
+were designed under different frameworks, the present work also puts
+some effort into unifying both methods into the same conceptual and
+statistical framework, in order to produce a more meaningful comparison
+between the two methods.
+
 \section{Methods}\label{methods}
 
 \subsection{Sample}\label{sample}
 
 The database used here (\autoref{tab:modcomp_otu}) consists of 21
 species, distributed across all taxonomic denominations of Anthropoidea
-above the genus level. These species were selected from a broader
-database (Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009) in
-order to reduce the effects of low sample sizes over estimates of
-modularity patterns. Individuals in our sample are represented by 36
-registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS
-for Platyrrhini and Catarrhini, respectively. Twenty-two unique
-landmarks represent each individual (\autoref{fig:landmarks},
-\autoref{tab:lms}), since 14 of the 36 registered landmarks are
-bilaterally symmetrical. For more details on landmark registration, see
-Marroig \& Cheverud (2001) and Oliveira et al. (2009).
+above the genus level. These OTUs were selected from a broader database
+(Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009) in order to
+reduce the effects of low sample sizes over estimates of modularity
+patterns. Individuals in our sample are represented by 36 registered
+landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for
+Platyrrhini and Catarrhini, respectively. Twenty-two unique landmarks
+represent each individual (\autoref{fig:landmarks}, \autoref{tab:lms}),
+since 14 of the 36 registered landmarks are bilaterally symmetrical. For
+more details on landmark registration, see Marroig \& Cheverud (2001)
+and Oliveira et al. (2009).
 
 \input{Tables/modcomp_otu}
 
@@ -156,16 +177,21 @@ For each OTU, we estimated phenotypic covariance and correlation
 matrices for three different types of variables: tangent space
 residuals, estimated from a Procrustes superimposition for the entire
 sample, using the set of landmarks described on both \autoref{tab:lms}
-and \autoref{fig:landmarks}; interlandmark distances, as described in
-\autoref{tab:dist}; and local shape variables (Márquez \emph{et al.},
-2012), which are measurements of infinitesimal log volume
-transformations between each sample unit and a reference (mean) shape.
-These transformations were calculated at 38 points, corresponding to the
-locations of the mipoints between pairs of landmarks used to calculate
-interlandmark distances, in order to produce a dataset that represents
-shape (i.e., form without isometric variation; Bookstein, 1991; Zelditch
-\emph{et al.}, 2004) while retaining the same overall properties of the
-interlandmark distance dataset.
+and \autoref{fig:landmarks} (henceforth refered to as Procrustes
+residuals); interlandmark distances, as described in \autoref{tab:dist};
+and local shape variables (Márquez \emph{et al.}, 2012), which are
+measurements of infinitesimal log volume transformations between each
+sample unit and a reference (mean) shape. These transformations were
+calculated at 38 points, corresponding to the locations of the mipoints
+between pairs of landmarks used to calculate interlandmark distances, in
+order to produce a dataset that represents shape (i.e., form without
+isometric variation; Bookstein, 1991; Zelditch \emph{et al.}, 2004)
+while retaining the same overall properties of the interlandmark
+distance dataset, such as dimensionality, for instance. Furthermore, the
+same hypotheses of trait association can be used on both types of
+variables since the position of local shape variables through the skull
+mirrors the position of interlandmark distances, although they are
+conceptually different types of measurements.
 
 For each dataset, we estimated covariance and correlation matrices after
 removing fixed effects of little interest in the present context, such
@@ -180,31 +206,42 @@ removed fixed effects.
 
 In order to consider the effects of size variation over modularity
 patterns, we used a different procedure to remove the influence of size,
-according to the different properties of each type of variable.
+according to the different properties of each type of variable. For
+interlandmark distances, we use the approach estabilished by Bookstein
+et al. (1985); if $C$ is a correlation matrix, we obtain a correlation
+matrix $R$ without the effect of size using the equation \[
+R = C - \lambda_1 v_1 v^{t}_1
+\] where $\lambda_1$ and $v_1$ refer respectively to the first
+eigenvalue and eigenvector of the spectral decomposition of $C$,
+considering that this eigenvector is associated with size variation, a
+common pattern in mammalian correlation structure, especially when
+interlandmark distances are considered (Wagner, 1984; Mitteroecker
+\emph{et al.}, 2004; Mitteroecker \& Bookstein, 2007); $t$ denotes
+matrix transpose. For Procrustes residuals and local shape variables,
+the effects of isometric variation are removed prior through normalizing
+each individual to unit centroid size. However, allometric effects still
+influence covariance or correlation structure. In order to remove such
+effects, we use a similar procedure, based upon Mitteroecker et al.
+(2004), which involves the estimation of an allometric component for
+each OTU; this allometric component is related to regression coefficents
+for each of the $m$ variables over log Centroid Size. If $S$ is a
+covariance matrix, we obtain a covariance matrix $R$ without the
+influence of allometric relationships using the equation \[
+R = (I_m - aa^t) C (I_m - aa^t)
+\] where $a$ refers to the normalized allometric component estimated for
+each OTU and $I_m$ represents the identity matrix of size $m$.
+Therefore, our empirical dataset consists of six different sets of
+covariance/correlation matrices, considering both the nature of
+morphometric variables and the presence or absence of variation
+associated with size.
 
-De maneira a considerar o efeito da variação de tamanho sobre padrões de
-modularidade, utilizamos um procedimento de remoção de tamanho sobre
-matrizes de covaripara cada tipo de variável: para distâncias
-euclidianas, utilizamos o procedimento delineado em Marroig \& Cheverud
-(2004), baseado em Bookstein et al. (1985). No caso dos resíduos de
-Procrustes e variáveis locais de forma, apesar do efeito de escala ser
-removido, ao normalizar cada indivíduo por seu tamanho do centróide
-associado, o efeito da alometria se encontra presente. De maneira a
-remover este efeito, utilizamos o procedimento delineado por
-Mitteroecker et al. (2004). Desta forma, obtivemos matrizes de
-covariância que representam os padrões de associação entre variáveis
-livres dos efeitos integradores de tamanho.
+\subsection{\emph{A priori} Modularity Hypothesis
+Tests}\label{a-priori-modularity-hypothesis-tests}
 
-\subsection{Testes de Hipótese de Modularidade \emph{a
-priori}}\label{testes-de-hipotese-de-modularidade-a-priori}
-
-A partir dos seis conjuntos de matrizes de covariância, testamos as
-hipóteses de associação entre marcos anatômicos delimitadas na
-\autoref{tab:lms} para matrizes derivadas de resíduos de Procrustes;
-para distâncias euclidianas e variáveis locais de forma, utilizamos as
-hipóteses conforme a delimitação exposta na \autoref{tab:dist}, visto
-que estes dois conjuntos de dados possuem, por construção, o mesmo
-número de caracteres posicionados de modo similar sobre o crânio.
+Using these six sets of covariance/correlation matrices, we test the
+hypotheses of trait associations described in both \autoref{tab:lms} for
+Procrustes residuals and \autoref{tab:dist} for interlandmark distances
+and local shape variables.
 
 Para cada hipótese de associação testada, calculamos o índice AVG (Porto
 \emph{et al.}, 2013), da forma
@@ -531,6 +568,10 @@ Bookstein, F.L., Chernoff, B., Elder, R., Humphries, Smith, G. \&
 Strauss, R. 1985. \emph{Morphometrics in Evolutionary Biology}. The
 Academy of Natural Sciences of Philadelphia, Philadelphia.
 
+Cheverud, J.M., Wagner, G.P. \& Dow, M.M. 1989. Methods for the
+comparative analysis of variation patterns. \emph{Evolution}
+\textbf{38}: 201--213.
+
 Klingenberg, C.P. 2009. Morphometric integration and modularity in
 configurations of landmarks: tools for evaluating a priori hypotheses.
 \emph{Evolution \& Development} \textbf{11}: 405--421.
@@ -540,14 +581,13 @@ and covariation patterns and the role of phylogeny, ecology, and
 ontogeny during cranial evolution of new world monkeys. \emph{Evolution}
 \textbf{55}: 2576--2600.
 
-Marroig, G. \& Cheverud, J.M. 2004. Cranial evolution in sakis
-(Pithecia, Platyrrhini) I: Interspecific differentiation and allometric
-patterns. \emph{American Journal of Physical Anthropology} \textbf{125}:
-266--278.
-
 Márquez, E.J., Cabeen, R., Woods, R.P. \& Houle, D. 2012. The
 Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
 \textbf{39}: 419--439.
+
+Mitteroecker, P. \& Bookstein, F.L. 2007. The conceptual and statistical
+relationship between modularity and morphological integration.
+\emph{Systematic Biology} \textbf{56}: 818--836.
 
 Mitteroecker, P., Gunz, P., Bernhard, M., Bookstein, F.L. \& Schaefer,
 K. 2004. Comparison of cranial ontogenetic trajectories among great apes
@@ -558,8 +598,8 @@ the skull of Catarrhini: a case of pattern stasis and magnitude
 evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
 
 Polly, P.D. 2005. Development and phenotypic correlations: the evolution
-of tooth shape in sorex araneus. \emph{Evolution \& Development}
-\textbf{7}: 29--41.
+of tooth shape in \{\textbackslash{}it Sorex araneus\}. \emph{Evolution
+\& Development} \textbf{7}: 29--41.
 
 Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
 Variation, Growth Strategies, and the Evolution of Modularity in the
@@ -569,6 +609,11 @@ Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
 marsupials and monkeys: size variation and evolutionary constraint and
 flexibility. \emph{Journal of experimental zoology. Part B, Molecular
 and developmental evolution} \textbf{314B}: 663--683.
+
+Wagner, G.P. 1984. On the eigenvalue distribution of genetic and
+phenotypic dispersion matrices: evidence for a nonrandom organization of
+quantitative character variation. \emph{Journal of Mathematical Biology}
+\textbf{21}: 77--95.
 
 Zelditch, M.L., Swiderski, D.L., Sheets, H.D. \& Fink, W.L. 2004.
 \emph{Geometric Morphometrics for Biologists: A Primer}, 1st ed.

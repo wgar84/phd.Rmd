@@ -1,0 +1,66 @@
+---
+title: "Supplemental Material Base"
+output:
+  pdf_document:
+    includes:
+      in_header: Tex/chap_head.tex
+      before_body: Tex/chap_info.tex
+    fig_caption: true
+    keep_tex: true
+  word_document:
+    fig_caption: true
+    fig_width: 6
+fontsize: 11pt
+csl: Bib/journal-of-evolutionary-biology.csl
+bibliography: Bib/tese.bib
+---	
+
+```{r options_intro, include = FALSE}
+opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+```
+
+```{r captions_intro, include = FALSE}
+captions <- list()
+
+captions $ fig.landmarks <- "Configuração de Marcos Anatômicos. As linhas conectando os marcos indicam os caracteres considerados, tanto sob a forma de distâncias euclidianas quanto variáveis locais de forma. Linhas pontilhadas e tracejadas indicam a associação dos caracteres às hipóteses *a priori* de integração (Face e Neurocrânio, respectivamente). \\label{fig:landmarks}"
+
+captions $ fig.phylo_model <- "Tamanhos amostrais e efeitos fixos controlados para as 109 OTUs de primatas antropóides. \\label{fig:phylo_model}"
+
+```
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\input{Tables/lms_en}
+
+![`r captions $ fig.landmarks`](Figures/landmarks.png)
+
+\input{Tables/dist_en}
+
+```{r phylo_model, echo = FALSE, fig.width = 8.5, fig.height = 8.5, fig.cap = captions $ fig.phylo_model}
+par (omi = c(0, 0.1, 0, 0.1), mar = c(0, 0, 0, 0))
+plot.phylo(Tree [[1]],
+           type = 'fan', cex = 0.6, label.offset = .03,
+           use.edge.length = TRUE, y.lim = c(- 0.6, 0.6), x.lim = c(- 0.6, 0.6))
+
+models.adj <- as.factor (Aux $ data.man.sp [, 2])
+
+models.adj [30] <- 'SUB'
+
+models.adj <- factor (as.character (models.adj),
+                      levels = c('NONE', 'SUB', 'SEX', 'SUB + SEX', 'SUB * SEX'))
+
+tiplabels(bg = brewer.pal(5, 'Set1') [as.numeric (models.adj)],
+          cex = 2.2, pch = as.numeric (models.adj) + 20, col = NULL)
+
+tiplabels(text = Aux $ sample.size, frame = 'none', cex = 0.5, col = 'white')
+
+legend(0, 0,
+       pch = 21:25,
+       pt.cex = 1.3,
+       cex = 0.7,
+       col = 'white',
+       pt.bg = brewer.pal(5, 'Set1'),
+       legend = c('-', 'subsp/pop', 'sex', 'subsp/pop + sex', 'subsp/pop * sex'),
+       bty = 'o', bg = 'white', xjust = 0.5, yjust = 0.5)
+```

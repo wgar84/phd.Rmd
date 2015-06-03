@@ -51,12 +51,50 @@ attach ('Data/modcomp.Results.RData')
 attach ('Data/allo.Results.RData')
 attach ('Data/ppca.RData')
 
-render('tese.Rmd', output_file = 'Output/tese.pdf')
-render('allo.Rmd', output_file = 'Output/allo.pdf')
-render('ppca.Rmd', output_file = 'Output/ppca.pdf')
-render('modcomp.Rmd', output_file = 'Output/modcomp.pdf')
+captions <- list()
 
-system('okular Output/tese.pdf &')
-system('okular Output/allo.pdf &')
-system('okular Output/ppca.pdf &')
-system('okular Output/modcomp.pdf &')
+render('tese.Rmd', output_file = 'tese.pdf')
+render('allo.Rmd', output_file = 'allo.pdf')
+render('ppca.Rmd', output_file = 'ppca.pdf')
+render('modcomp.Rmd', output_file = 'modcomp.pdf')
+
+render('sup_base.Rmd', output_file = 'sup_base.pdf')
+
+system('okular tese.pdf &')
+system('okular allo.pdf &')
+system('okular ppca.pdf &')
+system('okular modcomp.pdf &')
+
+### Parcimony Allo
+
+## write.csv(allo.Data $ integra.df [1:109, c('node', 'W.inter', 'W.slope')],
+##           row.names = FALSE, col.names = TRUE, file = 'Data/allo.csv', quote = FALSE)
+
+## write.nexus(Tree [[1]], file = 'Data/tree.nex')
+
+## allo.Parc <- data.frame (cbind (111:217, which (!(Tree [[1]] $ edge [, 2] %in% 1:109)) + 2),
+##                          read.csv('Data/allo_parc.csv') [-1, 2:3])
+
+## head (allo.Parc)
+
+## head (allo.Data $ model.slopes)
+
+## allo.Data $ model.slopes %>%
+##   filter(pos == 'Ancestor') %>%
+##   mutate('parc' = allo.Parc $ slope) %>%
+##   ggplot (.) +
+##   geom_text(aes (x = parc, y = post.mean, label = node, color = pMCMC < 0.05),
+##             size = 3) +
+##   theme_bw() +
+##   geom_abline(intercept = 0, slope = 1, linetype = 'dashed')
+  
+## allo.Data $ model.intercepts %>%
+##   filter(pos == 'Ancestor') %>%
+##   mutate('parc' = allo.Parc $ inter) %>%
+##   ggplot (.) +
+##   geom_text(aes (x = parc, y = post.mean, label = node, color = pMCMC < 0.05),
+##             size = 3) +
+##   theme_bw() +
+##   geom_abline(intercept = 0, slope = 1, linetype = 'dashed')
+
+
