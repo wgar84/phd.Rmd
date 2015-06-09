@@ -65,6 +65,8 @@ system('okular allo.pdf &')
 system('okular ppca.pdf &')
 system('okular modcomp.pdf &')
 
+system('okular sup_base.pdf &')
+
 ### Parcimony Allo
 
 ## write.csv(allo.Data $ integra.df [1:109, c('node', 'W.inter', 'W.slope')],
