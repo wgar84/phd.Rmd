@@ -98,7 +98,7 @@ Para avaliar a relação entre parâmetros alométricos e índices AVG, ajustamo
 
 ## Software
 
-All analysis were performed under R 3.1.2 [@r_core_team_r:_2014]. Our code for the estimation of local shape variables can be found at <http://github.com/wgar84>. We performed MCMC sampling for all models using the MCMCglmm package in R [@hadfield_mcmc_2010]. In order to obtain symmetrical landmarks configurations, we use code provided by Annat Haber, available at <http://life.bio.sunysb.edu/morph/soft-R.html>.
+All analysis were performed under R `r paste (version $ major, version $ minor, sep = '.')` [@r_core_team_r:_2015]. Our code for the estimation of local shape variables can be found at <http://github.com/wgar84>. We performed MCMC sampling for all models using the MCMCglmm package in R [@hadfield_mcmc_2010]. In order to obtain symmetrical landmarks configurations, we use code provided by Annat Haber, available at <http://life.bio.sunysb.edu/morph/soft-R.html>.
 
 # Results
 

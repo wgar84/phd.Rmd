@@ -159,12 +159,13 @@ key words:
 
 In the present work, we compare the methods described both by Cheverud
 et al. (1989) and Klingenberg (2009) to test \emph{a priori} defined
-modularity patterns, using both real data and a simulation-based
-approach; in this context, simulations are used in order to estimate
-Type I and Type II error rates for both methods. Since these methods
-were designed under different frameworks, the present work also puts
-some effort into unifying both methods into the same conceptual and
-statistical framework, in order to produce a more meaningful comparison.
+modularity patterns, using both real data and an approach based on the
+construction of theoretical correlation matrices; in this context, these
+theoretical matrices are used in order to estimate Type I and Type II
+error rates for both methods. Since these methods were designed under
+different frameworks, the present work also puts some effort into
+unifying both methods into the same conceptual and statistical
+framework, in order to produce a more meaningful comparison.
 
 \section{Methods}\label{methods}
 
@@ -205,15 +206,20 @@ variables since the position of local shape variables through the skull
 mirrors the position of interlandmark distances, although they are
 conceptually different types of measurements.
 
-In the present work we consider only covariance or correlation structure
-for the symmetrical component of variation; therefore, prior to any
-analysis, we need to control for variation in assymmetry. For
-interlandmark distances, we averaged bilateral measurements within each
-individual. For both Procrustes residuals and local shape variables, we
-follow the procedure outlined in Klingenberg et al. (2002) for bilateral
-structures by obtaning for each individual a symmetrical landmark
-configuration, averaging each actual shape with its reflection along the
-sagittal plane.
+Here we consider only covariance or correlation structure for the
+symmetrical component of variation; therefore, prior to any analysis, we
+need to control for variation in assymmetry. For interlandmark
+distances, we averaged bilateral measurements within each individual.
+For both Procrustes residuals and local shape variables, we follow the
+procedure outlined in Klingenberg et al. (2002) for bilateral structures
+by obtaning for each individual a symmetrical landmark configuration,
+averaging each actual shape with its reflection along the sagittal
+plane; we estimate local shape variables afterwards. With respect to
+Procrustes residuals, landmarks placed along the sagittal plane will
+have zero variation in the direction normal to this plane; we aligned
+all specimens' sagittal plane to the $xz$ plane, thus removing the $y$
+component for each of these landmarks from covariance/correlation
+matrices.
 
 For each dataset, we estimated covariance and correlation matrices after
 removing fixed effects of little interest in the present context, such
@@ -229,8 +235,8 @@ removed fixed effects.
 In order to consider the effects of size variation over modularity
 patterns, we used a different procedure to remove the influence of size,
 according to the different properties of each type of variable. For
-interlandmark distances, we use the approach estabilished by Bookstein
-et al. (1985); if $\mathbf{C}$ is a correlation matrix, we obtain a
+interlandmark distances, we use the approach established by Bookstein et
+al. (1985); if $\mathbf{C}$ is a correlation matrix, we obtain a
 correlation matrix $\mathbf{R}$ without the effect of size using the
 equation \[
 \mathbf{R} = \mathbf{C} - \lambda_1 v_1 v^{t}_1
@@ -259,19 +265,18 @@ covariance/correlation matrices, considering both the nature of
 morphometric variables and the presence or absence of variation
 associated with size.
 
-\subsection{\emph{A priori} Modularity Hypothesis
-Tests}\label{a-priori-modularity-hypothesis-tests}
+\subsection{Empirical Modularity Hypothesis
+Tests}\label{empirical-modularity-hypothesis-tests}
 
 Using these six sets of covariance/correlation matrices, we test the
 hypotheses of trait associations described in both \autoref{tab:lms} for
 Procrustes residuals and \autoref{tab:dist} for interlandmark distances
-and local shape variables. These hypotheses are grouped with respect to
-their scope; two main regions (Face and Neurocranium), each divided into
-three subregions (Oral, Nasal and Zygomatic for the Face; Orbit, Base
-and Vault for the Neurocranium). These trait associations reflect our
-knowledge of functional/developmental interactions on the primate skull.
+and local shape variables. These trait sets are grouped with respect to
+their scope; two regional sets (Face and Neurocranium), each divided
+into three more localized trait sets (Oral, Nasal and Zygomatic for the
+Face; Orbit, Base and Vault for the Neurocranium).
 
-For each hypothesis, we estimate both the AVG index (Porto \emph{et
+For each hypothesis, we estimate both the AVG Index (Porto \emph{et
 al.}, 2013) and the RV coefficient (Klingenberg, 2009). Both indexes are
 estimated by partitioning any given covariance or correlation matrix
 into blocks; if $\mathbf{A}$ is a covariance or correlation matrix, the
@@ -287,7 +292,7 @@ considered, while $\mathbf{A}_c$ represents the complementary set;
 $\mathbf{A}_b$ represents the block of covariances or correlations
 between the two sets. Thus, covariance ($\mathbf{S}$) or correlation
 ($\mathbf{C}$) can be partitioned into a similar scheme. We estimate AVG
-indexes using the equation \[
+Indexes using the equation \[
 AVGi = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
 \] where $\bar{\rho}_{+}$ represents the average correlation in
 $\mathbf{C}_h$, $\bar{\rho}_{-}$ represents the average correlation of
@@ -304,12 +309,12 @@ The partitioning scheme outlined above assumes that the complementary
 set does not represent an actual hypothesis of trait association;
 however, we may choose to consider that both sets ($\mathbf{A}_h$ and
 $\mathbf{A}_c$) represent two distinct hypothesis. The estimation of RV
-coefficients remains the same; however, AVG indexes are estimated
+coefficients remains the same; however, AVG Indexes are estimated
 considering that $\bar{\rho}_{+}$ is the average correlation in both
 $\mathbf{C}_h$ and $\mathbf{C}_c$, while $\bar{\rho}_{-}$ represents the
 average correlation only in $\mathbf{C}_b$. In the particular case of
 the distinction between Facial and Neurocranial traits, we also estimate
-AVG indexes in this manner, reporting values for this estimate under the
+AVG Indexes in this manner, reporting values for this estimate under the
 denomination `Neuroface', following Marroig \& Cheverud (2001), along
 independent AVGi estimates for each region. Furthermore, since both Face
 and Neurocranium are two disjoint trait sets when any morphometric
@@ -319,23 +324,31 @@ each variable type.
 
 In order to test the hypothesis that each trait set represent
 variational modules, we use a randomization procedure that generates
-1000 random sets of traits with the same size as the original set,
+1000 random trait sets with the same size as the original set,
 calculating both AVGi and RV values for each generated set. These values
 are used to construct distributions for both metrics that represent the
-null hypothesis that a given trait set is a random arrangement without
-meaningful relationships. The value obtained for the real trait set is
-then compared to this distribution. In the case of AVGi, we consider
-that this null hypothesis is rejected when the real value is higher than
-the average value for the null distribution, considering the
-significance level estabilished; in the case of RV coefficient, the null
+null hypothesis that a hypothetical trait set is a random arrangement
+without meaningful relationships. The value obtained for the real trait
+set is then compared to this distribution. In the case of AVGi, we
+consider that this null hypothesis is rejected when the real value is
+higher than the average value for the null distribution, considering the
+significance level established; in the case of RV coefficient, the null
 hypothesis is rejected when the real RV value is lower than the average
 value for the distribution, also considering a certain significance
-level. It is noteworthy that, for Procrustes residuals, the
-randomization procedure considers that coordinates within the same
-landmark should remain together in each randomly generated trait set,
-following Klingenberg \& Leamy (2001).
+level. For Procrustes residuals, the randomization procedure considers
+that coordinates within the same landmark should remain together in each
+randomly generated trait set, following Klingenberg \& Leamy (2001).
 
-\subsection{Simulations}\label{simulations}
+It is noteworthy that, while the procedure for estimating significance
+in the case of AVG Indexes is derived from Mantel's (1967) approach (as
+outlined by Cheverud \emph{et al.}, 1989), we chose to generate null
+distributions for AVGi directly, instead of estimating matrix
+correlation values for both real and permutated matrices. Significance
+in both cases remain the same, and the additional step of estimating
+matrix correlations would produce an unnecessary difference between the
+estimation of signficance for AVGi and RV.
+
+\subsection{Estimation of Error Rates}\label{estimation-of-error-rates}
 
 In order to evaluate the statistical properties of both metrics and the
 randomization procedure, we built theoretical correlation matrices \[
@@ -345,8 +358,8 @@ randomization procedure, we built theoretical correlation matrices \[
 \mathbf{B}^t & \mathbf{W}_2 \\
 \end{bmatrix}
 \] where $\mathbf{W}_1$ and $\mathbf{W}_2$ represent correlation blocks
-associated with two distinct trait sets, and $\mathbf{B}$ represents
-correlations between both sets.
+associated with two distinct trait sets, and $\mathbf{B}$ represents the
+correlation block between both sets.
 
 For each set of empirical correlation matrices used in the previous
 section, we obtained average correlation distributions within and
@@ -375,18 +388,20 @@ retaining their statistical properties.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/cor_dist-1.pdf}
-\caption{Distribution of correlation derived from empirical correlation
-matrices. \label{fig:cor_dist}}
+\caption{Distribution of within-set and between-set correlations derived
+from the six types of empirical correlation matrices.
+\label{fig:cor_dist}}
 \end{figure}
 
 For each of the six pairs of correlation distributions, we built 1000
-theoretical correlation matrices for 40 traits. We considered only
-positive-definite matrices; if any given matrix did not fit this
-criterion, we discarded that matrix and sampled a new set of
+theoretical correlation matrices for 40 traits; previous tests indicate
+that matrix dimensionality does not affect any of our results. We
+considered only positive-definite matrices; if any given matrix did not
+fit this criterion, we discarded that matrix and sampled a new set of
 correlations. This allows us to sample observations from a multivariate
 normal distribution using each of these 6000 matrices as the $\Sigma$
 parameter. For each matrix, we also sample the size of both trait sets;
-we estabilished a minimal value of five traits for the size of any set.
+we established a minimal value of five traits for the size of any set.
 
 We use this set of 6000 correlation matrices of known structure
 ($\mathbf{C}_s$) to built another set of correlation matrices of
@@ -399,81 +414,110 @@ matrix for each sample, thus also considering in our tests the
 uncertainty derived from sampling. For each matrix estimated, both
 $\mathbf{C}_r$ and $\mathbf{C}_s$, we test the hypothesis that the two
 sets used to generate each $\mathbf{C}_s$ matrix represent two
-variational modules, using both AVGi and RV coefficients.
+variational modules, using both AVGi and RV coefficients, as described
+in the previous section.
 
 The case in which samples were generated from a $\mathbf{C}_r$ matrix
 represents a situation of a true null hypothesis for either tests, since
 the correlation matrix used to produce the sample was generated by a
-permutation of the hypothesis being tested. Therefore, when testing
-hypotheses over $\mathbf{C}_r$ matrices, we estimated type I error rates
-for both tests, that is, the proportion of cases in which the null
-hypothesis is rejected even though it is false, given a significance
-level. In this case, in an adequate test, we expect that both
-quantities, significance level and type I error rate, will be identical.
+permutation of the hypothesis being tested. Therefore, testing
+hypotheses over $\mathbf{C}_r$ matrices allows us to estimate Type I
+error rates for both tests, that is, the proportion of cases in which
+the null hypothesis is rejected even though it is false, given a
+significance level. In an adequate test, we expect that both quantities,
+significance level and Type I error rate, will be identical.
 
 The opposite case, when we sampled $\mathbf{C}_s$ matrices, represents a
 situation in which we know that the null hypothesis of either tests is
 false, since we are testing the hypothesis that the partitioning scheme
 used to generate that particular matrix actually represents two
-variational modules. Thus, we estimated, in this case, the type II error
+variational modules. Thus, we estimated, in this case, the Type II error
 rates, that is, the probability that the null hypothesis is not rejected
 even though it is false, given a significance level; here, we represent
-type II error using the power for each test, by simply calculating the
-complementar probability to type II error rate. In an adequate test, we
+Type II error using the power for each test, by simply calculating the
+complementar probability to Type II error rate. In an adequate test, we
 expect that power will rapidly reach a plateau when significance level
 is still close to zero, and further increasing $P(\alpha)$ will not
 produce a great increase in power.
 
-\section{Resultados}\label{resultados}
+Our estimations of power for both metrics should also be controlled for
+effect size, since sampled correlations may generate a correlation
+structure that is not detected simply due to small differences between
+within-set and between-set correlations. For each correlation matrix
+sampled, we keep the squared between-set correlation ($b^2$), in order
+to use it as an estimate of effect size that is not directly associated
+with both AVGi and RV metrics. We expect that power for either tests
+will decrease with increasing $b^2$ values, as effect size would also
+decrease.
 
-\subsection{Testes Empíricos}\label{testes-empiricos}
+\subsubsection{Software}\label{software}
 
-Em relação às hipóteses locais (Oral, Nasal, Zigomático, Órbita, Base e
-Abóbada), estimativas de AVGi (\autoref{fig:MI_Func}) e RV
-(\autoref{fig:RV_Func}) demonstram que os testes discordam a respeito
-das regiões detectadas como hipóteses válidas. No caso particular dos
-testes sobre resíduos de Procrustes, ambos os testes detectam como
-válidas um número reduzido de hipóteses, em regiões e espécies díspares.
-Desconsiderando resíduos de Procrustes, o teste associado ao índice AVG
-detecta partições nos dois tipos de variáveis de forma consistente entre
-as diferentes espécies, ainda que as regiões detectadas em cada tipo de
-variável sejam diferentes. No caso do índice RV, ainda que um número
-maior de hipótese sejam detectados em relação aos resíduos de
-Procrustes, não há consistência entre as partições detectadas em cada
-tipo de variável dentre as diferentes espécies. O mesmo padrão pode ser
-observado para a distinção entre Face e Neurocrânio (Figuras
-\ref{fig:MI_Dev} e \ref{fig:RV_Dev}).
+All analysis were performed under R 3.2.0 (R Core Team, 2015). Source
+code for all analyses can be found at \url{http://github.com/wgar84}. It
+is noteworthy that previous tests we made indicated no differences
+between our estimation of empirical RV coefficients, based upon our own
+code, and estimates provided by MorphoJ (Klingenberg, 2011). In order to
+obtain symmetrical landmarks configurations, we used code provided by
+Annat Haber, available at
+\url{http://life.bio.sunysb.edu/morph/soft-R.html}.
+
+\section{Results}\label{results}
+
+\subsection{Empirical Data}\label{empirical-data}
+
+Regarding localized trait sets, tests performed using AVG Indexes
+(\autoref{fig:MI_Func}) detect a consistent pattern among OTUs for both
+interlandmark distances and local shape variables; in the first set, the
+Oral sub-region is detected as a modular partition, and, when size is
+removed, the Vault sub-region is also detected. With local shape
+variables, more regions are detected, and the removal of allometric
+variation does not change the overall pattern of detection; notably, the
+Base sub-region is detected only in 3 of 42 tests. For Procrustes
+residuals, the pattern of detection among sub-regions and OTUs is
+diffuse; it is noteworthy that the Base sub-region is detected among
+several OTUs, which contrasts this type of morphometric variable with
+the remaining two types.
+
+Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a
+more diffuse pattern. When interlandmark distances are considered, most
+tests detect the Vault sub-region with size variation retained, and the
+Base sub-region when size variation is removed. For Procrustes
+residuals, few tests are able to reject their null hypothesis, detecting
+only a handful of valid modular partitions. Tests performed on local
+shape variables display the opposite behavior: almost all partitions are
+detected, regardless of the retention or removal of allometric
+variation.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/MI_Func-1.pdf}
-\caption{AVG Index values for local functional/developmental hypotheses.
-Circles indicate whether a hypothesis is recognized in a given OTU,
-according to the legend \label{fig:MI_Func}}
+\caption{AVG Index values for localized trait sets. Circles indicate
+whether a trait set is recognized as a variational module in a given
+OTU, according to the legend. \label{fig:MI_Func}}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/RV_Func-1.pdf}
-\caption{RV Coefficient values for local functional/developmental
-hypotheses. Circles indicate whether a hypothesis is recognized in a
-given OTU, according to the legend \label{fig:RV_Func}}
+\caption{RV Coefficient values for localized trait sets. Circles
+indicate whether a trait set is recognized as a variational module in a
+given OTU, according to the legend. \label{fig:RV_Func}}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/MI_Dev-1.pdf}
-\caption{AVG Index values for global developmental hypotheses. Circles
-indicate whether a hypothesis is recognized in a given OTU, according to
-the legend \label{fig:MI_Dev}}
+\caption{AVG Index values for regional trait sets. Circles indicate
+whether a trait set is recognized in a given OTU, according to the
+legend. \label{fig:MI_Dev}}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/RV_Dev-1.pdf}
-\caption{RV Coefficient values for global developmental hypotheses.
-Circles indicate whether a hypothesis is recognized in a given OTU,
-according to the legend \label{fig:RV_Dev}}
+\caption{RV Coefficient values for regional trait sets. Circles indicate
+whether a trait set is recognized in a given OTU, according to the
+legend. \label{fig:RV_Dev}}
 \end{figure}
 
 \subsection{Simulações}\label{simulacoes}
@@ -492,7 +536,7 @@ distribuição é mais larga.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/stat_dist_sim-1.pdf}
-\caption{Distribution of AVG Index and RV Coefficient for simulated
+\caption{Distribution of AVG Index and RV Coefficient for theoretical
 correlation matrices. \label{fig:stat_dist_sim}}
 \end{figure}
 
@@ -510,8 +554,8 @@ significância atribuídos (painel superior à esquerda da
 \centering
 \includegraphics{Figures/type1-1.pdf}
 \caption{Type I error rates as a function of the chosen significance
-level regarding tests for modular structure applied on random
-($\mathbf{C}_r$) matrices. \label{fig:type1}}
+level regarding tests for modular structure applied on $\mathbf{C}_r$
+correlation matrices. \label{fig:type1}}
 \end{figure}
 
 Quando consideramos o poder associado aos testes, é possível observar
@@ -541,8 +585,9 @@ o poder se aproxima da reta identidade em relação a $P(\alpha)$.
 \includegraphics{Figures/type2_ed-1.pdf}
 \caption{Power for both AVGi and RV metrics as a function of the chosen
 significance levels with respect to tests for modular structure applied
-on $\mathbf{C}_s$ matrices, with correlations sampled from the
-interlandmark correlation distribution. \label{fig:type2_ed}}
+on $\mathbf{C}_s$ correlation matrices with values sampled from the
+distribution of correlations between interlandmark distances.
+\label{fig:type2_ed}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -550,8 +595,8 @@ interlandmark correlation distribution. \label{fig:type2_ed}}
 \includegraphics{Figures/type2_def-1.pdf}
 \caption{Power for both AVGi and RV metrics as a function of the chosen
 significance levels with respect to tests for modular structure applied
-on $\mathbf{C}_s$ matrices, with correlations sampled from the local
-shape variables correlation distribution. \label{fig:type2_def}}
+on $\mathbf{C}_s$ matrices with values sampled from the distribution of
+correlations between local shape variables. \label{fig:type2_def}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -559,8 +604,8 @@ shape variables correlation distribution. \label{fig:type2_def}}
 \includegraphics{Figures/type2_sym-1.pdf}
 \caption{Power for both AVGi and RV metrics as a function of the chosen
 significance levels with respect to tests for modular structure applied
-on $\mathbf{C}_s$ matrices, with correlations sampled from the local
-shape variables correlation distribution. \label{fig:type2_sym}}
+on $\mathbf{C}_s$ matrices with values sampled from the distribution of
+correlations between Procrustes residuals. \label{fig:type2_sym}}
 \end{figure}
 
 \section{Discussão}\label{discussao}
@@ -599,6 +644,10 @@ Cheverud, J.M., Wagner, G.P. \& Dow, M.M. 1989. Methods for the
 comparative analysis of variation patterns. \emph{Evolution}
 \textbf{38}: 201--213.
 
+Klingenberg, C.P. 2011. MorphoJ: an integrated software package for
+geometric morphometrics. \emph{Molecular Ecology Resources} \textbf{11}:
+353--357.
+
 Klingenberg, C.P. 2009. Morphometric integration and modularity in
 configurations of landmarks: tools for evaluating a priori hypotheses.
 \emph{Evolution \& Development} \textbf{11}: 405--421.
@@ -610,6 +659,9 @@ geometric shape in the mouse mandible. \emph{Evolution} \textbf{55}:
 Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
 symmetric structures: Quantifying variation among individuals and
 asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
+
+Mantel, N. 1967. The detection of disease clustering and a generalized
+regression approach. \emph{Cancer Res} \textbf{27}: 209--220.
 
 Marroig, G. \& Cheverud, J.M. 2001. A comparison of phenotypic variation
 and covariation patterns and the role of phylogeny, ecology, and
@@ -635,6 +687,9 @@ evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
 Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
 Variation, Growth Strategies, and the Evolution of Modularity in the
 Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
+
+R Core Team. 2015. \emph{R: A Language and Environment for Statistical
+Computing}. R Foundation for Statistical Computing, Vienna, Austria.
 
 Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
 marsupials and monkeys: size variation and evolutionary constraint and
