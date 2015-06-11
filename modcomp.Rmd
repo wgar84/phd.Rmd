@@ -41,16 +41,16 @@ captions $ fig.stat_dist_sim <-
   'Distribution of AVG Index and RV Coefficient for theoretical correlation matrices. \\label{fig:stat_dist_sim}'
 
 captions $ fig.MI_Func <-
-  'AVG Index values for localized trait sets. Circles indicate whether a trait set is recognized as a variational module in a given OTU, according to the legend. \\label{fig:MI_Func}'
+  'AVG Index values for localized trait sets. Circles indicate whether a trait set is recognized as a variational module in a given OTU, with $P(\\alpha)$ indicated by the legend. \\label{fig:MI_Func}'
 
 captions $ fig.RV_Func <-
-  'RV Coefficient values for localized trait sets. Circles indicate whether a trait set is recognized as a variational module in a given OTU, according to the legend. \\label{fig:RV_Func}'
+  'RV Coefficient values for localized trait sets. Circles indicate whether a trait set is recognized as a variational module in a given OTU, with $P(\\alpha)$ indicated by the legend. \\label{fig:RV_Func}'
 
 captions $ fig.MI_Dev <-
-  'AVG Index values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, according to the legend. \\label{fig:MI_Dev}'
+  'AVG Index values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, with $P(\\alpha)$ indicated by the legend. \\label{fig:MI_Dev}'
 
 captions $ fig.RV_Dev <-
-  'RV Coefficient values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, according to the legend. \\label{fig:RV_Dev}'
+  'RV Coefficient values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, with $P(\\alpha)$ indicated by the legend. \\label{fig:RV_Dev}'
 
 captions $ fig.type1 <-
   'Type I error rates as a function of the chosen significance level regarding tests for modular structure applied on $\\mathbf{C}_r$ correlation matrices. \\label{fig:type1}'
@@ -170,7 +170,7 @@ All analysis were performed under R `r paste (version $ major, version $ minor, 
 
 Regarding localized trait sets, tests performed using AVG Indexes (\autoref{fig:MI_Func}) detect a consistent pattern among OTUs for both interlandmark distances and local shape variables; in the first set, the Oral sub-region is detected as a modular partition, and, when size is removed, the Vault sub-region is also detected. With local shape variables, more regions are detected, and the removal of allometric variation does not change the overall pattern of detection; notably, the Base sub-region is detected only in 3 of 42 tests. For Procrustes residuals, the pattern of detection among sub-regions and OTUs is diffuse; it is noteworthy that the Base sub-region is detected among several OTUs, which contrasts this type of morphometric variable with the remaining two types. 
 
-Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a more diffuse pattern. When interlandmark distances are considered, most tests detect the Vault sub-region with size variation retained, and the Base sub-region when size variation is removed. For Procrustes residuals, few tests are able to reject their null hypothesis, detecting only a handful of valid modular partitions. Tests performed on local shape variables display the opposite behavior: almost all partitions are detected, regardless of the retention or removal of allometric variation.
+Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a more diffuse pattern. When interlandmark distances are considered, most tests detect the Vault sub-region with size variation retained, and the Base sub-region when size variation is removed. For Procrustes residuals, few tests are able to reject their null hypothesis, detecting only a handful of valid modular partitions. Tests performed on local shape variables display the opposite behavior: almost all partitions are detected, regardless of whether allometric variation has been retained or removed.
 
 ```{r MI_Func, echo = FALSE, fig.cap = captions $ fig.MI_Func, fig.width = 9.6, fig.height = 10.8}
 modcomp.Plots $ MI.Func
@@ -179,6 +179,9 @@ modcomp.Plots $ MI.Func
 ```{r RV_Func, echo = FALSE, fig.cap = captions $ fig.RV_Func, fig.width = 9.6, fig.height = 10.8}
 modcomp.Plots $ RV.Func
 ```
+
+With respect to regional trait sets, 
+
 
 ```{r MI_Dev, echo = FALSE, fig.cap = captions $ fig.MI_Dev, fig.width = 9.6, fig.height = 10.8}
 modcomp.Plots $ MI.Dev 

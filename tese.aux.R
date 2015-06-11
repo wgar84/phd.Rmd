@@ -100,3 +100,40 @@ system('okular sup_base.pdf &')
 ##   geom_abline(intercept = 0, slope = 1, linetype = 'dashed')
 
 
+ggplot (subset (modcomp.Data $ Summ, type == 'RV')) +
+  geom_tile(aes(x = data, y = otu, fill = value)) +
+  facet_grid(size ~ hyp) +
+  theme_minimal() +
+  scale_fill_continuous(name = 'RV', high = 'yellow', low = 'blue', space = 'Lab',
+                        limits = c(0, 1), 
+                        breaks = c(0.1, 0.5, 0.9)) +
+  geom_point (aes (x = data, y = otu,
+                   size = (p < 0.05) + (p < 0.01) + (p < 0.001),
+                   alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
+  scale_size_area(name = expression(P(alpha)),
+                  labels = c('< 0.05', '< 0.01', '< 0.001'),
+                  breaks = c(1, 2, 3)) +
+  xlab ('Hypothesis') + ylab ('OTU') + labs(title = 'RV Coefficent') +
+  scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ $ otu))) +
+  scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        axis.ticks = element_line(size = 0))
+
+ggplot (subset (modcomp.Data $ Summ, type == 'MI')) +
+  geom_tile(aes(x = data, y = otu, fill = value)) +
+  facet_grid(size ~ hyp) +
+  theme_minimal() +
+  scale_fill_continuous(name = 'AVG Index',
+                        high = 'blue', low = 'yellow', space = 'Lab',
+                        breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
+  geom_point (aes (x = data, y = otu,
+                   size = (p < 0.05) + (p < 0.01) + (p < 0.001),
+                   alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
+  scale_size_area(name = expression(P(alpha)),
+                  labels = c('< 0.05', '< 0.01', '< 0.001'),
+                  breaks = c(1, 2, 3)) +
+  xlab ('Hypothesis') + ylab ('OTU') + labs(title = 'AVG Index') +
+  scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
+  scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ $ otu))) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        axis.ticks = element_line(size = 0))
