@@ -15,8 +15,6 @@ csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/modcomp.bib
 ---	
 
-
-
 Guilherme Garcia^1,2^, Gabriel Marroig^1^
 
 ^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
@@ -26,8 +24,6 @@ Guilherme Garcia^1,2^, Gabriel Marroig^1^
 running title: Error in Modularity Hypothesis Testing
 
 key words: 
-
-
 
 ```{r options_modcomp, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
@@ -68,7 +64,7 @@ captions $ fig.type2_sym <-
 
 # Introduction
 
-In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using both real data and an approach based on the construction of theoretical correlation matrices; in this context, these theoretical matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce a more meaningful comparison.
+In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using different Anthropoid species, with sample units represented both as interlandmark distances and shape variables; furthermore, we also used an approach based on the construction of theoretical correlation matrices. In this context, these theoretical matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce a more meaningful comparison.
 
 # Methods
 
@@ -168,24 +164,25 @@ All analysis were performed under R `r paste (version $ major, version $ minor, 
 
 ## Empirical Data
 
-Regarding localized trait sets, tests performed using AVG Indexes (\autoref{fig:MI_Func}) detect a consistent pattern among OTUs for both interlandmark distances and local shape variables; in the first set, the Oral sub-region is detected as a modular partition, and, when size is removed, the Vault sub-region is also detected. With local shape variables, more regions are detected, and the removal of allometric variation does not change the overall pattern of detection; notably, the Base sub-region is detected only in 3 of 42 tests. For Procrustes residuals, the pattern of detection among sub-regions and OTUs is diffuse; it is noteworthy that the Base sub-region is detected among several OTUs, which contrasts this type of morphometric variable with the remaining two types. 
-
-Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a more diffuse pattern. When interlandmark distances are considered, most tests detect the Vault sub-region with size variation retained, and the Base sub-region when size variation is removed. For Procrustes residuals, few tests are able to reject their null hypothesis, detecting only a handful of valid modular partitions. Tests performed on local shape variables display the opposite behavior: almost all partitions are detected, regardless of whether allometric variation has been retained or removed.
+Regarding localized trait sets, tests performed using AVG Indexes (\autoref{fig:MI_Func}) detect a consistent pattern among OTUs for both interlandmark distances and local shape variables; in the first set, the Oral sub-region is detected as a modular partition, and, when size is removed, the Vault sub-region is also detected; both Orbit and Base region are not detected in any of the tests with this type of variable. With local shape variables, both Oral and Vault sets are also detected consistently across OTUs, along Nasal and Zygomatic traits; moreover, the removal of allometric variation affect only the detection of the Vault. Notably, the Base sub-region is detected only in 3 of 42 tests. For Procrustes residuals, the pattern of detection among sub-regions and OTUs is diffuse; it is noteworthy that the Base sub-region is detected among several OTUs, which contrasts this type of morphometric variable with the remaining two types. Furthermore, abstracting the actual tests performed, \autoref{fig:MI_Func} also indicates that Procrustes residuals display a low variance for AVGi values within each OTU, while both interlandmark distances and local shape variables display a consistent pattern of variation among AVGi values within each OTU, with lower values for the Base and, for interlandmark distances, Orbit trait sets.
 
 ```{r MI_Func, echo = FALSE, fig.cap = captions $ fig.MI_Func, fig.width = 9.6, fig.height = 10.8}
 modcomp.Plots $ MI.Func
 ```
 
+Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a more diffuse pattern among each varible type. When interlandmark distances are considered, most tests detect the Vault sub-region with size variation retained, and the Base sub-region when size variation is removed. For Procrustes residuals, few tests are able to reject their null hypothesis, detecting only a handful of valid modular partitions. Tests performed on local shape variables display the opposite behavior: almost all partitions are detected, regardless of whether allometric variation has been retained or removed. Moreover, RV values display a pattern of marked variation among OTUs, more so than between values within each OTU; notably, *Macaca fascicularis* and *Papio anubis* show RV values much higher than those estimated on remaining species. This pattern can be observed both on interlandmark distances with size retained and in Procrustes residuals, although this effect is more marked in the former type. 
+
 ```{r RV_Func, echo = FALSE, fig.cap = captions $ fig.RV_Func, fig.width = 9.6, fig.height = 10.8}
 modcomp.Plots $ RV.Func
 ```
 
-With respect to regional trait sets, 
-
+With respect to regional trait sets, tests performed using AVGi (\autoref{fig:MI_Dev}) indicate a pattern consistent with the findings regarding localized sets (\autoref{fig:MI_Func}). Considering only interlandmark distances, Facial traits are detected as a valid modular partition both with size variation retained or removed, while Neurocranial traits are detected as a valid partition only when size variation is removed. This pattern mirrors the contrast between Oral and Vault traits in the localized sets regarding interlandmark distances. Considering Procrustes residuals, Neurocranial traits are a valid partition with both size retained and removed; once again, this pattern mirrors the detection of the Basicranial partition as valid in the localized sets. Finally, in local shape variables, both Face and Neurocranium are detected as valid with size retained; with size removed, only the Face is recognized. The same can be observed in the localized sets, where removing allometric variation affects the detection of the Vault set. The tests for distinction between within-set and between-set correlations for these two sets (designated 'Neuroface') show a pattern that is consistent with tests for the individual sets, that is, if one of the sets was previously detected, this distinction is also detected as valid with high probability.
 
 ```{r MI_Dev, echo = FALSE, fig.cap = captions $ fig.MI_Dev, fig.width = 9.6, fig.height = 10.8}
 modcomp.Plots $ MI.Dev 
 ```
+
+Tests performed for this distinction between Face and Neurocranium using RV coefficients (\autoref{fig:RV_Dev}) show that in most cases, for both interlandmark distances and local shape variables, both regions are considered distinct and valid variational modules; in Procrustes residuals, only in a handful of taxa the same result emerges. In this case, the correspondence with results for localized trait sets (\autoref{fig:RV_Func}) is more difficult, due to the lack of independent tests for each region.
 
 ```{r RV_Dev, echo = FALSE, fig.cap = captions $ fig.RV_Dev, fig.width = 5.2, fig.height = 6.4}
 modcomp.Plots $ RV.NeuroFace +
