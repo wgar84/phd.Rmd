@@ -49,22 +49,22 @@ captions $ fig.RV_Dev <-
   'RV Coefficient values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, with $P(\\alpha)$ indicated by the legend. \\label{fig:RV_Dev}'
 
 captions $ fig.type1 <-
-  'Type I error rates as a function of the chosen significance level regarding tests for modular structure applied on $\\mathbf{C}_r$ correlation matrices. \\label{fig:type1}'
+  'Type I error rates as a function of the chosen significance level regarding tests for variational modularity applied on $\\mathbf{C}_r$ correlation matrices. The solid black line represents the identity relationship. \\label{fig:type1}'
 
 captions $ fig.type2_ed <-
-  'Power for both AVGi and RV metrics as a function of the chosen significance levels with respect to tests for modular structure applied on $\\mathbf{C}_s$ correlation matrices with values sampled from the distribution of correlations between interlandmark distances. \\label{fig:type2_ed}'
+  'Power for both AVGi and RV metrics as a function of the chosen significance levels with respect to tests for variational modularity applied on $\\mathbf{C}_s$ correlation matrices with values sampled from the distribution of correlations between interlandmark distances. Lines are colored with respect to quantiles of the $b^2$ distribution, according to the legend. The solid black line represents the identity relationship. \\label{fig:type2_ed}'
 
 captions $ fig.type2_def <-
-    'Power for both AVGi and RV metrics as a function of the chosen significance levels with respect to tests for modular structure applied on $\\mathbf{C}_s$ matrices with values sampled from the distribution of correlations between local shape variables. \\label{fig:type2_def}'
+    'Power for both AVGi and RV metrics as a function of the chosen significance levels with respect to tests for variational modularity applied on $\\mathbf{C}_s$ matrices with values sampled from the distribution of correlations between local shape variables. Lines are colored with respect to quantiles of the $b^2$ distribution, according to the legend. \\label{fig:type2_def}'
 
 captions $ fig.type2_sym <-
-  'Power for both AVGi and RV metrics as a function of the chosen significance levels with respect to tests for modular structure applied on $\\mathbf{C}_s$ matrices with values sampled from the distribution of correlations between Procrustes residuals. \\label{fig:type2_sym}'
+  'Power for both AVGi and RV metrics as a function of the chosen significance levels with respect to tests for variational modularity applied on $\\mathbf{C}_s$ matrices with values sampled from the distribution of correlations between Procrustes residuals. Lines are colored with respect to quantiles of the $b^2$ distribution, according to the legend. The solid black line represents the identity relationship. \\label{fig:type2_sym}'
 
 ```
 
 # Introduction
 
-In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using different Anthropoid species, with sample units represented both as interlandmark distances and shape variables; furthermore, we also used an approach based on the construction of theoretical correlation matrices. In this context, these theoretical matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce a more meaningful comparison.
+In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using Anthropoid primates as a model organism. In order to also compare the performance of these methods with respect to different representations of form, sample units are represented both as interlandmark distances and shape variables. Furthermore, we also used an approach based on the construction of theoretical correlation matrices; in this context, these matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce a more meaningful comparison.
 
 # Methods
 
@@ -162,7 +162,7 @@ All analysis were performed under R `r paste (version $ major, version $ minor, 
 
 # Results
 
-## Empirical Data
+## Empirical Tests
 
 Regarding localized trait sets, tests performed using AVG Indexes (\autoref{fig:MI_Func}) detect a consistent pattern among OTUs for both interlandmark distances and local shape variables; in the first set, the Oral sub-region is detected as a modular partition, and, when size is removed, the Vault sub-region is also detected; both Orbit and Base region are not detected in any of the tests with this type of variable. With local shape variables, both Oral and Vault sets are also detected consistently across OTUs, along Nasal and Zygomatic traits; moreover, the removal of allometric variation affect only the detection of the Vault. Notably, the Base sub-region is detected only in 3 of 42 tests. For Procrustes residuals, the pattern of detection among sub-regions and OTUs is diffuse; it is noteworthy that the Base sub-region is detected among several OTUs, which contrasts this type of morphometric variable with the remaining two types. Furthermore, abstracting the actual tests performed, \autoref{fig:MI_Func} also indicates that Procrustes residuals display a low variance for AVGi values within each OTU, while both interlandmark distances and local shape variables display a consistent pattern of variation among AVGi values within each OTU, with lower values for the Base and, for interlandmark distances, Orbit trait sets.
 
@@ -198,24 +198,21 @@ Comparing the distributions of AVGi and RV values from theoretical matrices with
 alt.dist.sim
 ```
 
-With respect to the relationship between significance levels and Type I error rates, \autoref{fig:type1} shows that these quantities approach an identity relationship very closely, even when considering different sample sizes
-
-Considerando a relação entre níveis de significância e taxas de erro tipo I (\autoref{fig:type1}), esta relação, para os diferentes tipos de variáveis e tamanhos amostrais, segue muito próxima à reta-identidade, de maneira que ambos os testes baseados no dois índices apresentam um comportamento próximo do ideal, exceto no caso das matrizes derivadas das distribuições de correlação de variáveis locais de forma sem remoção de tamanho, onde taxas de erro tipo I são menores que os níveis de significância atribuídos (painel superior à esquerda da \autoref{fig:type1}).
+With respect to the relationship between significance levels and Type I error rates, estimated over $\mathbf{C}_r$ matrices, \autoref{fig:type1} shows that these quantities approach an identity relationship very closely, regardless of whether we use AVGi or RV to quantify variational modularity; even at low sample sizes, Type I error rates are very close to significance levels.
 
 ```{r type1, echo = FALSE, fig.cap = captions $ fig.type1, fig.width = 9.6, fig.height = 10.8, message = FALSE}
 modsim.Plots $ Type1 
 ```
 
-Quando consideramos o poder associado aos testes, é possível observar que existem diferenças substanciais neste parâmetro dentre os diferentes tipos de variáveis. No caso das distâncias euclidianas (\autoref{fig:type2_ed}), é possiível observar que o poder rapidamente se aproxima assintoticamente ao valor máximo no caso do índice AVG para a distribuição onde o tamanho é mantido, enquanto que no caso onde tamanho é removido, o poder é sempre menor, mas há um incremento em função do tamanho amostral. Para o índice RV, o poder é sempre menor do que no caso do AVGi; nas matrizes da distribuição sem tamanho, essa diferença é ainda mais marcante.
+When we consider the relationship between power and significance levels, estimated over $\mathbf{C}_s$ matrices, there are substantial differences with respect both to the chosen statistic (AVGi or RV) and to the type of variable from which correlations are sampled. Considering local shape variables (\autoref{fig:type2}), tests using both AVGi and RV have high power, regardless of sample size or effect size; however, it is noteworthy that, for lower effect sizes (represented by high average squared correlation between sets, $b^2$) power for tests performed using AVGi is higher than for those using RV. As effect size increases (lower $b^2$ values), the difference in power between the two metrics decreases.
 
-Para as matrizes derivadas das correlações entre variáveis de forma (\autoref{fig:type2_def}), a distribuição de poder em função de $P(\alpha)$ se comporta de maneira similar em ambos os casos (AVGi e RV), sempre em valores bastante altos. No caso das matrizes derivadas das distribuições de correlação de resíduos de Procrustes (\autoref{fig:type2_sym}), há uma diferença substancial no poder de ambos os testes; ainda que para o índice AVG, o poder dos testes seja consideravelmente mais baixo do que em outros tipos de variáveis, ele se aproxima de 75\% para tamanhos amostrais elevados, no caso do índice RV, o poder se aproxima da reta identidade em relação a $P(\alpha)$.
-
-```{r type2_ed, echo = FALSE, fig.cap = captions $ fig.type2_ed, fig.width = 9.6, fig.height = 10.8, message = FALSE}
-modsim.Plots $ Type2.ED
-```
 
 ```{r type2_def, echo = FALSE, fig.cap = captions $ fig.type2_def, fig.width = 9.6, fig.height = 10.8, message = FALSE}
 modsim.Plots $ Type2.Def
+```
+
+```{r type2_ed, echo = FALSE, fig.cap = captions $ fig.type2_ed, fig.width = 9.6, fig.height = 10.8, message = FALSE}
+modsim.Plots $ Type2.ED
 ```
 
 ```{r type2_sym, echo = FALSE, fig.cap = captions $ fig.type2_sym, fig.width = 9.6, fig.height = 10.8, message = FALSE}

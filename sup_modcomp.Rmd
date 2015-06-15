@@ -1,5 +1,5 @@
 ---
-title: "Supplemental Material"
+title: "Supplemental Material for 'Type I and II Error Rates in Modularity Hypothesis Testing'"
 output:
   pdf_document:
     includes:
