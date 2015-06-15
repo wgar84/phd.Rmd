@@ -3,7 +3,7 @@ title: "Type I and II Error Rates in Modularity Hypothesis Testing"
 output:
   pdf_document:
     includes:
-      in_header: Tex/chap_head.tex
+      in_header: Tex/modcomp_head.tex
       before_body: Tex/chap_info.tex
     fig_caption: true
     keep_tex: true
@@ -182,7 +182,7 @@ With respect to regional trait sets, tests performed using AVGi (\autoref{fig:MI
 modcomp.Plots $ MI.Dev 
 ```
 
-Tests performed for this distinction between Face and Neurocranium using RV coefficients (\autoref{fig:RV_Dev}) show that in most cases, for both interlandmark distances and local shape variables, both regions are considered distinct and valid variational modules; in Procrustes residuals, only in a handful of taxa the same result emerges. In this case, the correspondence with results for localized trait sets (\autoref{fig:RV_Func}) is more difficult, due to the lack of independent tests for each region.
+Tests performed for this distinction between Face and Neurocranium using RV coefficients (\autoref{fig:RV_Dev}) show that in most cases, for both interlandmark distances and local shape variables, both regions are considered distinct and valid variational modules; in Procrustes residuals, only in a handful of taxa the same result can be observed. In this case, the correspondence with results for localized trait sets (\autoref{fig:RV_Func}) is more difficult, due to the lack of independent tests for each region.
 
 ```{r RV_Dev, echo = FALSE, fig.cap = captions $ fig.RV_Dev, fig.width = 5.2, fig.height = 6.4}
 modcomp.Plots $ RV.NeuroFace +
@@ -190,13 +190,15 @@ modcomp.Plots $ RV.NeuroFace +
   theme (text = element_text (size = 8)) 
 ```
 
-## Simulações
+## Error Rates
 
-A distribuição de valores de AVGi e RV recuperadas da simulação (\autoref{fig:stat_dist_sim}) indica que, no caso de variáveis locais de forma, as distribuições de valores obtidos a partir de matrizes $\mathbf{C}_s$ e $\mathbf{C}_r$ são disjuntas, enquanto nos demais tipos de variáveis, há uma sobreposição razoável das distribuições para os dois tipos de matrizes, ainda que essa sobreposição seja maior no caso dos resíduos de Procustes e também no caso do índice RV. A distribuição de índices AVG para matrizes $\mathbf{C}_r$ é bastante estreita e centrada no valor nulo, enquanto que no caso do índice RV, essa distribuição é mais larga.
+Comparing the distributions of AVGi and RV values from theoretical matrices with respect to their structure (\autoref{fig:stat_dist_sim}) shows marked differences between metrics and morphometric variables from which correlations are sampled. For local shape variables, the distribution of both AVGi and RV values for $\mathbf{C}_s$ and $\mathbf{C}_r$ matrices overlap very little; for interlandmark distances, the distribution of AVGi values for both matrix types also has little overlap, while the same distributions for RV have a substantial overlap. Finally, for Procrustes residuals, while the distribution of AVGi values for both matrix types are overlapping to some degree, the same distributions for RV values are identical. It is noteworthy that removing size or allometry does not change these distributions in most cases; only for RV values estimated over matrices derived from correlation distributions for interlandmark distances, in which the removal of size variation increases the overlap in $\mathbf{C}_s$ and $\mathbf{C}_r$ distributions.
 
-```{r stat_dist_sim, echo = FALSE, fig.cap = captions $ fig.stat_dist_sim, fig.width = 9.6, fig.height = 4.4, message = FALSE}
-modsim.Plots $ stat.dist.sim 
+```{r stat_dist_sim, echo = FALSE, fig.cap = captions $ fig.stat_dist_sim, fig.width = 9.6, fig.height = 6.4, message = FALSE}
+alt.dist.sim
 ```
+
+With respect to the relationship between significance levels and Type I error rates, \autoref{fig:type1} shows that these quantities approach an identity relationship very closely, even when considering different sample sizes
 
 Considerando a relação entre níveis de significância e taxas de erro tipo I (\autoref{fig:type1}), esta relação, para os diferentes tipos de variáveis e tamanhos amostrais, segue muito próxima à reta-identidade, de maneira que ambos os testes baseados no dois índices apresentam um comportamento próximo do ideal, exceto no caso das matrizes derivadas das distribuições de correlação de variáveis locais de forma sem remoção de tamanho, onde taxas de erro tipo I são menores que os níveis de significância atribuídos (painel superior à esquerda da \autoref{fig:type1}).
 

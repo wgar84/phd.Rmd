@@ -125,7 +125,7 @@
 \newcommand{\hr}{\par\noindent\hrulefill\par}
 
 \usepackage {xr}
-\externaldocument{sup_base}
+\externaldocument{sup_modcomp}
 
 \selectlanguage{english}
 
@@ -554,8 +554,8 @@ Tests performed for this distinction between Face and Neurocranium using
 RV coefficients (\autoref{fig:RV_Dev}) show that in most cases, for both
 interlandmark distances and local shape variables, both regions are
 considered distinct and valid variational modules; in Procrustes
-residuals, only in a handful of taxa the same result emerges. In this
-case, the correspondence with results for localized trait sets
+residuals, only in a handful of taxa the same result can be observed. In
+this case, the correspondence with results for localized trait sets
 (\autoref{fig:RV_Func}) is more difficult, due to the lack of
 independent tests for each region.
 
@@ -567,18 +567,21 @@ whether a trait set is recognized in a given OTU, with $P(\alpha)$
 indicated by the legend. \label{fig:RV_Dev}}
 \end{figure}
 
-\subsection{Simulações}\label{simulacoes}
+\subsection{Error Rates}\label{error-rates}
 
-A distribuição de valores de AVGi e RV recuperadas da simulação
-(\autoref{fig:stat_dist_sim}) indica que, no caso de variáveis locais de
-forma, as distribuições de valores obtidos a partir de matrizes
-$\mathbf{C}_s$ e $\mathbf{C}_r$ são disjuntas, enquanto nos demais tipos
-de variáveis, há uma sobreposição razoável das distribuições para os
-dois tipos de matrizes, ainda que essa sobreposição seja maior no caso
-dos resíduos de Procustes e também no caso do índice RV. A distribuição
-de índices AVG para matrizes $\mathbf{C}_r$ é bastante estreita e
-centrada no valor nulo, enquanto que no caso do índice RV, essa
-distribuição é mais larga.
+Comparing the distributions of AVGi and RV values from theoretical
+matrices with respect to their structure (\autoref{fig:stat_dist_sim})
+shows marked differences between metrics and morphometric variables from
+which correlations are sampled. For local shape variables, the
+distribution of both AVGi and RV values for $\mathbf{C}_s$ and
+$\mathbf{C}_r$ matrices overlap very little; for interlandmark
+distances, the distribution of AVGi values for both matrix types also
+has little overlap, while the same distributions for RV have a
+substantial overlap. Finally, for Procrustes residuals, while the
+distribution of AVGi values for both matrix types are overlapping to
+some degree, the same distributions for RV values are identical. It is
+noteworthy that removing size or allometry does not change these
+distributions in most cases;
 
 \begin{figure}[htbp]
 \centering
@@ -586,6 +589,11 @@ distribuição é mais larga.
 \caption{Distribution of AVG Index and RV Coefficient for theoretical
 correlation matrices. \label{fig:stat_dist_sim}}
 \end{figure}
+
+With respect to the relationship between significance levels and Type I
+error rates, \autoref{fig:type1} shows that these quantities approach an
+identity relationship very closely, even when considering different
+sample sizes
 
 Considerando a relação entre níveis de significância e taxas de erro
 tipo I (\autoref{fig:type1}), esta relação, para os diferentes tipos de

@@ -1,0 +1,37 @@
+---
+title: "Supplemental Material"
+output:
+  pdf_document:
+    includes:
+      in_header: Tex/sup_modcomp_head.tex
+      before_body: Tex/chap_info.tex
+    fig_caption: true
+    keep_tex: true
+  word_document:
+    fig_caption: true
+    fig_width: 6
+fontsize: 11pt
+csl: Bib/journal-of-evolutionary-biology.csl
+bibliography: Bib/tese.bib
+---	
+
+```{r options_intro, include = FALSE}
+opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+```
+
+```{r captions_intro, include = FALSE}
+captions <- list()
+
+captions $ fig.landmarks <- 'Landmark configuration. Lines connecting landmarks indicate traits considered, either as interlandmark distances or local shape variables. Dotted and dashed lines indicate the association of each trait to *a priori* regional hypotheses of association (Face and Neurocranium, respectively). \\label{fig:landmarks}'
+
+```
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\input{Tables/lms_en}
+
+![`r captions $ fig.landmarks`](Figures/landmarks.png)
+
+\input{Tables/dist_en}
+
