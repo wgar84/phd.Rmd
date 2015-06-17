@@ -112,11 +112,11 @@ ggplot (modsim.Data $ values.df) +
                    color = interaction (variable, type, sep = ' - ')),
                alpha = 0.5, position = 'identity',
                outlier.shape = '+', outlier.size = 1) +
-  facet_grid(stat ~ size, scales = 'free_y') +
+  coord_flip() +
+  facet_grid(size ~ stat, scales = 'free') +
   scale_fill_brewer(name = 'Simulated Matrix Type', palette = 'Paired') +
   scale_color_brewer(name = 'Simulated Matrix Type', palette = 'Paired') +
   ylab('Value') + xlab ('') +
   scale_x_discrete(breaks = NULL) +
-  theme_bw()
-
+  theme_bw() 
 

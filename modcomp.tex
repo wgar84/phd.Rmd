@@ -79,7 +79,7 @@ Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{16 June 2015}
+  \date{17 June 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -648,7 +648,9 @@ distribution in order to build $\mathbf{C}_s$ matrices produces a
 substantial decrease in power for either tests; however, this decrease
 is more pronounced for tests based on the RV statistic, since for lower
 effect sizes (high $b^2$ values), power approaches an identity
-relationship with significance level.
+relationship with significance level. Sample size also interferes with
+this relationship, as increasing this quantity also increases power when
+higher effect sizes (low $b^2$ values) are considered.
 
 \begin{figure}[htbp]
 \centering
@@ -662,6 +664,14 @@ distribution, according to the legend. The solid black line represents
 the identity relationship. \label{fig:type2_ed}}
 \end{figure}
 
+With respect to Procrustes residuals (\autoref{fig:type2_sym}), tests
+using either AVGi or RV have reduced power, regardless of effect or
+sample size. Sampling from size-free correlation distributions to build
+$\mathbf{C}_s$ matrices also has little effect. As for interlandmark
+distances without size variation, power for tests performed using RV
+values approach an identity relationship with significance level;
+however, increasing sample size has little effect in this case.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_sym-1.pdf}
@@ -674,27 +684,7 @@ to the legend. The solid black line represents the identity
 relationship. \label{fig:type2_sym}}
 \end{figure}
 
-\section{Discussão}\label{discussao}
-
-Considerando os resultados obtidos a partir das matrizes teóricas,
-observamos que a distribuição de correlações derivadas de cada tipo de
-variável (\autoref{fig:cor_dist}) são particularmente importantes para o
-seu entendimento, visto que estas matrizes teóricas são derivadas destas
-distribuições. No caso dos resíduos de Procrustes, o procedimento de
-superposição e a premissa de variação isotrópica em torno de cada marco
-anatômico acaba por gerar uma distribuição de correlações médias dentro
-e entre regiões que é marcada por uma diferença pequena entre estes dois
-tipos de correlações, independentemente se consideramos a distribuição
-com tamanho mantido ou removido. Visto que esta diferença é pequena, o
-poder de ambos os teste se reduz bastante em testes realizados nas
-matrizes $\mathbf{C}_s$ derivadas desta distribuição.
-
-Ademais, estas correlações médias derivadas de resíduos de Procrustes
-são bastante próximas de zero, de modo que o poder do índice RV é
-bastante prejudicado neste caso, visto que o cômputo do RV envolve
-variâncias e covariâncias ao quadrado. Como o índice AVG lida com
-correlações em sua escala natural, sua performance em matrizes
-$\mathbf{C}_s$ não é drasticamente prejudicada.
+\section{Discussion}\label{discussion}
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
