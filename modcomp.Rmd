@@ -65,6 +65,8 @@ captions $ fig.type2_sym <-
 
 # Introduction
 
+Modularity is a characteristic property of biological systems that exhibit an uneven distribution of interactions between their composing elements; i.e., in a given system, certain subsets of elements, denominated modules, interact more among themselves than with other such subsets [@newman_modularity_2006; @mitteroecker_conceptual_2007; @wagner_road_2007; @klingenberg_morphological_2008].
+
 In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using Anthropoid primates as a model organism. In order to also compare the performance of these methods with respect to different representations of form, sample units are represented both as interlandmark distances and shape variables. Furthermore, we also used an approach based on the construction of theoretical correlation matrices; in this context, these matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce a more meaningful comparison.
 
 # Methods
@@ -155,7 +157,7 @@ The case in which samples were generated from a $\mathbf{C}_r$ matrix represents
 
 The opposite case, when we sampled $\mathbf{C}_s$ matrices, represents a situation in which we know that the null hypothesis of either tests is false, since we are testing the hypothesis that the partitioning scheme used to generate that particular matrix actually represents two variational modules. Thus, we estimated, in this case, the Type II error rates, that is, the probability that the null hypothesis is not rejected even though it is false, given a significance level; here, we represent Type II error using the power for each test, by simply calculating the complementar probability to Type II error rate. In an adequate test, we expect that power will rapidly reach a plateau when significance level is still close to zero, and further increasing $P(\alpha)$ will not produce a great increase in power.
 
-Our estimations of power for both statistics should also be controlled for effect size, since sampled correlations may generate a correlation structure that is not detected simply due to small differences between within-set and between-set correlations. For each correlation matrix sampled, we keep the squared between-set correlation ($b^2$), in order to use it as an estimate of effect size that is not directly associated with both AVGi and RV statistics. We expect that power for either tests will decrease with increasing $b^2$ values, as effect size would also decrease.
+Our estimations of power for both statistics should also be controlled for effect size, since sampled correlations may generate a correlation structure that is not detected simply due to small differences between within-set and between-set correlations. For each correlation matrix sampled, we keep the squared between-set correlation ($b^2$), in order to use it as an estimate of effect size that is not directly associated with either AVGi and RV statistics. We expect that power for either tests will decrease with increasing $b^2$ values, as effect size would also decrease.
 
 ### Software
 
