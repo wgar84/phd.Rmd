@@ -25,10 +25,13 @@ require (adephylo)
 require (dplyr)
 require (magrittr)
 require (tidyr)
+require (slidify)
 
 registerDoMC (cores = 10)
 
 ## require (devtools)
+## install_github('ramnathv/slidify')
+## install_github('ramnathv/slidifyLibraries')
 ## install_github('uyedaj/bayou')
 ## install_github ('mkoohafkan/kfigr')
 
@@ -55,12 +58,21 @@ captions <- list()
 
 render('tese.Rmd', output_file = 'tese.pdf')
 render('allo.Rmd', output_file = 'allo.pdf')
-render('ppca.Rmd', output_file = 'ppca.pdf')
 
 render('modcomp.Rmd', output_file = 'modcomp.pdf')
 render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
 # system('okular modcomp.pdf &')
 # system('okular sup_modcomp.pdf &')
+
+render('ppca.Rmd', output_file = 'ppca.pdf')
+
+render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
+       output_format = 'ioslides_presentation',
+       output_file = 'Garcia_Evolution_2015.html')
+
+render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
+       output_format = 'beamer_presentation',
+       output_file = 'Garcia_Evolution_2015.pdf')
 
 render('sup_base.Rmd', output_file = 'sup_base.pdf')
 
@@ -119,4 +131,13 @@ ggplot (modsim.Data $ values.df) +
   ylab('Value') + xlab ('') +
   scale_x_discrete(breaks = NULL) +
   theme_bw() 
+
+### PRES PPCA
+
+riem.tab <- sapply(ppca.Data$riem.decdiv.def.table, as.numeric)
+rownames (riem.tab) <- rownames (ppca.Data$riem.decdiv.def.table)
+riem.tab <- round (riem.tab, 3)
+riem.tab <- data.frame(riem.tab)
+riem.tab [, 'P-value'] <- '< 10^-4^'
+riem.tab <- riem.tab[, -4]
 
