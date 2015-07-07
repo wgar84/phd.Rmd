@@ -38,7 +38,7 @@ captions $ fig.srd_shape <- 'Comparações utilizando o método SRD representado
 
 # Introdução
 
-Sistemas morfológicas tendem a apresentar covariação entre seus componentes devido à interações durante o desenvolvimento. No crânio de mamíferos, por exemplo, fenótipos adultos são compostos pela sobreposição de diferentes processos de desenvolvimento; portanto, a variação no tempo, ritmo e escopo de tais processos estrutura os padrões de covariância entre caracteres cranianos em adultos. Esta estrutura de covariância em fenótipos adultos é também influenciada pelos efeitos da canalização e seleção estabilizadora, que podem limitar a variação nos processos de desenvolvimento. Portanto, espera-se que as alterações na estrutura de covariância entre linhagens irmãs irão exibir um padrão não-aleatório consistente com estas interações de desenvolvimento e funcionais.
+Sistemas morfológicos tendem a apresentar covariação entre seus componentes devido à interações durante o desenvolvimento. No crânio de mamíferos, por exemplo, fenótipos adultos são compostos pela sobreposição de diferentes processos de desenvolvimento; portanto, a variação no tempo, ritmo e escopo de tais processos estrutura os padrões de covariância entre caracteres cranianos em adultos. Esta estrutura de covariância em fenótipos adultos é também influenciada pelos efeitos da canalização e seleção estabilizadora, que podem limitar a variação nos processos de desenvolvimento. Portanto, espera-se que as alterações na estrutura de covariância entre linhagens irmãs irão exibir um padrão não-aleatório consistente com estas interações de desenvolvimento e funcionais.
 
 # Métodos
 

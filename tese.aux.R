@@ -26,11 +26,12 @@ require (dplyr)
 require (magrittr)
 require (tidyr)
 require (slidify)
+require (slidifyLibraries)
 
-registerDoMC (cores = 10)
+registerDoMC (cores = 3)
 
 ## require (devtools)
-## install_github('ramnathv/slidify')
+## install_github('muschellij2/slidify')
 ## install_github('ramnathv/slidifyLibraries')
 ## install_github('uyedaj/bayou')
 ## install_github ('mkoohafkan/kfigr')
@@ -141,3 +142,10 @@ riem.tab <- data.frame(riem.tab)
 riem.tab [, 'P-value'] <- '< 10^-4^'
 riem.tab <- riem.tab[, -4]
 
+author('Presentation/Evolution2015', F, F)
+slidify('index.Rmd')
+browseURL('index.html', 'firefox')
+
+centroid.size (cmdscale(dist (Sym [['Homo_sapiens']] $ sym [, , 1]), k = 3))
+
+centroid.size (Sym [['Homo_sapiens']] $ sym [, , 1])

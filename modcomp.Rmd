@@ -1,6 +1,6 @@
 ---
 title: "Type I and II Error Rates in Modularity Hypothesis Testing"
-author: Guilherme Garcia^1,2^ & Gabriel Marroig^1^
+author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   pdf_document:
@@ -16,7 +16,6 @@ fontsize: 12pt
 csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/modcomp.bib
 ---	
-
 
 ^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
 
@@ -65,9 +64,11 @@ captions $ fig.type2_sym <-
 
 # Introduction
 
-Modularity is a characteristic property of biological systems that exhibit an uneven distribution of interactions between their composing elements; i.e., in a given system, certain subsets of elements, denominated modules, interact more among themselves than with other such subsets [@newman_modularity_2006; @mitteroecker_conceptual_2007; @wagner_road_2007; @klingenberg_morphological_2008].
+Modularity is a characteristic property of biological systems that exhibit an uneven distribution of interactions between their composing elements; i.e., in a given system, certain subsets of elements, denominated modules, interact more among themselves than with other such subsets [@newman_modularity_2006; @mitteroecker_conceptual_2007; @wagner_road_2007; @klingenberg_morphological_2008]. Regarding morphological systems, modularity is conceived as the result of genetic and functional interactions, as expressed throughout development [@cheverud_developmental_1996; @wagner_homologues_1996; @polly_developmental_2008].
 
-In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using Anthropoid primates as a model organism. In order to also compare the performance of these methods with respect to different representations of form, sample units are represented both as interlandmark distances and shape variables. Furthermore, we also used an approach based on the construction of theoretical correlation matrices; in this context, these matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce a more meaningful comparison.
+
+
+In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using anthropoid primates as a model organism. In order to also compare the performance of these methods with respect to different representations of form, sample units are represented both as interlandmark distances and shape variables. Furthermore, we also used an approach based on the construction of theoretical correlation matrices; in this context, these matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce meaningful comparisons.
 
 # Methods
 
