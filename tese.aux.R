@@ -146,6 +146,3 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
-centroid.size (cmdscale(dist (Sym [['Homo_sapiens']] $ sym [, , 1]), k = 3))
-
-centroid.size (Sym [['Homo_sapiens']] $ sym [, , 1])

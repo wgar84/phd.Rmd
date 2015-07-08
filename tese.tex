@@ -138,12 +138,12 @@
 \usepackage{lastpage} % Conta o número de páginas
 
 \usepackage{pdflscape} % ambiente landscape
-\usepackage {tabularx}
 
 \usepackage[round]{natbib}
 \usepackage{chapterbib}
 
 \usepackage[flushleft]{threeparttable}
+\usepackage {tabularx}
 
 \usepackage[draft]{pdfpages}
 
@@ -391,8 +391,6 @@ modularity, morphological integration, anthropoid primates
 
 \onehalfspacing
 
-\listoffixmes
-
 \pagestyle{fancy}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -438,19 +436,80 @@ de primatas antropóides. \label{fig:phylo_model}}
 \chapter{Type I and II Error Rates in Modularity Hypothesis Testing}
 \label{ch:modcomp}
 
+\textsuperscript{1}Laboratório de Evolução de Mamíferos, Departamento de
+Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de
+São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
+
+\textsuperscript{2}\href{mailto:wgar@usp.br}{wgar@usp.br}
+
+running title: Error in Modularity Hypothesis Testing
+
+key words:
+
 \section{Introduction}\label{introduction}
+
+Modularity is a characteristic pattern that biological systems exhibit
+concerning the distribution of interactions between their composing
+elements; that is, in a given system, certain subsets of elements,
+denominated modules, interact more among themselves than with other such
+subsets (Newman, 2006; Mitteroecker \& Bookstein, 2007; Wagner \emph{et
+al.}, 2007; Klingenberg, 2008). This pattern has been well documented at
+different levels of biological organization, from the dynamics of
+metabolic networks ({\textbf{???}}; e.g. Ravasz \emph{et al.}, 2002) to
+the structure of interactions among individuals in populations (e.g.
+{\textbf{???}}) and among species in ecological communities (e.g.
+{\textbf{???}}).
+
+Regarding morphological systems, the concept of modular organization is
+nested within the framework of morphological integration (Olson \&
+Miller, 1958; Cheverud, 1996a), which refers to the organization of
+correlations among morphological elements and the set of hypothesis
+concerning their relationships. In this context, modularity refers to a
+particular organization of genetic effects over phenotypic variation,
+articulated through development (genotype/phenotype map;
+{\textbf{???}}). A modular organization of the genotype/phenotype map is
+thought to emerge as the result of selection for conflicting functional
+demands ({\textbf{???}}); for instance, the decoupling between fore- and
+hindlimb function in certain mammalian lineages such as bats
+({\textbf{???}}) and apes ({\textbf{???}}) is accompanied with the
+modularization of both structures, as shown by a reduction of phenotypic
+correlations among limbs and an increase in correlations within limbs.
+
+The recognition of such variational modules ({\textbf{???}}; Wagner
+\emph{et al.}, 2007) over covariance or correlation patterns in adult
+populations involves a comprehension of the underlying developmental
+dynamics. In the mammalian skull, development is composed of sequential
+steps that may be regarded as modular in the sense that they are
+confined to specific skull regions, such as brain growth or muscle-bone
+interactions ({\textbf{???}}; Hallgrímsson \& Lieberman, 2008). However,
+these confined steps tend to also affect adjoining regions through
+interaction among developing tissues ({\textbf{???}}; Lieberman, 2011;
+Esteve-Altava \& Rasskin-Gutman, 2014), and the composed effect of these
+different processes over correlation patterns in adult phenotypes may be
+misleading ({\textbf{???}}; Hallgrímsson \emph{et al.}, 2009).
+Furthermore, of particular importance in the context of mammalian
+morphological systems is variation in overall growth rates, which, in
+adult populations, emerges into size variation (Porto \emph{et al.},
+2013). This source of variation affects the overall level of phenotypic
+correlations among morphological traits ({\textbf{???}}; Wagner, 1984),
+and the magnitude of overall integration has important consequences for
+both the evolution of mean phenotypes among species (e.g.
+{\textbf{???}}, {\textbf{???}}) and the evolution of morphological
+integration itself (Oliveira \emph{et al.}, 2009; Porto \emph{et al.},
+2009, 2013; Shirai \& Marroig, 2010).
 
 In the present work, we compare the methods described both by Cheverud
 et al. (1989) and Klingenberg (2009) to test \emph{a priori} defined
-modularity patterns, using different Anthropoid species, with sample
-units represented both as interlandmark distances and shape variables;
-furthermore, we also used an approach based on the construction of
-theoretical correlation matrices. In this context, these theoretical
-matrices are used in order to estimate Type I and Type II error rates
-for both methods. Since these methods were designed under different
-frameworks, the present work also puts some effort into unifying both
-methods into the same conceptual and statistical framework, in order to
-produce a more meaningful comparison.
+modularity patterns, using anthropoid primates as a model organism. In
+order to also compare the performance of these methods with respect to
+different representations of form, sample units are represented both as
+interlandmark distances and shape variables. Furthermore, we also used
+an approach based on the construction of theoretical correlation
+matrices; in this context, these matrices are used in order to estimate
+Type I and Type II error rates for both methods. Since these methods
+were designed under different frameworks, the present work also puts
+some effort into unifying both methods into the same conceptual and
+statistical framework, in order to produce meaningful comparisons.
 
 \section{Methods}\label{methods}
 
@@ -561,8 +620,8 @@ their scope; two regional sets (Face and Neurocranium), each divided
 into three more localized trait sets (Oral, Nasal and Zygomatic for the
 Face; Orbit, Base and Vault for the Neurocranium).
 
-For each hypothesis, we estimate both the AVG Index (Porto \emph{et
-al.}, 2013) and the RV coefficient (Klingenberg, 2009). Both indexes are
+For all hypotheses, we estimate both AVG Indexes (Porto \emph{et al.},
+2013) and the RV coefficients (Klingenberg, 2009). Both statistics are
 estimated by partitioning any given covariance or correlation matrix
 into blocks; if $\mathbf{A}$ is a covariance or correlation matrix, the
 partition \[
@@ -576,8 +635,8 @@ correlations between traits that belong to the trait set being
 considered, while $\mathbf{A}_c$ represents the complementary set;
 $\mathbf{A}_b$ represents the block of covariances or correlations
 between the two sets. Thus, covariance ($\mathbf{S}$) or correlation
-($\mathbf{C}$) can be partitioned into a similar scheme. We estimate AVG
-Indexes using the equation \[
+($\mathbf{C}$) matrices can be partitioned into a similar scheme. We
+estimate AVG Indexes using the equation \[
 AVGi = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
 \] where $\bar{\rho}_{+}$ represents the average correlation in
 $\mathbf{C}_h$, $\bar{\rho}_{-}$ represents the average correlation of
@@ -598,45 +657,47 @@ coefficients remains the same; however, AVG Indexes are estimated
 considering that $\bar{\rho}_{+}$ is the average correlation in both
 $\mathbf{C}_h$ and $\mathbf{C}_c$, while $\bar{\rho}_{-}$ represents the
 average correlation only in $\mathbf{C}_b$. In the particular case of
-the distinction between Facial and Neurocranial traits, we also estimate
-AVG Indexes in this manner, reporting values for this estimate under the
-denomination `Neuroface', following Marroig \& Cheverud (2001), along
-independent AVGi estimates for each region. Furthermore, since both Face
-and Neurocranium are two disjoint trait sets when any morphometric
-variable type is considered, RV coefficient values for either set are
-equal; therefore, a single RV value is reported for both regions, for
-each variable type.
+the distinction between Facial and Neurocranial traits, we also
+estimated AVG Indexes in this manner, reporting values for this estimate
+under the denomination `Neuroface', following Marroig \& Cheverud
+(2001), along independent AVGi estimates for each region. Furthermore,
+since both Face and Neurocranium are two disjoint trait sets when any
+morphometric variable type is considered, RV coefficient values for
+either set are equal; therefore, a single RV value is reported for both
+regions, for each variable type.
 
 In order to test the hypothesis that each trait set represent
-variational modules, we use a randomization procedure that generates
+variational modules, we used a randomization procedure that generates
 1000 random trait sets with the same size as the original set,
 calculating both AVGi and RV values for each generated set. These values
-are used to construct distributions for both metrics that represent the
-null hypothesis that a hypothetical trait set is a random arrangement
-without meaningful relationships. The value obtained for the real trait
-set is then compared to this distribution. In the case of AVGi, we
-consider that this null hypothesis is rejected when the real value is
-higher than the average value for the null distribution, considering the
-significance level established; in the case of RV coefficient, the null
-hypothesis is rejected when the real RV value is lower than the average
-value for the distribution, also considering a certain significance
-level. For Procrustes residuals, the randomization procedure considers
-that coordinates within the same landmark should remain together in each
-randomly generated trait set, following Klingenberg \& Leamy (2001).
+are used to construct distributions for both statistics that represent
+the null hypothesis that a hypothetical trait set is a random
+arrangement without meaningful relationships. The value obtained for the
+real trait set is then compared to this distribution. In the case of
+AVGi, we consider that this null hypothesis is rejected when the real
+value is higher than the average value for the null distribution,
+considering the significance level established; in the case of RV
+coefficient, the null hypothesis is rejected when the real RV value is
+lower than the average value for the distribution, also considering a
+certain significance level. For Procrustes residuals, the randomization
+procedure considers that coordinates within the same landmark should
+remain together in each randomly generated trait set, following
+Klingenberg \& Leamy (2001).
 
 It is noteworthy that, while the procedure for estimating significance
 in the case of AVG Indexes is derived from Mantel's (1967) approach (as
 outlined by Cheverud \emph{et al.}, 1989), we chose to generate null
 distributions for AVGi directly, instead of estimating matrix
-correlation values for both real and permutated matrices. Significance
-in both cases remain the same, and the additional step of estimating
-matrix correlations would produce an unnecessary difference between the
-estimation of signficance for AVGi and RV.
+correlation values for both real and permutated matrices. Estimated
+$p$-values in both cases remain the same, and the additional step of
+estimating matrix correlations would produce an unnecessary difference
+between the estimation of signficance for AVGi and RV.
 
 \subsection{Estimation of Error Rates}\label{estimation-of-error-rates}
 
-In order to evaluate the statistical properties of both metrics and the
-randomization procedure, we built theoretical correlation matrices \[
+In order to evaluate the statistical properties of both statistics and
+the randomization procedure, we built theoretical correlation matrices
+\[
 \mathbf{C}_{s} =
 \begin{bmatrix}
 \mathbf{W}_1 & \mathbf{B} \\
@@ -725,15 +786,15 @@ expect that power will rapidly reach a plateau when significance level
 is still close to zero, and further increasing $P(\alpha)$ will not
 produce a great increase in power.
 
-Our estimations of power for both metrics should also be controlled for
-effect size, since sampled correlations may generate a correlation
+Our estimations of power for both statistics should also be controlled
+for effect size, since sampled correlations may generate a correlation
 structure that is not detected simply due to small differences between
 within-set and between-set correlations. For each correlation matrix
 sampled, we keep the squared between-set correlation ($b^2$), in order
 to use it as an estimate of effect size that is not directly associated
-with both AVGi and RV metrics. We expect that power for either tests
-will decrease with increasing $b^2$ values, as effect size would also
-decrease.
+with either AVGi and RV statistics. We expect that power for either
+tests will decrease with increasing $b^2$ values, as effect size would
+also decrease.
 
 \subsubsection{Software}\label{software}
 
@@ -854,8 +915,8 @@ indicated by the legend. \label{fig:RV_Dev}}
 
 Comparing the distributions of AVGi and RV values from theoretical
 matrices with respect to their structure (\autoref{fig:stat_dist_sim})
-shows marked differences between metrics and morphometric variables from
-which correlations are sampled. For local shape variables, the
+shows marked differences between statistics and morphometric variables
+from which correlations are sampled. For local shape variables, the
 distribution of both AVGi and RV values for $\mathbf{C}_s$ and
 $\mathbf{C}_r$ matrices overlap very little; for interlandmark
 distances, the distribution of AVGi values for both matrix types also
@@ -876,100 +937,97 @@ $\mathbf{C}_s$ and $\mathbf{C}_r$ distributions.
 correlation matrices. \label{fig:stat_dist_sim}}
 \end{figure}
 
-With respect to the relationship between significance levels and Type I
-error rates, \autoref{fig:type1} shows that these quantities approach an
-identity relationship very closely, even when considering different
-sample sizes
-
-Considerando a relação entre níveis de significância e taxas de erro
-tipo I (\autoref{fig:type1}), esta relação, para os diferentes tipos de
-variáveis e tamanhos amostrais, segue muito próxima à reta-identidade,
-de maneira que ambos os testes baseados no dois índices apresentam um
-comportamento próximo do ideal, exceto no caso das matrizes derivadas
-das distribuições de correlação de variáveis locais de forma sem remoção
-de tamanho, onde taxas de erro tipo I são menores que os níveis de
-significância atribuídos (painel superior à esquerda da
-\autoref{fig:type1}).
+Regarding the relationship between significance levels and Type I error
+rates, estimated over $\mathbf{C}_r$ matrices, \autoref{fig:type1} shows
+that these quantities approach an identity relationship very closely,
+regardless of whether we use AVGi or RV to quantify variational
+modularity; even at low sample sizes, Type I error rates are very close
+to significance levels. Furthermore, the effect of sampling correlations
+from size-free distributions does not alter Type I error rates for both
+tests.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type1-1.pdf}
 \caption{Type I error rates as a function of the chosen significance
-level regarding tests for modular structure applied on $\mathbf{C}_r$
-correlation matrices. \label{fig:type1}}
+level regarding tests for variational modularity applied on
+$\mathbf{C}_r$ correlation matrices. The solid black line represents the
+identity relationship. \label{fig:type1}}
 \end{figure}
 
-Quando consideramos o poder associado aos testes, é possível observar
-que existem diferenças substanciais neste parâmetro dentre os diferentes
-tipos de variáveis. No caso das distâncias euclidianas
-(\autoref{fig:type2_ed}), é possiível observar que o poder rapidamente
-se aproxima assintoticamente ao valor máximo no caso do índice AVG para
-a distribuição onde o tamanho é mantido, enquanto que no caso onde
-tamanho é removido, o poder é sempre menor, mas há um incremento em
-função do tamanho amostral. Para o índice RV, o poder é sempre menor do
-que no caso do AVGi; nas matrizes da distribuição sem tamanho, essa
-diferença é ainda mais marcante.
-
-Para as matrizes derivadas das correlações entre variáveis de forma
-(\autoref{fig:type2_def}), a distribuição de poder em função de
-$P(\alpha)$ se comporta de maneira similar em ambos os casos (AVGi e
-RV), sempre em valores bastante altos. No caso das matrizes derivadas
-das distribuições de correlação de resíduos de Procrustes
-(\autoref{fig:type2_sym}), há uma diferença substancial no poder de
-ambos os testes; ainda que para o índice AVG, o poder dos testes seja
-consideravelmente mais baixo do que em outros tipos de variáveis, ele se
-aproxima de 75\% para tamanhos amostrais elevados, no caso do índice RV,
-o poder se aproxima da reta identidade em relação a $P(\alpha)$.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/type2_ed-1.pdf}
-\caption{Power for both AVGi and RV metrics as a function of the chosen
-significance levels with respect to tests for modular structure applied
-on $\mathbf{C}_s$ correlation matrices with values sampled from the
-distribution of correlations between interlandmark distances.
-\label{fig:type2_ed}}
-\end{figure}
+When we consider the relationship between power and significance levels,
+estimated over $\mathbf{C}_s$ matrices, there are substantial
+differences with respect both to the chosen statistic (AVGi or RV) and
+to the type of variable from which correlations are sampled. Considering
+local shape variables (\autoref{fig:type2_def}), tests using either AVGi
+and RV have high power, even at low sample or effect sizes; increasing
+these quantities produces a further increase in power. However, it is
+noteworthy that, for lower effect sizes (represented by high average
+squared correlation between sets, $b^2$) power for tests performed using
+AVGi is higher than for those using RV. As effect size increases (lower
+$b^2$ values), the difference in power between the two statistics
+decreases. For this type of variable, sampling from its associated
+size-free correlation distribution implies minor differences in power
+for both statistics.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_def-1.pdf}
-\caption{Power for both AVGi and RV metrics as a function of the chosen
-significance levels with respect to tests for modular structure applied
-on $\mathbf{C}_s$ matrices with values sampled from the distribution of
-correlations between local shape variables. \label{fig:type2_def}}
+\caption{Power for both AVGi and RV statistics as a function of the
+chosen significance levels with respect to tests for variational
+modularity applied on $\mathbf{C}_s$ matrices with values sampled from
+the distribution of correlations between local shape variables. Lines
+are colored with respect to quantiles of the $b^2$ distribution,
+according to the legend. \label{fig:type2_def}}
 \end{figure}
+
+For interlandmark distances (\autoref{fig:type2_ed}), there are
+substantial differences on the relationship between power and
+significance level if we consider the different parameters. First and
+foremost, the effect of sampling from the size-free correlation
+distribution in order to build $\mathbf{C}_s$ matrices produces a
+substantial decrease in power for either tests; however, this decrease
+is more pronounced for tests based on the RV statistic, since for lower
+effect sizes (high $b^2$ values), power approaches an identity
+relationship with significance level. Sample size also interferes with
+this relationship, as increasing this quantity also increases power when
+higher effect sizes (low $b^2$ values) are considered.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/type2_ed-1.pdf}
+\caption{Power for both AVGi and RV statistics as a function of the
+chosen significance levels with respect to tests for variational
+modularity applied on $\mathbf{C}_s$ correlation matrices with values
+sampled from the distribution of correlations between interlandmark
+distances. Lines are colored with respect to quantiles of the $b^2$
+distribution, according to the legend. The solid black line represents
+the identity relationship. \label{fig:type2_ed}}
+\end{figure}
+
+With respect to Procrustes residuals (\autoref{fig:type2_sym}), tests
+using either AVGi or RV have reduced power, regardless of effect or
+sample size. Sampling from size-free correlation distributions to build
+$\mathbf{C}_s$ matrices also has little effect. As for interlandmark
+distances without size variation, power for tests performed using RV
+values approach an identity relationship with significance level;
+however, increasing sample size has little effect in this case.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_sym-1.pdf}
-\caption{Power for both AVGi and RV metrics as a function of the chosen
-significance levels with respect to tests for modular structure applied
-on $\mathbf{C}_s$ matrices with values sampled from the distribution of
-correlations between Procrustes residuals. \label{fig:type2_sym}}
+\caption{Power for both AVGi and RV statistics as a function of the
+chosen significance levels with respect to tests for variational
+modularity applied on $\mathbf{C}_s$ matrices with values sampled from
+the distribution of correlations between Procrustes residuals. Lines are
+colored with respect to quantiles of the $b^2$ distribution, according
+to the legend. The solid black line represents the identity
+relationship. \label{fig:type2_sym}}
 \end{figure}
 
-\section{Discussão}\label{discussao}
+\section{Discussion}\label{discussion}
 
-Considerando os resultados obtidos a partir das matrizes teóricas,
-observamos que a distribuição de correlações derivadas de cada tipo de
-variável (\autoref{fig:cor_dist}) são particularmente importantes para o
-seu entendimento, visto que estas matrizes teóricas são derivadas destas
-distribuições. No caso dos resíduos de Procrustes, o procedimento de
-superposição e a premissa de variação isotrópica em torno de cada marco
-anatômico acaba por gerar uma distribuição de correlações médias dentro
-e entre regiões que é marcada por uma diferença pequena entre estes dois
-tipos de correlações, independentemente se consideramos a distribuição
-com tamanho mantido ou removido. Visto que esta diferença é pequena, o
-poder de ambos os teste se reduz bastante em testes realizados nas
-matrizes $\mathbf{C}_s$ derivadas desta distribuição.
-
-Ademais, estas correlações médias derivadas de resíduos de Procrustes
-são bastante próximas de zero, de modo que o poder do índice RV é
-bastante prejudicado neste caso, visto que o cômputo do RV envolve
-variâncias e covariâncias ao quadrado. Como o índice AVG lida com
-correlações em sua escala natural, sua performance em matrizes
-$\mathbf{C}_s$ não é drasticamente prejudicada.
+\section{References}\label{references}
 
 \newpage
 \chapter{Allometric Constraints and Modularity}
@@ -1295,7 +1353,7 @@ intervals around estimated regression parameters.
 \label{fig:MI_vs_Wslope}}
 \end{figure}
 
-\section{Discussion}\label{discussion}
+\section{Discussion}\label{discussion-1}
 
 Using estimates of allometry derived from the relationship between local
 shape variables and centroid size, the relationship between magnitude
@@ -1326,7 +1384,7 @@ integration.
 
 \section{Introdução}\label{introducao}
 
-Sistemas morfológicas tendem a apresentar covariação entre seus
+Sistemas morfológicos tendem a apresentar covariação entre seus
 componentes devido à interações durante o desenvolvimento. No crânio de
 mamíferos, por exemplo, fenótipos adultos são compostos pela
 sobreposição de diferentes processos de desenvolvimento; portanto, a
@@ -1456,7 +1514,7 @@ covariância em cada comparação; cores próximas ao verde indicam pouca
 divergência. \label{fig:srd_shape}}
 \end{figure}
 
-\section{Discussão}\label{discussao-1}
+\section{Discussão}\label{discussao}
 
 Os resultados obtidos aqui indicam que a magnitude de disparidade em
 estrutura de covariância para variáveis de forma e tamanho do centróide
@@ -1565,6 +1623,10 @@ Klingenberg, C.P. 2011. MorphoJ: an integrated software package for
 geometric morphometrics. \emph{Molecular Ecology Resources} \textbf{11}:
 353--357.
 
+Klingenberg, C.P. 2008. Morphological Integration and Developmental
+Modularity. \emph{Annual Review of Ecology, Evolution, and Systematics}
+\textbf{39}: 115--132.
+
 Klingenberg, C.P. 2009. Morphometric integration and modularity in
 configurations of landmarks: tools for evaluating a priori hypotheses.
 \emph{Evolution \& Development} \textbf{11}: 405--421.
@@ -1625,6 +1687,10 @@ Mitteroecker, P., Gunz, P., Bernhard, M., Bookstein, F.L. \& Schaefer,
 K. 2004. Comparison of cranial ontogenetic trajectories among great apes
 and humans. \emph{Journal of Human Evolution} \textbf{46}: 679--697.
 
+Newman, M.E.J. 2006. Modularity and community structure in networks.
+\emph{Proceedings of the National Academy of Sciences} \textbf{103}:
+8577--8582.
+
 Oliveira, F.B., Porto, A. \& Marroig, G. 2009. Covariance structure in
 the skull of Catarrhini: a case of pattern stasis and magnitude
 evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
@@ -1656,6 +1722,10 @@ Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
 R Core Team. 2015. \emph{R: A Language and Environment for Statistical
 Computing}. R Foundation for Statistical Computing, Vienna, Austria.
 
+Ravasz, E., Somera, A.L., Mongru, D.A., Oltvai, Z.N. \& Barabási, A.L.
+2002. Hierarchical organization of modularity in metabolic networks.
+\emph{Science} \textbf{297}: 1551--1555.
+
 Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
 marsupials and monkeys: size variation and evolutionary constraint and
 flexibility. \emph{Journal of experimental zoology. Part B, Molecular
@@ -1678,6 +1748,9 @@ Wagner, G.P. 1984. On the eigenvalue distribution of genetic and
 phenotypic dispersion matrices: evidence for a nonrandom organization of
 quantitative character variation. \emph{Journal of Mathematical Biology}
 \textbf{21}: 77--95.
+
+Wagner, G.P., Pavlicev, M. \& Cheverud, J.M. 2007. The road to
+modularity. \emph{Nature reviews. Genetics} \textbf{8}: 921--931.
 
 Walker, J.A. 2000. Ability of Geometric Morphometric Methods to Estimate
 a Known Covariance Matrix. \emph{Systematic Biology} \textbf{49}:
