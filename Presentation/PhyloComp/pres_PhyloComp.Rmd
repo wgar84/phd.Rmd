@@ -1,8 +1,18 @@
 ---
-title: A Phylogenetic Analysis of Covariance Structure in Anthropoids
+title: 
+subtitle: A Phylogenetic Analysis of Covariance Structure in the Skull of Anthropoid Primates
 author: Guilherme Garcia & Gabriel Marroig
-hitheme: tomorrow
+job: University of São Paulo - Brasil
+date: June 28, 2015
 output:
+  revealjs::revealjs_presentation:
+    transitions: concave
+    mathjax: local
+    self_contained: false
+    fig_caption: true
+    toc: true
+    theme: moon
+    smaller: true
   ioslides_presentation:
     transitions: faster
     mathjax: local
@@ -11,6 +21,7 @@ output:
     toc: true
   beamer_presentation:
     theme: "Malmoe"
+    fig_caption: true
     fonttheme: "structurebold"
 logo: evolution-logo-small.png
 fontsize: 10pt
@@ -18,7 +29,19 @@ csl: ../../Bib/journal-of-evolutionary-biology.csl
 bibliography: ../../Bib/tese.bib
 ---	
 
-# Methods
+## Mammalian Skull Development {.flexbox .vcenter}
+
+<div class='centered'>
+
+![@hallgrimsson_mouse_2008](Figures/palimpsest.png)
+
+</div>
+
+<div class='notes'>
+
+Morphological systems have a tendency to exhibit covariation among its components due to developmental interactions. In the mammalian skull, for instance, adult phenotypes are assembled by a series of developmental processes, and the timing, rate and scope of such processes structures covariance patterns.
+
+</div>
 
 ## Landmarks and Measurements {.flexbox .vcenter}
 
@@ -41,7 +64,7 @@ bibliography: ../../Bib/tese.bib
 <div class='centered'>
 
 ```{r phylo_model, echo = FALSE, fig.width = 7, fig.height = 6}
-par(mar = c(0, 0, 0, 0))
+par(mar = c(1, 0, 0, 0))
 plot.phylo(Tree [[1]],
            type = 'fan', cex = 0.5, label.offset = .03,
            use.edge.length = TRUE, y.lim = c(- 0.6, 0.6), x.lim = c(- 0.6, 0.6))
@@ -68,8 +91,9 @@ legend(0, 0,
        bty = 'o', bg = 'white', xjust = 0.5, yjust = 0.5)
 ```
 
+## {.flexbox .vcenter}
 
-# Results
+![](Figures/matrixspace.png)
 
 ## {.flexbox .vcenter}
 
@@ -393,3 +417,7 @@ text(y = -(3:4), x = rep (-1.2, 2),
 ```
 
 </div>
+
+## References {.smaller}
+
+<div class='columns-2'>
