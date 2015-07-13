@@ -21,7 +21,7 @@ bibliography: Bib/modcomp.bib
 
 ^2^<wgar@usp.br>
 
-running title: Error in Modularity Hypothesis Testing
+running title: Measuring Modularity
 
 key words: 
 
@@ -64,7 +64,7 @@ captions $ fig.type2_sym <-
 
 # Introduction
 
-Modularity is a characteristic pattern that biological systems exhibit concerning the distribution of interactions between their composing elements; that is, in a given system, certain subsets of elements, denominated modules, interact more among themselves than with other such subsets [@newman_modularity_2006; @mitteroecker_conceptual_2007; @wagner_road_2007; @klingenberg_morphological_2008].
+Modularity is a characteristic pattern that biological systems exhibit concerning the distribution of interactions between their composing elements; that is, in a given system, certain subsets of elements, denominated modules, interact more among themselves than with other such subsets [@newman_modularity_2006; @mitteroecker_conceptual_2007; @wagner_road_2007].
 This pattern has been well documented at different levels of biological organization, from the dynamics of metabolic networks [e.g. @ravasz_hierarchical_2002; @andrade_detecting_2011] to the structure of interactions among individuals in populations [e.g. @fortuna_spatial_2008] and among species in ecological communities [e.g. @genini_cheaters_2010].
 
 Regarding morphological systems, the concept of modular organization is nested within the framework of morphological integration [@olson_morphological_1958; @cheverud_developmental_1996], which refers to the organization of covariances or correlations among morphological elements and the set of hypothesis concerning their relationships.
@@ -76,12 +76,16 @@ In the mammalian skull, for example, development is composed of sequential steps
 The regulation of each step is mediated by different profiles of genetic expression exhibited by cells originated from different embryonic precursors and their response to signaling factors expressed at the regional level [@turing_chemical_1952; @meinhardt_models_2008; @hallgrimsson_deciphering_2009; @franz-odendaal_epigenetics_2011].
 However, these processes also affect adjoining regions through interactions among developing tissues [@cheverud_effects_1992; @lieberman_epigenetic_2011; @esteve-altava_beyond_2014], and the composed effect of these different processes over correlation patterns in adult phenotypes may be misleading [@hallgrimsson_deciphering_2009].
 
-Furthermore, variation in overall growth rates, which, in adult populations, emerges into size variation [@pelabon_relationship_2013; @porto_size_2013], has a particular importance in the context of mammalian morphological systems.
+Furthermore, variation in overall growth rates, which, in adult populations, emerges into size variation [@pelabon_relationship_2013; @porto_size_2013], has a particular importance in the context of mammalian morphological systems; here, size variation refers to variation in both scale (isometric variation) and scale relationships (allometric variation).
 This source of variation affects the overall level of phenotypic correlations among morphological traits [@wagner_eigenvalue_1984; @young_serial_2005], and the magnitude of integration has important consequences for both the evolution of mean phenotypes among species [@marroig_size_2005; @marroig_size_2010; @cardini_larger_2013] and the evolution of morphological integration itself [@oliveira_covariance_2009; @porto_evolution_2009; @shirai_skull_2010; @porto_size_2013].
 
-### Morphological Traits
+Considerations based on theoretical [e.g. @lande_genetic_1980; @pavlicev_evolution_2010], experimental [e.g. @hallgrimsson_deciphering_2009; @pavlicev_genetic_2008; @pavlicev_evolution_2011] or simulation-based approaches [e.g. @jones_mutation_2007; @jones_effects_2012; @watson_evolution_2013; @melo_directional_2015] indicate that integration patterns evolve to a equilibrium state dictated by the effect of pleiotropic mutations, stabilizing selection, and genetic drift; thus, changes in integration patterns will be a consequence of changes in one of these components, and such changes are driven by the reorganization of pleiotropic and epistatic interactions among genes.
+In this context, stabilizing selection patterns [either over aspects of the developmental system or over the resulting phenotype itself; @hansen_epigenetics:_2011], which is an important feature of selective surfaces [@arnold_adaptive_2001; @arnold_understanding_2008], may be the central component governing the stability and divergence in integration patterns [@hallgrimsson_deciphering_2009; @porto_evolution_2009; @grabowski_divergent_2011; @haber_evolution_2015].
 
-THIS IS THE REVOLUTION
+In the past twenty years, there has been a consistent effort in measuring covariance and correlation patterns in different organisms [comparative quantitative genetics; @steppan_comparative_2002], and empirical evidence on the evolution of morphological integration has been accumulating.
+Such evidence supports either the stability [e.g. @marroig_comparison_2001; @oliveira_covariance_2009; @porto_evolution_2009; @willmore_comparison_2009] and divergence [e.g. @monteiro_adaptive_2010; @grabowski_divergent_2011; @sanger_roles_2012; @haber_evolution_2015] of integration patterns throughout different levels of  evolutionary divergence. Therefore, whether any of these scenarios is either the rule or exception in morphological evolution remains an open question, although some theoretical and methodological differences among these works need to be considered. 
+
+## Morphometrics
 
 In the present work, we compare the methods described both by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns, using anthropoid primates as a model organism. In order to also compare the performance of these methods with respect to different representations of form, sample units are represented both as interlandmark distances and shape variables. Furthermore, we also used an approach based on the construction of theoretical correlation matrices; in this context, these matrices are used in order to estimate Type I and Type II error rates for both methods. Since these methods were designed under different frameworks, the present work also puts some effort into unifying both methods into the same conceptual and statistical framework, in order to produce meaningful comparisons.
 
@@ -97,13 +101,13 @@ For each OTU, we estimated phenotypic covariance and correlation matrices for th
 
 Here we consider only covariance or correlation structure for the symmetrical component of variation; therefore, prior to any analysis, we need to control for variation in assymmetry. For interlandmark distances, we averaged bilateral measurements within each individual. For both Procrustes residuals and local shape variables, we follow the procedure outlined in @klingenberg_shape_2002 for bilateral structures by obtaning for each individual a symmetrical landmark configuration, averaging each actual shape with its reflection along the sagittal plane; we estimate local shape variables afterwards. With respect to Procrustes residuals, landmarks placed along the sagittal plane will have zero variation in the direction normal to this plane; we aligned all specimens' sagittal plane to the $xz$ plane, thus removing the $y$ component for each of these landmarks from covariance/correlation matrices.
 
-For each dataset, we estimated covariance and correlation matrices after removing fixed effects of little interest in the present context, such as sexual dimorphism, for example. For interlandmark distances and local shape variables, these effects were removed through a multivariate linear model adjusted for each species, according to \autoref{tab:modcomp_otu}; for Procrustes residuals, the same effects were removed by centering all group means to each species' mean shape, since the loss of degrees of freedom imposed by the GPA prohibits the use of a full multivariate linear model over this kind of data to removed fixed effects.
+For each dataset, we estimated covariance and correlation matrices after removing fixed effects of little interest in the present context, such as sexual dimorphism, for example. For interlandmark distances and local shape variables, these effects were removed through a multivariate linear model adjusted for each species, according to \autoref{tab:modcomp_otu}; for Procrustes residuals, the same effects were removed by centering all group means to each species' mean shape, since the loss of degrees of freedom imposed by the GPA prohibits the use of a full multivariate linear model over this kind of data to remove fixed effects.
 
 In order to consider the effects of size variation over modularity patterns, we used a different procedure to remove the influence of size, according to the different properties of each type of variable. For interlandmark distances, we use the approach established by @bookstein_morphometrics_1985; if $\mathbf{C}$ is a correlation matrix, we obtain a correlation matrix $\mathbf{R}$ without the effect of size using the equation
 $$
 \mathbf{R} = \mathbf{C} - \lambda_1 v_1 v^{t}_1
 $$
-where $\lambda_1$ and $v_1$ refer respectively to the first eigenvalue and eigenvector of the spectral decomposition of $C$, considering that this eigenvector is associated with size variation, a common pattern in mammalian correlation structure, especially when interlandmark distances are considered [@wagner_eigenvalue_1984; @mitteroecker_comparison_2004; @mitteroecker_conceptual_2007]; $t$ denotes matrix transpose. For Procrustes residuals and local shape variables, the effects of isometric variation are removed prior through normalizing each individual to unit centroid size. However, allometric effects still influence covariance or correlation structure. In order to remove such effects, we use a similar procedure, based upon @mitteroecker_comparison_2004, which involves the estimation of an allometric component for each OTU; this allometric component is related to regression coefficents for each of the $m$ shape variables (either Procrustes residuals or local shape variables) over log Centroid Size. If $\mathbf{S}$ is a covariance matrix, we obtain a covariance matrix $\mathbf{R}$ without the influence of allometric relationships using the equation
+where $\lambda_1$ and $v_1$ refer respectively to the first eigenvalue and eigenvector of the spectral decomposition of $C$, considering that this eigenvector is associated with size variation, a common pattern in mammalian correlation structure, especially when interlandmark distances are considered [@wagner_eigenvalue_1984; @mitteroecker_comparison_2004; @mitteroecker_conceptual_2007]; $t$ denotes matrix transpose. For Procrustes residuals and local shape variables, the effects of isometric variation are removed by normalizing each individual to unit centroid size. However, allometric effects still influence covariance or correlation structure. In order to remove such effects, we use a similar procedure, based upon @mitteroecker_comparison_2004, which involves the estimation of an allometric component for each OTU; this allometric component is composed of regression coefficents for each of the $m$ shape variables (either Procrustes residuals or local shape variables) over log Centroid Size. If $\mathbf{S}$ is a covariance matrix, we obtain a covariance matrix $\mathbf{R}$ without the influence of allometric relationships using the equation
 $$
 \mathbf{R} = (I_m - aa^t) \mathbf{S} (I_m - aa^t)
 $$
@@ -186,37 +190,37 @@ All analysis were performed under R `r paste (version $ major, version $ minor, 
 Regarding localized trait sets, tests performed using AVG Indexes (\autoref{fig:MI_Func}) detect a consistent pattern among OTUs for both interlandmark distances and local shape variables; in the first set, the Oral sub-region is detected as a modular partition, and, when size is removed, the Vault sub-region is also detected; both Orbit and Base region are not detected in any of the tests with this type of variable. With local shape variables, both Oral and Vault sets are also detected consistently across OTUs, along Nasal and Zygomatic traits; moreover, the removal of allometric variation affect only the detection of the Vault. Notably, the Base sub-region is detected only in 3 of 42 tests. For Procrustes residuals, the pattern of detection among sub-regions and OTUs is diffuse; it is noteworthy that the Base sub-region is detected among several OTUs, which contrasts this type of morphometric variable with the remaining two types. Furthermore, abstracting the actual tests performed, \autoref{fig:MI_Func} also indicates that Procrustes residuals display a low variance for AVGi values within each OTU, while both interlandmark distances and local shape variables display a consistent pattern of variation among AVGi values within each OTU, with lower values for the Base and, for interlandmark distances, Orbit trait sets.
 
 ```{r MI_Func, echo = FALSE, fig.cap = captions $ fig.MI_Func, fig.width = 9.6, fig.height = 10.8, message = FALSE}
-modcomp.Plots $ MI.Func +
-  scale_fill_continuous(name = 'AVG Index',
-                        high = 'white', low = 'black', space = 'Lab',
-                        breaks = c(-.3, 0, .3), limits = c(-.4, .4))
+modcomp.Plots $ MI.Func ## +
+  ## scale_fill_continuous(name = 'AVG Index',
+  ##                       high = 'white', low = 'black', space = 'Lab',
+  ##                       breaks = c(-.3, 0, .3), limits = c(-.4, .4))
 ```
 
 Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a more diffuse pattern among each varible type. When interlandmark distances are considered, most tests detect the Vault sub-region with size variation retained, and the Base sub-region when size variation is removed. For Procrustes residuals, few tests are able to reject their null hypothesis, detecting only a handful of valid modular partitions. Tests performed on local shape variables display the opposite behavior: almost all partitions are detected, regardless of whether allometric variation has been retained or removed. Moreover, RV values display a pattern of marked variation among OTUs, more so than between values within each OTU; notably, *Macaca fascicularis* and *Papio anubis* show RV values much higher than those estimated on remaining species. This pattern can be observed both on interlandmark distances with size retained and in Procrustes residuals, although this effect is more marked in the former type. 
 
 ```{r RV_Func, echo = FALSE, fig.cap = captions $ fig.RV_Func, fig.width = 9.6, fig.height = 10.8, message = FALSE}
-modcomp.Plots $ RV.Func +
-  scale_fill_continuous(name = 'AVG Index', high = 'black', low = 'white',
-                        limits = c(0, 1), 
-                        breaks = c(0.1, 0.5, 0.9))
+modcomp.Plots $ RV.Func ## +
+  ## scale_fill_continuous(name = 'RV Coefficient', high = 'black', low = 'white',
+  ##                       limits = c(0, 1), 
+  ##                       breaks = c(0.1, 0.5, 0.9))
 ```
 
 With respect to regional trait sets, tests performed using AVGi (\autoref{fig:MI_Dev}) indicate a pattern consistent with the findings regarding localized sets (\autoref{fig:MI_Func}). Considering only interlandmark distances, Facial traits are detected as a valid modular partition both with size variation retained or removed, while Neurocranial traits are detected as a valid partition only when size variation is removed. This pattern mirrors the contrast between Oral and Vault traits in the localized sets regarding interlandmark distances. Considering Procrustes residuals, Neurocranial traits are a valid partition with both size retained and removed; once again, this pattern mirrors the detection of the Basicranial partition as valid in the localized sets. Finally, in local shape variables, both Face and Neurocranium are detected as valid with size retained; with size removed, only the Face is recognized. The same can be observed in the localized sets, where removing allometric variation affects the detection of the Vault set. The tests for distinction between within-set and between-set correlations for these two sets (designated 'Neuroface') show a pattern that is consistent with tests for the individual sets, that is, if one of the sets was previously detected, this distinction is also detected as valid with high probability.
 
 ```{r MI_Dev, echo = FALSE, fig.cap = captions $ fig.MI_Dev, fig.width = 9.6, fig.height = 10.8, message = FALSE}
-modcomp.Plots $ MI.Dev +
-  scale_fill_continuous(name = 'AVG Index',
-                        high = 'white', low = 'black', space = 'Lab',
-                        breaks = c(-.3, 0, .3), limits = c(-.4, .4))
+modcomp.Plots $ MI.Dev ## +
+  ## scale_fill_continuous(name = 'AVG Index',
+  ##                       high = 'white', low = 'black', space = 'Lab',
+  ##                       breaks = c(-.3, 0, .3), limits = c(-.4, .4))
 ```
 
 Tests performed for this distinction between Face and Neurocranium using RV coefficients (\autoref{fig:RV_Dev}) show that in most cases, for both interlandmark distances and local shape variables, both regions are considered distinct and valid variational modules; in Procrustes residuals, only in a handful of taxa the same result can be observed. In this case, the correspondence with results for localized trait sets (\autoref{fig:RV_Func}) is more difficult, due to the lack of independent tests for each region.
 
 ```{r RV_Dev, echo = FALSE, fig.cap = captions $ fig.RV_Dev, fig.width = 5.2, fig.height = 6.4, message = FALSE}
 modcomp.Plots $ RV.NeuroFace + 
-  scale_fill_continuous(name = 'AVG Index', high = 'black', low = 'white',
-                        limits = c(0, 1), 
-                        breaks = c(0.1, 0.5, 0.9)) +
+  ## scale_fill_continuous(name = 'RV Coefficient', high = 'black', low = 'white',
+  ##                       limits = c(0, 1), 
+  ##                       breaks = c(0.1, 0.5, 0.9)) +
   facet_wrap(~size, ncol = 2) +
   theme (text = element_text (size = 8)) 
 ```

@@ -80,7 +80,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{10 July 2015}
+  \date{13 July 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -152,7 +152,7 @@ São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
 
 \textsuperscript{2}\href{mailto:wgar@usp.br}{wgar@usp.br}
 
-running title: Error in Modularity Hypothesis Testing
+running title: Measuring Modularity
 
 key words:
 
@@ -163,12 +163,12 @@ concerning the distribution of interactions between their composing
 elements; that is, in a given system, certain subsets of elements,
 denominated modules, interact more among themselves than with other such
 subsets (Newman, 2006; Mitteroecker \& Bookstein, 2007; Wagner \emph{et
-al.}, 2007; Klingenberg, 2008). This pattern has been well documented at
-different levels of biological organization, from the dynamics of
-metabolic networks (e.g. Ravasz \emph{et al.}, 2002; Andrade \emph{et
-al.}, 2011) to the structure of interactions among individuals in
-populations (e.g. Fortuna \emph{et al.}, 2008) and among species in
-ecological communities (e.g. Genini \emph{et al.}, 2010).
+al.}, 2007). This pattern has been well documented at different levels
+of biological organization, from the dynamics of metabolic networks
+(e.g. Ravasz \emph{et al.}, 2002; Andrade \emph{et al.}, 2011) to the
+structure of interactions among individuals in populations (e.g. Fortuna
+\emph{et al.}, 2008) and among species in ecological communities (e.g.
+Genini \emph{et al.}, 2010).
 
 Regarding morphological systems, the concept of modular organization is
 nested within the framework of morphological integration (Olson \&
@@ -203,21 +203,55 @@ regional level (Turing, 1952; Meinhardt, 2008; Hallgrímsson \emph{et
 al.}, 2009; Franz-Odendaal, 2011). However, these processes also affect
 adjoining regions through interactions among developing tissues
 (Cheverud \emph{et al.}, 1992; Lieberman, 2011; Esteve-Altava \&
-Rasskin-Gutman, 2014), and, as Hallgrímsson et al. (2009) points out,
-the composed effect of these different processes over correlation
-patterns in adult phenotypes may be misleading.
+Rasskin-Gutman, 2014), and the composed effect of these different
+processes over correlation patterns in adult phenotypes may be
+misleading (Hallgrímsson \emph{et al.}, 2009).
 
 Furthermore, variation in overall growth rates, which, in adult
 populations, emerges into size variation (Pélabon \emph{et al.}, 2013;
 Porto \emph{et al.}, 2013), has a particular importance in the context
-of mammalian morphological systems. This source of variation affects the
-overall level of phenotypic correlations among morphological traits
-(Wagner, 1984; Young \& Hallgrímsson, 2005), and the magnitude of
-integration has important consequences for both the evolution of mean
-phenotypes among species (Marroig \& Cheverud, 2005, 2010; Cardini \&
-Polly, 2013) and the evolution of morphological integration itself
-(Oliveira \emph{et al.}, 2009; Porto \emph{et al.}, 2009, 2013; Shirai
-\& Marroig, 2010).
+of mammalian morphological systems; here, size variation refers to
+variation in both scale (isometric variation) and scale relationships
+(allometric variation). This source of variation affects the overall
+level of phenotypic correlations among morphological traits (Wagner,
+1984; Young \& Hallgrímsson, 2005), and the magnitude of integration has
+important consequences for both the evolution of mean phenotypes among
+species (Marroig \& Cheverud, 2005, 2010; Cardini \& Polly, 2013) and
+the evolution of morphological integration itself (Oliveira \emph{et
+al.}, 2009; Porto \emph{et al.}, 2009, 2013; Shirai \& Marroig, 2010).
+
+Considerations based on theoretical (e.g. Lande, 1980; Pavlicev \emph{et
+al.}, 2010), experimental (Pavlicev \emph{et al.}, 2008, 2011; e.g.
+Hallgrímsson \emph{et al.}, 2009) or simulation-based approaches (e.g.
+Jones, 2007; Jones \emph{et al.}, 2012; Watson \emph{et al.}, 2013; Melo
+\& Marroig, 2015) indicate that integration patterns evolve to a
+equilibrium state dictated by the effect of pleiotropic mutations,
+stabilizing selection, and genetic drift; thus, changes in integration
+patterns will be a consequence of changes in one of these components,
+and such changes are driven by the reorganization of pleiotropic and
+epistatic interactions among genes. In this context, stabilizing
+selection patterns (either over aspects of the developmental system or
+over the resulting phenotype itself; Hansen, 2011), which is an
+important feature of selective surfaces (Arnold \emph{et al.}, 2001,
+2008), may be the central component governing the stability and
+divergence in integration patterns (Hallgrímsson \emph{et al.}, 2009;
+Porto \emph{et al.}, 2009; Grabowski \emph{et al.}, 2011; Haber, 2015).
+
+In the past twenty years, there has been a consistent effort in
+measuring covariance and correlation patterns in different organisms
+(comparative quantitative genetics; Steppan \emph{et al.}, 2002), and
+empirical evidence on the evolution of morphological integration has
+been accumulating. Such evidence supports either the stability (e.g.
+Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009; Porto \emph{et
+al.}, 2009; Willmore \emph{et al.}, 2009) and divergence (e.g. Monteiro
+\& Nogueira, 2010; Grabowski \emph{et al.}, 2011; Sanger \emph{et al.},
+2012; Haber, 2015) of integration patterns throughout different levels
+of evolutionary divergence. Therefore, whether any of these scenarios is
+either the rule or exception in morphological evolution remains an open
+question, although some theoretical and methodological differences among
+these works need to be considered.
+
+\subsection{Morphometrics}\label{morphometrics}
 
 In the present work, we compare the methods described both by Cheverud
 et al. (1989) and Klingenberg (2009) to test \emph{a priori} defined
@@ -294,8 +328,8 @@ linear model adjusted for each species, according to
 \autoref{tab:modcomp_otu}; for Procrustes residuals, the same effects
 were removed by centering all group means to each species' mean shape,
 since the loss of degrees of freedom imposed by the GPA prohibits the
-use of a full multivariate linear model over this kind of data to
-removed fixed effects.
+use of a full multivariate linear model over this kind of data to remove
+fixed effects.
 
 In order to consider the effects of size variation over modularity
 patterns, we used a different procedure to remove the influence of size,
@@ -312,16 +346,17 @@ common pattern in mammalian correlation structure, especially when
 interlandmark distances are considered (Wagner, 1984; Mitteroecker
 \emph{et al.}, 2004; Mitteroecker \& Bookstein, 2007); $t$ denotes
 matrix transpose. For Procrustes residuals and local shape variables,
-the effects of isometric variation are removed prior through normalizing
-each individual to unit centroid size. However, allometric effects still
+the effects of isometric variation are removed by normalizing each
+individual to unit centroid size. However, allometric effects still
 influence covariance or correlation structure. In order to remove such
 effects, we use a similar procedure, based upon Mitteroecker et al.
 (2004), which involves the estimation of an allometric component for
-each OTU; this allometric component is related to regression coefficents
-for each of the $m$ shape variables (either Procrustes residuals or
-local shape variables) over log Centroid Size. If $\mathbf{S}$ is a
-covariance matrix, we obtain a covariance matrix $\mathbf{R}$ without
-the influence of allometric relationships using the equation \[
+each OTU; this allometric component is composed of regression
+coefficents for each of the $m$ shape variables (either Procrustes
+residuals or local shape variables) over log Centroid Size. If
+$\mathbf{S}$ is a covariance matrix, we obtain a covariance matrix
+$\mathbf{R}$ without the influence of allometric relationships using the
+equation \[
 \mathbf{R} = (I_m - aa^t) \mathbf{S} (I_m - aa^t)
 \] where $a$ refers to the normalized allometric component estimated for
 each OTU and $I_m$ represents the identity matrix of size $m$.
@@ -756,6 +791,14 @@ Diniz, M.V.C. \& Lobão, T.P.\emph{et al.} 2011. Detecting Network
 Communities: An Application to Phylogenetic Analysis. \emph{PLoS
 Computational Biology} \textbf{7}: e1001131.
 
+Arnold, S.J., Bürger, R., Hohenlohe, P.A., Ajie, B.C. \& Jones, A.G.
+2008. Understanding the evolution and stability of the G-matrix.
+\emph{Evolution} \textbf{62}: 2451--2461.
+
+Arnold, S.J., Pfrender, M.E. \& Jones, A.G. 2001. The adaptive landscape
+as a conceptual bridge between micro- and macroevolution.
+\emph{Genetica} \textbf{112-113}: 9--32.
+
 Bookstein, F.L. 1991. \emph{Morphometric tools for landmark data:
 geometry and biology}. Cambridge University Press, Cambridge.
 
@@ -800,6 +843,13 @@ Genini, J., Morellato, L.P.C., Guimarães Jr., P.R. \& Olesen, J.M. 2010.
 Cheaters in mutualism networks. \emph{Biology Letters} \textbf{6}:
 494--497.
 
+Grabowski, M.W., Polk, J.D. \& Roseman, C.C. 2011. Divergent patterns of
+integration and reduced constraint in the human hip and the origins of
+bipedalism. \emph{Evolution} \textbf{65}: 1336--1356.
+
+Haber, A. 2015. The Evolution of Morphological Integration in the
+Ruminant Skull. \emph{Evolutionary Biology} \textbf{42}: 99--114.
+
 Hallgrímsson, B. \& Lieberman, D.E. 2008. Mouse models and the
 evolutionary developmental biology of the skull. \emph{Integrative and
 Comparative Biology} \textbf{48}: 373--384.
@@ -810,18 +860,26 @@ Studying the Relationship Between Morphological Integration and
 Phenotypic Covariation. \emph{Evolutionary Biology} \textbf{36}:
 355--376.
 
+Hansen, T.F. 2011. Epigenetics: adaptation or contingency. In:
+\emph{Epigenetics: linking genotype and phenotype in development and
+evolution} (B. Hallgrímsson \& B. K. Hall, eds), pp. 357--376.
+
 Herring, S.W. 2011. Muscle-Bone Interactions and the Development of
 Skeletal Phenotype. In: \emph{Epigenetics: Linking Genotype and
 Phenotype in Development andEvolution} (B. Hallgrímsson \& B. K. Hall,
 eds), pp. 221--237. University of California Press.
 
+Jones, A.G. 2007. The mutation matrix and the evolution of evolvability.
+\emph{Evolution} \textbf{61}: 727--745.
+
+Jones, A.G., Bürger, R., Arnold, S.J., Hohenlohe, P.A. \& Uyeda, J.C.
+2012. The effects of stochastic and episodic movement of the optimum on
+the evolution of the G-matrix and the response of the trait mean to
+selection. \emph{Journal of evolutionary biology} 1--22.
+
 Klingenberg, C.P. 2011. MorphoJ: an integrated software package for
 geometric morphometrics. \emph{Molecular Ecology Resources} \textbf{11}:
 353--357.
-
-Klingenberg, C.P. 2008. Morphological Integration and Developmental
-Modularity. \emph{Annual Review of Ecology, Evolution, and Systematics}
-\textbf{39}: 115--132.
 
 Klingenberg, C.P. 2009. Morphometric integration and modularity in
 configurations of landmarks: tools for evaluating a priori hypotheses.
@@ -834,6 +892,9 @@ geometric shape in the mouse mandible. \emph{Evolution} \textbf{55}:
 Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
 symmetric structures: Quantifying variation among individuals and
 asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
+
+Lande, R. 1980. The Genetic Covariance Between Characters Maintained by
+Pleiotropic Mutations. \emph{Genetics} \textbf{94}: 203--215.
 
 Lieberman, D.E. 2011. Epigenetic Integration, Complexity and
 Evolvability of the Head: Rethinking the Functional Matrix Hypothesis.
@@ -877,6 +938,10 @@ Mitteroecker, P., Gunz, P., Bernhard, M., Bookstein, F.L. \& Schaefer,
 K. 2004. Comparison of cranial ontogenetic trajectories among great apes
 and humans. \emph{Journal of Human Evolution} \textbf{46}: 679--697.
 
+Monteiro, L.R. \& Nogueira, M.R. 2010. Adaptive radiations, ecological
+specialization, and the evolutionary integration of complex
+morphological structures. \emph{Evolution} \textbf{64}: 724--744.
+
 Newman, M.E.J. 2006. Modularity and community structure in networks.
 \emph{Proceedings of the National Academy of Sciences} \textbf{103}:
 8577--8582.
@@ -887,6 +952,22 @@ evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
 
 Olson, E. \& Miller, R. 1958. \emph{Morphological integration}.
 University of Chicago Press, Chicago.
+
+Pavlicev, M., Cheverud, J.M. \& Wagner, G.P. 2010. Evolution of adaptive
+phenotypic variation patterns by direct selection for evolvability.
+\emph{Proceedings of The Royal Society B}, doi:
+\href{http://dx.doi.org/10.1098/rspb.2010.2113}{10.1098/rspb.2010.2113}.
+
+Pavlicev, M., Kenney-Hunt, J.P., Norgard, E.A., Roseman, C.C., Wolf,
+J.B. \& Cheverud, J.M. 2008. Genetic variation in pleiotropy:
+differential epistasis as a source of variation in the allometric
+relationship between long bone lengths and body weight. \emph{Evolution}
+\textbf{62}: 199--213.
+
+Pavlicev, M., Norgard, E.A., Fawcett, G.L. \& Cheverud, J.M. 2011.
+Evolution of pleiotropy: epistatic interaction pattern supports a
+mechanistic model underlying variation in genotype-phenotype map.
+\emph{Journal of Experimental Zoology B} \textbf{316}: 371--85.
 
 Pélabon, C., Bolstad, G.H., Egset, C.K., Cheverud, J.M., Pavlicev, M. \&
 Rosenqvist, G. 2013. On the Relationship between Ontogenetic and Static
@@ -916,10 +997,18 @@ Rueffler, C., Hermisson, J. \& Wagner, G.P. 2012. Evolution of
 functional specialization and division of labor. \emph{Proceedings of
 the National Academy of Sciences} \textbf{109}: E326--E335.
 
+Sanger, T.J., Mahler, D.L., Abzhanov, A. \& Losos, J.B. 2012. Roles for
+modularity and constraint in the evolution of cranial diversity among
+Anolis lizards. \emph{Evolution} \textbf{66}: 1525--42.
+
 Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
 marsupials and monkeys: size variation and evolutionary constraint and
 flexibility. \emph{Journal of experimental zoology. Part B, Molecular
 and developmental evolution} \textbf{314B}: 663--683.
+
+Steppan, S.J., Phillips, P.C. \& Houle, D. 2002. Comparative
+quantitative genetics: evolution of the G matrix. \emph{Trends in
+Ecology and Evolution} \textbf{17}: 320--327.
 
 Turing, A.M. 1952. The Chemical Basis of Morphogenesis.
 \emph{Philosophical Transactions of the Royal Society of London}
@@ -938,6 +1027,15 @@ the evolution of evolvability. \emph{Evolution} \textbf{50}: 967--976.
 
 Wagner, G.P., Pavlicev, M. \& Cheverud, J.M. 2007. The road to
 modularity. \emph{Nature reviews. Genetics} \textbf{8}: 921--931.
+
+Watson, R.A., Wagner, G.P., Pavlicev, M., Weinreich, D.M. \& Mills, R.
+2013. The Evolution of Phenotypic Correlations and ``developmental
+Memory''. \emph{Evolution} \textbf{67}: 1124--1138.
+
+Willmore, K.E., Roseman, C.C., Rogers, J., Cheverud, J.M. \&
+Richtsmeier, J.T. 2009. Comparison of Mandibular Phenotypic and Genetic
+Integration between Baboon and Mouse. \emph{Evolutionary Biology}
+\textbf{36}: 19--36.
 
 Young, N.M. \& Hallgrímsson, B. 2005. Serial homology and the evolution
 of mammalian limb covariation structure. \emph{Evolution} \textbf{59}:
