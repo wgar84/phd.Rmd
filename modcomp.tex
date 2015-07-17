@@ -80,7 +80,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{16 July 2015}
+  \date{17 July 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -204,13 +204,16 @@ muscle-bone interactions (Hallgrímsson \& Lieberman, 2008; Zelditch
 regulation of each step is mediated by different profiles of genetic
 expression exhibited by cells originated from different embryonic
 precursors and their response to signaling factors expressed at the
-regional level (Turing, 1952; Meinhardt, 2008; Hallgrímsson \emph{et
-al.}, 2009; Franz-Odendaal, 2011). However, these processes also affect
-adjoining regions through interactions among developing tissues
-(Cheverud \emph{et al.}, 1992; Lieberman, 2011; Esteve-Altava \&
-Rasskin-Gutman, 2014), and the composed effect of these different
-processes over correlation patterns in adult phenotypes may be
-misleading (Hallgrímsson \emph{et al.}, 2009).
+regional level; the response to these signaling factors further changes
+the profile of expression in the affected cells, thus generating a
+feedback loop of cell and tissue diferentiation (Turing, 1952;
+Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal,
+2011). However, these processes also affect adjoining regions through
+interactions among developing tissues (Cheverud \emph{et al.}, 1992;
+Lieberman, 2011; Esteve-Altava \& Rasskin-Gutman, 2014), and the
+composed effect of these different processes over correlation patterns
+in adult phenotypes may be misleading (Hallgrímsson \emph{et al.},
+2009).
 
 Furthermore, variation in overall growth rates, which, in adult
 populations, emerges into size variation (Pélabon \emph{et al.}, 2013;
@@ -241,7 +244,7 @@ shown to produce changes in integration patterns.
 
 Moreover, in the past twenty years, there has been a consistent effort
 in measuring covariance and correlation patterns in different organisms
-and morphological structures, at different phylogenetic scales, a
+and morphological structures at different phylogenetic scales, a
 research program named ``comparative quantitative genetics'' by Steppan
 et al. (2002). The empirical evidence available demonstrates that both
 stability (e.g. Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009;
@@ -251,7 +254,8 @@ Porto \emph{et al.}, 2009; Willmore \emph{et al.}, 2009) and divergence
 outcomes of evolutionary divergence. Therefore, the question of whether
 any of these two scenarios is the rule or exception at macroevolutionary
 scales remains open, although some theoretical and methodological
-differences between these works need to be taken into consideration.
+differences between these works with respect to the representation of
+morphological features need to be taken into consideration.
 
 \subsubsection{Morphometrics}\label{morphometrics}
 
@@ -272,17 +276,16 @@ In the past three decades, geometric morphometrics (Bookstein, 1982,
 consolidated as a quantitative framework for the representation of
 biological shape as geometric configurations of homologous features
 (landmarks; Bookstein, 1991). Two principles are central to this
-framework: first, the conceptual and statistical separation of size and
-shape as the two main components of organismal form, a concept that
-precedes the consolidation of geometric morphometrics (Mosimann, 1970);
-second, the use of superimposition-based methods (Generalized Procrustes
-Analysis; Rohlf \& Slice, 1990; Goodall, 1991) for the estimation of
-shape statistical parameters, such as mean shape and shape covariance
+framework: first, the conceptual and statistical seperation of size and
+shape as the main components of biological form; second, the use of
+superimposition-based methods (GPA: Generalized Procrustes Analysis;
+Rohlf \& Slice, 1990; Goodall, 1991) for the estimation of shape
+statistical parameters, such as mean shape and shape covariance
 structure. This class of estimators was proposed as a solution to the
 problem that landmark configurations are arbitrarily rotated and
-translated in space, and such nuisance parameters are impossible to
-estimate (Goodall, 1991; Lele \& McCulloch, 2002), a situation known as
-the identifiability problem (Neyman \& Scott, 1948).
+translated, and such nuisance parameters are impossible to estimate
+(Goodall, 1991; Lele \& McCulloch, 2002), a situation known as the
+identifiability problem (Neyman \& Scott, 1948).
 
 Although the use of Procrustes estimators is currently widespread in
 geometric morphometrics toolboxes (e.g. Klingenberg, 2011; Adams \&
@@ -293,12 +296,30 @@ Kent \& Mardia, 1997; Huckemann, 2012) and of shape covariance matrices
 \emph{et al.}, 2012). Procrustes estimators for mean shape have been
 shown to perform well under isotropic landmark covariance structure
 (Kent \& Mardia, 1997), that is, a situation of null covariances among
-landmark coordinates; however, when such assumption does not hold,
+landmarks and coordinates; however, when such assumption does not hold,
 Procrustes estimates for mean shape may behave badly, especially in
 situations where shape variation is high (Huckemann, 2011). The simple
 example provided by Linde \& Houle (2009) demonstrates that, when such
 assumption is broken, shape covariance patterns are also poorly
-estimated.
+estimated; if the unknown landmark covariance matrix is structured due
+to regional differences in covariance-generating processes, such
+variation will be displaced through the entire landmark configuration
+when GPA is used.
+
+A number of alternatives for dealing with the estimation of shape
+covariance matrices have been proposed; some of these alternatives (e.g.
+Theobald \& Wuttke, 2006; Linde \& Houle, 2009) propose modifications to
+the Procrustes analysis in order to deal with heterogeneity in landmark
+covariance structure. The approach advocated by Márquez et al. (2012)
+proposes another definition of shape descriptors, using
+interpolation-based techniques (Cheverud \& Richtsmeier, 1986;
+Bookstein, 1989) as a starting point; such descriptors refer to
+infinitesimal expansions or retractions in reference to a unknown mean
+shape (Woods, 2003), estimated at definite locations amidst sampled
+landmarks. Márquez et al. (2012) argue that such descriptors are proper
+local measurements of shape variation, as they can directly be linked to
+biological processes that generate covariation among morphological
+elements, in a manner similar to interlandmark distances.
 
 \paragraph{Objectives}\label{objectives}
 
@@ -858,6 +879,10 @@ of Ecology and Systematics} \textbf{13}: 451--470.
 Bookstein, F.L. 1991. \emph{Morphometric tools for landmark data:
 geometry and biology}. Cambridge University Press, Cambridge.
 
+Bookstein, F.L. 1989. Principal warps: Thin plate splines and the
+decomposition of deformations. \emph{IEEE Transactions on Pattern
+Analysis and Machine Intelligence} \textbf{11}: 567--585.
+
 Bookstein, F.L., Chernoff, B., Elder, R., Humphries, Smith, G. \&
 Strauss, R. 1985. \emph{Morphometrics in Evolutionary Biology}. The
 Academy of Natural Sciences of Philadelphia, Philadelphia.
@@ -872,6 +897,10 @@ pleiotropy. \emph{American Zoology} \textbf{36}: 44--50.
 Cheverud, J.M. 1982. Phenotypic, genetic, and environmental
 morphological integration in the cranium. \emph{Evolution} \textbf{36}:
 499--516.
+
+Cheverud, J.M. \& Richtsmeier, J.T. 1986. Finite-Element Scaling Applied
+to Sexual Dimorphism in Rhesus Macaque (Macaca Mulatta) Facial Growth.
+\emph{Systematic Biology} \textbf{35}: 381--399.
 
 Cheverud, J.M., Kohn, L.A.P., Konigsberg, L.W. \& Leigh, S.R. 1992.
 Effects of fronto-occipital artificial cranial vault modification on the
@@ -1035,11 +1064,6 @@ Monteiro, L.R. \& Nogueira, M.R. 2010. Adaptive radiations, ecological
 specialization, and the evolutionary integration of complex
 morphological structures. \emph{Evolution} \textbf{64}: 724--744.
 
-Mosimann, J.E. 1970. Size Allometry: Size and Shape Variables with
-Characterizations of the Lognormal and Generalized Gamma Distributions.
-\emph{Journal of the American Statistical Association} \textbf{65}:
-930--945.
-
 Newman, M.E.J. 2006. Modularity and community structure in networks.
 \emph{Proceedings of the National Academy of Sciences} \textbf{103}:
 8577--8582.
@@ -1118,6 +1142,11 @@ Steppan, S.J., Phillips, P.C. \& Houle, D. 2002. Comparative
 quantitative genetics: evolution of the G matrix. \emph{Trends in
 Ecology and Evolution} \textbf{17}: 320--327.
 
+Theobald, D.L. \& Wuttke, D.S. 2006. Empirical Bayes hierarchical models
+for regularizing maximum likelihood estimation in the matrix Gaussian
+Procrustes problem. \emph{Proceedings of the National Academy of
+Sciences} \textbf{103}: 18521--18527.
+
 Turing, A.M. 1952. The Chemical Basis of Morphogenesis.
 \emph{Philosophical Transactions of the Royal Society of London}
 \textbf{237}: 37--72.
@@ -1148,6 +1177,10 @@ Willmore, K.E., Roseman, C.C., Rogers, J., Cheverud, J.M. \&
 Richtsmeier, J.T. 2009. Comparison of Mandibular Phenotypic and Genetic
 Integration between Baboon and Mouse. \emph{Evolutionary Biology}
 \textbf{36}: 19--36.
+
+Woods, R.P. 2003. Characterizing volume and surface deformations in an
+atlas framework: theory, applications, and implementation.
+\emph{NeuroImage} \textbf{18}: 769--788.
 
 Young, N.M. \& Hallgrímsson, B. 2005. Serial homology and the evolution
 of mammalian limb covariation structure. \emph{Evolution} \textbf{59}:
