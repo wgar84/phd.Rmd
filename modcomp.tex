@@ -80,7 +80,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{17 July 2015}
+  \date{20 July 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -205,10 +205,10 @@ regulation of each step is mediated by different profiles of genetic
 expression exhibited by cells originated from different embryonic
 precursors and their response to signaling factors expressed at the
 regional level; the response to these signaling factors further changes
-the profile of expression in the affected cells, thus generating a
-feedback loop of cell and tissue diferentiation (Turing, 1952;
-Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal,
-2011). However, these processes also affect adjoining regions through
+the expression profile in the affected cells, thus generating a feedback
+loop of cell and tissue diferentiation (Turing, 1952; Marcucio \emph{et
+al.}, 2005; Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009;
+Franz-Odendaal, 2011). Each step affect adjoining regions through
 interactions among developing tissues (Cheverud \emph{et al.}, 1992;
 Lieberman, 2011; Esteve-Altava \& Rasskin-Gutman, 2014), and the
 composed effect of these different processes over correlation patterns
@@ -269,7 +269,13 @@ features that could be identified in a wide taxonomic coverage. Cheverud
 integration, thus considering individual measurements over bones are
 local representations of regional phenomena, that is, the functional,
 developmental and genetic interactions that produce covariances among
-these elements.
+these elements. The influence of such interactions over covariance or
+correlation matrices can then be accessed by defining a subset of
+measurements which fall under the scope of a particular process and
+further estimating a metric that represents such partitioning; the null
+hypothesis that this partitioning is undistinguishable from random
+partitions can be tested using randomization procedures (Mantel, 1967;
+Cheverud \emph{et al.}, 1989).
 
 In the past three decades, geometric morphometrics (Bookstein, 1982,
 1991; Kendall, 1984; Rohlf \& Slice, 1990; Goodall, 1991) have been
@@ -284,8 +290,8 @@ statistical parameters, such as mean shape and shape covariance
 structure. This class of estimators was proposed as a solution to the
 problem that landmark configurations are arbitrarily rotated and
 translated, and such nuisance parameters are impossible to estimate
-(Goodall, 1991; Lele \& McCulloch, 2002), a situation known as the
-identifiability problem (Neyman \& Scott, 1948).
+without any assumptions (Goodall, 1991; Lele \& McCulloch, 2002), a
+situation known as the identifiability problem (Neyman \& Scott, 1948).
 
 Although the use of Procrustes estimators is currently widespread in
 geometric morphometrics toolboxes (e.g. Klingenberg, 2011; Adams \&
@@ -293,13 +299,14 @@ Otárola-Castillo, 2013), it has not been without criticisms, either with
 respect to the estimation of mean shape configurations (e.g. Lele, 1993;
 Kent \& Mardia, 1997; Huckemann, 2012) and of shape covariance matrices
 (Walker, 2000; Adams \emph{et al.}, 2004; Linde \& Houle, 2009; Márquez
-\emph{et al.}, 2012). Procrustes estimators for mean shape have been
-shown to perform well under isotropic landmark covariance structure
-(Kent \& Mardia, 1997), that is, a situation of null covariances among
-landmarks and coordinates; however, when such assumption does not hold,
-Procrustes estimates for mean shape may behave badly, especially in
-situations where shape variation is high (Huckemann, 2011). The simple
-example provided by Linde \& Houle (2009) demonstrates that, when such
+\emph{et al.}, 2012). For shape configurations in two-dimensional space,
+Procrustes estimators for mean shape have been shown to perform well
+under isotropic landmark covariance structure (Kent \& Mardia, 1997),
+that is, a situation of null covariances among landmarks and
+coordinates; however, when such assumption does not hold, Procrustes
+estimates for mean shape may behave badly, especially in situations
+where shape variation is high (Huckemann, 2011). The simple example
+provided by Linde \& Houle (2009) demonstrates that, when such
 assumption is broken, shape covariance patterns are also poorly
 estimated; if the unknown landmark covariance matrix is structured due
 to regional differences in covariance-generating processes, such
@@ -308,18 +315,26 @@ when GPA is used.
 
 A number of alternatives for dealing with the estimation of shape
 covariance matrices have been proposed; some of these alternatives (e.g.
-Theobald \& Wuttke, 2006; Linde \& Houle, 2009) propose modifications to
-the Procrustes analysis in order to deal with heterogeneity in landmark
-covariance structure. The approach advocated by Márquez et al. (2012)
-proposes another definition of shape descriptors, using
-interpolation-based techniques (Cheverud \& Richtsmeier, 1986;
-Bookstein, 1989) as a starting point; such descriptors refer to
-infinitesimal expansions or retractions in reference to a unknown mean
-shape (Woods, 2003), estimated at definite locations amidst sampled
-landmarks. Márquez et al. (2012) argue that such descriptors are proper
-local measurements of shape variation, as they can directly be linked to
-biological processes that generate covariation among morphological
-elements, in a manner similar to interlandmark distances.
+Theobald \& Wuttke, 2006; Linde \& Houle, 2009; Monteiro \& Nogueira,
+2010) propose modifications to the Procrustes analysis in order to deal
+with heterogeneity in landmark covariance structure. The approach
+advocated by Márquez et al. (2012) proposes another definition of shape
+descriptors, using interpolation-based techniques (Cheverud \&
+Richtsmeier, 1986; Bookstein, 1989) as a starting point; such
+descriptors refer to infinitesimal expansions or retractions in
+reference to a unknown mean shape (Woods, 2003), estimated at definite
+locations amidst sampled landmarks. Márquez et al. (2012) argue that
+such descriptors are proper local measurements of shape variation, as
+they can directly be linked to biological processes that generate
+covariation among morphological elements, in a manner similar to
+interlandmark distances.
+
+Despite these methodological caveats regarding Procrustes estimators for
+covariance matrices, the use of such estimators for investigating
+aspects of morphological integration has increased in the past ten years
+(e.g. Klingenberg \emph{et al.}, 2004; Drake \& Klingenberg, 2010;
+Goswami \& Polly, 2010; Martínez-Abadías \emph{et al.}, 2011; Sanger
+\emph{et al.}, 2012; Neaux \emph{et al.}, 2015).
 
 \paragraph{Objectives}\label{objectives}
 
@@ -911,6 +926,10 @@ Cheverud, J.M., Wagner, G.P. \& Dow, M.M. 1989. Methods for the
 comparative analysis of variation patterns. \emph{Evolution}
 \textbf{38}: 201--213.
 
+Drake, A.G. \& Klingenberg, C.P. 2010. Large Scale Diversification of
+Skull Shape in Domestic Dogs: Disparity and Modularity. \emph{The
+American Naturalist} \textbf{175}: 289--301.
+
 Espinosa-Soto, C. \& Wagner, A. 2010. Specialization can drive the
 evolution of modularity. \emph{PLoS Comput. Biol.} \textbf{6}: e1000719.
 
@@ -938,6 +957,10 @@ Cheaters in mutualism networks. \emph{Biology Letters} \textbf{6}:
 Goodall, C. 1991. Procrustes methods in the statistical analysis of
 shape. \emph{Journal of the Royal Statistical Society. Series B
 (Methodological)} \textbf{53}: 285--339.
+
+Goswami, A. \& Polly, P.D. 2010. The influence of modularity on cranial
+morphological disparity in Carnivora and Primates (Mammalia). \emph{PLoS
+ONE} \textbf{5}: e9517.
 
 Grabowski, M.W., Polk, J.D. \& Roseman, C.C. 2011. Divergent patterns of
 integration and reduced constraint in the human hip and the origins of
@@ -1001,6 +1024,10 @@ Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
 symmetric structures: Quantifying variation among individuals and
 asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
 
+Klingenberg, C.P., Leamy, L.J. \& Cheverud, J.M. 2004. Integration and
+Modularity of Quantitative Trait Locus Effects on Geometric Shape in the
+Mouse Mandible. \emph{Genetics} \textbf{166}: 1909--1921.
+
 Lande, R. 1980. The Genetic Covariance Between Characters Maintained by
 Pleiotropic Mutations. \emph{Genetics} \textbf{94}: 203--215.
 
@@ -1027,6 +1054,10 @@ traits}. Sinauer Associates, Sunderland.
 Mantel, N. 1967. The detection of disease clustering and a generalized
 regression approach. \emph{Cancer Res} \textbf{27}: 209--220.
 
+Marcucio, R.S., Cordero, D.R., Hu, D. \& Helms, J.A. 2005. Molecular
+interactions coordinating the development of the forebrain and face.
+\emph{Developmental Biology} \textbf{284}: 48--61.
+
 Marroig, G. \& Cheverud, J.M. 2001. A comparison of phenotypic variation
 and covariation patterns and the role of phylogeny, ecology, and
 ontogeny during cranial evolution of new world monkeys. \emph{Evolution}
@@ -1039,6 +1070,11 @@ monkeys. \emph{Evolution} \textbf{59}: 1128--1142.
 Marroig, G. \& Cheverud, J.M. 2010. Size as a line of least resistance
 II: direct selection on size or correlated response due to constraints?
 \emph{Evolution} \textbf{64}: 1470--1488.
+
+Martínez-Abadías, N., Esparza, M., vold, T. Sjø, González-José, R.,
+Hernández, M. \& Klingenberg, C.P. 2011. Pervasive genetic integration
+directs the evolution of human skull shape. \emph{Evolution}
+\textbf{66}: 1010--1023.
 
 Márquez, E.J., Cabeen, R., Woods, R.P. \& Houle, D. 2012. The
 Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
@@ -1063,6 +1099,11 @@ and humans. \emph{Journal of Human Evolution} \textbf{46}: 679--697.
 Monteiro, L.R. \& Nogueira, M.R. 2010. Adaptive radiations, ecological
 specialization, and the evolutionary integration of complex
 morphological structures. \emph{Evolution} \textbf{64}: 724--744.
+
+Neaux, D., Gilissen, E., Coudyzer, W. \& Guy, F. 2015. Integration
+between the face and the mandible of Pongo and the evolution of the
+craniofacial morphology of orangutans. \emph{American Journal of
+Physical Anthropology} n/a--n/a.
 
 Newman, M.E.J. 2006. Modularity and community structure in networks.
 \emph{Proceedings of the National Academy of Sciences} \textbf{103}:
