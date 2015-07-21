@@ -436,6 +436,16 @@ de primatas antropóides. \label{fig:phylo_model}}
 \chapter{On Measurement and Morphometrics: Error Rates in Modularity Hypothesis Testing}
 \label{ch:modcomp}
 
+\textsuperscript{1}Laboratório de Evolução de Mamíferos, Departamento de
+Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de
+São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
+
+\textsuperscript{2}\href{mailto:wgar@usp.br}{wgar@usp.br}
+
+running title: Measuring Modularity
+
+key words:
+
 \section{Introduction}\label{introduction}
 
 Modularity is a characteristic pattern that biological systems exhibit
@@ -485,10 +495,10 @@ regulation of each step is mediated by different profiles of genetic
 expression exhibited by cells originated from different embryonic
 precursors and their response to signaling factors expressed at the
 regional level; the response to these signaling factors further changes
-the profile of expression in the affected cells, thus generating a
-feedback loop of cell and tissue diferentiation (Turing, 1952;
-Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal,
-2011). However, these processes also affect adjoining regions through
+the expression profile in the affected cells, thus generating a feedback
+loop of cell and tissue diferentiation (Turing, 1952; Marcucio \emph{et
+al.}, 2005; Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009;
+Franz-Odendaal, 2011). Each step affect adjoining regions through
 interactions among developing tissues (Cheverud \emph{et al.}, 1992;
 Lieberman, 2011; Esteve-Altava \& Rasskin-Gutman, 2014), and the
 composed effect of these different processes over correlation patterns
@@ -534,7 +544,8 @@ Porto \emph{et al.}, 2009; Willmore \emph{et al.}, 2009) and divergence
 outcomes of evolutionary divergence. Therefore, the question of whether
 any of these two scenarios is the rule or exception at macroevolutionary
 scales remains open, although some theoretical and methodological
-differences between these works need to be taken into consideration.
+differences between these works with respect to the representation of
+morphological features need to be taken into consideration.
 
 \subsubsection{Morphometrics}\label{morphometrics}
 
@@ -548,7 +559,13 @@ features that could be identified in a wide taxonomic coverage. Cheverud
 integration, thus considering individual measurements over bones are
 local representations of regional phenomena, that is, the functional,
 developmental and genetic interactions that produce covariances among
-these elements.
+these elements. The influence of such interactions over covariance or
+correlation matrices can then be accessed by defining a subset of
+measurements which fall under the scope of a particular process and
+further estimating a metric that summarizes such partitioning; the null
+hypothesis that this partition is undistinguishable from
+randomly-defined partitions can be tested using randomization procedures
+(Mantel, 1967; Cheverud \emph{et al.}, 1989).
 
 In the past three decades, geometric morphometrics (Bookstein, 1982,
 1991; Kendall, 1984; Rohlf \& Slice, 1990; Goodall, 1991) have been
@@ -563,8 +580,8 @@ statistical parameters, such as mean shape and shape covariance
 structure. This class of estimators was proposed as a solution to the
 problem that landmark configurations are arbitrarily rotated and
 translated, and such nuisance parameters are impossible to estimate
-(Goodall, 1991; Lele \& McCulloch, 2002), a situation known as the
-identifiability problem (Neyman \& Scott, 1948).
+without any assumptions (Goodall, 1991; Lele \& McCulloch, 2002), a
+situation known as the identifiability problem (Neyman \& Scott, 1948).
 
 Although the use of Procrustes estimators is currently widespread in
 geometric morphometrics toolboxes (e.g. Klingenberg, 2011; Adams \&
@@ -572,13 +589,14 @@ Otárola-Castillo, 2013), it has not been without criticisms, either with
 respect to the estimation of mean shape configurations (e.g. Lele, 1993;
 Kent \& Mardia, 1997; Huckemann, 2012) and of shape covariance matrices
 (Walker, 2000; Adams \emph{et al.}, 2004; Linde \& Houle, 2009; Márquez
-\emph{et al.}, 2012). Procrustes estimators for mean shape have been
-shown to perform well under isotropic landmark covariance structure
-(Kent \& Mardia, 1997), that is, a situation of null covariances among
-landmarks and coordinates; however, when such assumption does not hold,
-Procrustes estimates for mean shape may behave badly, especially in
-situations where shape variation is high (Huckemann, 2011). The simple
-example provided by Linde \& Houle (2009) demonstrates that, when such
+\emph{et al.}, 2012). For shape configurations in two-dimensional space,
+Procrustes estimators for mean shape have been shown to perform well
+under isotropic landmark covariance structure (Kent \& Mardia, 1997),
+that is, a situation of null covariances among landmarks and
+coordinates; however, when such assumption does not hold, Procrustes
+estimates for mean shape may behave badly, especially in situations
+where shape variation is high (Huckemann, 2011). The simple example
+provided by Linde \& Houle (2009) demonstrates that, when such
 assumption is broken, shape covariance patterns are also poorly
 estimated; if the unknown landmark covariance matrix is structured due
 to regional differences in covariance-generating processes, such
@@ -587,26 +605,53 @@ when GPA is used.
 
 A number of alternatives for dealing with the estimation of shape
 covariance matrices have been proposed; some of these alternatives (e.g.
-Theobald \& Wuttke, 2006; Linde \& Houle, 2009) propose modifications to
-the Procrustes analysis in order to deal with heterogeneity in landmark
-covariance structure. The approach advocated by Márquez et al. (2012)
-proposes another definition of shape descriptors, using
-interpolation-based techniques (Cheverud \& Richtsmeier, 1986;
-Bookstein, 1989a) as a starting point; such descriptors refer to
-infinitesimal expansions or retractions in reference to a unknown mean
-shape (Woods, 2003), estimated at definite locations amidst sampled
-landmarks. Márquez et al. (2012) argue that such descriptors are proper
-local measurements of shape variation, as they can directly be linked to
-biological processes that generate covariation among morphological
-elements, in a manner similar to interlandmark distances.
+Theobald \& Wuttke, 2006; Linde \& Houle, 2009; Monteiro \& Nogueira,
+2010) propose modifications to the Procrustes analysis in order to deal
+with heterogeneity in landmark covariance structure. The approach
+advocated by Márquez et al. (2012) proposes another definition of shape
+descriptors, using interpolation-based techniques (Cheverud \&
+Richtsmeier, 1986; Bookstein, 1989a) as a starting point; such
+descriptors refer to infinitesimal expansions or retractions in
+reference to a unknown mean shape (Woods, 2003), estimated at definite
+locations amidst sampled landmarks. Márquez et al. (2012) argue that
+such descriptors are proper local measurements of shape variation, as
+they can directly be linked to biological processes that generate
+covariation among morphological elements, in a manner similar to
+interlandmark distances.
 
-\paragraph{Objectives}\label{objectives}
+Despite these methodological caveats regarding Procrustes estimators for
+covariance matrices, the use of such estimators for investigating
+aspects of morphological integration has increased in the past ten years
+(e.g. Klingenberg \emph{et al.}, 2004; Drake \& Klingenberg, 2010;
+Goswami \& Polly, 2010; Martínez-Abadías \emph{et al.}, 2011; Sanger
+\emph{et al.}, 2012; Neaux \emph{et al.}, 2015). The results found by
+these authors are sometimes in stark constrast with similar works using
+interlandmark distances (e.g. Cheverud \emph{et al.}, 1997; Oliveira
+\emph{et al.}, 2009; Porto \emph{et al.}, 2009) For instance,
+Martínez-Abadías et al. (2011) found a pattern of strong integration
+among partitions in human skull covariance patterns, while Oliveira et
+al. (2009) and Porto et al. (2009) demonstrated that humans are among
+the most modular examples of mammalian skull covariance patterns.
+Likewise, Klingenberg et al. (2004) has found no evidence for a modular
+distribution of pleiotropic effects among the partitions of the mouse
+mandible; using the same strain of intercrossed mice at the same
+generation, Cheverud et al. (1997) has shown that 70\% of the
+pleiotropic effects are confined to either anterior or posterior
+mandibular components, while the remaining 30\% are shared among the two
+regions. Furthermore, aside from the issues regarding Procrustes
+estimators, these works also propose different methods to quantify the
+effects of interactions over covariance patterns. For example,
+Martínez-Abadías et al. (2011) and Sanger et al. (2012) use the RV
+coefficient, a multivariate correlation coefficient defined by Escoufier
+(1973) which has been used to quantify modular relationships over
+landmark covariance patterns since Klingenberg (2009) has proposed its
+use in this context.
 
-In the present work, we compare the methods described both by Cheverud
-et al. (1989) and Klingenberg (2009) to test \emph{a priori} defined
-modularity patterns, using anthropoid primates as a model organism. In
-order to also compare the performance of these methods with respect to
-different representations of form, sample units are represented both as
+In the present work, we compare the methods described by Cheverud et al.
+(1989) and Klingenberg (2009) to test \emph{a priori} defined modularity
+patterns, using anthropoid primates as a model organism. In order to
+also compare the performance of these methods with respect to different
+representations of form, sample units are represented both as
 interlandmark distances and shape variables. Furthermore, we also used
 an approach based on the construction of theoretical correlation
 matrices; in this context, these matrices are used in order to estimate
@@ -642,17 +687,20 @@ and \autoref{fig:landmarks} (henceforth refered to as Procrustes
 residuals); interlandmark distances, as described in \autoref{tab:dist};
 and local shape variables (Márquez \emph{et al.}, 2012), which are
 measurements of infinitesimal log volume transformations between each
-sample unit and a reference (mean) shape. These transformations were
-calculated at 38 points, corresponding to the locations of the mipoints
-between pairs of landmarks used to calculate interlandmark distances, in
-order to produce a dataset that represents shape (i.e., form without
-isometric variation; Bookstein, 1991; Zelditch \emph{et al.}, 2004)
-while retaining the same overall properties of the interlandmark
-distance dataset, such as dimensionality, for instance. Furthermore, the
-same hypotheses of trait association can be used on both types of
-variables since the position of local shape variables through the skull
-mirrors the position of interlandmark distances, although they are
-conceptually different types of measurements.
+sample unit and a reference (mean) shape, based upon an interpolation
+function that describes shape variation between sampled landmarks. In
+this context, we use thin plate splines as the interpolating function
+(Bookstein, 1989a). These transformations were calculated at 38 points,
+corresponding to the locations of the mipoints between pairs of
+landmarks used to calculate interlandmark distances, in order to produce
+a dataset that represents shape (i.e., form without isometric variation;
+Bookstein, 1991; Zelditch \emph{et al.}, 2004) while retaining the same
+overall properties of the interlandmark distance dataset, such as
+dimensionality, for instance. Furthermore, the same hypotheses of trait
+association can be used on both types of variables since the position of
+local shape variables through the skull mirrors the position of
+interlandmark distances, although they are conceptually different types
+of measurements.
 
 Here we consider only covariance or correlation structure for the
 symmetrical component of variation; therefore, prior to any analysis, we
@@ -834,7 +882,7 @@ $\mathbf{C}_{s}$ matrix will be \[
 associated with that particular block. Thus, we abstract each type of
 morphometric variable to a correlation distribution, building
 theoretical correlation matrices that are representative of each type
-retaining their statistical properties.
+and that retain their statistical properties.
 
 \begin{figure}[htbp]
 \centering
@@ -874,7 +922,7 @@ the correlation matrix used to produce the sample was generated by a
 permutation of the hypothesis being tested. Therefore, testing
 hypotheses over $\mathbf{C}_r$ matrices allows us to estimate Type I
 error rates for both tests, that is, the proportion of cases in which
-the null hypothesis is rejected even though it is false, given a
+the null hypothesis is rejected even though it is true, given a
 significance level. In an adequate test, we expect that both quantities,
 significance level and Type I error rate, will be identical.
 
@@ -946,7 +994,7 @@ OTU, with $P(\alpha)$ indicated by the legend. \label{fig:MI_Func}}
 \end{figure}
 
 Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a
-more diffuse pattern among each varible type. When interlandmark
+more diffuse pattern among each variable type. When interlandmark
 distances are considered, most tests detect the Vault sub-region with
 size variation retained, and the Base sub-region when size variation is
 removed. For Procrustes residuals, few tests are able to reject their
@@ -1359,6 +1407,20 @@ Annat Haber, available at
 
 \section{Results}\label{results-1}
 
+\begin{verbatim}
+## Loading required package: scales
+## 
+## Attaching package: 'scales'
+## 
+## The following object is masked from 'package:geiger':
+## 
+##     rescale
+## 
+## The following object is masked from 'package:plotrix':
+## 
+##     rescale
+\end{verbatim}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/cac_shape-1.pdf}
@@ -1710,9 +1772,20 @@ Effects of fronto-occipital artificial cranial vault modification on the
 cranial base and face. \emph{American Journal of Physical Anthropology}
 \textbf{88}: 323--345.
 
+Cheverud, J.M., Routman, E.J. \& Irschick, D.J. 1997. Pleiotropic
+Effects of Individual Gene Loci on Mandibular Morphology.
+\emph{Evolution} \textbf{51}: 2006--2016.
+
 Cheverud, J.M., Wagner, G.P. \& Dow, M.M. 1989. Methods for the
 comparative analysis of variation patterns. \emph{Evolution}
 \textbf{38}: 201--213.
+
+Drake, A.G. \& Klingenberg, C.P. 2010. Large Scale Diversification of
+Skull Shape in Domestic Dogs: Disparity and Modularity. \emph{The
+American Naturalist} \textbf{175}: 289--301.
+
+Escoufier, Y. 1973. Le Traitement des Variables Vectorielles.
+\emph{Biometrics} \textbf{29}: 751--760.
 
 Espinosa-Soto, C. \& Wagner, A. 2010. Specialization can drive the
 evolution of modularity. \emph{PLoS Comput. Biol.} \textbf{6}: e1000719.
@@ -1744,6 +1817,10 @@ Cheaters in mutualism networks. \emph{Biology Letters} \textbf{6}:
 Goodall, C. 1991. Procrustes methods in the statistical analysis of
 shape. \emph{Journal of the Royal Statistical Society. Series B
 (Methodological)} \textbf{53}: 285--339.
+
+Goswami, A. \& Polly, P.D. 2010. The influence of modularity on cranial
+morphological disparity in Carnivora and Primates (Mammalia). \emph{PLoS
+ONE} \textbf{5}: e9517.
 
 Grabowski, M.W., Polk, J.D. \& Roseman, C.C. 2011. Divergent patterns of
 integration and reduced constraint in the human hip and the origins of
@@ -1826,6 +1903,10 @@ Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
 symmetric structures: Quantifying variation among individuals and
 asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
 
+Klingenberg, C.P., Leamy, L.J. \& Cheverud, J.M. 2004. Integration and
+Modularity of Quantitative Trait Locus Effects on Geometric Shape in the
+Mouse Mandible. \emph{Genetics} \textbf{166}: 1909--1921.
+
 Lande, R. 1980. The Genetic Covariance Between Characters Maintained by
 Pleiotropic Mutations. \emph{Genetics} \textbf{94}: 203--215.
 
@@ -1857,6 +1938,10 @@ traits}. Sinauer Associates, Sunderland.
 Mantel, N. 1967. The detection of disease clustering and a generalized
 regression approach. \emph{Cancer Res} \textbf{27}: 209--220.
 
+Marcucio, R.S., Cordero, D.R., Hu, D. \& Helms, J.A. 2005. Molecular
+interactions coordinating the development of the forebrain and face.
+\emph{Developmental Biology} \textbf{284}: 48--61.
+
 Marroig, G. \& Cheverud, J.M. 2001. A comparison of phenotypic variation
 and covariation patterns and the role of phylogeny, ecology, and
 ontogeny during cranial evolution of new world monkeys. \emph{Evolution}
@@ -1879,6 +1964,11 @@ Marroig, G., Melo, D., Porto, A., Sebastião, H. \& Garcia, G. 2011.
 Selection Response Decomposition (SRD): A New Tool for Dissecting
 Differences and Similarities Between Matrices. \emph{Evolutionary
 Biology} \textbf{38}: 225--241.
+
+Martínez-Abadías, N., Esparza, M., vold, T. Sjø, González-José, R.,
+Hernández, M. \& Klingenberg, C.P. 2011. Pervasive genetic integration
+directs the evolution of human skull shape. \emph{Evolution}
+\textbf{66}: 1010--1023.
 
 Márquez, E.J., Cabeen, R., Woods, R.P. \& Houle, D. 2012. The
 Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
@@ -1907,6 +1997,11 @@ and humans. \emph{Journal of Human Evolution} \textbf{46}: 679--697.
 Monteiro, L.R. \& Nogueira, M.R. 2010. Adaptive radiations, ecological
 specialization, and the evolutionary integration of complex
 morphological structures. \emph{Evolution} \textbf{64}: 724--744.
+
+Neaux, D., Gilissen, E., Coudyzer, W. \& Guy, F. 2015. Integration
+between the face and the mandible of Pongo and the evolution of the
+craniofacial morphology of orangutans. \emph{American Journal of
+Physical Anthropology} n/a--n/a.
 
 Newman, M.E.J. 2006. Modularity and community structure in networks.
 \emph{Proceedings of the National Academy of Sciences} \textbf{103}:
