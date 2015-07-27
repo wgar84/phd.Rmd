@@ -28,6 +28,7 @@ require (tidyr)
 require (slidify)
 require (slidifyLibraries)
 require (StatMatch)
+require (scales)
 
 registerDoMC (cores = 3)
 
@@ -64,15 +65,15 @@ render('ppca.Rmd', output_file = 'ppca.pdf')
 
 render('modcomp.Rmd', output_file = 'modcomp.pdf')
 render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
-# system('okular modcomp.pdf &')
-# system('okular sup_modcomp.pdf &')
+# system('evince modcomp.pdf &')
+# system('evince sup_modcomp.pdf &')
 
 render('sup_base.Rmd', output_file = 'sup_base.pdf')
 
-system('okular tese.pdf &')
-system('okular allo.pdf &')
-system('okular ppca.pdf &')
-system('okular sup_base.pdf &')
+system('evince tese.pdf &')
+system('evince allo.pdf &')
+system('evince ppca.pdf &')
+system('evince sup_base.pdf &')
 
 render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
        output_format = 'ioslides_presentation',
@@ -235,4 +236,93 @@ browseURL('index.html', 'firefox')
 ##     for (j in 1:(dim (Aux $ wireframe) [1]))
 ##       lines3d (allo.Data $ CAC.shape [Aux $ wireframe [j, ], , i], col = coleurs [i])
 ##   }
+
+print (arrangeGrob(modcomp.Plots $ MI.Func + guides (size = FALSE),
+                   modcomp.Plots $ RV.Func + scale_y_discrete(labels = NULL) + ylab(''),
+                   ncol = 2, widths = c(1.3, 1)))
+
+print (arrangeGrob(modcomp.Plots $ MI.Dev + guides (size = FALSE),
+                   modcomp.Plots $ RV.NeuroFace, ncol = 2, widths = c(2, 1)))
+
+modcomp.Plots $ RV.Func <- 
+  ggplot (subset (modcomp.Data $ Summ, type == 'RV')) +
+  geom_tile(aes(x = otu, y = hyp, fill = value)) +
+  facet_grid(data ~ size) +
+  theme_minimal() +
+  scale_fill_continuous(name = 'RV', high = 'yellow', low = 'blue', space = 'Lab',
+                        limits = c(0, 1), 
+                        breaks = c(0.1, 0.5, 0.9)) +
+  geom_point (aes (x = otu, y = hyp,
+                   size = (p < 0.05) + (p < 0.01) + (p < 0.001),
+                   alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
+  scale_size_area(name = expression(P(alpha)),
+                  labels = c('< 0.05', '< 0.01', '< 0.001'),
+                  breaks = c(1, 2, 3)) +
+  ylab ('Hypothesis') + xlab ('') + labs(title = 'RV Coefficent') +
+  #scale_x_discrete(limits = rev(levels(modcomp.Data $ Summ $ otu))) +
+  scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ $ hyp))) +
+  scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        axis.ticks = element_line(size = 0))
+
+modcomp.Plots $ MI.Func <- 
+  ggplot (subset (modcomp.Data $ Summ, type == 'MI')) +
+  geom_tile(aes(y = hyp, x = otu, fill = value)) +
+  facet_grid(data ~ size) +
+  theme_minimal() +
+  scale_fill_continuous(name = 'AVG Index',
+                        high = 'blue', low = 'yellow', space = 'Lab',
+                        breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
+  geom_point (aes (y = hyp, x = otu,
+                   size = (p < 0.05) + (p < 0.01) + (p < 0.001),
+                   alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
+  scale_size_area(name = expression(P(alpha)),
+                  labels = c('< 0.05', '< 0.01', '< 0.001'),
+                  breaks = c(1, 2, 3)) +
+  ylab ('Hypothesis') + xlab ('') + labs(title = 'AVG Index') +
+  scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
+  ##scale_x_discrete(limits = rev(levels(modcomp.Data $ Summ $ otu))) +
+  scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ $ hyp))) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        axis.ticks = element_line(size = 0)) +
+  guides (size = FALSE)
+
+modcomp.Plots $ RV.NeuroFace <- 
+  ggplot (subset (modcomp.Data $ Summ.Dev, type == 'RV')) +
+  geom_tile(aes(y = data, x = otu, fill = value)) +
+  facet_wrap(~ size, ncol = 2) +
+  theme_minimal() +
+  scale_fill_continuous (name = 'RV', high = 'yellow', low = 'blue', space = 'Lab',
+                         limits = c(0, 1), breaks = c(0.1, 0.5, 0.9)) +
+  geom_point (aes (y = data, x = otu,
+                   size = (p < 0.05) + (p < 0.01) + (p < 0.001),
+                   alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
+  scale_size_area(name = expression(P(alpha)),
+                  labels = c('< 0.05', '< 0.01', '< 0.001'),
+                  breaks = c(1, 2, 3)) +
+  ylab ('') + xlab ('') + labs(title = 'Face/Neuro RV') +
+  scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ $ data))) +
+  scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        axis.ticks = element_line(size = 0)) + guides(size = FALSE)
+
+modcomp.Plots $ MI.Dev <- 
+  ggplot (subset (modcomp.Data $ Summ.Dev, type == 'MI')) +
+  geom_tile(aes(y = hyp, x = otu, fill = value)) +
+  facet_grid(data ~ size) +
+  theme_minimal() +
+  scale_fill_continuous(name = 'AVG Index',
+                        high = 'blue', low = 'yellow', space = 'Lab',
+                        breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
+  geom_point (aes (y = hyp, x = otu,
+                   size = (p < 0.05) + (p < 0.01) + (p < 0.001),
+                   alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
+  scale_size_area(name = expression(P(alpha)),
+                  labels = c('< 0.05', '< 0.01', '< 0.001'),
+                  breaks = c(1, 2, 3)) +
+  ylab ('Hypothesis') + xlab ('') + labs(title = 'Face/Neuro AVG Index') +
+  scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
+  scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ.Dev $ hyp))) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+        axis.ticks = element_line(size = 0))
 

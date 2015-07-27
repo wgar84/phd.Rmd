@@ -80,7 +80,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{21 July 2015}
+  \date{27 July 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -224,9 +224,10 @@ variation in both scale (isometric variation) and scale relationships
 level of phenotypic correlations among morphological traits (Wagner,
 1984; Young \& Hallgrímsson, 2005), and the magnitude of integration has
 important consequences for both the evolution of mean phenotypes among
-species (Marroig \& Cheverud, 2005, 2010; Cardini \& Polly, 2013) and
-the evolution of morphological integration itself (Oliveira \emph{et
-al.}, 2009; Porto \emph{et al.}, 2009, 2013; Shirai \& Marroig, 2010).
+species (Schluter, 1996; Marroig \& Cheverud, 2005, 2010; Cardini \&
+Polly, 2013) and the evolution of morphological integration itself
+(Oliveira \emph{et al.}, 2009; Porto \emph{et al.}, 2009, 2013; Shirai
+\& Marroig, 2010).
 
 Considerations based on theoretical (e.g. Lande, 1980; Pavlicev \emph{et
 al.}, 2010), experimental (Pavlicev \emph{et al.}, 2008, 2011; e.g.
@@ -282,12 +283,12 @@ In the past three decades, geometric morphometrics (Bookstein, 1982,
 consolidated as a quantitative framework for the representation of
 biological shape as geometric configurations of homologous features
 (landmarks; Bookstein, 1991). Two principles are central to this
-framework: first, the conceptual and statistical seperation of size and
+framework: first, the conceptual and statistical separation of size and
 shape as the main components of biological form; second, the use of
 superimposition-based methods (GPA: Generalized Procrustes Analysis;
 Rohlf \& Slice, 1990; Goodall, 1991) for the estimation of shape
 statistical parameters, such as mean shape and shape covariance
-structure. This class of estimators was proposed as a solution to the
+structure. Procrustes estimators were proposed as a solution to the
 problem that landmark configurations are arbitrarily rotated and
 translated, and such nuisance parameters are impossible to estimate
 without any assumptions (Goodall, 1991; Lele \& McCulloch, 2002), a
@@ -310,8 +311,8 @@ provided by Linde \& Houle (2009) demonstrates that, when such
 assumption is broken, shape covariance patterns are also poorly
 estimated; if the unknown landmark covariance matrix is structured due
 to regional differences in covariance-generating processes, such
-variation will be displaced through the entire landmark configuration
-when GPA is used.
+variation will be displaced and effectively spread out through the
+entire landmark configuration when GPA is used.
 
 A number of alternatives for dealing with the estimation of shape
 covariance matrices have been proposed; some of these alternatives (e.g.
@@ -326,8 +327,7 @@ reference to a unknown mean shape (Woods, 2003), estimated at definite
 locations amidst sampled landmarks. Márquez et al. (2012) argue that
 such descriptors are proper local measurements of shape variation, as
 they can directly be linked to biological processes that generate
-covariation among morphological elements, in a manner similar to
-interlandmark distances.
+covariation among morphological elements.
 
 Despite these methodological caveats regarding Procrustes estimators for
 covariance matrices, the use of such estimators for investigating
@@ -345,7 +345,7 @@ the most modular examples of mammalian skull covariance patterns.
 Likewise, Klingenberg et al. (2004) has found no evidence for a modular
 distribution of pleiotropic effects among the partitions of the mouse
 mandible; using the same strain of intercrossed mice at the same
-generation, Cheverud et al. (1997) has shown that 70\% of the
+generation, Cheverud et al. (1997) had shown that 70\% of the
 pleiotropic effects are confined to either anterior or posterior
 mandibular components, while the remaining 30\% are shared among the two
 regions. Furthermore, aside from the issues regarding Procrustes
@@ -576,11 +576,11 @@ between the trait sets considered (\autoref{fig:cor_dist}). We
 constructed corresponding sets of $\mathbf{C}_{s}$ matrices by sampling
 each distribution; for each matrix, we sampled two within-set
 correlations and one between-set correlation, filling the corresponding
-block in the theoretical matrix with the sampled correlations. As an
-example with only four traits, divided into two blocks of two traits, if
-we sample the values $0.5$ and $0.3$ from the within-set distribution,
-and $-0.1$ from the between-set distribution, the corresponding
-$\mathbf{C}_{s}$ matrix will be \[
+block in the theoretical matrix with the sampled correlations. For
+example, with only four traits, divided into two blocks of two traits,
+if we sample the values $0.5$ and $0.3$ from the within-set
+distribution, and $-0.1$ from the between-set distribution, the
+corresponding $\mathbf{C}_{s}$ matrix will be \[
 \mathbf{C}_s =
 \begin{bmatrix}
 1 & 0.5 & -0.1 & -0.1 \\
@@ -661,7 +661,7 @@ also decrease.
 
 \subsubsection{Software}\label{software}
 
-All analysis were performed under R 3.2.0 (R Core Team, 2015). Source
+All analysis were performed under R 3.2.1 (R Core Team, 2015). Source
 code for all analyses can be found at \url{http://github.com/wgar84}. It
 is noteworthy that previous tests we made indicated no differences
 between our estimation of empirical RV coefficients, based upon our own
@@ -674,63 +674,67 @@ Annat Haber, available at
 
 \subsection{Empirical Tests}\label{empirical-tests}
 
-Regarding localized trait sets, tests performed using AVG Indexes
-(\autoref{fig:MI_Func}) detect a consistent pattern among OTUs for both
-interlandmark distances and local shape variables; in the first set, the
-Oral sub-region is detected as a modular partition, and, when size is
-removed, the Vault sub-region is also detected; both Orbit and Base
-region are not detected in any of the tests with this type of variable.
-With local shape variables, both Oral and Vault sets are also detected
-consistently across OTUs, along Nasal and Zygomatic traits; moreover,
-the removal of allometric variation affect only the detection of the
-Vault. Notably, the Base sub-region is detected only in 3 of 42 tests.
+Regarding localized trait sets, tests performed using AVG Indexes (upper
+panel of \autoref{fig:Func}) detect a consistent pattern among OTUs for
+both interlandmark distances and local shape variables; in the first
+set, the Oral sub-region is detected as a modular partition, and, when
+size is removed, the Vault sub-region is also detected; both Orbit and
+Base region are not detected in any of the tests with this type of
+variable. With local shape variables, both Oral and Vault sets are also
+detected consistently across OTUs, along Nasal and Zygomatic traits;
+moreover, the removal of allometric variation affect only the detection
+of the Vault. Furthermore, the Base sub-region is detected only in 3 of
+42 tests performed over local shape variables, pooling together both
+size and size-free correlation patterns. One source of difference
+between local shape variables and interlandmark distances regarding the
+detection of localized variational modules are the Hominoids
+(\emph{Gorilla}. \emph{Homo}, \emph{Hylobates}, and \emph{Pan}), which
+display a considerate heterogeneity in detected regions in interlandmark
+distances; however, when considering local shape variables, a more
+conserved pattern of detection is observed.
+
 For Procrustes residuals, the pattern of detection among sub-regions and
 OTUs is diffuse; it is noteworthy that the Base sub-region is detected
 among several OTUs, which contrasts this type of morphometric variable
 with the remaining two types. Furthermore, abstracting the actual tests
-performed, \autoref{fig:MI_Func} also indicates that Procrustes
-residuals display a low variance for AVGi values within each OTU, while
-both interlandmark distances and local shape variables display a
-consistent pattern of variation among AVGi values within each OTU, with
-lower values for the Base and, for interlandmark distances, Orbit trait
-sets.
+performed, \autoref{fig:Func} also indicates that Procrustes residuals
+display a low variance for AVGi values within each OTU, while both
+interlandmark distances and local shape variables display a consistent
+pattern of variation among AVGi values within each OTU, with lower
+values for the Base and, for interlandmark distances, Orbit trait sets,
+while the Oral, Nasal and Vault regions display higher values
+consistently.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/MI_Func-1.pdf}
-\caption{AVG Index values for localized trait sets. Circles indicate
+\includegraphics{Figures/Func-1.pdf}
+\caption{AVGi and RV values for localized trait sets. Circles indicate
 whether a trait set is recognized as a variational module in a given
-OTU, with $P(\alpha)$ indicated by the legend. \label{fig:MI_Func}}
+OTU, with $P(\alpha)$ indicated by the legend. Notice that blue values
+are associated with both higher AVGi values and lower RV values, as the
+alternate hypothesis for each statistic is formulated in a corresponding
+manner; see text for details. \label{fig:Func}}
 \end{figure}
 
-Tests performed using RV coefficients (\autoref{fig:RV_Func}) show a
-more diffuse pattern among each variable type. When interlandmark
-distances are considered, most tests detect the Vault sub-region with
-size variation retained, and the Base sub-region when size variation is
-removed. For Procrustes residuals, few tests are able to reject their
-null hypothesis, detecting only a handful of valid modular partitions.
-Tests performed on local shape variables display the opposite behavior:
-almost all partitions are detected, regardless of whether allometric
-variation has been retained or removed. Moreover, RV values display a
-pattern of marked variation among OTUs, more so than between values
-within each OTU; notably, \emph{Macaca fascicularis} and \emph{Papio
-anubis} show RV values much higher than those estimated on remaining
-species. This pattern can be observed both on interlandmark distances
-with size retained and in Procrustes residuals, although this effect is
-more marked in the former type.
+Tests performed using RV coefficients (lower panel of
+\autoref{fig:Func}) show a more diffuse pattern among each variable
+type. When interlandmark distances are considered, most tests detect the
+Vault sub-region with size variation retained, and the Base sub-region
+when size variation is removed. For Procrustes residuals, few tests are
+able to reject their null hypothesis, detecting only a handful of valid
+modular partitions. Tests performed on local shape variables display the
+opposite behavior: almost all partitions are detected, regardless of
+whether allometric variation has been retained or removed. Moreover, RV
+values display a pattern of marked variation among OTUs, more so than
+between values within each OTU; notably, \emph{Macaca fascicularis} and
+\emph{Papio anubis} show RV values much higher than those estimated on
+remaining species. This pattern can be observed both on interlandmark
+distances with size retained and in Procrustes residuals, although this
+effect is more marked in the former type.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/RV_Func-1.pdf}
-\caption{RV Coefficient values for localized trait sets. Circles
-indicate whether a trait set is recognized as a variational module in a
-given OTU, with $P(\alpha)$ indicated by the legend.
-\label{fig:RV_Func}}
-\end{figure}
-
-With respect to regional trait sets, tests performed using AVGi
-(\autoref{fig:MI_Dev}) indicate a pattern consistent with the findings
-regarding localized sets (\autoref{fig:MI_Func}). Considering only
+With respect to regional trait sets, tests performed using AVGi (upper
+panel of \autoref{fig:Dev}) indicate a pattern consistent with the
+findings regarding localized sets (\autoref{fig:Func}). Considering only
 interlandmark distances, Facial traits are detected as a valid modular
 partition both with size variation retained or removed, while
 Neurocranial traits are detected as a valid partition only when size
@@ -743,36 +747,31 @@ localized sets. Finally, in local shape variables, both Face and
 Neurocranium are detected as valid with size retained; with size
 removed, only the Face is recognized. The same can be observed in the
 localized sets, where removing allometric variation affects the
-detection of the Vault set. The tests for distinction between within-set
+detection of the Vault set. The tests for the distinction of within-set
 and between-set correlations for these two sets (designated `Neuroface')
 show a pattern that is consistent with tests for the individual sets,
 that is, if one of the sets was previously detected, this distinction is
-also detected as valid with high probability.
+also detected as valid.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/MI_Dev-1.pdf}
-\caption{AVG Index values for regional trait sets. Circles indicate
+\includegraphics{Figures/Dev-1.pdf}
+\caption{AVGi and RV values for regional trait sets. Circles indicate
 whether a trait set is recognized in a given OTU, with $P(\alpha)$
-indicated by the legend. \label{fig:MI_Dev}}
+indicated by the legend. Notice that blue values are associated with
+both higher AVGi values and lower RV values, as the alternate hypothesis
+for each statistic is formulated in a corresponding manner; see text for
+details. \label{fig:Dev}}
 \end{figure}
 
 Tests performed for this distinction between Face and Neurocranium using
-RV coefficients (\autoref{fig:RV_Dev}) show that in most cases, for both
-interlandmark distances and local shape variables, both regions are
-considered distinct and valid variational modules; in Procrustes
-residuals, only in a handful of taxa the same result can be observed. In
-this case, the correspondence with results for localized trait sets
-(\autoref{fig:RV_Func}) is more difficult, due to the lack of
+RV coefficients (lower panel of \autoref{fig:Dev}) show that in most
+cases, for both interlandmark distances and local shape variables, both
+regions are considered distinct and valid variational modules; in
+Procrustes residuals, only in a handful of taxa the same result can be
+observed. In this case, the correspondence with results for localized
+trait sets (\autoref{fig:Func}) is more difficult, due to the lack of
 independent tests for each region.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/RV_Dev-1.pdf}
-\caption{RV Coefficient values for regional trait sets. Circles indicate
-whether a trait set is recognized in a given OTU, with $P(\alpha)$
-indicated by the legend. \label{fig:RV_Dev}}
-\end{figure}
 
 \subsection{Error Rates}\label{error-rates}
 
@@ -889,6 +888,32 @@ relationship. \label{fig:type2_sym}}
 \end{figure}
 
 \section{Discussion}\label{discussion}
+
+Covariance matrices derived from morphological traits are supposed to
+represent the pattern of co-dependence that arises due to a variety of
+different interactions among developing morphological elements. Such
+interactions are the expression of local developmental factors, as they
+interact with the expression profiles of surrounding cell types,
+producing coordinated changes in their cell cycles, thus integrating
+resulting tissues in the adult population. Although these events of
+local integration do overlap, and the composed effect over adult
+covariance patterns may produce a mixed signal (Hallgrímsson \&
+Lieberman, 2008; Hallgrímsson \emph{et al.}, 2009), we believe that a
+careful comparison of different yet equally proper ways of measuring and
+representing organismal form may be informative of the underlying
+processes that generate covariance patterns.
+
+Due to the minimization of quadratic distances among homologous
+landmarks during GPA, covariance matrices derived from Procrustes
+estimators lose this signal of localized effects on covariance patterns
+(Linde \& Houle, 2009); therefore, the use of such estimators to
+investigate morphological integration or modularity implicitly imply in
+a divorce between the phenomenom we would like to investigate and the
+numerical representation we choose to use. This disconnection between
+theory and measurement may have grave consequences for the hypotheses we
+wish to test (Houle \emph{et al.}, 2011); such consequences are
+observable in both our empirical and simulation-based approaches, as we
+explore below.
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
@@ -1012,6 +1037,10 @@ Herring, S.W. 2011. Muscle-Bone Interactions and the Development of
 Skeletal Phenotype. In: \emph{Epigenetics: Linking Genotype and
 Phenotype in Development andEvolution} (B. Hallgrímsson \& B. K. Hall,
 eds), pp. 221--237. University of California Press.
+
+Houle, D., Pélabon, C., Wagner, G.P. \& Hansen, T.F. 2011. Measurement
+and Meaning In Biology. \emph{The Quartely Review of Biology}
+\textbf{86}: 3--34.
 
 Huckemann, S. 2011. Inference on 3D Procrustes Means: Tree Bole Growth,
 Rank Deficient Diffusion Tensors and Perturbation Models: Inference on
@@ -1202,6 +1231,9 @@ the National Academy of Sciences} \textbf{109}: E326--E335.
 Sanger, T.J., Mahler, D.L., Abzhanov, A. \& Losos, J.B. 2012. Roles for
 modularity and constraint in the evolution of cranial diversity among
 Anolis lizards. \emph{Evolution} \textbf{66}: 1525--42.
+
+Schluter, D. 1996. Adaptive radiation along genetic lines of least
+resistance. \emph{Evolution} \textbf{50}: 1766--1774.
 
 Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
 marsupials and monkeys: size variation and evolutionary constraint and
