@@ -21,7 +21,7 @@ bibliography: Bib/modcomp.bib
 
 ^2^<wgar@usp.br>
 
-running title: Measuring Modularity
+running title: Measuring Modularity, eh
 
 key words: 
 
