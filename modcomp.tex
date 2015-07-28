@@ -80,7 +80,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{27 July 2015}
+  \date{28 July 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -199,21 +199,20 @@ developmental and functional dynamics among morphological traits (Polly,
 2008; Zelditch \& Swiderski, 2011). In the mammalian skull, for example,
 development is composed of sequential steps, such as neurocranial growth
 induced by the underlying developing brain and growth mediated by
-muscle-bone interactions (Hallgrímsson \& Lieberman, 2008; Zelditch
-\emph{et al.}, 2009; Herring, 2011; Cardini \& Polly, 2013). The
-regulation of each step is mediated by different profiles of genetic
-expression exhibited by cells originated from different embryonic
-precursors and their response to signaling factors expressed at the
-regional level; the response to these signaling factors further changes
-the expression profile in the affected cells, thus generating a feedback
-loop of cell and tissue diferentiation (Turing, 1952; Marcucio \emph{et
-al.}, 2005; Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009;
-Franz-Odendaal, 2011). Each step affect adjoining regions through
-interactions among developing tissues (Cheverud \emph{et al.}, 1992;
-Lieberman, 2011; Esteve-Altava \& Rasskin-Gutman, 2014), and the
-composed effect of these different processes over correlation patterns
-in adult phenotypes may be misleading (Hallgrímsson \emph{et al.},
-2009).
+muscle-bone interactions (Hallgrímsson \& Lieberman, 2008; Herring,
+2011; Cardini \& Polly, 2013). The regulation of each step is mediated
+by different profiles of genetic expression exhibited by cells
+originated from different embryonic precursors and their response to
+signaling factors expressed at the regional level; the response to these
+signaling factors further changes the expression profile in the affected
+cells, thus generating a feedback loop of cell and tissue diferentiation
+(Turing, 1952; Marcucio \emph{et al.}, 2005; Meinhardt, 2008;
+Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal, 2011). Each step
+affect adjoining regions through interactions among developing tissues
+(Cheverud \emph{et al.}, 1992; Lieberman, 2011; Esteve-Altava \&
+Rasskin-Gutman, 2014), and the composed effect of these different
+processes over correlation patterns in adult phenotypes may be
+misleading (Hallgrímsson \emph{et al.}, 2009).
 
 Furthermore, variation in overall growth rates, which, in adult
 populations, emerges into size variation (Pélabon \emph{et al.}, 2013;
@@ -316,18 +315,19 @@ entire landmark configuration when GPA is used.
 
 A number of alternatives for dealing with the estimation of shape
 covariance matrices have been proposed; some of these alternatives (e.g.
-Theobald \& Wuttke, 2006; Linde \& Houle, 2009; Monteiro \& Nogueira,
-2010) propose modifications to the Procrustes analysis in order to deal
-with heterogeneity in landmark covariance structure. The approach
-advocated by Márquez et al. (2012) proposes another definition of shape
-descriptors, using interpolation-based techniques (Cheverud \&
-Richtsmeier, 1986; Bookstein, 1989) as a starting point; such
-descriptors refer to infinitesimal expansions or retractions in
-reference to a unknown mean shape (Woods, 2003), estimated at definite
-locations amidst sampled landmarks. Márquez et al. (2012) argue that
-such descriptors are proper local measurements of shape variation, as
-they can directly be linked to biological processes that generate
-covariation among morphological elements.
+Monteiro \emph{et al.}, 2005; Theobald \& Wuttke, 2006; Linde \& Houle,
+2009; Zelditch \emph{et al.}, 2009) propose modifications to the
+Procrustes analysis in order to deal with heterogeneity in landmark
+covariance structure. The approach advocated by Márquez et al. (2012)
+proposes another definition of shape descriptors, using
+interpolation-based techniques (Cheverud \& Richtsmeier, 1986;
+Bookstein, 1989) as a starting point; such descriptors refer to
+infinitesimal expansions or retractions in reference to a unknown mean
+shape (Woods, 2003), estimated at definite locations amidst sampled
+landmarks. Márquez et al. (2012) argue that such descriptors are proper
+local measurements of shape variation, as they can directly be linked to
+biological processes that generate covariation among morphological
+elements.
 
 Despite these methodological caveats regarding Procrustes estimators for
 covariance matrices, the use of such estimators for investigating
@@ -922,29 +922,56 @@ as the sphenoid (Jiang \emph{et al.}, 2002; Lieberman, 2011).
 Furthermore, these precursors ossify early in development, with a mosaic
 pattern composed of both endochondral and intramembranous ossification,
 and, as the brain grows in posterior developmental phases, it induces a
-complex pattern of resorption and growth on the underlying Basicranium,
-especially in posterior elements, such as the basioccipital (Lieberman
-\emph{et al.}, 2000); meanwhile, the anterior portion suffers influence
-from the development of Facial elements (Bastir \& Rosas, 2005).
-Moreover, the angulation between anterior and posterior elements of the
-Basicranium has changed sensibly during primate evolution, and such
-property appears to evolve in coordination with Facial growth relative
-to the cranial Vault, in order to accomodate either structures (Scott,
-1958; Lieberman \emph{et al.}, 2000, 2008). Therefore, from a
-developmental standpoint, due to this heterogeneity of developmental
-processes acting on the Basicranium, we should not consider that the
-Basicranium is a variational module, further expecting that a test of
-this property over skull covariance patterns will fail to reject the
-null hypothesis of random association for this region.
+pattern of internal resorption and exterior deposition on the underlying
+posterior Basicranium, (Lieberman \emph{et al.}, 2000); meanwhile, the
+anterior portion suffers influence from the development of Facial
+elements (Bastir \& Rosas, 2005). Moreover, the angulation between
+anterior and posterior elements of the Basicranium has changed sensibly
+during primate evolution, and such property appears to evolve in
+coordination with Facial growth relative to the cranial Vault, in order
+to accomodate both structures on each other (Scott, 1958; Lieberman
+\emph{et al.}, 2000, 2008). From a developmental standpoint, due to this
+heterogeneity of developmental processes acting on the Basicranium, we
+should not consider that the Basicranium is a variational module,
+further expecting that a test of this property over skull covariance
+patterns will fail to reject the null hypothesis of random association
+for this region.
 
-However, of the 42 tests we performed over covariance matrices derived
-from Procrustes residuals regarding localized hypotheses (midpanel of
-\autoref{fig:Func}a), the Basicranium is detected as a valid variational
-module in 27 cases, pooling matrices with size either retained or
-removed. Considering interlandmark distances, the Basicranium is not
-detected a single time; with local shape variables, either with size
-variation retained or removed (remaining panels of \autoref{fig:Func}a),
-the Basicranium is detected only three out of 42 times.
+However, considering the 42 tests we performed over covariance matrices
+derived from Procrustes residuals regarding localized hypotheses
+(midpanel of \autoref{fig:Func}a), the Basicranium is detected as a
+valid variational module in 27 cases, distributed through matrices with
+size either retained or removed. Thus, Procrustes residuals show a
+pattern of detection of variational modules that is the opposite of the
+expectation for this particular test. In the set of matrices derived
+from interlandmark distances, the Basicranium is not detected a single
+time; with local shape variables, either with size variation retained or
+removed (remaining panels of \autoref{fig:Func}a), the Basicranium is
+detected only three out of 42 times.
+
+These two remaining types of representations, interlandmark distances
+and local shape variables, show patterns of detection of variational
+modules that are both consistent to the expectations derived from
+developmental and functional interactions and to the particularities
+that either types exhibit, especially when we consider how the different
+components of size variation articulate with the observed patterns in
+each type, both before and after we remove then from correlation
+patterns. Since interlandmark distances are size measurements, they
+paint a clear picture of which region is mostly influenced by the
+effects of integration due to isometric variation, that is, the Oral
+region (upper left panel of \autoref{fig:Func}a). Although size
+variation exists throughout the entire ontogeny, the induction of bone
+growth in the Oral region by muscular activity beginning in the
+pre-weaning period is the major factor that structures such pattern
+(Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et al.}, 2009).
+Remaining regions are also integrated, due to the effect of allometric
+interactions during this phase, if we consider the strength of
+association between traits in Oral, Nasal, Zygomatic and Vault regions
+(Chapter 3); however, the impact isometric variation has on this type of
+representation masks the detection of variational modularity due to
+allometry. In local shape variables (lower left panel of
+\autoref{fig:Func}a), the effects of this level of interactions can be
+detected due to the removal of isometric variation.
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
@@ -1206,6 +1233,11 @@ Monteiro, L.R. \& Nogueira, M.R. 2010. Adaptive radiations, ecological
 specialization, and the evolutionary integration of complex
 morphological structures. \emph{Evolution} \textbf{64}: 724--744.
 
+Monteiro, L.R., Bonato, V. \& Reis, S.F. 2005. Evolutionary integration
+and morphological diversification in complex morphological structures:
+mandible shape divergence in spiny rats (Rodentia, Echimyidae).
+\emph{Evolution \& Development} \textbf{7}: 429--439.
+
 Neaux, D., Gilissen, E., Coudyzer, W. \& Guy, F. 2015. Integration
 between the face and the mandible of Pongo and the evolution of the
 craniofacial morphology of orangutans. \emph{American Journal of
@@ -1342,6 +1374,10 @@ of mammalian limb covariation structure. \emph{Evolution} \textbf{59}:
 Young, N.M., Wagner, G.P. \& Hallgrímsson, B. 2010. Development and the
 evolvability of human limbs. \emph{Proceedings of the National Academy
 of Sciences} \textbf{107}: 3400--3405.
+
+Zelditch, M.L. \& Carmichael, A.C. 1989. Ontogenetic variation in
+patterns of developmental and functional integration in skulls of
+Sigmodon fulviventer. \emph{Evolution} \textbf{43}: 814--824.
 
 Zelditch, M.L. \& Swiderski, D.L. 2011. Epigenetic interactions: the
 developmental route to functional integration. In: \emph{Epigenetics:
