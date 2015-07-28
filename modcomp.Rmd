@@ -37,10 +37,10 @@ captions $ fig.stat_dist_sim <-
   'Distribution of AVG Index and RV Coefficient for theoretical correlation matrices. \\label{fig:stat_dist_sim}'
 
 captions $ fig.Func <-
-  'AVGi and RV values for localized trait sets. Circles indicate whether a trait set is recognized as a variational module in a given OTU, with $P(\\alpha)$ indicated by the legend. Notice that blue values are associated with both higher AVGi values and lower RV values, as the alternate hypothesis for each statistic is formulated in a corresponding manner; see text for details. \\label{fig:Func}'
+  'AVGi (a) and RV (b) values for localized trait sets. Circles indicate whether a trait set is recognized as a variational module in a given OTU, with $P(\\alpha)$ indicated by the legend. Notice that blue values are associated with higher AVGi values and lower RV values, as the alternate hypothesis for each statistic is formulated in a corresponding manner; see text for details. \\label{fig:Func}'
 
 captions $ fig.Dev <-
-  'AVGi and RV values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, with $P(\\alpha)$ indicated by the legend. Notice that blue values are associated with both higher AVGi values and lower RV values, as the alternate hypothesis for each statistic is formulated in a corresponding manner; see text for details. \\label{fig:Dev}'
+  'AVGi (a) and RV (b) values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, with $P(\\alpha)$ indicated by the legend. Notice that blue values are associated with higher AVGi values and lower RV values, as the alternate hypothesis for each statistic is formulated in a corresponding manner; see text for details. \\label{fig:Dev}'
 
 captions $ fig.type1 <-
   'Type I error rates as a function of the chosen significance level regarding tests for variational modularity applied on $\\mathbf{C}_r$ correlation matrices. The solid black line represents the identity relationship. \\label{fig:type1}'
@@ -215,7 +215,7 @@ $$
 filling each cell in each block with the sampled correlation associated with that particular block.
 Thus, we abstract each type of morphometric variable to a correlation distribution, building theoretical correlation matrices that are representative of each type and that retain their statistical properties.
 
-```{r cor_dist, echo = FALSE, fig.cap = captions $ fig.cor_dist, fig.width = 9.6, fig.height = 10.8}
+```{r cor_dist, echo = FALSE, fig.cap = captions $ fig.cor_dist, fig.width = 10, fig.height = 7}
 modsim.Plots $ cor.dist
 ```
 
@@ -251,32 +251,32 @@ In order to obtain symmetrical landmarks configurations, we used code provided b
 
 ## Empirical Tests
 
-Regarding localized trait sets, tests performed using AVG Indexes (upper panel of \autoref{fig:Func}) detect a consistent pattern among OTUs for both interlandmark distances and local shape variables; in the first set, the Oral sub-region is detected as a modular partition, and, when size is removed, the Vault sub-region is also detected; both Orbit and Base region are not detected in any of the tests with this type of variable.
+Regarding localized trait sets, tests performed using AVG Indexes (\autoref{fig:Func}a) detect a consistent pattern among OTUs for both interlandmark distances and local shape variables; in the first set, the Oral sub-region is detected as a modular partition, and, when size is removed, the Vault sub-region is also detected; both Orbit and Base region are not detected in any of the tests with this type of variable.
 With local shape variables, both Oral and Vault sets are also detected consistently across OTUs, along Nasal and Zygomatic traits; moreover, the removal of allometric variation affect only the detection of the Vault.
 Furthermore, the Base sub-region is detected only in 3 of 42 tests performed over local shape variables, pooling together both size and size-free correlation patterns.
 One source of difference between local shape variables and interlandmark distances regarding the detection of localized variational modules are the Hominoids (*Gorilla*. *Homo*, *Hylobates*, and *Pan*), which display a considerate heterogeneity in detected regions in interlandmark distances; however, when considering local shape variables, a more conserved pattern of detection is observed.
 
 For Procrustes residuals, the pattern of detection among sub-regions and OTUs is diffuse; it is noteworthy that the Base sub-region is detected among several OTUs, which contrasts this type of morphometric variable with the remaining two types.
-Furthermore, abstracting the actual tests performed, \autoref{fig:Func} also indicates that Procrustes residuals display a low variance for AVGi values within each OTU, while both interlandmark distances and local shape variables display a consistent pattern of variation among AVGi values within each OTU, with lower values for the Base and, for interlandmark distances, Orbit trait sets, while the Oral, Nasal and Vault regions display higher values consistently.
+Furthermore, abstracting the actual tests performed, \autoref{fig:Func}a also indicates that Procrustes residuals display a low variance for AVGi values within each OTU, while both interlandmark distances and local shape variables display a consistent pattern of variation among AVGi values within each OTU, with lower values for the Base and, for interlandmark distances, Orbit trait sets, while the Oral, Nasal and Vault regions display higher values consistently.
 
 ```{r Func, echo = FALSE, fig.cap = captions $ fig.Func, fig.width = 20, fig.height = 20, message = FALSE}
-print (arrangeGrob(modcomp.Plots $ MI.Func +
-                   theme(text = element_text(size = 16),
-                         axis.text = element_text(size = 18)),
-                   modcomp.Plots $ RV.Func +
-                   theme(text = element_text(size = 16),
-                         axis.text = element_text(size = 18)), 
-                   nrow = 2))
+plot_grid(modcomp.Plots $ MI.Func + ylab('') +
+          theme(text = element_text(size = 16),
+                axis.text = element_text(size = 18)),
+          modcomp.Plots $ RV.Func + ylab('') +
+          theme(text = element_text(size = 16),
+                axis.text = element_text(size = 18)), 
+          nrow = 2, labels = c('a', 'b'), label_size = 44)
 ```
 
-Tests performed using RV coefficients (lower panel of \autoref{fig:Func}) show a more diffuse pattern among each variable type.
+Tests performed using RV coefficients (\autoref{fig:Func}b) show a more diffuse pattern among each variable type.
 When interlandmark distances are considered, most tests detect the Vault sub-region with size variation retained, and the Base sub-region when size variation is removed.
 For Procrustes residuals, few tests are able to reject their null hypothesis, detecting only a handful of valid modular partitions.
 Tests performed on local shape variables display the opposite behavior: almost all partitions are detected, regardless of whether allometric variation has been retained or removed.
 Moreover, RV values display a pattern of marked variation among OTUs, more so than between values within each OTU; notably, *Macaca fascicularis* and *Papio anubis* show RV values much higher than those estimated on remaining species.
 This pattern can be observed both on interlandmark distances with size retained and in Procrustes residuals, although this effect is more marked in the former type. 
 
-With respect to regional trait sets, tests performed using AVGi (upper panel of \autoref{fig:Dev}) indicate a pattern consistent with the findings regarding localized sets (\autoref{fig:Func}).
+With respect to regional trait sets, tests performed using AVGi (\autoref{fig:Dev}a) indicate a pattern consistent with the findings regarding localized sets (\autoref{fig:Func}a).
 Considering only interlandmark distances, Facial traits are detected as a valid modular partition both with size variation retained or removed, while Neurocranial traits are detected as a valid partition only when size variation is removed.
 This pattern mirrors the contrast between Oral and Vault traits in the localized sets regarding interlandmark distances.
 Considering Procrustes residuals, Neurocranial traits are a valid partition with both size retained and removed; once again, this pattern mirrors the detection of the Basicranial partition as valid in the localized sets.
@@ -284,20 +284,20 @@ Finally, in local shape variables, both Face and Neurocranium are detected as va
 The same can be observed in the localized sets, where removing allometric variation affects the detection of the Vault set.
 The tests for the distinction of within-set and between-set correlations for these two sets (designated 'Neuroface') show a pattern that is consistent with tests for the individual sets, that is, if one of the sets was previously detected, this distinction is also detected as valid.
 
-```{r Dev, echo = FALSE, fig.cap = captions $ fig.Dev, fig.width = 15, fig.height = 12, message = FALSE}
+```{r Dev, echo = FALSE, fig.cap = captions $ fig.Dev, fig.width = 15, fig.height = 10, message = FALSE}
 
-print (arrangeGrob(modcomp.Plots $ MI.Dev +
-                   theme(text = element_text(size = 12),
-                         axis.text = element_text(size = 13)),
-                   modcomp.Plots $ RV.NeuroFace +
-                   theme(text = element_text(size = 12),
-                         axis.text = element_text(size = 13)),
-                   nrow = 2, heights = c(1.5, 1)))
+plot_grid(modcomp.Plots $ MI.Dev + ylab('') +
+          theme(strip.text.y = element_text(size = 6),
+                axis.text = element_text(size = 13)),
+          modcomp.Plots $ RV.NeuroFace +
+          theme(axis.text = element_text(size = 13)),
+          nrow = 2, rel_heights = c(1.5, 1),
+          labels = c('a', 'b'), label_size = 44)
 
 ```
 
-Tests performed for this distinction between Face and Neurocranium using RV coefficients (lower panel of \autoref{fig:Dev}) show that in most cases, for both interlandmark distances and local shape variables, both regions are considered distinct and valid variational modules; in Procrustes residuals, only in a handful of taxa the same result can be observed.
-In this case, the correspondence with results for localized trait sets (\autoref{fig:Func}) is more difficult, due to the lack of independent tests for each region.
+Tests performed for this distinction between Face and Neurocranium using RV coefficients (\autoref{fig:Dev}b) show that in most cases, for both interlandmark distances and local shape variables, both regions are considered distinct and valid variational modules; in Procrustes residuals, only in a handful of taxa the same result can be observed.
+In this case, the correspondence with results for localized trait sets (\autoref{fig:Func}b) is more difficult, due to the lack of independent tests for each region.
 
 ## Error Rates
 
@@ -305,8 +305,8 @@ Comparing the distributions of AVGi and RV values from theoretical matrices with
 For local shape variables, the distribution of both AVGi and RV values for $\mathbf{C}_s$ and $\mathbf{C}_r$ matrices overlap very little; for interlandmark distances, the distribution of AVGi values for both matrix types also has little overlap, while the same distributions for RV have a substantial overlap.
 Finally, for Procrustes residuals, while the distribution of AVGi values for both matrix types are overlapping to some degree, the same distributions for RV values are identical. It is noteworthy that removing size or allometry does not change these distributions in most cases; only for RV values estimated over matrices derived from correlation distributions for interlandmark distances, in which the removal of size variation increases the overlap in $\mathbf{C}_s$ and $\mathbf{C}_r$ distributions.
 
-```{r stat_dist_sim, echo = FALSE, fig.cap = captions $ fig.stat_dist_sim, fig.width = 9.6, fig.height = 6.4, message = FALSE}
-alt.dist.sim
+```{r stat_dist_sim, echo = FALSE, fig.cap = captions $ fig.stat_dist_sim, fig.width = 10, fig.height = 7, message = FALSE}
+alt.dist.sim + theme (legend.text = element_text(size = 8))
 ```
 
 Regarding the relationship between significance levels and Type I error rates, estimated over $\mathbf{C}_r$ matrices, \autoref{fig:type1} shows that these quantities approach an identity relationship very closely, regardless of whether we use AVGi or RV to quantify variational modularity; even at low sample sizes, Type I error rates are very close to significance levels.
@@ -349,7 +349,12 @@ Covariance matrices derived from morphological traits are supposed to represent 
 
 Due to the minimization of quadratic distances among homologous landmarks during GPA, covariance matrices derived from Procrustes estimators lose this signal of localized effects on covariance patterns [@linde_inferring_2009]; therefore, the use of such estimators to investigate morphological integration or modularity implicitly imply in a divorce between the phenomenom we would like to investigate and the numerical representation we choose to use. This disconnection between theory and measurement may have grave consequences for the hypotheses we wish to test [@houle_measurement_2011]; such consequences are observable in both our empirical and simulation-based approaches, as we explore below.
 
+The mammalian Basicranium is composed of thirteen independent precursor tissues originated from either paraxial mesoderm or neural crest; these precursors from different origins may merge to form single bones, such as the sphenoid [@jiang_tissue_2002; @lieberman_epigenetic_2011].
+Furthermore, these precursors ossify early in development, with a mosaic pattern composed of both endochondral and intramembranous ossification, and, as the brain grows in posterior developmental phases, it induces a complex pattern of resorption and growth on the underlying Basicranium, especially in posterior elements, such as the basioccipital [@lieberman_primate_2000]; meanwhile, the anterior portion suffers influence from the development of Facial elements [@bastir_hierarchical_2005].
+Moreover, the angulation between anterior and posterior elements of the Basicranium has changed sensibly during primate evolution, and such property appears to evolve in coordination with Facial growth relative to the cranial Vault, in order to accomodate either structures [@scott_cranial_1958; @lieberman_primate_2000; @lieberman_spatial_2008].
+Therefore, from a developmental standpoint, due to this heterogeneity of developmental processes acting on the Basicranium, we should not consider that the Basicranium is a variational module, further expecting that a test of this property over skull covariance patterns will fail to reject the null hypothesis of random association for this region.
 
+However, of the 42 tests we performed over covariance matrices derived from Procrustes residuals regarding localized hypotheses (midpanel of \autoref{fig:Func}a), the Basicranium is detected as a valid variational module in 27 cases, pooling matrices with size either retained or removed. Considering interlandmark distances, the Basicranium is not detected a single time; with local shape variables, either with size variation retained or removed (remaining panels of \autoref{fig:Func}a), the Basicranium is detected only three out of 42 times. 
 
 <!--
 
