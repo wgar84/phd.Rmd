@@ -12,14 +12,17 @@ ggplot (modsim.Data $ values.df) +
   scale_x_discrete(breaks = NULL) +
   theme_bw() 
 
+myPalette.RV <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space="Lab")
+myPalette.AVG <- colorRampPalette(brewer.pal(11, "Spectral"), space="Lab")
+
 modcomp.Plots $ RV.Func <- 
   ggplot (subset (modcomp.Data $ Summ, type == 'RV')) +
   geom_tile(aes(x = otu, y = hyp, fill = value)) +
   facet_grid(data ~ size) +
-  theme_minimal() +
-  scale_fill_continuous(name = 'RV', high = 'yellow', low = 'blue', space = 'Lab',
-                        limits = c(0, 1), 
-                        breaks = c(0.1, 0.5, 0.9)) +
+  theme_bw() +
+  scale_fill_gradientn(name = 'RV', colours = myPalette.RV(100), 
+                       limits = c(0, 1), 
+                       breaks = c(0.1, 0.5, 0.9)) +
   geom_point (aes (x = otu, y = hyp,
                    size = (p < 0.05) + (p < 0.01) + (p < 0.001),
                    alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
@@ -27,7 +30,6 @@ modcomp.Plots $ RV.Func <-
                   labels = c('< 0.05', '< 0.01', '< 0.001'),
                   breaks = c(1, 2, 3)) +
   ylab ('Hypothesis') + xlab ('') + labs(title = 'RV Coefficent') +
-  #scale_x_discrete(limits = rev(levels(modcomp.Data $ Summ $ otu))) +
   scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ $ hyp))) +
   scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
@@ -37,9 +39,9 @@ modcomp.Plots $ MI.Func <-
   ggplot (subset (modcomp.Data $ Summ, type == 'MI')) +
   geom_tile(aes(y = hyp, x = otu, fill = value)) +
   facet_grid(data ~ size) +
-  theme_minimal() +
-  scale_fill_continuous(name = 'AVG Index',
-                        high = 'blue', low = 'yellow', space = 'Lab',
+  theme_bw() +
+  scale_fill_gradientn(name = 'AVG Index',
+                        colours = myPalette.AVG(100), 
                         breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
   geom_point (aes (y = hyp, x = otu,
                    size = (p < 0.05) + (p < 0.01) + (p < 0.001),
@@ -59,9 +61,10 @@ modcomp.Plots $ RV.NeuroFace <-
   ggplot (subset (modcomp.Data $ Summ.Dev, type == 'RV')) +
   geom_tile(aes(y = data, x = otu, fill = value)) +
   facet_wrap(~ size, ncol = 2) +
-  theme_minimal() +
-  scale_fill_continuous (name = 'RV', high = 'yellow', low = 'blue', space = 'Lab',
-                         limits = c(0, 1), breaks = c(0.1, 0.5, 0.9)) +
+  theme_bw() +
+  scale_fill_gradientn (name = 'RV',
+                        colours = myPalette.RV(100),
+                        limits = c(0, 1), breaks = c(0.1, 0.5, 0.9)) +
   geom_point (aes (y = data, x = otu,
                    size = (p < 0.05) + (p < 0.01) + (p < 0.001),
                    alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
@@ -78,10 +81,10 @@ modcomp.Plots $ MI.Dev <-
   ggplot (subset (modcomp.Data $ Summ.Dev, type == 'MI')) +
   geom_tile(aes(y = hyp, x = otu, fill = value)) +
   facet_grid(data ~ size) +
-  theme_minimal() +
-  scale_fill_continuous(name = 'AVG Index',
-                        high = 'blue', low = 'yellow', space = 'Lab',
-                        breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
+  theme_bw() +
+  scale_fill_gradientn(name = 'AVG Index',
+                       colours = myPalette.AVG(100),
+                       breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
   geom_point (aes (y = hyp, x = otu,
                    size = (p < 0.05) + (p < 0.01) + (p < 0.001),
                    alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
