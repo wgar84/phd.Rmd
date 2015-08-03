@@ -40,7 +40,7 @@ modcomp.Plots $ MI.Func <-
   geom_tile(aes(y = hyp, x = otu, fill = value)) +
   facet_grid(data ~ size) +
   theme_bw() +
-  scale_fill_gradientn(name = 'AVG Index',
+  scale_fill_gradientn(name = 'Mi',
                         colours = myPalette.AVG(100), 
                         breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
   geom_point (aes (y = hyp, x = otu,
@@ -49,13 +49,12 @@ modcomp.Plots $ MI.Func <-
   scale_size_area(name = expression(P(alpha)),
                   labels = c('< 0.05', '< 0.01', '< 0.001'),
                   breaks = c(1, 2, 3)) +
-  ylab ('Hypothesis') + xlab ('') + labs(title = 'AVG Index') +
+  ylab ('Hypothesis') + xlab ('') + labs(title = 'Modularity Index') +
   scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
   ##scale_x_discrete(limits = rev(levels(modcomp.Data $ Summ $ otu))) +
   scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ $ hyp))) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-        axis.ticks = element_line(size = 0)) +
-  guides (size = FALSE)
+        axis.ticks = element_line(size = 0))
 
 modcomp.Plots $ RV.NeuroFace <- 
   ggplot (subset (modcomp.Data $ Summ.Dev, type == 'RV')) +
@@ -82,16 +81,16 @@ modcomp.Plots $ MI.Dev <-
   geom_tile(aes(y = hyp, x = otu, fill = value)) +
   facet_grid(data ~ size) +
   theme_bw() +
-  scale_fill_gradientn(name = 'AVG Index',
+  scale_fill_gradientn(name = 'Mi',
                        colours = myPalette.AVG(100),
                        breaks = c(-.3, 0, .3), limits = c(-.4, .4)) +
   geom_point (aes (y = hyp, x = otu,
                    size = (p < 0.05) + (p < 0.01) + (p < 0.001),
                    alpha = c(0, 1) [1 + (p < 0.05)]), shape = 21) +
   scale_size_area(name = expression(P(alpha)),
-labels = c('< 0.05', '< 0.01', '< 0.001'),
+                  labels = c('< 0.05', '< 0.01', '< 0.001'),
                   breaks = c(1, 2, 3)) +
-  ylab ('Hypothesis') + xlab ('') + labs(title = 'Face/Neuro AVG Index') +
+  ylab ('Hypothesis') + xlab ('') + labs(title = 'Face/Neuro Modularity Index') +
   scale_alpha_continuous(limits = c(0, 1)) + guides(alpha = FALSE) +
   scale_y_discrete(limits = rev(levels(modcomp.Data $ Summ.Dev $ hyp))) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),

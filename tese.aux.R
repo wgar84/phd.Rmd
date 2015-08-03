@@ -99,3 +99,12 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
+test <-
+  ddply (modsim.Data $ cor.wb.df, .(size, type, wb), summarize,
+         'med' = median (value),
+         'mean' = mean (value),
+         'sq.mean' = mean (value) ^ 2)
+
+test $ mean [seq (2, 12, 2)] / test $ mean [seq (1, 11, 2)]
+
+test $ sq.mean [seq (2, 12, 2)] / test $ sq.mean [seq (1, 11, 2)]
