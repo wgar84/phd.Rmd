@@ -108,3 +108,4 @@ test <-
 test $ mean [seq (2, 12, 2)] / test $ mean [seq (1, 11, 2)]
 
 test $ sq.mean [seq (2, 12, 2)] / test $ sq.mean [seq (1, 11, 2)]
+
