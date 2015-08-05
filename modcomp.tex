@@ -80,7 +80,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{04 August 2015}
+  \date{05 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -208,10 +208,10 @@ response to signaling factors expressed at the regional level; the
 response to these signaling factors further changes the expression
 profile in the affected cells, thus generating a feedback loop of cell
 and tissue diferentiation (Turing, 1952; Marcucio \emph{et al.}, 2005;
-Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal,
-2011). Each step in this temporal hierarchy may be regarded as modular,
-in the sense that they affect a coherent set of tissue more so than
-others (Hallgrímsson \& Lieberman, 2008), although each step affect
+Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal, 2011;
+Minelli, 2011). Each step in this temporal hierarchy may be regarded as
+modular, in the sense that they affect a coherent set of tissue more so
+than others (Hallgrímsson \& Lieberman, 2008), although each step affect
 adjoining regions through interactions among developing tissues
 (Cheverud \emph{et al.}, 1992; Lieberman, 2011; Esteve-Altava \&
 Rasskin-Gutman, 2014), and the composed effect of these different
@@ -1113,21 +1113,63 @@ al. (2013), sample sizes sensibly influence the estimation of RV
 coefficients, and we demostrate here that such sensitivity also extends
 to estimates of power for tests using this statistic.
 
+On the other hand, our estimates of power for tests using MI indicate
+that this statistic is more robust to differences in absolute
+correlation values or sample sizes, thus allowing comparisons across
+more heterogeneous settings, such as our comparison between different
+representations of form, with substantial variation in sample sizes. It
+is noteworthy that the detection of variational modularity is akin to
+Student's \emph{t} test, as we are trying to determine whether two
+groups of observations (correlations between traits in the same subset
+\emph{versus} correlations between traits in different subsets) have a
+significant difference in average values; we use resampling procedures
+to estimate significance in this case only due to the interdependency
+between pairwise correlations. Thus, as Modularity Indexes are estimated
+with a formula that is very similar to that of a \emph{t} statistic
+(difference between location parameters for two groups, divided by a
+scale parameter --- ICV --- that is common to both groups), we believe
+that this statistic is a proper way to represent variational modularity;
+the robustness of the tests using this statistic reinforce this belief.
+
 Our approach to construct theoretical matrices attempts to simulate the
 most simple situation in detecting variational modularity, that is, the
 situation where there are only two subsets of traits; this situation is
 akin to the distinction between Face and Neurocranium in our empirical
-dataset (\autoref{fig:Dev}). This simplified structure may be the reason
-why the estimation of Type I error rates (\autoref{fig:type1}) indicates
-no difference among representations of form or statistic used to
-represent modularity. In this simple setting, both statistics are
-capable of detecting the distinction between Face and Neurocranium,
-expect when both are used on correlation patterns derived from
-Procrustes residuals. In that case, the issues regarding Procrustes
-estimators difficult the detection of modularity patterns even in the
-most simple situation; even though we built theoretical matrices using
-correlations sampled from these estimators, actually simulating these
-issues in our theoretical matrices is quite difficult.
+dataset (\autoref{fig:Dev}). This simpl may be the reason why the
+estimation of Type I error rates (\autoref{fig:type1}) indicates no
+difference among representations of form or statistic used to represent
+modularity. In this simple setting, both statistics are capable of
+detecting the distinction between Face and Neurocranium, expect when
+both are used on correlation patterns derived from Procrustes residuals.
+In that case, the issues regarding Procrustes estimators difficult the
+detection of modularity patterns even in the most simple situation; even
+though we built theoretical matrices using correlations sampled from
+these estimators, actually simulating the interference in covariance
+structure that they produce in our theoretical matrices is quite
+difficult.
+
+The issues we found with both the use of Procrustes estimators for
+covariance matrices and the use of RV coefficients to estimate and
+detect variational modularity may explain results found by other authors
+regarding the detection of modular patterns; for instance,
+Martínez-Abadías et al. (2011) has found no evidence indicating that
+either genetic or phenotypic covariance structure for human skulls
+conforms to a modular structure, since all tests performed by these
+authors failed to reject the null hypothesis of random association.
+These authors use Procrustes estimators to represent covariance
+structure, and test their hypothesis of partitioning (Face, Vault and
+Base) using RV as the statistic representing variational modularity.
+Thus, as this combination implies in very low power
+(\autoref{fig:type2_sym}), not rejecting the null hypothesis in their
+case might be a consequence of the chosen estimates of both covariance
+structure and variational modularity. Furthermore, a failure in
+rejecting null hypotheses implies that the partitioning the authors
+propose cannot be differentiated from a random association without
+meaningful relationships; however, the authors argue that this is an
+evidence that the human skull is highly integrated. This mismatch
+between what failing to reject null hypotheses actually means and the
+interpretations made by authors can be found elsewhere in the literature
+(e.g.: Klingenberg \& Marugán-Lobón, 2013).
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
@@ -1310,6 +1352,11 @@ Klingenberg, C.P. \& Leamy, L.J. 2001. Quantitative genetics of
 geometric shape in the mouse mandible. \emph{Evolution} \textbf{55}:
 2342--2352.
 
+Klingenberg, C.P. \& Marugán-Lobón, J. 2013. Evolutionary Covariation in
+Geometric Morphometric Data: Analyzing Integration, Modularity, and
+Allometry in a Phylogenetic Context. \emph{Systematic Biology}
+\textbf{62}: 591--610.
+
 Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
 symmetric structures: Quantifying variation among individuals and
 asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
@@ -1386,6 +1433,10 @@ topics in developmental biology} \textbf{81}: 1--63.
 Melo, D. \& Marroig, G. 2015. Directional selection can drive the
 evolution of modularity in complex traits. \emph{Proceedings of the
 National Academy of Sciences} \textbf{112}: 470--475.
+
+Minelli, A. 2011. A principle of developmental inertia.
+\emph{Epigenetics: Linking Genotype and Phenotype in Development and
+Evolution} 116--133.
 
 Mitteroecker, P. \& Bookstein, F.L. 2007. The conceptual and statistical
 relationship between modularity and morphological integration.

@@ -109,3 +109,12 @@ test $ mean [seq (2, 12, 2)] / test $ mean [seq (1, 11, 2)]
 
 test $ sq.mean [seq (2, 12, 2)] / test $ sq.mean [seq (1, 11, 2)]
 
+RandomSkewers(OneDef [['Homo_sapiens']] $ ml.vcv, OneDef [['Gorilla_gorilla']] $ ml.vcv)
+
+RandomSkewers(ED [['Homo_sapiens']] $ ed.vcv, ED [['Gorilla_gorilla']] $ ed.vcv)
+
+RandomSkewers(ED [['Papio_anubis']] $ ed.vcv, ED [['Homo_sapiens']] $ ed.vcv)
+
+RandomSkewers(OneDef [['Papio_anubis']] $ ml.vcv [-1, -1],
+              OneDef [['Homo_sapiens']] $ ml.vcv [-1, -1])
+
