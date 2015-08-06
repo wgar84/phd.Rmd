@@ -1,5 +1,5 @@
 ---
-title: "On Measurement and Morphometrics: Error Rates in Modularity Hypothesis Testing"
+title: "Error Rates in Modularity Hypothesis Testing"
 author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -21,9 +21,20 @@ bibliography: Bib/modcomp.bib
 
 ^2^<wgar@usp.br>
 
-running title: Measuring Modularity, eh
+running title: Modularity and Error
 
-key words: 
+key words: $P$-matrix; modularity; primates; development;
+
+<!---
+
+# Abstract
+
+The investigation of the association between genetic, functional and developmental interactions among morphological elements have on phenotypic or genetic correlation patterns increased in the past twenty years, mostly as a result of the popularization of geometric morphometric approaches to this problem.
+Coupled with this novel way to represent morphology, many different operational criteria to tackle such question have emerged in the literature.
+However, in comparison to traditional ways of measuring morphological features, geometric morphometrics estimators for covariance or correlation matrices have certain properties that complicate their use in this context.
+In the present work, we compare methods for representing morphological variation and for representing variational modularity
+
+-->
 
 ```{r options_modcomp, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf', fig.pos = 'tbp')
@@ -344,7 +355,7 @@ modsim.Plots $ Type2.ED + theme (legend.text = element_text(size = 8),
 ```
 
 With respect to Procrustes residuals (\autoref{fig:type2_sym}), tests using either MI or RV have reduced power, regardless of effect or sample size. Sampling from size-free correlation distributions to build $\mathbf{C}_s$ matrices also has little effect.
-As for interlandmark distances without size variation, power for tests performed using RV values approach an identity relationship with significance level; however, increasing sample size has little effect in this case.
+As for interlandmark distances without size variation, power for tests performed using RV values approaches an identity relationship with significance level; increasing sample size has some effect, but it does not increases power above 50\%.
 
 ```{r type2_sym, echo = FALSE, fig.cap = captions $ fig.type2_sym, fig.width = 7, fig.height = 6, message = FALSE, fig.pos='t'}
 modsim.Plots $ Type2.Sym + theme (legend.text = element_text(size = 8),
@@ -421,5 +432,20 @@ These authors use Procrustes estimators to represent covariance structure, and t
 Thus, as this combination implies in very low power (\autoref{fig:type2_sym}), not rejecting the null hypothesis in their case might be a consequence of the chosen estimates of both covariance structure and variational modularity.
 Furthermore, a failure in rejecting null hypotheses implies that the partitioning the authors propose cannot be differentiated from a random association without meaningful relationships; however, the authors argue that this is an evidence that the human skull is highly integrated.
 This mismatch between what failing to reject null hypotheses actually means and the interpretations made by authors can be found elsewhere in the literature [e.g.: @klingenberg_evolutionary_2013].
+
+The approach we explore in the present work is but one of the different manners one can investigate the association between genetic, functional and developmental interactions and correlation structure [@mitteroecker_conceptual_2007].
+For example, @perez_searching_2009 relies on abstracting correlation matrices into networks, further using community-detection algorithms to search for modular patterns without *a priori* hypotheses, associating their results with knockout experiments that support the communities they found among traits; however, to what extent do correlation matrices are actually well represented in this manner remains an open question.
+@monteiro_evolutionary_2005 assumes that the underlying morphogenetic components of the rodent mandible behave as modules, further investigating the patters of correlation between these units in both within-species variation and between-species variation among Echimids; @monteiro_adaptive_2010, relying on the correspondence of these units among mammalogical evolution did the same to phylostomid bats.
+Although using a landmark-based approach to represent morphological variation, @monteiro_adaptive_2010 did not rely on Procrustes estimators to covariance structure among these units, and the pattern of reorganization of correlation structure among these units associated with niche diversification in this group seems pretty solid, considering that phylostomid radiation implies in a very heterogeneous adaptive landscape, as the authors found out, and such heterogeneity would lead to a reorganization of correlation patterns [@jones_mutation_2007; @jones_effects_2012; @melo_directional_2015]
+
+Another valid approach is to model certain aspects of development as null hypotheses; @esteve-altava_beyond_2014, when investigating the pattern of connections among human cranial bones, conceived the null hypothesis that unconstrained bone growth is sufficient to explain the observed patterns.
+Such approach could be extended to investigate morphological covariance structure; if we consider the geometric properties of the features we measure [@mitteroecker_conceptual_2007], one could formulate the null hypothesis that topological proximity is a sufficient explanation for the observed covariance structure, against the alternative hypothesis that local developmental processes coupled with functional interactions produce stronger relationships among close elements that surpass these purely topological interactions.
+Alternatively, one could actively look for variational boundaries between regions, as boundary formation is a phenomenom that has been well studied under a dynamical perspective on development [e.g. @turing_chemical_1952; @meinhardt_boundary_1983; @tiedemann_dynamic_2012].
+
+# Conclusion
+
+Considering the caveats we explore here regarding the use of Procrustes estimators for covariance or correlation matrices and the use of RV to measure modular relationships among traits, the approaches we explored here are simple from an operational standpoint.
+Either interlandmark distances and local shape variables seem valid options to represent morphological variation, if their different limitations are taken into consideration.
+It is also necessary that the measurements we make and the parameters we estimate from them to be properly connected to the models we are considering over phenotypic data [@wagner_measurement_2010; @houle_measurement_2011].
 
 # References

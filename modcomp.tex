@@ -43,7 +43,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={Guilherme Garcia1,2, Felipe Bandoni de Oliveira1 \& Gabriel Marroig1},
-            pdftitle={On Measurement and Morphometrics: Error Rates in Modularity Hypothesis Testing},
+            pdftitle={Error Rates in Modularity Hypothesis Testing},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -70,8 +70,7 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{On Measurement and Morphometrics: Error Rates in Modularity Hypothesis
-Testing}
+  \title{Error Rates in Modularity Hypothesis Testing}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Guilherme Garcia\textsuperscript{1,2}, Felipe Bandoni de
@@ -80,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{05 August 2015}
+  \date{06 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -152,9 +151,9 @@ São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
 
 \textsuperscript{2}\href{mailto:wgar@usp.br}{wgar@usp.br}
 
-running title: Measuring Modularity, eh
+running title: Modularity and Error
 
-key words:
+key words: $P$-matrix; modularity; primates; development;
 
 \section{Introduction}\label{introduction}
 
@@ -876,8 +875,9 @@ using either MI or RV have reduced power, regardless of effect or sample
 size. Sampling from size-free correlation distributions to build
 $\mathbf{C}_s$ matrices also has little effect. As for interlandmark
 distances without size variation, power for tests performed using RV
-values approach an identity relationship with significance level;
-however, increasing sample size has little effect in this case.
+values approaches an identity relationship with significance level;
+increasing sample size has some effect, but it does not increases power
+above 50\%.
 
 \begin{figure}[htbp]
 \centering
@@ -1171,6 +1171,63 @@ between what failing to reject null hypotheses actually means and the
 interpretations made by authors can be found elsewhere in the literature
 (e.g.: Klingenberg \& Marugán-Lobón, 2013).
 
+The approach we explore in the present work is but one of the different
+manners one can investigate the association between genetic, functional
+and developmental interactions and correlation structure (Mitteroecker
+\& Bookstein, 2007). For example, Perez et al. (2009) relies on
+abstracting correlation matrices into networks, further using
+community-detection algorithms to search for modular patterns without
+\emph{a priori} hypotheses, associating their results with knockout
+experiments that support the communities they found among traits;
+however, to what extent do correlation matrices are actually well
+represented in this manner remains an open question. Monteiro et al.
+(2005) assumes that the underlying morphogenetic components of the
+rodent mandible behave as modules, further investigating the patters of
+correlation between these units in both within-species variation and
+between-species variation among Echimids; Monteiro \& Nogueira (2010),
+relying on the correspondence of these units among mammalogical
+evolution did the same to phylostomid bats. Although using a
+landmark-based approach to represent morphological variation, Monteiro
+\& Nogueira (2010) did not rely on Procrustes estimators to covariance
+structure among these units, and the pattern of reorganization of
+correlation structure among these units associated with niche
+diversification in this group seems pretty solid, considering that
+phylostomid radiation implies in a very heterogeneous adaptive
+landscape, as the authors found out, and such heterogeneity would lead
+to a reorganization of correlation patterns (Jones, 2007; Jones \emph{et
+al.}, 2012; Melo \& Marroig, 2015)
+
+Another valid approach is to model certain aspects of development as
+null hypotheses; Esteve-Altava \& Rasskin-Gutman (2014), when
+investigating the pattern of connections among human cranial bones,
+conceived the null hypothesis that unconstrained bone growth is
+sufficient to explain the observed patterns. Such approach could be
+extended to investigate morphological covariance structure; if we
+consider the geometric properties of the features we measure
+(Mitteroecker \& Bookstein, 2007), one could formulate the null
+hypothesis that topological proximity is a sufficient explanation for
+the observed covariance structure, against the alternative hypothesis
+that local developmental processes coupled with functional interactions
+produce stronger relationships among close elements that surpass these
+purely topological interactions. Alternatively, one could actively look
+for variational boundaries between regions, as boundary formation is a
+phenomenom that has been well studied under a dynamical perspective on
+development (e.g. Turing, 1952; Meinhardt, 1983; Tiedemann \emph{et
+al.}, 2012).
+
+\section{Conclusion}\label{conclusion}
+
+Considering the caveats we explore here regarding the use of Procrustes
+estimators for covariance or correlation matrices and the use of RV to
+measure modular relationships among traits, the approaches we explored
+here are simple from an operational standpoint. Either interlandmark
+distances and local shape variables seem valid options to represent
+morphological variation, if their different limitations are taken into
+consideration. It is also necessary that the measurements we make and
+the parameters we estimate from them to be properly connected to the
+models we are considering over phenotypic data (Wagner, 2010; Houle
+\emph{et al.}, 2011).
+
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
 
@@ -1426,6 +1483,10 @@ Márquez, E.J., Cabeen, R., Woods, R.P. \& Houle, D. 2012. The
 Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
 \textbf{39}: 419--439.
 
+Meinhardt, H. 1983. A boundary model for pattern formation in vertebrate
+limbs. \emph{Journal of Embryology and Experimental Morphology}
+\textbf{76}: 115--137.
+
 Meinhardt, H. 2008. Models of biological pattern formation: from
 elementary steps to the organization of embryonic axes. \emph{Current
 topics in developmental biology} \textbf{81}: 1--63.
@@ -1488,6 +1549,11 @@ mechanistic model underlying variation in genotype-phenotype map.
 Pearson, K. \& Davin, A.G. 1924. On the Biometric Constants of the Human
 Skull. \emph{Biometrika} \textbf{16}: 328--363.
 
+Perez, S.I., Aguiar, M.A.M., Guimarães Jr., P.R. \& Reis, S.F. dos.
+2009. Searching for Modular Structure in Complex Phenotypes: Inferences
+from Network Theory. \emph{Evolutionary Biology}, doi:
+\href{http://dx.doi.org/10.1007/s11692-009-9074-7}{10.1007/s11692-009-9074-7}.
+
 Pélabon, C., Bolstad, G.H., Egset, C.K., Cheverud, J.M., Pavlicev, M. \&
 Rosenqvist, G. 2013. On the Relationship between Ontogenetic and Static
 Allometry. \emph{The American Naturalist} \textbf{181}: 195--212.
@@ -1549,6 +1615,11 @@ for regularizing maximum likelihood estimation in the matrix Gaussian
 Procrustes problem. \emph{Proceedings of the National Academy of
 Sciences} \textbf{103}: 18521--18527.
 
+Tiedemann, H.B., Schneltzer, E., Zeiser, S., Hoesel, B., Beckers, J. \&
+Przemeck, G.K.H.\emph{et al.} 2012. From dynamic expression patterns to
+boundary formation in the presomitic mesoderm. \emph{PLoS computational
+biology} \textbf{8}: e1002586.
+
 Turing, A.M. 1952. The Chemical Basis of Morphogenesis.
 \emph{Philosophical Transactions of the Royal Society of London}
 \textbf{237}: 37--72.
@@ -1560,6 +1631,9 @@ Wagner, G.P. 1984. On the eigenvalue distribution of genetic and
 phenotypic dispersion matrices: evidence for a nonrandom organization of
 quantitative character variation. \emph{Journal of Mathematical Biology}
 \textbf{21}: 77--95.
+
+Wagner, G.P. 2010. The Measurement Theory of Fitness. \emph{Evolution}
+\textbf{64}: 1358--1376.
 
 Wagner, G.P. \& Altenberg, L. 1996. Perspective: complex adaptations and
 the evolution of evolvability. \emph{Evolution} \textbf{50}: 967--976.
