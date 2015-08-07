@@ -118,3 +118,5 @@ RandomSkewers(ED [['Papio_anubis']] $ ed.vcv, ED [['Homo_sapiens']] $ ed.vcv)
 RandomSkewers(OneDef [['Papio_anubis']] $ ml.vcv [-1, -1],
               OneDef [['Homo_sapiens']] $ ml.vcv [-1, -1])
 
+render ('Presentation/Allo/presAllo.Rmd')
+
