@@ -43,7 +43,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={Guilherme Garcia1,2, Felipe Bandoni de Oliveira1 \& Gabriel Marroig1},
-            pdftitle={Error Rates in Modularity Hypothesis Testing},
+            pdftitle={Error Rates in Modularity Hypothesis Testing: Comparing Linear and Geometric Morphometrics},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -70,7 +70,8 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Error Rates in Modularity Hypothesis Testing}
+  \title{Error Rates in Modularity Hypothesis Testing: Comparing Linear and
+Geometric Morphometrics}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Guilherme Garcia\textsuperscript{1,2}, Felipe Bandoni de
@@ -79,7 +80,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{07 August 2015}
+  \date{10 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -151,9 +152,29 @@ São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
 
 \textsuperscript{2}\href{mailto:wgar@usp.br}{wgar@usp.br}
 
-running title: Modularity and Error
+running title: Modularity, Error and Morphometrics
 
 key words: $P$-matrix; modularity; primates; development;
+
+\section{Abstract}\label{abstract}
+
+Modularity is a property refering to the uneven distribution of
+interactions among elements in any given system; in morphological
+systems, these interactions are usually measured as correlations or
+covariances between traits, and the patterns they depict are thought to
+emerge due to genetic and functional interactions among developing
+tissues. The study of modularity in morphological systems has increased
+in the past twenty years, parallel to the popularization of geometric
+morphometrics; as a consequence of this popularization, many different
+operational criteria to detect modularity patterns in the context of
+landmark-based data have emerged in the literature. However, in
+comparison to traditional ways of measuring morphological features,
+Procrustes-based estimators for covariance or correlation matrices have
+certain properties that difficult their use in this context. In the
+present work, we compare methods for representing morphological
+variation and for detecting variational modularity using empirical data
+and an approach based on the construction of correlation matrices with
+known structure.
 
 \section{Introduction}\label{introduction}
 
@@ -180,16 +201,16 @@ Wagner, 1996); in a classical quantitative genetics view (Falconer \&
 Mackay, 1996; Lynch \& Walsh, 1998), these shared genetic effects are
 the result of pleiotropy and linkage disequilibrium. Hence, a
 genotype/phenotype map composed of clusters of genes that affect
-clusters of traits (with little overlapping among groups) exhibits a
-modular organization, and such structure is thought to emerge as the
-result of selection for distinct functional demands (Wagner \&
-Altenberg, 1996; Espinosa-Soto \& Wagner, 2010; Rueffler \emph{et al.},
-2012; Melo \& Marroig, 2015). For instance, the decoupling between fore-
-and hindlimb function in certain mammalian lineages such as bats (Young
-\& Hallgrímsson, 2005) and apes (Young \emph{et al.}, 2010) is
-accompanied by the modularization of both structures, as shown by a
-reduction of phenotypic correlations among limbs and an increase in
-correlations within limbs.
+clusters of traits (with little overlap among groups) exhibits a modular
+organization, and such structure is thought to emerge as the result of
+selection for distinct functional demands (Wagner \& Altenberg, 1996;
+Espinosa-Soto \& Wagner, 2010; Rueffler \emph{et al.}, 2012; Melo \&
+Marroig, 2015). For instance, the decoupling between fore- and hindlimb
+function in certain mammalian lineages such as bats (Young \&
+Hallgrímsson, 2005) and apes (Young \emph{et al.}, 2010) is accompanied
+by the modularization of both structures, as shown by a reduction of
+phenotypic correlations among limbs and an increase in correlations
+within limbs.
 
 The recognition of variational modules (Wagner \& Altenberg, 1996;
 Wagner \emph{et al.}, 2007) over covariance or correlation patterns in
@@ -1145,8 +1166,8 @@ In that case, the issues regarding Procrustes estimators difficult the
 detection of modularity patterns even in the most simple situation; even
 though we built theoretical matrices using correlations sampled from
 these estimators, actually simulating the interference in covariance
-structure that they produce in our theoretical matrices is quite
-difficult.
+structure that such estimators produce in our theoretical matrices is
+quite difficult.
 
 The issues we found with both the use of Procrustes estimators for
 covariance matrices and the use of RV coefficients to estimate and
@@ -1166,10 +1187,7 @@ structure and variational modularity. Furthermore, a failure in
 rejecting null hypotheses implies that the partitioning the authors
 propose cannot be differentiated from a random association without
 meaningful relationships; however, the authors argue that this is an
-evidence that the human skull is highly integrated. This mismatch
-between what failing to reject null hypotheses actually means and the
-interpretations made by authors can be found elsewhere in the literature
-(e.g.: Klingenberg \& Marugán-Lobón, 2013).
+evidence that the human skull is highly integrated.
 
 The approach we explore in the present work is but one of the different
 manners one can investigate the association between genetic, functional
@@ -1179,22 +1197,23 @@ abstracting correlation matrices into networks, further using
 community-detection algorithms to search for modular patterns without
 \emph{a priori} hypotheses, associating their results with knockout
 experiments that support the communities they found among traits;
-however, to what extent do correlation matrices are actually well
+however, to what extent correlation matrices are actually well
 represented in this manner remains an open question. Monteiro et al.
 (2005) assumes that the underlying morphogenetic components of the
 rodent mandible behave as modules, further investigating the patters of
 correlation between these units in both within-species variation and
 between-species variation among Echimids; Monteiro \& Nogueira (2010),
-relying on the correspondence of these units among mammalogical
-evolution did the same to phylostomid bats. Although using a
-landmark-based approach to represent morphological variation, Monteiro
-\& Nogueira (2010) did not rely on Procrustes estimators to covariance
+relying on the correspondence of these units through mammalian
+diversification did the same to phylostomid bats. Although using a
+landmark-based approach to represent morphological variation, the
+authors do not use Procrustes estimators to represent covariance
 structure among these units, and the pattern of reorganization of
 correlation structure among these units associated with niche
-diversification in this group seems robust, considering that phylostomid
-radiation may imply in a very heterogeneous adaptive landscape, and such
-heterogeneity may lead to a reorganization of correlation patterns
-(Jones, 2007; Jones \emph{et al.}, 2012; Melo \& Marroig, 2015)
+diversification in phylostomids seems robust, considering that this
+radiation may have been associated with a very heterogeneous adaptive
+landscape, and such heterogeneity may lead to a reorganization of
+correlation patterns (Jones, 2007; Jones \emph{et al.}, 2012; Melo \&
+Marroig, 2015).
 
 Another valid approach is to model certain aspects of development as
 null hypotheses; Esteve-Altava \& Rasskin-Gutman (2014), when
@@ -1407,11 +1426,6 @@ configurations of landmarks: tools for evaluating a priori hypotheses.
 Klingenberg, C.P. \& Leamy, L.J. 2001. Quantitative genetics of
 geometric shape in the mouse mandible. \emph{Evolution} \textbf{55}:
 2342--2352.
-
-Klingenberg, C.P. \& Marugán-Lobón, J. 2013. Evolutionary Covariation in
-Geometric Morphometric Data: Analyzing Integration, Modularity, and
-Allometry in a Phylogenetic Context. \emph{Systematic Biology}
-\textbf{62}: 591--610.
 
 Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
 symmetric structures: Quantifying variation among individuals and

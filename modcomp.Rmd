@@ -1,5 +1,5 @@
 ---
-title: "Error Rates in Modularity Hypothesis Testing"
+title: "Error Rates in Modularity Hypothesis Testing: Comparing Linear and Geometric Morphometrics"
 author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -21,20 +21,16 @@ bibliography: Bib/modcomp.bib
 
 ^2^<wgar@usp.br>
 
-running title: Modularity and Error
+running title: Modularity, Error and Morphometrics
 
 key words: $P$-matrix; modularity; primates; development;
 
-<!---
-
 # Abstract
 
-The investigation of the association between genetic, functional and developmental interactions among morphological elements have on phenotypic or genetic correlation patterns increased in the past twenty years, mostly as a result of the popularization of geometric morphometric approaches to this problem.
-Coupled with this novel way to represent morphology, many different operational criteria to tackle such question have emerged in the literature.
-However, in comparison to traditional ways of measuring morphological features, geometric morphometrics estimators for covariance or correlation matrices have certain properties that complicate their use in this context.
-In the present work, we compare methods for representing morphological variation and for representing variational modularity
-
--->
+Modularity is a property refering to the uneven distribution of interactions among elements in any given system; in morphological systems, these interactions are usually measured as correlations or covariances between traits, and the patterns they depict are thought to emerge due to genetic and functional interactions among developing tissues.
+The study of modularity in morphological systems has increased in the past twenty years,  parallel to the popularization of geometric morphometrics; as a consequence of this popularization, many different operational criteria to detect modularity patterns in the context of landmark-based data have emerged in the literature.
+However, in comparison to traditional ways of measuring morphological features, Procrustes-based estimators for covariance or correlation matrices have certain properties that difficult their use in this context.
+In the present work, we compare methods for representing morphological variation and for detecting variational modularity using empirical data and an approach based on the construction of correlation matrices with known structure.
 
 ```{r options_modcomp, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf', fig.pos = 'tbp')
@@ -74,7 +70,7 @@ This has been well documented at different levels of biological organization, fr
 
 Regarding morphological systems, the concept of modularity is associated with the framework of morphological integration [@olson_morphological_1958; @cheverud_developmental_1996], which refers to the organization of covariances or correlations among morphological elements and the set of hypothesis concerning their biological relationships.
 In this context, modularity refers to the uneven distribution of genetic effects over phenotypic variation, articulated through development [genotype/phenotype map; @wagner_homologues_1996]; in a classical quantitative genetics view [@falconer_introduction_1996; @lynch_genetics_1998], these shared genetic effects are the result of pleiotropy and linkage disequilibrium. 
-Hence, a genotype/phenotype map composed of clusters of genes that affect clusters of traits (with little overlapping among groups) exhibits a modular organization, and such structure is thought to emerge as the result of selection for distinct functional demands [@wagner_perspective:_1996; @espinosa-soto_specialization_2010; @rueffler_evolution_2012; @melo_directional_2015].
+Hence, a genotype/phenotype map composed of clusters of genes that affect clusters of traits (with little overlap among groups) exhibits a modular organization, and such structure is thought to emerge as the result of selection for distinct functional demands [@wagner_perspective:_1996; @espinosa-soto_specialization_2010; @rueffler_evolution_2012; @melo_directional_2015].
 For instance, the decoupling between fore- and hindlimb function in certain mammalian lineages such as bats [@young_serial_2005] and apes [@young_development_2010] is accompanied by the modularization of both structures, as shown by a reduction of phenotypic correlations among limbs and an increase in correlations within limbs.
 
 The recognition of variational modules [@wagner_perspective:_1996; @wagner_road_2007] over covariance or correlation patterns in adult populations involves a comprehension of the underlying developmental and functional dynamics among morphological traits [@polly_developmental_2008; @zelditch_epigenetic_2011].
@@ -425,18 +421,17 @@ Thus, as Modularity Indexes are estimated with a formula that is very similar to
 Our approach to construct theoretical matrices attempts to simulate the most simple situation in detecting variational modularity, that is, the situation where there are only two subsets of traits; this situation is akin to the distinction between Face and Neurocranium in our empirical dataset (\autoref{fig:Dev}).
 This simpl may be the reason why the estimation of Type I error rates (\autoref{fig:type1}) indicates no difference among representations of form or statistic used to represent modularity.
 In this simple setting, both statistics are capable of detecting the distinction between Face and Neurocranium, expect when both are used on correlation patterns derived from Procrustes residuals.
-In that case, the issues regarding Procrustes estimators difficult the detection of modularity patterns even in the most simple situation; even though we built theoretical matrices using correlations sampled from these estimators, actually simulating the interference in covariance structure that they produce in our theoretical matrices is quite difficult.
+In that case, the issues regarding Procrustes estimators difficult the detection of modularity patterns even in the most simple situation; even though we built theoretical matrices using correlations sampled from these estimators, actually simulating the interference in covariance structure that such estimators produce in our theoretical matrices is quite difficult.
 
 The issues we found with both the use of Procrustes estimators for covariance matrices and the use of RV coefficients to estimate and detect variational modularity may explain results found by other authors regarding the detection of modular patterns; for instance, @martinez-abadias_pervasive_2011 has found no evidence indicating that either genetic or phenotypic covariance structure for human skulls conforms to a modular structure, since all tests performed by these authors failed to reject the null hypothesis of random association.
 These authors use Procrustes estimators to represent covariance structure, and test their hypothesis of partitioning (Face, Vault and Base) using RV as the statistic representing variational modularity.
 Thus, as this combination implies in very low power (\autoref{fig:type2_sym}), not rejecting the null hypothesis in their case might be a consequence of the chosen estimates of both covariance structure and variational modularity.
 Furthermore, a failure in rejecting null hypotheses implies that the partitioning the authors propose cannot be differentiated from a random association without meaningful relationships; however, the authors argue that this is an evidence that the human skull is highly integrated.
-This mismatch between what failing to reject null hypotheses actually means and the interpretations made by authors can be found elsewhere in the literature [e.g.: @klingenberg_evolutionary_2013].
 
 The approach we explore in the present work is but one of the different manners one can investigate the association between genetic, functional and developmental interactions and correlation structure [@mitteroecker_conceptual_2007].
-For example, @perez_searching_2009 relies on abstracting correlation matrices into networks, further using community-detection algorithms to search for modular patterns without *a priori* hypotheses, associating their results with knockout experiments that support the communities they found among traits; however, to what extent do correlation matrices are actually well represented in this manner remains an open question.
-@monteiro_evolutionary_2005 assumes that the underlying morphogenetic components of the rodent mandible behave as modules, further investigating the patters of correlation between these units in both within-species variation and between-species variation among Echimids; @monteiro_adaptive_2010, relying on the correspondence of these units among mammalogical evolution did the same to phylostomid bats.
-Although using a landmark-based approach to represent morphological variation, @monteiro_adaptive_2010 did not rely on Procrustes estimators to covariance structure among these units, and the pattern of reorganization of correlation structure among these units associated with niche diversification in this group seems robust, considering that phylostomid radiation may imply in a very heterogeneous adaptive landscape, and such heterogeneity may lead to a reorganization of correlation patterns [@jones_mutation_2007; @jones_effects_2012; @melo_directional_2015]
+For example, @perez_searching_2009 relies on abstracting correlation matrices into networks, further using community-detection algorithms to search for modular patterns without *a priori* hypotheses, associating their results with knockout experiments that support the communities they found among traits; however, to what extent correlation matrices are actually well represented in this manner remains an open question.
+@monteiro_evolutionary_2005 assumes that the underlying morphogenetic components of the rodent mandible behave as modules, further investigating the patters of correlation between these units in both within-species variation and between-species variation among Echimids; @monteiro_adaptive_2010, relying on the correspondence of these units through mammalian diversification did the same to phylostomid bats.
+Although using a landmark-based approach to represent morphological variation, the authors do not use Procrustes estimators to represent covariance structure among these units, and the pattern of reorganization of correlation structure among these units associated with niche diversification in phylostomids seems robust, considering that this radiation may have been associated with a very heterogeneous adaptive landscape, and such heterogeneity may lead to a reorganization of correlation patterns [@jones_mutation_2007; @jones_effects_2012; @melo_directional_2015].
 
 Another valid approach is to model certain aspects of development as null hypotheses; @esteve-altava_beyond_2014, when investigating the pattern of connections among human cranial bones, conceived the null hypothesis that unconstrained bone growth is sufficient to explain the observed patterns.
 Such approach could be extended to investigate morphological covariance structure; if we consider the geometric properties of the features we measure [@mitteroecker_conceptual_2007], one could formulate the null hypothesis that topological proximity is a sufficient explanation for the observed covariance structure, against the alternative hypothesis that local developmental processes coupled with functional interactions produce stronger relationships among close elements that surpass these purely topological interactions.
