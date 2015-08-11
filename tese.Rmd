@@ -47,7 +47,7 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 \selectlanguage{english}
 
 \newpage
-\chapter{On Measurement and Morphometrics: Error Rates in Modularity Hypothesis Testing}
+\chapter{Error Rates in Modularity Hypothesis Testing: Comparing Linear and Geometric Morphometrics}
 \label{ch:modcomp}
 ```{r chapter_modcomp, child = 'modcomp.Rmd'}
 ```
