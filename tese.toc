@@ -1,0 +1,38 @@
+
+\select@language {brazilian}
+\select@language {english}
+\select@language {brazilian}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{1}{chapter.1}
+\select@language {english}
+\contentsline {chapter}{\numberline {2}Modularity and Morphometrics: Error Rates in Hypothesis Testing}{6}{chapter.2}
+\contentsline {section}{Abstract}{6}{section*.6}
+\contentsline {section}{Introduction}{8}{section*.7}
+\contentsline {subsubsection}{Morphometrics}{11}{section*.8}
+\contentsline {section}{Methods}{14}{section*.9}
+\contentsline {subsection}{Sample}{14}{section*.10}
+\contentsline {subsection}{Empirical Modularity Hypothesis Tests}{18}{section*.13}
+\contentsline {subsection}{Estimation of Error Rates}{20}{section*.14}
+\contentsline {subsubsection}{Software}{24}{section*.16}
+\contentsline {section}{Results}{24}{section*.17}
+\contentsline {subsection}{Empirical Tests}{24}{section*.18}
+\contentsline {subsection}{Error Rates}{27}{section*.21}
+\contentsline {section}{Discussion}{35}{section*.27}
+\contentsline {subsection}{Theoretical Matrices and Error Rates}{39}{section*.28}
+\contentsline {subsection}{Conclusion}{44}{section*.29}
+\contentsline {chapter}{\numberline {3}Allometric Constraints and Modularity}{45}{chapter.3}
+\contentsline {section}{Introduction}{45}{section*.30}
+\contentsline {section}{Methods}{47}{section*.31}
+\contentsline {subsection}{Sample}{47}{section*.32}
+\contentsline {subsection}{Allometric Slopes and Intercepts}{48}{section*.33}
+\contentsline {subsection}{Morphological Integration}{50}{section*.34}
+\contentsline {subsection}{Software}{51}{section*.35}
+\contentsline {section}{Results}{51}{section*.36}
+\contentsline {section}{Discussion}{57}{section*.45}
+\contentsline {chapter}{\numberline {4}A Phylogenetic Analysis of Shape Covariance Structure}{60}{chapter.4}
+\contentsline {section}{Introdu\IeC {\c c}\IeC {\~a}o}{60}{section*.46}
+\contentsline {section}{M\IeC {\'e}todos}{61}{section*.47}
+\contentsline {section}{Resultados}{61}{section*.48}
+\contentsline {section}{Discuss\IeC {\~a}o}{66}{section*.56}
+\select@language {brazilian}
+\contentsline {chapter}{Refer\IeC {\^e}ncias Bibliogr\IeC {\'a}ficas}{69}{chapter*.57}
+\contentsline {chapter}{Ap\IeC {\^e}ndice: Artigos Publicados}{82}{chapter*.58}

@@ -61,20 +61,29 @@ attach ('Data/ppca.RData')
 captions <- list()
 
 render('tese.Rmd', output_file = 'tese.pdf')
-render('allo.Rmd', output_file = 'allo.pdf')
-render('ppca.Rmd', output_file = 'ppca.pdf')
-
-render('modcomp.Rmd', output_file = 'modcomp.pdf')
-render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
-# system('evince modcomp.pdf &')
-# system('evince sup_modcomp.pdf &')
+## system('evince tese.pdf &')
 
 render('sup_base.Rmd', output_file = 'sup_base.pdf')
+## system('evince sup_base.pdf &')
 
-system('evince tese.pdf &')
-system('evince allo.pdf &')
-system('evince ppca.pdf &')
-system('evince sup_base.pdf &')
+render('allo.Rmd', output_file = 'allo.pdf')
+## system('evince allo.pdf &')
+render('sup_allo.Rmd', output_file = 'sup_allo.pdf')
+## system('evince sup_allo.pdf &')
+
+render('ppca.Rmd', output_file = 'ppca.pdf')
+## system('evince ppca.pdf &')
+
+render('modcomp.Rmd', output_file = 'modcomp.pdf')
+## system('evince modcomp.pdf &')
+render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
+## system('evince sup_modcomp.pdf &')
+
+
+
+
+
+
 
 render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
        output_format = 'ioslides_presentation',

@@ -1,23 +1,21 @@
 ---
 title: "Allometric Constraints and Modularity"
+author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
+date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   pdf_document:
     includes:
-      in_header: Tex/chap_head.tex
+      in_header: Tex/allo_head.tex
       before_body: Tex/chap_info.tex
     fig_caption: true
     keep_tex: true
   word_document:
     fig_caption: true
     fig_width: 6
-fontsize: 11pt
+fontsize: 12pt
 csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/tese.bib
 ---	
-
-<!---
-
-Guilherme Garcia^1,2^, Gabriel Marroig^1^
 
 ^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
 
@@ -26,8 +24,6 @@ Guilherme Garcia^1,2^, Gabriel Marroig^1^
 running title: Allometry and Integration in Primates
 
 key words: 
-
--->
 
 ```{r options_allo, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
@@ -43,7 +39,7 @@ captions $ fig.phylo_slopeW <- "Static allometric slopes. Distribution of $b_s$ 
 
 captions $ fig.phylo_interW <- "Distribution of $a_s$ for the regression between the Common Allometric Component and log Centroid Size. Red circles indicate positive slope deviations, while blue circles indicate negative ones. The outer circles indicate whether a given intercept deviation is distinct from zero, using 95% credible intervals. \\label{fig:phylo_interW}"
 
-captions $ fig.MI_vs_slopeW <- "AVG Index *vs.* static allometric slopes. For each trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_Wslope}"
+captions $ fig.MI_vs_slopeW <- "AVG Index *vs.* static allometric slopes. For each trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW}"
 
 captions $ fig.lambda_MI <- "Distribution of Pagel's lambda for the mixed regressions between AVG Indexes for each trait set and static allometric slopes ($b_s$). \\label{fig:lambda_MI}"
 
@@ -68,15 +64,15 @@ Using a Bayesian phylogenetic random regression model of allometric shape agains
 # Methods
 
 ## Sample
-Our database consists of `r sum (Aux $ sample.size)` individuals, distributed across `r length (Aux $ sample.size)` species. These species are spread throughout all major Anthropoid clades above the genus level, also comprising all Platyrrhini genera and a substantial portion of Catarrhini genera. We associate this database with a ultrametric phylogenetic hypothesis for Anthropoidea (Figure \ref{sfig:phylo_model}), derived from Springer *et al*.[@springer_macroevolutionary_2012].
+Our database consists of `r sum (Aux $ sample.size)` individuals, distributed across `r length (Aux $ sample.size)` species. These species are spread throughout all major Anthropoid clades above the genus level, also comprising all Platyrrhini genera and a substantial portion of Catarrhini genera. We associate this database with a ultrametric phylogenetic hypothesis for Anthropoidea (Figure \ref{fig:phylo_model}), derived from Springer *et al*.[@springer_macroevolutionary_2012].
 
-Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively. Twenty-two unique landmarks represent each individual (Figure \ref{sfig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009. Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks, from both sides, were  present.
+Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively. Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009. Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks, from both sides, were  present.
 
 This database of landmark registration data was used to estimate both interlandmark distances and shape variables. For interlandmark distances, those measurements that involve bilaterally symmetrical landmarks were averaged after computing distances; for shape variables, a symmetrical landmark configuration was obtained by taking the mean shape between each individual configuration and its reflection along the sagittal plane [@klingenberg_shape_2002].
 
 ## Allometric Slopes and Intercepts
 
-We estimated allometric parameters using local shape variables [@marquez_measurement_2012], which are measurements of infinitesimal log volume transformations, calculated as the natural logarithm determinants of derivatives of the TPS function between each individual in our sample and a reference shape (in our case, the mean shape for the entire sample, estimated from a Generalized Procrustes algorithm). Such derivatives were evaluated at 38 locations, and we chose these locations to match our interlandmark distance database; therefore, these locations are the midpoints between pairs of landmarks used to calculate interlandmark distances (Figure \ref{sfig:landmarks}). After estimating local shape variables, sources of variation of little interest in the present context, such as sexual dimorphism and variation between subspecies or populations were controlled within each OTU, according to Figure \ref{sfig:phylo_model}, using generalized linear models.
+We estimated allometric parameters using local shape variables [@marquez_measurement_2012], which are measurements of infinitesimal log volume transformations, calculated as the natural logarithm determinants of derivatives of the TPS function between each individual in our sample and a reference shape (in our case, the mean shape for the entire sample, estimated from a Generalized Procrustes algorithm). Such derivatives were evaluated at 38 locations, and we chose these locations to match our interlandmark distance database; therefore, these locations are the midpoints between pairs of landmarks used to calculate interlandmark distances (\autoref{fig:landmarks}). After estimating local shape variables, sources of variation of little interest in the present context, such as sexual dimorphism and variation between subspecies or populations were controlled within each OTU, according to Figure \ref{fig:phylo_model}, using generalized linear models.
 
 We used a phylogenetic random regression model under a Bayesian framework in order to  estimate static allometric intercepts ($a_s$) and slopes ($b_s$) for all OTUs simultaneously while considering their phylogenetic structure. This model assumes that both $a_s$ and $b_s$ evolve under Brownian motion, as both parameters are defined as random variables with a correlation structure among OTUs derived from the phylogenetic hypothesis. This allows the model to estimate $a_s$ and $b_s$ for each terminal OTU and also for ancestral nodes, enabling us to track changes in both parameters along the phylogeny. 
 
@@ -88,7 +84,7 @@ Using these posterior samples for static allometric parameters, we test whether 
 
 ## Morphological Integration
 
-Using our landmark configuration database, we calculated 38 interlandmark distances, based on previous works on mammalian covariance patterns [@cheverud_morphological_1995; @cheverud_quantitative_1996; @marroig_comparison_2001; @oliveira_covariance_2009] (Figure \ref{sfig:landmarks}). Within each OTU, we estimate and remove those fixed effects of little interest within the present context using generalized linear models (Figure \ref{sfig:phylo_model}). Using residuals from each model, we estimated covariance and correlation $P$-matrices for all OTUs.
+Using our landmark configuration database, we calculated 38 interlandmark distances, based on previous works on mammalian covariance patterns [@cheverud_morphological_1995; @cheverud_quantitative_1996; @marroig_comparison_2001; @oliveira_covariance_2009; Figure \ref{fig:landmarks}]. Within each OTU, we estimate and remove those fixed effects of little interest within the present context using generalized linear models (Figure \ref{fig:phylo_model}). Using residuals from each model, we estimated covariance and correlation $P$-matrices for all OTUs.
 
 We estimate magnitude of morphological integration for each OTU using the coefficient of variation of the eigenvalues (ICV[@shirai_skull_2010; @porto_size_2013]), which is a scale-free measure of the overall strength of trait association in a given covariance matrix. 
 
@@ -205,4 +201,5 @@ Using estimates of allometry derived from the relationship between local shape v
 
 Geometric approaches to study morphological integration often eschew the role of size variation in covariance structure, focusing on shape alone; furthermore, landmark-based shape covariance/correlation patterns are poorly estimated due to the effects of Procrustes superimposition. Therefore, conclusions regarding pattern and magnitude of integration considering landmark-based shape alone usually disagree with traditional morphometric approaches. Our results demonstrate that, with a careful consideration of the strengths and weaknesses of both approaches, geometric and traditional morphometrics can be used together to test the effects of the multiple factors that influence morphological integration.
 
-<!-- # References -->
+# References
+

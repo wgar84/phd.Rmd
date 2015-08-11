@@ -12,7 +12,7 @@ output:
     fig_width: 6
 documentclass: report
 classoption: twoside
-fontsize: 11pt
+fontsize: 12pt
 csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/tese.bib
 ---	
@@ -33,6 +33,9 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 
 \renewcommand{\headrulewidth}{0.5pt}
 
+\linenumbers
+\modulolinenumbers[5]
+
 \newpage
 \chapter{Introdução}
 \label{ch:intro}
@@ -47,7 +50,7 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 \selectlanguage{english}
 
 \newpage
-\chapter{Error Rates in Modularity Hypothesis Testing: Comparing Linear and Geometric Morphometrics}
+\chapter{Modularity and Morphometrics: Error Rates in Hypothesis Testing}
 \label{ch:modcomp}
 ```{r chapter_modcomp, child = 'modcomp.Rmd'}
 ```

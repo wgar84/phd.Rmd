@@ -1,9 +1,9 @@
 ---
-title: "Supplemental Material Base"
+title: "Supplemental Material - Allometric Constraints and Modularity"
 output:
   pdf_document:
     includes:
-      in_header: Tex/chap_head.tex
+      in_header: Tex/sup_allo_head.tex
       before_body: Tex/chap_info.tex
     fig_caption: true
     keep_tex: true

@@ -1,5 +1,5 @@
 ---
-title: "Error Rates in Modularity Hypothesis Testing: Comparing Linear and Geometric Morphometrics"
+title: "Modularity and Morphometrics: Error Rates in Hypothesis Testing" 
 author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -17,6 +17,8 @@ csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/modcomp.bib
 ---	
 
+<!---
+
 ^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
 
 ^2^<wgar@usp.br>
@@ -24,6 +26,8 @@ bibliography: Bib/modcomp.bib
 running title: Modularity, Error and Morphometrics
 
 key words: $P$-matrix; modularity; primates; development;
+
+-->
 
 # Abstract
 
@@ -451,5 +455,6 @@ Almost certainly modularity patterns are not expressed in phenotypic data as the
 Either interlandmark distances and local shape variables seem valid options to represent morphological variation, if their limitations are taken into consideration; such statement is valid to any type of representation of form one can devise.
 Moreover, the measurements we make and the parameters we estimate from them have to be properly connected to the models we are considering; otherwise, inferences made from such models may be devoid of meaning [@wagner_measurement_2010; @houle_measurement_2011].
 
-
+<!---
 # References
+-->

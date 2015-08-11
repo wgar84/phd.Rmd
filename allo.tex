@@ -1,4 +1,4 @@
-\documentclass[11pt,]{article}
+\documentclass[12pt,]{article}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -42,7 +42,7 @@
 \fi
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={},
+            pdfauthor={Guilherme Garcia1,2, Felipe Bandoni de Oliveira1 \& Gabriel Marroig1},
             pdftitle={Allometric Constraints and Modularity},
             colorlinks=true,
             citecolor=blue,
@@ -73,10 +73,13 @@
   \title{Allometric Constraints and Modularity}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-  \author{}
-  \preauthor{}\postauthor{}
-  \date{}
-  \predate{}\postdate{}
+  \author{Guilherme Garcia\textsuperscript{1,2}, Felipe Bandoni de
+Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{11 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -125,7 +128,7 @@
 \newcommand{\hr}{\par\noindent\hrulefill\par}
 
 \usepackage {xr}
-\externaldocument{sup_base}
+\externaldocument{sup_allo}
 
 \selectlanguage{english}
 
@@ -141,6 +144,16 @@
 \modulolinenumbers[2]
 
 \onehalfspacing
+
+\textsuperscript{1}Laboratório de Evolução de Mamíferos, Departamento de
+Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de
+São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
+
+\textsuperscript{2}\href{mailto:wgar@usp.br}{wgar@usp.br}
+
+running title: Allometry and Integration in Primates
+
+key words:
 
 \section{Introduction}\label{introduction}
 
@@ -222,13 +235,13 @@ species. These species are spread throughout all major Anthropoid clades
 above the genus level, also comprising all Platyrrhini genera and a
 substantial portion of Catarrhini genera. We associate this database
 with a ultrametric phylogenetic hypothesis for Anthropoidea (Figure
-\ref{sfig:phylo_model}), derived from Springer \emph{et al}.(Springer
+\ref{fig:phylo_model}), derived from Springer \emph{et al}.(Springer
 \emph{et al.}, 2012).
 
 Individuals in our sample are represented by 36 registered landmarks,
 using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and
 Catarrhini, respectively. Twenty-two unique landmarks represent each
-individual (Figure \ref{sfig:landmarks}), since fourteen of the 36
+individual (Figure \ref{fig:landmarks}), since fourteen of the 36
 registered landmarks are bilaterally symmetrical. For more details on
 landmark registration, see Marroig \& Cheverud (2001) and Oliveira et
 al. (2009). Databases from both previous studies were merged into a
@@ -255,11 +268,11 @@ sample, estimated from a Generalized Procrustes algorithm). Such
 derivatives were evaluated at 38 locations, and we chose these locations
 to match our interlandmark distance database; therefore, these locations
 are the midpoints between pairs of landmarks used to calculate
-interlandmark distances (Figure \ref{sfig:landmarks}). After estimating
+interlandmark distances (\autoref{fig:landmarks}). After estimating
 local shape variables, sources of variation of little interest in the
 present context, such as sexual dimorphism and variation between
 subspecies or populations were controlled within each OTU, according to
-Figure \ref{sfig:phylo_model}, using generalized linear models.
+Figure \ref{fig:phylo_model}, using generalized linear models.
 
 We used a phylogenetic random regression model under a Bayesian
 framework in order to estimate static allometric intercepts ($a_s$) and
@@ -309,11 +322,11 @@ has changed in that particular node.
 
 Using our landmark configuration database, we calculated 38
 interlandmark distances, based on previous works on mammalian covariance
-patterns (Cheverud, 1995, 1996b; Marroig \& Cheverud, 2001; Oliveira
-\emph{et al.}, 2009) (Figure \ref{sfig:landmarks}). Within each OTU, we
-estimate and remove those fixed effects of little interest within the
-present context using generalized linear models (Figure
-\ref{sfig:phylo_model}). Using residuals from each model, we estimated
+patterns {[}Cheverud (1995); Cheverud (1996b); Marroig \& Cheverud
+(2001); Oliveira et al. (2009); Figure \ref{fig:landmarks}{]}. Within
+each OTU, we estimate and remove those fixed effects of little interest
+within the present context using generalized linear models (Figure
+\ref{fig:phylo_model}). Using residuals from each model, we estimated
 covariance and correlation $P$-matrices for all OTUs.
 
 We estimate magnitude of morphological integration for each OTU using
@@ -353,7 +366,7 @@ menor do que dois são considerados equivalentes.
 
 \subsection{Software}\label{software}
 
-All analysis were performed under R 3.1.2 (R Core Team, 2014). Our code
+All analysis were performed under R 3.2.1 (R Core Team, 2015). Our code
 for the estimation of local shape variables can be found at
 \url{http://github.com/wgar84}. We performed MCMC sampling for all
 models using the MCMCglmm package in R (Hadfield, 2010). In order to
@@ -445,7 +458,7 @@ inclusiva que as contém.
 \caption{AVG Index \emph{vs.} static allometric slopes. For each trait
 set, the shaded region around regression lines indicate 95\% credible
 intervals around estimated regression parameters.
-\label{fig:MI_vs_Wslope}}
+\label{fig:MI_vs_slopeW}}
 \end{figure}
 
 \section{Discussion}\label{discussion}
@@ -472,6 +485,9 @@ consideration of the strengths and weaknesses of both approaches,
 geometric and traditional morphometrics can be used together to test the
 effects of the multiple factors that influence morphological
 integration.
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
 
 Akaike, H. 1974. A new look at the statistical model identification.
 \emph{IEEE Transactions on Automatic Control} \textbf{19}: 716--723.
@@ -565,7 +581,7 @@ Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
 Variation, Growth Strategies, and the Evolution of Modularity in the
 Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
 
-R Core Team. 2014. \emph{R: A Language and Environment for Statistical
+R Core Team. 2015. \emph{R: A Language and Environment for Statistical
 Computing}. R Foundation for Statistical Computing, Vienna, Austria.
 
 Shirai, L.T. \& Marroig, G. 2010. Skull modularity in neotropical
