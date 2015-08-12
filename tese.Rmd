@@ -52,19 +52,19 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 \newpage
 \chapter{Modularity and Morphometrics: Error Rates in Hypothesis Testing}
 \label{ch:modcomp}
-```{r chapter_modcomp, child = 'modcomp.Rmd'}
+```{r chapter_modcomp, child = 'modcomp_body.Rmd'}
 ```
 
 \newpage
 \chapter{Allometric Constraints and Modularity}
 \label{ch:allo}
-```{r chapter_allo, child = 'allo.Rmd'}
+```{r chapter_allo, child = 'allo_body.Rmd'}
 ```
 
 \newpage
 \chapter{A Phylogenetic Analysis of Shape Covariance Structure}
 \label{ch:ppca}
-```{r chapter_ppca, child = 'ppca.Rmd'}
+```{r chapter_ppca, child = 'ppca_body.Rmd'}
 ```
 
 \def\sectionautorefname{Seção}

@@ -79,12 +79,6 @@ render('modcomp.Rmd', output_file = 'modcomp.pdf')
 render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
 ## system('evince sup_modcomp.pdf &')
 
-
-
-
-
-
-
 render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
        output_format = 'ioslides_presentation',
        output_file = 'Garcia_Evolution_2015.html')
