@@ -114,7 +114,7 @@
 \usepackage{caption} % Customizar as legendas de figuras e tabelas
 \usepackage{array} % Elementos extras para formatação de tabelas
 
-\usepackage[switch*,pagewise]{lineno} % números nas linhas
+\usepackage[switch,pagewise]{lineno} % números nas linhas
 
 \usepackage {tocvsec2} % controlar profundidade de table of contents
 \setcounter {secnumdepth}{0}
@@ -1636,15 +1636,14 @@ Using a Bayesian phylogenetic random regression model of allometric
 shape against size, we estimate static allometric parameters along the
 phylogeny of Anthropoidea. We show that allometric slopes have remained
 quite stable through the diversification of anthropoids, except for
-\emph{Homo} and \emph{Gorilla}, while allometric intercepts have
-suffered changes in many different branches, such as Callithrichids and
-\emph{Alouatta}. Using Bayesian phylogenetic regressions, we also
-demonstrate that allometric slope variation among taxa is responsible
-for increased Facial integration and decreased Neurocranial integration,
-indicating that differences in the timing and rate of development,
-mediated by the spatio-temporal dynamics of the genetic developmental
-network are paramount to understanding the evolution of morphological
-integration.
+\emph{Homo}, \emph{Gorilla}, \emph{Pithecia} and \emph{Alouatta}, while
+allometric intercepts have suffered changes in many different branches.
+Using Bayesian phylogenetic regressions, we also demonstrate that
+allometric slope variation among taxa is responsible for increased
+Facial integration and decreased Neurocranial integration, indicating
+that differences in the timing and rate of development, mediated by the
+spatio-temporal dynamics of the genetic developmental network are
+paramount to understanding the evolution of static allometry.
 
 \section{Methods}\label{methods-1}
 
@@ -1713,12 +1712,13 @@ model. This reduction in dimensionality is necessary because a full
 multivariate random regression model using all 38 shape variables would
 be computationally untractable, considering the actual state of MCMC
 samplers available. Therefore, we limit ourselves to test whether the
-strength of association between shape and size with respect to the CAC
-(which we consider the best representation of the ancestral allometric
-shape variation) has changed during the diversification of anthropoid
-primates; in order to test whether the direction of allometric shape
-variation has changed during anthropoid diversification, a full
-multivariate random regression model would be necessary.
+strength of association between size and allometric shape, represented
+by projections over this CAC (which we consider the best representation
+of the ancestral allometric shape variation) has changed during the
+diversification of anthropoid primates; in order to test whether the
+direction of allometric shape variation has changed during anthropoid
+diversification, a full multivariate random regression model would be
+necessary.
 
 We used uniform prior distributions for all $a_s$ and $b_s$. In order to
 sample the posterior distribution for our model, we used a MCMC sampler
@@ -1741,48 +1741,43 @@ has changed in that particular node.
 \subsection{Morphological Integration}\label{morphological-integration}
 
 Using our landmark configuration database, we calculated 38
-interlandmark distances, based on previous works on mammalian covariance
-patterns {[}Cheverud (1995); Cheverud (1996b); Marroig \& Cheverud
-(2001); Oliveira et al. (2009); Figure \ref{fig:landmarks}{]}. Within
-each OTU, we estimate and remove those fixed effects of little interest
-within the present context using generalized linear models (Figure
+interlandmark distances (\autoref{fig:landmarks}), based on previous
+works on mammalian covariance patterns (Cheverud, 1995, 1996b; Marroig
+\& Cheverud, 2001; Oliveira \emph{et al.}, 2009). Within each OTU, we
+estimate and remove those fixed effects of little interest within the
+present context using generalized linear models (Figure
 \ref{fig:phylo_model}). Using residuals from each model, we estimated
 covariance and correlation $P$-matrices for all OTUs.
 
-We estimate magnitude of morphological integration for each OTU using
-the coefficient of variation of the eigenvalues (ICV(Shirai \& Marroig,
-2010; Porto \emph{et al.}, 2013)), which is a scale-free measure of the
-overall strength of trait association in a given covariance matrix.
+In order to represent modularity patterns embedded in these
+$P$-matrices, we use Modularity Indexes (Porto \emph{et al.}, 2013),
+which is a scale-free measurement of variational modularity; we
+estimated MIs for each trait subset depicted in \autoref{tab:dist} for
+all 109 $P$-matrices. We estimated Modularity Indexes using the equation
+\[
+MI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
+\] where $\bar{\rho}_{+}$ represents the average correlation within a
+given subset, $\bar{\rho}_{-}$ represents the average correlation of the
+complementary set, and $ICV$ is the coefficient of variation of
+eigenvalues of the associated covariance matrix, which is a measurement
+of the overall integration between all traits (Shirai \& Marroig, 2010).
 
-Estimamos magnitude geral de integração morfológica para cada espécie
-usando o coeficiente de variação dos autovalores da matriz de
-covariância (ICV; Shirai \& Marroig, 2010; Porto \emph{et al.}, 2013),
-que é uma mensuração da força de associação entre caracteres
-independente de escala. De maneira a representar a modularidade
-associada aos conjuntos de caracteres localizados nas regiões e
-sub-regiões definidas (\autoref{tab:dist}), estimamos o índice AVG
-(Porto \emph{et al.}, 2013), que é definido como a diferença entre a
-média das correlações entre elementos de um conjunto e a média do
-correlações do conjunto complementar, dividida pelo ICV associado. Desta
-forma, o índice AVG captura a força de associação entre caracteres em
-uma região em relação à associação entre os demais caracteres e também
-em relação à magnitude global de integração na matriz.
-
-Para avaliar a relação entre parâmetros alométricos e índices AVG,
-ajustamos modelos lineares controlados para efeitos filogenéticos
-utilizando os índices AVG separadamente como variáveis resposta e os
-parâmetros alométricos como variáveis preditoras; tais modelos foram
-ajustados também segundo uma perspectiva Bayesiana. De modo a avaliar
-qual combinação destes parâmetros é suficiente para explicar a variação
-em índices AVG, ajustamos três modelos diferentes: dois utilizando
-intercepto ($a_s$) e inclinação ($b_s$) separadamente, e um modelo que
-considera o efeito conjunto dos dois parâmetros ($a_s + b_s$). Estes
-três modelos foram comparados utilizando o Critério de Informação de
-Deviância (DIC; Gelman \emph{et al.}, 2004), de modo que o modelo com o
-menor DIC frente ao conjunto de modelos considerados é aquele que melhor
-se ajusta aos dados. De maneira equivalente ao Critério de Informação de
-Akaike (Akaike, 1974), modelos concorrentes cuja diferença em DIC é
-menor do que dois são considerados equivalentes.
+We estimated the relationship between Modularity Indexes and static
+allometric parameters using phylogenetic mixed linear models; we
+adjusted such models separately for each trait subset, using MI values
+as response variables and allometric parameters as predictors. We also
+use a Bayesian framework to estimate such models. In order to evaluate
+which parameters are sufficient to explain variation in Modularity
+Indexes, we adjusted three different models: one for static intercepts
+alone ($a_s$), one for static slopes ($b_s$), and a third model that
+considers the joint effect of both parameters, without interactions
+($a_s$ + $b_s$). We compared these three models using Deviance
+Information Criterion (DIC; Gelman \emph{et al.}, 2004), which increases
+as a function of the average posterior likelihood for a particular model
+and decreases as a function of the number of parameters considered; in a
+equivalent manner to Akaike's (1974) Information Criterion, the model
+with the smallest DIC is the best fit to the data considered, and models
+whose difference in DICs is lower than two are considered equivalent.
 
 \subsection{Software}\label{software-1}
 

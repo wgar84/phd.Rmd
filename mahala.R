@@ -1,8 +1,10 @@
+require(StatMatch)
+
 mahala.shape <-
   cmdscale (
     as.dist (
-      mahalanobis.dist(laply (OneDef, function (L) L $ mean),
-                       vc = allo.Data $ W.node.Def [['Platyrrhini']])))
+      mahalanobis.dist(laply (OneDef, function (L) L $ mean [-1]),
+                       vc = allo.Data $ W.node.Def [['Anthropoidea']] [-1, -1])))
 
 mahala.shape <-
   data.frame ('OTU' = names (OneDef),

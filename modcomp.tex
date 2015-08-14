@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{12 August 2015}
+  \date{13 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -157,50 +157,31 @@ key words: $P$-matrix; modularity; primates; development;
 
 \section{Abstract}\label{abstract}
 
-Modularity is a property refering to the uneven distribution of
-interactions among elements in any given system; in morphological
-systems, these interactions are usually measured as correlations or
-covariances between traits, and the patterns they depict are thought to
-emerge due to genetic and functional interactions among developing
-tissues. The study of modularity in morphological systems has increased
-in the past twenty years, parallel to the popularization of geometric
-morphometrics; as a consequence of this popularization, many different
-operational criteria to detect modularity patterns in the context of
-landmark-based data have emerged in the literature. However, in
-comparison to traditional ways of measuring morphological features such
-as interlandmark distances, Procrustes-based estimators for covariance
-or correlation matrices have certain properties that difficult their use
-in this context. In the present work, we compare different
-representations of organismal form, focusing on the properties of tests
-for detecting modularity patterns defined \emph{a priori}; in this
-context, we also compare two different metrics for modularity patterns:
-one originated in traditional morphometrics (Modularity Index) and
-another that arised in the context of landmark-based representations (RV
-coefficient). Using an empirical dataset composed of 21 species of
-anthropoid primates, we compare tests formulated with both metrics over
-three different representations of form: interlandmark distances,
-Procrustes residuals, and local shape variables (a novel way to
-represent shape variation which does not depend on Procrustes
-estimators). We also use an approach based on the construction of
-theoretical matrices of known modular structure, in order to estimate
-Type I and Type II error rates for tests using both metrics. With
-respect to empirical data, tests performed using either metrics over
-Procrustes estimators for covariance matrices fail to detect any signal
-of modularity patterns, while remaining representations show a signal
-coherent with the distinction between early- and late-developmental
-factors in mammalian skull ontogeny; this signal is more clearly shown
-by tests performed using Modularity Indexes than by those using RV. The
-estimation of error rates using both metrics indicate that MI is more
-robust than RV, since type II error rates for tests using the former
-does not change much considering both effect and sample sizes; tests
-performed using RV are more sensitive to these parameters. However,
-either tests have much higher type II error rates when used on
-theoretical matrices that use the correlation distribution from
-Procrustes estimators. Therefore, our results indicate that Procrustes
-estimators for covariance and correlation matrices fail to properly
-represent the impact of developmental and functional interactions over
-correlation patterns, regardless of what statistic used to represent
-modularity patterns.
+The study of modularity in morphological systems has increased in the
+past twenty years, parallel to the popularization of geometric
+morphometrics; as a consequence of this popularization, different
+operational criteria for detecting modularity using landmark-based data
+have been proposed. However, compared to the usual covariance matrix
+estimators, Procrustes-based estimators have properties that difficult
+their use in this context. Here, we compare different representations of
+organismal form, focusing on tests for detecting \emph{a priori} defined
+modularity patterns; we also compare two metrics that represent
+modularity: one derived from linear morphometrics (MI) and another that
+emerged in the context of landmark-based representations (RV). With a
+dataset of Anthropoid skulls, we compare tests using both metrics over
+three representations of form: interlandmark distances, Procrustes
+residuals, and local shape variables. Tests using either metrics over
+Procrustes residuals fail to detect modularity patterns, while remaining
+representations show the distinction between early- and late-development
+in mammalian skull ontogeny. To estimate error rates, we built
+covariance matrices of known structure, testing hypotheses over then;
+such tests indicate that power for tests using MI is more stable
+considering effect and sample sizes; when using RV, power is sensitive
+to these parameters. However, both statistics have low power when used
+on matrices whose correlation distribution derives from Procrustes
+residuals. These results indicate that the influence of development and
+function is poorly represented on Procrustes estimators for covariance
+matrices, regardless of the measurement used to represent modularity.
 
 \section{Introduction}\label{introduction}
 
@@ -1094,7 +1075,7 @@ allometric relationships is removed or not.
 However, for the set of hypotheses concerning differences between Facial
 and Neurocranial traits (\autoref{fig:Dev}), there is substantial
 agreement between tests performed using MI and RV values with respect to
-the pattern of rejection of null hypotheses. For AVGi values
+the pattern of rejection of null hypotheses. For MI values
 (\autoref{fig:Dev}a), the overall pattern of detection is similar to the
 pattern detected in local trait sets, for all variable types; for RV
 values (\autoref{fig:Dev}b), there is ample support for the hypotheses

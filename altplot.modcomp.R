@@ -6,11 +6,15 @@ ggplot (modsim.Data $ values.df) +
                alpha = 0.5, position = 'identity',
                outlier.shape = '+', outlier.size = 1) +
   facet_grid(size ~ stat, scales = 'free') +
-  scale_fill_brewer(name = 'Simulated Matrix Type', palette = 'Paired') +
-  scale_color_brewer(name = 'Simulated Matrix Type', palette = 'Paired') +
-  ylab('Value') + xlab ('') +
+  scale_fill_brewer(name = '', palette = 'Paired') +
+  scale_color_brewer(name = '', palette = 'Paired') +
+  ylab('') + xlab ('') +
   scale_x_discrete(breaks = NULL) +
-  theme_bw() 
+  theme_bw() +
+  theme (legend.position = "bottom",
+      #   legend.title = element_text(size = 4),
+         legend.text = element_text(size = 4)) +
+  guides(fill=guide_legend(ncol=2))
 
 myPalette.RV <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space="Lab")
 myPalette.AVG <- colorRampPalette(brewer.pal(11, "Spectral"), space="Lab")
