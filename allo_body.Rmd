@@ -44,7 +44,7 @@ We associate this database with a ultrametric phylogenetic hypothesis for Anthro
 
 Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively.
 Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
-Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks, from both sides, were  present.
+Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks, from both sides, were present.
 
 This database of landmark registration data was used to estimate both interlandmark distances and shape variables. For interlandmark distances, those measurements that involve bilaterally symmetrical landmarks were averaged after computing distances; for shape variables, a symmetrical landmark configuration was obtained by taking the mean shape between each individual configuration and its reflection along the sagittal plane [@klingenberg_shape_2002].
 

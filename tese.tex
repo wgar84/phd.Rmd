@@ -441,50 +441,31 @@ de primatas antropóides. \label{fig:phylo_model}}
 
 \section{Abstract}\label{abstract}
 
-Modularity is a property refering to the uneven distribution of
-interactions among elements in any given system; in morphological
-systems, these interactions are usually measured as correlations or
-covariances between traits, and the patterns they depict are thought to
-emerge due to genetic and functional interactions among developing
-tissues. The study of modularity in morphological systems has increased
-in the past twenty years, parallel to the popularization of geometric
-morphometrics; as a consequence of this popularization, many different
-operational criteria to detect modularity patterns in the context of
-landmark-based data have emerged in the literature. However, in
-comparison to traditional ways of measuring morphological features such
-as interlandmark distances, Procrustes-based estimators for covariance
-or correlation matrices have certain properties that difficult their use
-in this context. In the present work, we compare different
-representations of organismal form, focusing on the properties of tests
-for detecting modularity patterns defined \emph{a priori}; in this
-context, we also compare two different metrics for modularity patterns:
-one originated in traditional morphometrics (Modularity Index) and
-another that arised in the context of landmark-based representations (RV
-coefficient). Using an empirical dataset composed of 21 species of
-anthropoid primates, we compare tests formulated with both metrics over
-three different representations of form: interlandmark distances,
-Procrustes residuals, and local shape variables (a novel way to
-represent shape variation which does not depend on Procrustes
-estimators). We also use an approach based on the construction of
-theoretical matrices of known modular structure, in order to estimate
-Type I and Type II error rates for tests using both metrics. With
-respect to empirical data, tests performed using either metrics over
-Procrustes estimators for covariance matrices fail to detect any signal
-of modularity patterns, while remaining representations show a signal
-coherent with the distinction between early- and late-developmental
-factors in mammalian skull ontogeny; this signal is more clearly shown
-by tests performed using Modularity Indexes than by those using RV. The
-estimation of error rates using both metrics indicate that MI is more
-robust than RV, since type II error rates for tests using the former
-does not change much considering both effect and sample sizes; tests
-performed using RV are more sensitive to these parameters. However,
-either tests have much higher type II error rates when used on
-theoretical matrices that use the correlation distribution from
-Procrustes estimators. Therefore, our results indicate that Procrustes
-estimators for covariance and correlation matrices fail to properly
-represent the impact of developmental and functional interactions over
-correlation patterns, regardless of what statistic used to represent
-modularity patterns.
+The study of modularity in morphological systems has increased in the
+past twenty years, parallel to the popularization of geometric
+morphometrics; as a consequence of this popularization, different
+operational criteria for detecting modularity using landmark-based data
+have been proposed. However, compared to the usual covariance matrix
+estimators, Procrustes-based estimators have properties that difficult
+their use in this context. Here, we compare different representations of
+organismal form, focusing on tests for detecting \emph{a priori} defined
+modularity patterns; we also compare two metrics that represent
+modularity: one derived from linear morphometrics (MI) and another that
+emerged in the context of landmark-based representations (RV). With a
+dataset of Anthropoid skulls, we compare tests using both metrics over
+three representations of form: interlandmark distances, Procrustes
+residuals, and local shape variables. Tests using either metrics over
+Procrustes residuals fail to detect modularity patterns, while remaining
+representations show the distinction between early- and late-development
+in mammalian skull ontogeny. To estimate error rates, we built
+covariance matrices of known structure, testing hypotheses over then;
+such tests indicate that power for tests using MI is more stable
+considering effect and sample sizes; when using RV, power is sensitive
+to these parameters. However, both statistics have low power when used
+on matrices whose correlation distribution derives from Procrustes
+residuals. These results indicate that the influence of development and
+function is poorly represented on Procrustes estimators for covariance
+matrices, regardless of the measurement used to represent modularity.
 
 \section{Introduction}\label{introduction}
 
@@ -1378,7 +1359,7 @@ allometric relationships is removed or not.
 However, for the set of hypotheses concerning differences between Facial
 and Neurocranial traits (\autoref{fig:Dev}), there is substantial
 agreement between tests performed using MI and RV values with respect to
-the pattern of rejection of null hypotheses. For AVGi values
+the pattern of rejection of null hypotheses. For MI values
 (\autoref{fig:Dev}a), the overall pattern of detection is similar to the
 pattern detected in local trait sets, for all variable types; for RV
 values (\autoref{fig:Dev}b), there is ample support for the hypotheses
@@ -1905,34 +1886,58 @@ integration.
 \chapter{A Phylogenetic Analysis of Shape Covariance Structure}
 \label{ch:ppca}
 
-\section{Introdução}\label{introducao}
+\section{Introduction}\label{introduction-2}
 
-Sistemas morfológicos tendem a apresentar covariação entre seus
-componentes devido à interações durante o desenvolvimento. No crânio de
-mamíferos, por exemplo, fenótipos adultos são compostos pela
-sobreposição de diferentes processos de desenvolvimento; portanto, a
-variação no tempo, ritmo e escopo de tais processos estrutura os padrões
-de covariância entre caracteres cranianos em adultos. Esta estrutura de
-covariância em fenótipos adultos é também influenciada pelos efeitos da
-canalização e seleção estabilizadora, que podem limitar a variação nos
-processos de desenvolvimento. Portanto, espera-se que as alterações na
-estrutura de covariância entre linhagens irmãs irão exibir um padrão
-não-aleatório consistente com estas interações de desenvolvimento e
-funcionais.
+In the present work, we
 
-\section{Métodos}\label{metodos}
+\section{Methods}\label{methods-2}
 
-Nós investigamos a evolução da estrutura de covariância de tamanho e
-forma cranianos em primatas antropóides em um contexto filogenético. Nós
-representamos esta estrutura de covariância para cada espécie,
-utilizando matrizes de covariância para o log Tamanho do Centróide e
-variáveis locais de forma (Márquez \emph{et al.}, 2012). Estimamos
-distâncias Riemannianas entre essas matrizes (Mitteroecker \& Bookstein,
-2009), e sujeitamos estas distâncias a uma decomposição de disparidade
-em estrutura de covariância ao longo da filogenia(Pavoine \emph{et al.},
-2010). Usando um procedimento de randomização, avaliamos uma série de
-hipóteses sobre a distribuição desta disparidade ao longo da
-diversificação dos antropóides. Além disso, a fim de descrever
+\subsection{Sample}\label{sample-2}
+
+Our sample consists of 5108 individuals, distributes across 109 species.
+These species are spread throughout all major Anthropoid clades above
+the genus level, also comprising all Platyrrhini genera and a
+substantial portion of Catarrhini genera. We associate this database
+with a ultrametric phylogenetic hypothesis for Anthropoidea
+(\autoref{fig:phylo_model}), derived from Springer et al. (2012).
+
+Individuals in our sample are represented by 36 registered landmarks,
+using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and
+Catarrhini, respectively. Twenty-two unique landmarks represent each
+individual (Figure \ref{fig:landmarks}), since fourteen of the 36
+registered landmarks are bilaterally symmetrical. For more details on
+landmark registration, see Marroig \& Cheverud (2001) and Oliveira et
+al. (2009). Databases from both previous studies were merged into a
+single database, retaining only those individuals in which all landmarks
+from both sides were present. In the present work, we considered only
+covariance structure for the symmetrical component of variation;
+therefore, prior to any analysis, we controlled the effects of variation
+in assymmetry. We followed the procedure outlined in Klingenberg et al.
+(2002) for bilateral structures by obtaning for each individual a
+symmetrical landmark configuration, averaging each actual shape with its
+reflection along the sagittal plane.
+
+We used this database to obtain local shape variables (Márquez \emph{et
+al.}, 2012), which represent infinitesimal volumetric expansions or
+retractions, calculated as the natural logarithm determinants of
+derivatives of the TPS function between each individual in our sample
+and a reference shape (in our case, the mean shape for the entire
+sample, estimated from a Generalized Procrustes algorithm). Such
+derivatives were evaluated at the midpoints between pairs of landmarks
+represented in \autoref{fig:landmarks}, for a total of 38 local shape
+variables. After obtaining these values, we estimated covariance
+matrices for size (represented by the logarithm of Centroid Size) and
+local shape variables after removing fixed effects of little interest in
+the present context, such as sexual dimorphism, for example. These
+effects were removed through a multivariate linear model adjusted for
+each species, according to \autoref{fig:phylo_model}.
+
+Estimamos distâncias Riemannianas entre essas matrizes (Mitteroecker \&
+Bookstein, 2009), e sujeitamos estas distâncias a uma decomposição de
+disparidade em estrutura de covariância ao longo da filogenia(Pavoine
+\emph{et al.}, 2010). Usando um procedimento de randomização, avaliamos
+uma série de hipóteses sobre a distribuição desta disparidade ao longo
+da diversificação dos antropóides. Além disso, a fim de descrever
 adequadamente a variação em matrizes de covariância, usamos uma
 decomposição em autotensores (Hine \emph{et al.}, 2009; Aguirre \emph{et
 al.}, 2013). Em seguida, usamos projeções da matriz sobre os
@@ -1948,7 +1953,7 @@ são associados à divergência na estrutura de covariância para cada nível
 hierárquico na filogenia, definidos pelos componentes principais
 filogenéticos.
 
-\section{Resultados}\label{resultados}
+\section{Results}\label{results-2}
 
 Os testes de disparidade de estrutura de covariância ao longo da
 filogenia (\autoref{tab:riem_decdiv}) indicam, em conjunto, que a maior
@@ -2037,7 +2042,7 @@ covariância em cada comparação; cores próximas ao verde indicam pouca
 divergência. \label{fig:srd_shape}}
 \end{figure}
 
-\section{Discussão}\label{discussao}
+\section{Discussion}\label{discussion-2}
 
 Os resultados obtidos aqui indicam que a magnitude de disparidade em
 estrutura de covariância para variáveis de forma e tamanho do centróide

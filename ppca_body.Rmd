@@ -15,15 +15,44 @@ captions $ fig.srd_shape <- 'Comparações utilizando o método SRD representado
 
 ```
 
-# Introdução
+# Introduction
 
-Sistemas morfológicos tendem a apresentar covariação entre seus componentes devido à interações durante o desenvolvimento. No crânio de mamíferos, por exemplo, fenótipos adultos são compostos pela sobreposição de diferentes processos de desenvolvimento; portanto, a variação no tempo, ritmo e escopo de tais processos estrutura os padrões de covariância entre caracteres cranianos em adultos. Esta estrutura de covariância em fenótipos adultos é também influenciada pelos efeitos da canalização e seleção estabilizadora, que podem limitar a variação nos processos de desenvolvimento. Portanto, espera-se que as alterações na estrutura de covariância entre linhagens irmãs irão exibir um padrão não-aleatório consistente com estas interações de desenvolvimento e funcionais.
+In the present work, we build upon Haber's [-@haber_evolution_2015] contribution on the subject of comparing covariance matrices under a phylogenetic framework using Anthropoid Primates as a model organism, under the hypothesis that changes in covariance structure among Anthropoid species will follow a non-random pattern consistent with functional and developmental interactions.
 
-# Métodos
+# Methods
 
-Nós investigamos a evolução da estrutura de covariância de tamanho e forma cranianos em primatas antropóides em um contexto filogenético. Nós representamos esta estrutura de covariância para cada espécie, utilizando matrizes de covariância para o log Tamanho do Centróide e variáveis locais de forma [@marquez_measurement_2012]. Estimamos distâncias Riemannianas entre essas matrizes [@mitteroecker_ontogenetic_2009], e sujeitamos estas distâncias a uma decomposição de disparidade em estrutura de covariância ao longo da filogenia[@pavoine_decomposition_2010]. Usando um procedimento de randomização, avaliamos uma série de hipóteses sobre a distribuição desta disparidade ao longo da diversificação dos antropóides. Além disso, a fim de descrever adequadamente a variação em matrizes de covariância, usamos uma decomposição em autotensores [@hine_characterizing_2009; @aguirre_comparing_2013]. Em seguida, usamos projeções da matriz sobre os autotensores como caracteres em uma Análise de Componentes Principais filogenética [pPCA; @jombart_putting_2010], que decompõe estes caracteres em eixos que estão associados a disparidade global (perto de raiz) e local (perto do topo). Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes de covariância, associadas aos limites inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à decomposição de resposta a seleção [SRD; @marroig_selection_2011], a fim de avaliar quais caracteres são associados à divergência na estrutura de covariância para cada nível hierárquico na filogenia, definidos pelos componentes principais filogenéticos.
+## Sample
 
-# Resultados
+Our sample consists of `r sum (Aux $ sample.size)` individuals, distributes across `r length (Aux $ sample.size)` species. 
+These species are spread throughout all major Anthropoid clades above the genus level, also comprising all Platyrrhini genera and a substantial portion of Catarrhini genera.
+We associate this database with a ultrametric phylogenetic hypothesis for Anthropoidea (\autoref{fig:phylo_model}), derived from @springer_macroevolutionary_2012.
+
+Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively.
+Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
+Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks from both sides were present.
+In the present work, we considered only covariance structure for the symmetrical component of variation; therefore, prior to any analysis, we controlled the effects of variation in assymmetry.
+We followed the procedure outlined in @klingenberg_shape_2002 for bilateral structures by obtaning for each individual a symmetrical landmark configuration, averaging each actual shape with its reflection along the sagittal plane.
+
+We used this database to obtain local shape variables [@marquez_measurement_2012], which represent infinitesimal volumetric expansions or retractions, calculated as the natural logarithm determinants of derivatives of the TPS function between each individual in our sample and a reference shape (in our case, the mean shape for the entire sample, estimated from a Generalized Procrustes algorithm).
+Such derivatives were evaluated at the midpoints between pairs of landmarks represented in \autoref{fig:landmarks}, for a total of 38 local shape variables.
+
+After obtaining these values, we estimated covariance $\mathbf{P}$-matrices for size (represented by the logarithm of Centroid Size) and local shape variables after removing fixed effects of little interest in the present context, such as sexual dimorphism, for example.
+These effects were removed through a multivariate linear model adjusted for each species, according to \autoref{fig:phylo_model}. We estimated these models under a Bayesian framework, obtaining a posterior distribution of $100$ covariance $P$-matrices for each OTU in our sample. 
+
+
+
+## Matrix Disparity
+
+In order to evaluate the distribution of matrix diversity throughout Anthropoid diversification, we estimated Riemannian distances among all pairs of matrices, according to the definition given by @mitteroecker_ontogenetic_2009; for a given pair of positive-definite covariance matrices $\mathbf{C}_i$ and $\mathbf{C}_j$ between $p$ traits, the distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is given by
+\begin{equation}
+d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_i\mathbf{C}_j^{-1})}
+\label{eq:riemdist}
+\end{equation}
+where $\lambda_k(\cdot)$ refers to the $k$-th eigenvalue obtained from the spectral decomposition of a given matrix, in this case the product $\mathbf{C}_i\mathbf{C}_j^{-1}$.
+
+Sujeitamos estas distâncias a uma decomposição de disparidade em estrutura de covariância ao longo da filogenia[@pavoine_decomposition_2010]. Usando um procedimento de randomização, avaliamos uma série de hipóteses sobre a distribuição desta disparidade ao longo da diversificação dos antropóides. Além disso, a fim de descrever adequadamente a variação em matrizes de covariância, usamos uma decomposição em autotensores [@hine_characterizing_2009; @aguirre_comparing_2013]. Em seguida, usamos projeções da matriz sobre os autotensores como caracteres em uma Análise de Componentes Principais filogenética [pPCA; @jombart_putting_2010], que decompõe estes caracteres em eixos que estão associados a disparidade global (perto de raiz) e local (perto do topo). Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes de covariância, associadas aos limites inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à decomposição de resposta a seleção [SRD; @marroig_selection_2011], a fim de avaliar quais caracteres são associados à divergência na estrutura de covariância para cada nível hierárquico na filogenia, definidos pelos componentes principais filogenéticos.
+
+# Results
 
 Os testes de disparidade de estrutura de covariância ao longo da filogenia (\autoref{tab:riem_decdiv}) indicam, em conjunto, que a maior parte das diferenças em estrutura de covariância se localizam na base da filogenia, associada à divergência entre Platyrrhini e Catarrhini (\autoref{fig:phylo_decdiv}).
 
@@ -119,7 +148,7 @@ text(y = -(1:4), x = rep (-1.2, 4),
      labels = c('Global 1', 'Global 2', 'Local 1', 'Local 2'))
 ```
 
-# Discussão
+# Discussion
 
 Os resultados obtidos aqui indicam que a magnitude de disparidade em estrutura de covariância para variáveis de forma e tamanho do centróide está associada à distância filogenética (\autoref{tab:riem_decdiv}, \autoref{fig:phylo_decdiv}); entretanto, aqueles caracteres que representam estas divergências em estrutura de covariância são os mesmo independente da escala taxonômica considerada.
 

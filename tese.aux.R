@@ -76,6 +76,7 @@ render('ppca.Rmd', output_file = 'ppca.pdf')
 
 render('modcomp.Rmd', output_file = 'modcomp.pdf')
 ## system('evince modcomp.pdf &')
+
 render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
 ## system('evince sup_modcomp.pdf &')
 

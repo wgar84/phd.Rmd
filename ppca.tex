@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{12 August 2015}
+  \date{17 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -155,31 +155,82 @@ running title: PCA of a PCA
 
 key words: $P$-matrix; modularity; primates; development;
 
-\section{Introdução}\label{introducao}
+\section{Introduction}\label{introduction}
 
-Sistemas morfológicos tendem a apresentar covariação entre seus
-componentes devido à interações durante o desenvolvimento. No crânio de
-mamíferos, por exemplo, fenótipos adultos são compostos pela
-sobreposição de diferentes processos de desenvolvimento; portanto, a
-variação no tempo, ritmo e escopo de tais processos estrutura os padrões
-de covariância entre caracteres cranianos em adultos. Esta estrutura de
-covariância em fenótipos adultos é também influenciada pelos efeitos da
-canalização e seleção estabilizadora, que podem limitar a variação nos
-processos de desenvolvimento. Portanto, espera-se que as alterações na
-estrutura de covariância entre linhagens irmãs irão exibir um padrão
-não-aleatório consistente com estas interações de desenvolvimento e
-funcionais.
+In the present work, we build upon Haber's (2015) contribution on the
+subject of comparing covariance matrices under a phylogenetic framework
+using Anthropoid Primates as a model organism, under the hypothesis that
+changes in covariance structure among Anthropoid species will follow a
+non-random pattern consistent with functional and developmental
+interactions.
 
-\section{Métodos}\label{metodos}
+\section{Methods}\label{methods}
 
-Nós investigamos a evolução da estrutura de covariância de tamanho e
-forma cranianos em primatas antropóides em um contexto filogenético. Nós
-representamos esta estrutura de covariância para cada espécie,
-utilizando matrizes de covariância para o log Tamanho do Centróide e
-variáveis locais de forma (Márquez \emph{et al.}, 2012). Estimamos
-distâncias Riemannianas entre essas matrizes (Mitteroecker \& Bookstein,
-2009), e sujeitamos estas distâncias a uma decomposição de disparidade
-em estrutura de covariância ao longo da filogenia(Pavoine \emph{et al.},
+\subsection{Sample}\label{sample}
+
+Our sample consists of 5108 individuals, distributes across 109 species.
+These species are spread throughout all major Anthropoid clades above
+the genus level, also comprising all Platyrrhini genera and a
+substantial portion of Catarrhini genera. We associate this database
+with a ultrametric phylogenetic hypothesis for Anthropoidea
+(\autoref{fig:phylo_model}), derived from Springer et al. (2012).
+
+Individuals in our sample are represented by 36 registered landmarks,
+using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and
+Catarrhini, respectively. Twenty-two unique landmarks represent each
+individual (Figure \ref{fig:landmarks}), since fourteen of the 36
+registered landmarks are bilaterally symmetrical. For more details on
+landmark registration, see Marroig \& Cheverud (2001) and Oliveira et
+al. (2009). Databases from both previous studies were merged into a
+single database, retaining only those individuals in which all landmarks
+from both sides were present. In the present work, we considered only
+covariance structure for the symmetrical component of variation;
+therefore, prior to any analysis, we controlled the effects of variation
+in assymmetry. We followed the procedure outlined in Klingenberg et al.
+(2002) for bilateral structures by obtaning for each individual a
+symmetrical landmark configuration, averaging each actual shape with its
+reflection along the sagittal plane.
+
+We used this database to obtain local shape variables (Márquez \emph{et
+al.}, 2012), which represent infinitesimal volumetric expansions or
+retractions, calculated as the natural logarithm determinants of
+derivatives of the TPS function between each individual in our sample
+and a reference shape (in our case, the mean shape for the entire
+sample, estimated from a Generalized Procrustes algorithm). Such
+derivatives were evaluated at the midpoints between pairs of landmarks
+represented in \autoref{fig:landmarks}, for a total of 38 local shape
+variables.
+
+After obtaining these values, we estimated covariance
+$\mathbf{P}$-matrices for size (represented by the logarithm of Centroid
+Size) and local shape variables after removing fixed effects of little
+interest in the present context, such as sexual dimorphism, for example.
+These effects were removed through a multivariate linear model adjusted
+for each species, according to \autoref{fig:phylo_model}. We estimated
+these models under a Bayesian framework, obtaining a posterior
+distribution of $100$ covariance $P$-matrices for each OTU in our
+sample.
+
+\subsection{Matrix Disparity}\label{matrix-disparity}
+
+In order to evaluate the distribution of matrix diversity throughout
+Anthropoid diversification, we estimated Riemannian distances among all
+pairs of matrices, according to the definition given by Mitteroecker \&
+Bookstein (2009); for a given pair of positive-definite covariance
+matrices $\mathbf{C}_i$ and $\mathbf{C}_j$ between $p$ traits, the
+distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is given by
+
+\begin{equation}
+d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_i\mathbf{C}_j^{-1})}
+\label{eq:riemdist}
+\end{equation}
+
+where $\lambda_k(\cdot)$ refers to the $k$-th eigenvalue obtained from
+the spectral decomposition of a given matrix, in this case the product
+$\mathbf{C}_i\mathbf{C}_j^{-1}$.
+
+Sujeitamos estas distâncias a uma decomposição de disparidade em
+estrutura de covariância ao longo da filogenia(Pavoine \emph{et al.},
 2010). Usando um procedimento de randomização, avaliamos uma série de
 hipóteses sobre a distribuição desta disparidade ao longo da
 diversificação dos antropóides. Além disso, a fim de descrever
@@ -198,7 +249,7 @@ são associados à divergência na estrutura de covariância para cada nível
 hierárquico na filogenia, definidos pelos componentes principais
 filogenéticos.
 
-\section{Resultados}\label{resultados}
+\section{Results}\label{results}
 
 Os testes de disparidade de estrutura de covariância ao longo da
 filogenia (\autoref{tab:riem_decdiv}) indicam, em conjunto, que a maior
@@ -287,7 +338,7 @@ covariância em cada comparação; cores próximas ao verde indicam pouca
 divergência. \label{fig:srd_shape}}
 \end{figure}
 
-\section{Discussão}\label{discussao}
+\section{Discussion}\label{discussion}
 
 Os resultados obtidos aqui indicam que a magnitude de disparidade em
 estrutura de covariância para variáveis de forma e tamanho do centróide
@@ -323,6 +374,9 @@ matrix hypothesis: a network null model of human skull growth for the
 formation of bone articulations. \emph{Journal of Anatomy} \textbf{225}:
 306--316.
 
+Haber, A. 2015. The Evolution of Morphological Integration in the
+Ruminant Skull. \emph{Evolutionary Biology} \textbf{42}: 99--114.
+
 Hine, E., Chenoweth, S.F., Rundle, H.D. \& Blows, M.W. 2009.
 Characterizing the evolution of genetic variance using genetic
 covariance tensors. \emph{Philosophical transactions of the Royal
@@ -332,6 +386,10 @@ Society of London. Series B, Biological sciences} \textbf{364}:
 Jombart, T., Pavoine, S., Devillard, S. \& Pontier, D. 2010. Putting
 phylogeny into the analysis of biological traits: A methodological
 approach. \emph{Journal of Theoretical Biology} \textbf{264}: 693--701.
+
+Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
+symmetric structures: Quantifying variation among individuals and
+asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
 
 Lieberman, D.E. 2011. Epigenetic Integration, Complexity and
 Evolvability of the Head: Rethinking the Functional Matrix Hypothesis.
@@ -343,6 +401,11 @@ Lieberman, D.E., Hallgrímsson, B., Liu, W., Parsons, T.E. \& Jamniczky,
 H.A. 2008. Spatial packing, cranial base angulation, and craniofacial
 shape variation in the mammalian skull: testing a new model using mice.
 \emph{Journal of Anatomy} \textbf{212}: 720--735.
+
+Marroig, G. \& Cheverud, J.M. 2001. A comparison of phenotypic variation
+and covariation patterns and the role of phylogeny, ecology, and
+ontogeny during cranial evolution of new world monkeys. \emph{Evolution}
+\textbf{55}: 2576--2600.
 
 Marroig, G., Melo, D., Porto, A., Sebastião, H. \& Garcia, G. 2011.
 Selection Response Decomposition (SRD): A New Tool for Dissecting
@@ -357,6 +420,10 @@ Mitteroecker, P. \& Bookstein, F.L. 2009. The ontogenetic trajectory of
 the phenotypic covariance matrix, with examples from craniofacial shape
 in rats and humans. \emph{Evolution} \textbf{63}: 727--737.
 
+Oliveira, F.B., Porto, A. \& Marroig, G. 2009. Covariance structure in
+the skull of Catarrhini: a case of pattern stasis and magnitude
+evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
+
 Pavoine, S., Baguette, M. \& Bonsall, M.B. 2010. Decomposition of trait
 diversity among the nodes of a phylogenetic tree. \emph{Ecological
 Monographs} \textbf{80}: 485--507.
@@ -364,5 +431,10 @@ Monographs} \textbf{80}: 485--507.
 Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
 Variation, Growth Strategies, and the Evolution of Modularity in the
 Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
+
+Springer, M.S., Meredith, R.W., Gatesy, J., Emerling, C.A., Park, J. \&
+Rabosky, D.L.\emph{et al.} 2012. Macroevolutionary Dynamics and
+Historical Biogeography of Primate Diversification Inferred from a
+Species Supermatrix. \emph{PLoS ONE} \textbf{7}: e49521.
 
 \end{document}
