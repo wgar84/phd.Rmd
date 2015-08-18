@@ -14,7 +14,7 @@ output:
     fig_width: 6
 fontsize: 11pt
 csl: Bib/journal-of-evolutionary-biology.csl
-bibliography: Bib/tese.bib
+bibliography: Bib/ppca.bib
 ---	
 
 ^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil

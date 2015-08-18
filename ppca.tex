@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{17 August 2015}
+  \date{18 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -206,19 +206,33 @@ $\mathbf{P}$-matrices for size (represented by the logarithm of Centroid
 Size) and local shape variables after removing fixed effects of little
 interest in the present context, such as sexual dimorphism, for example.
 These effects were removed through a multivariate linear model adjusted
-for each species, according to \autoref{fig:phylo_model}. We estimated
-these models under a Bayesian framework, obtaining a posterior
-distribution of $100$ covariance $P$-matrices for each OTU in our
-sample.
+for each species, according to \autoref{fig:phylo_model}. We adjusted
+such models under a Bayesian framework, sampling $100$ residual
+covariance matrices from the posterior distribution of each model; these
+distributions allow us to estimate uncertainty for any parameters
+derived from these matrices as credibility intervals. Furthermore, since
+posterior distributions are conditional upon the prior distribution we
+used --- a uniform Wishart distribution --- every matrix sampled from
+these posterior distributions is also a realization of a Wishart
+distribution, therefore positive-definite regardless of sample size
+(Gelman \emph{et al.}, 2004); in this framework, lower sample sizes
+imply in broader, less informative, credibility intervals. These
+distributions also allow us to estimate mean covariance matrices, and
+such matrices were estimated as the geometric mean of each posterior
+sample, since geometric means respect the underlying structure of the
+Riemannian manifold in which covariance matrices lie (Moakher, 2005,
+2006); thus, these mean $\mathbf{P}$-matrices are also
+positive-definite, regardless of sample size.
 
 \subsection{Matrix Disparity}\label{matrix-disparity}
 
 In order to evaluate the distribution of matrix diversity throughout
 Anthropoid diversification, we estimated Riemannian distances among all
-pairs of matrices, according to the definition given by Mitteroecker \&
-Bookstein (2009); for a given pair of positive-definite covariance
-matrices $\mathbf{C}_i$ and $\mathbf{C}_j$ between $p$ traits, the
-distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is given by
+pairs of mean $\mathbf{P}$-matrices, according to the definition given
+by Mitteroecker \& Bookstein (2009); for a given pair of
+positive-definite covariance matrices $\mathbf{C}_i$ and $\mathbf{C}_j$
+between $p$ traits, the distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is
+given by
 
 \begin{equation}
 d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_i\mathbf{C}_j^{-1})}
@@ -374,6 +388,9 @@ matrix hypothesis: a network null model of human skull growth for the
 formation of bone articulations. \emph{Journal of Anatomy} \textbf{225}:
 306--316.
 
+Gelman, A., Carlin, J.B., Stern, H.S. \& Rubin, D.B. 2004.
+\emph{Bayesian data analysis}, 2ª ed. CRC Press, New York.
+
 Haber, A. 2015. The Evolution of Morphological Integration in the
 Ruminant Skull. \emph{Evolutionary Biology} \textbf{42}: 99--114.
 
@@ -419,6 +436,13 @@ Measurement of Local Variation in Shape. \emph{Evolutionary Biology}
 Mitteroecker, P. \& Bookstein, F.L. 2009. The ontogenetic trajectory of
 the phenotypic covariance matrix, with examples from craniofacial shape
 in rats and humans. \emph{Evolution} \textbf{63}: 727--737.
+
+Moakher, M. 2005. A differential geometric approach to the geometric
+mean of symmetric positive-definite matrices. \emph{SIAM journal on
+matrix analysis and applications} \textbf{26}: 735--747.
+
+Moakher, M. 2006. On the Averaging of Symmetric Positive-Definite
+Tensors. \emph{Journal of Elasticity} \textbf{82}: 273--296.
 
 Oliveira, F.B., Porto, A. \& Marroig, G. 2009. Covariance structure in
 the skull of Catarrhini: a case of pattern stasis and magnitude
