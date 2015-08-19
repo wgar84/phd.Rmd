@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{18 August 2015}
+  \date{19 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -169,8 +169,8 @@ interactions.
 \subsection{Sample}\label{sample}
 
 Our sample consists of 5108 individuals, distributes across 109 species.
-These species are spread throughout all major Anthropoid clades above
-the genus level, also comprising all Platyrrhini genera and a
+These species are distributed throughout all major Anthropoid clades
+above the genus level, comprising all Platyrrhini genera and a
 substantial portion of Catarrhini genera. We associate this database
 with a ultrametric phylogenetic hypothesis for Anthropoidea
 (\autoref{fig:phylo_model}), derived from Springer et al. (2012).
@@ -208,31 +208,33 @@ interest in the present context, such as sexual dimorphism, for example.
 These effects were removed through a multivariate linear model adjusted
 for each species, according to \autoref{fig:phylo_model}. We adjusted
 such models under a Bayesian framework, sampling $100$ residual
-covariance matrices from the posterior distribution of each model; these
+covariance matrices from the posterior distribution of each model. These
 distributions allow us to estimate uncertainty for any parameters
-derived from these matrices as credibility intervals. Furthermore, since
+derived from these matrices as credibility intervals; furthermore, since
 posterior distributions are conditional upon the prior distribution we
 used --- a uniform Wishart distribution --- every matrix sampled from
 these posterior distributions is also a realization of a Wishart
 distribution, therefore positive-definite regardless of sample size
 (Gelman \emph{et al.}, 2004); in this framework, lower sample sizes
-imply in broader, less informative, credibility intervals. These
-distributions also allow us to estimate mean covariance matrices, and
-such matrices were estimated as the geometric mean of each posterior
-sample, since geometric means respect the underlying structure of the
-Riemannian manifold in which covariance matrices lie (Moakher, 2005,
-2006); thus, these mean $\mathbf{P}$-matrices are also
-positive-definite, regardless of sample size.
+imply in broader, less informative, credibility intervals. For each
+posterior sample, we estimated geometric mean covariance matrices, since
+such mean respects the underlying structure of the Riemannian manifold
+in which positive-definite symmetric matrices lie (Moakher, 2005, 2006);
+thus, these mean $\mathbf{P}$-matrices are necessarily
+positive-definite, regardless of sample size. For each species, we ran
+independent models, with 13000 iterations of MCMC sampling, discarding
+the 3000 initial iterations as a burnin period and further sampling one
+covariance matrix per 100 iterations to avoid autocorrelations induced
+by sequential sampling.
 
 \subsection{Matrix Disparity}\label{matrix-disparity}
 
 In order to evaluate the distribution of matrix diversity throughout
 Anthropoid diversification, we estimated Riemannian distances among all
 pairs of mean $\mathbf{P}$-matrices, according to the definition given
-by Mitteroecker \& Bookstein (2009); for a given pair of
-positive-definite covariance matrices $\mathbf{C}_i$ and $\mathbf{C}_j$
-between $p$ traits, the distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is
-given by
+by Mitteroecker \& Bookstein (2009); for any pair of positive-definite
+covariance matrices $\mathbf{C}_i$ and $\mathbf{C}_j$ of size
+$p \times p$, the distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is given by
 
 \begin{equation}
 d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_i\mathbf{C}_j^{-1})}
