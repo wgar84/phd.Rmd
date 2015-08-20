@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{19 August 2015}
+  \date{20 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -92,7 +92,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
 \usepackage{booktabs}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx,wrapfig} % para incluir figuras
-\usepackage{amsfonts, amssymb,amsthm, amsmath, amscd} % pacote AMS
+\usepackage{amsfonts, amssymb, amsthm, amsmath, amscd} % pacote AMS
 \usepackage{color, bbm, multicol}
 \usepackage{verbatim, listings, booktabs}
 \usepackage{fancyhdr} % FANCYHEADER
@@ -158,11 +158,11 @@ key words: $P$-matrix; modularity; primates; development;
 \section{Introduction}\label{introduction}
 
 In the present work, we build upon Haber's (2015) contribution on the
-subject of comparing covariance matrices under a phylogenetic framework
-using Anthropoid Primates as a model organism, under the hypothesis that
-changes in covariance structure among Anthropoid species will follow a
-non-random pattern consistent with functional and developmental
-interactions.
+subject of comparing patterns of morphological integration under a
+phylogenetic framework, using Anthropoid Primates as a model organism,
+under the hypothesis that changes in covariance structure among
+Anthropoid species will follow a non-random pattern consistent with
+functional and developmental interactions.
 
 \section{Methods}\label{methods}
 
@@ -220,21 +220,23 @@ imply in broader, less informative, credibility intervals. For each
 posterior sample, we estimated geometric mean covariance matrices, since
 such mean respects the underlying structure of the Riemannian manifold
 in which positive-definite symmetric matrices lie (Moakher, 2005, 2006);
-thus, these mean $\mathbf{P}$-matrices are necessarily
-positive-definite, regardless of sample size. For each species, we ran
-independent models, with 13000 iterations of MCMC sampling, discarding
-the 3000 initial iterations as a burnin period and further sampling one
-covariance matrix per 100 iterations to avoid autocorrelations induced
-by sequential sampling.
+thus, these mean $\mathbf{P}$-matrices are also positive-definite,
+regardless of sample size. For each species, we ran independent models,
+with 13000 iterations of MCMC sampling, discarding the 3000 initial
+iterations as a burnin period and further sampling one covariance matrix
+per 100 iterations to avoid autocorrelations induced by sequential
+sampling.
 
-\subsection{Matrix Disparity}\label{matrix-disparity}
+\subsection{Phylogenetic Matrix
+Diversity}\label{phylogenetic-matrix-diversity}
 
-In order to evaluate the distribution of matrix diversity throughout
-Anthropoid diversification, we estimated Riemannian distances among all
-pairs of mean $\mathbf{P}$-matrices, according to the definition given
-by Mitteroecker \& Bookstein (2009); for any pair of positive-definite
-covariance matrices $\mathbf{C}_i$ and $\mathbf{C}_j$ of size
-$p \times p$, the distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is given by
+In order to evaluate the distribution of covariance structure diversity
+during Anthropoid diversification, we estimated Riemannian distances
+among all pairs of mean $\mathbf{P}$-matrices, according to the
+definition given by Mitteroecker \& Bookstein (2009); for any pair of
+positive-definite covariance matrices $\mathbf{C}_i$ and $\mathbf{C}_j$
+of size $p \times p$, the distance $d(\mathbf{C}_i, \mathbf{C}_j)$ is
+given by
 
 \begin{equation}
 d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_i\mathbf{C}_j^{-1})}
@@ -245,25 +247,99 @@ where $\lambda_k(\cdot)$ refers to the $k$-th eigenvalue obtained from
 the spectral decomposition of a given matrix, in this case the product
 $\mathbf{C}_i\mathbf{C}_j^{-1}$.
 
-Sujeitamos estas distâncias a uma decomposição de disparidade em
-estrutura de covariância ao longo da filogenia(Pavoine \emph{et al.},
-2010). Usando um procedimento de randomização, avaliamos uma série de
-hipóteses sobre a distribuição desta disparidade ao longo da
-diversificação dos antropóides. Além disso, a fim de descrever
-adequadamente a variação em matrizes de covariância, usamos uma
-decomposição em autotensores (Hine \emph{et al.}, 2009; Aguirre \emph{et
-al.}, 2013). Em seguida, usamos projeções da matriz sobre os
-autotensores como caracteres em uma Análise de Componentes Principais
-filogenética (pPCA; Jombart \emph{et al.}, 2010), que decompõe estes
-caracteres em eixos que estão associados a disparidade global (perto de
-raiz) e local (perto do topo). Para cada eixo recuperado pela pPCA,
-reconstruímos duas matrizes de covariância, associadas aos limites
-inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos
-cada um destes pares de matrizes à decomposição de resposta a seleção
-(SRD; Marroig \emph{et al.}, 2011), a fim de avaliar quais caracteres
-são associados à divergência na estrutura de covariância para cada nível
-hierárquico na filogenia, definidos pelos componentes principais
-filogenéticos.
+Using these distances among $\mathbf{P}$-matrices, we estimate matrix
+diversity at each node of the phylogenetic tree of Anthropoidea using a
+measurement of the weighted distance among the distributions of matrix
+distances for the two descending edges, based on Pavoine et al. (2010).
+For a fully resolved tree, diversity $w_i$ on node $i$ is given by
+
+\begin{equation}
+w_i = \frac{1}{2} \frac{n_\alpha n_\beta} {n_i n_T} D_{\Delta}^2(P_\alpha, P_\beta)
+\label{eq:div}
+\end{equation}
+
+where $\alpha$ and $\beta$ represent the subsets of descendants from
+node $i$, and $n$ refers to the number of OTUs on each set ($n_i$ for
+the total descendants of node $i$; $n_T$ for the total number of OTUs
+considered; $n_\alpha$ and $n_\beta$ for the size of descending
+subsets).
+
+$D_{\Delta}(P_\alpha, P_\beta)$ represents the actual distance between
+the two distributions $P_\alpha$ and $P_\beta$ for descending nodes, as
+formulated by Rao (1982):
+
+\begin{equation}
+D_{\Delta} (P_\alpha, P_\beta) =
+\sqrt{2 \bigg( 2 H_{\Delta} \bigg( \frac{P_\alpha + P_\beta}{2} \bigg) -
+H_{\Delta}(P_\alpha) - H_{\Delta}(P_\beta) \bigg)}
+\label{eq:distdist}
+\end{equation}
+
+where
+
+\begin{equation}
+H_{\Delta} (P) = \sum_{i,j \in P} \frac{d^2(\mathbf{C}_i, \mathbf{C}_j)}{2}
+\label{eq:rao}
+\end{equation}
+
+represents Rao's quadratic entropy among Riemannian distances
+$d(\mathbf{C}_i, \mathbf{C}_j)$ as defined in \autoref{eq:riemdist}.
+
+Following the framework estabilished by Pavoine et al. (2010), diversity
+$w_i$ can be normalized as $v_i = w_i / \sum_i w_i$ to represent the
+percentage of diversity with respect to the total diversity on the
+phylogenetic tree. We test three different hypothesis regarding the
+distribution of $v_i$ values through Anthropoid diversification: (1)
+that matrix diversity is concentrated in a single node; (2) that
+$\mathbf{P}$-matrix diversity is concentrated in a reduced number of
+nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards either
+the root or tips of the phylogeny, in a two-tailed test. We test each
+hypothesis against the null hypothesis that the distribution of matrix
+diversity is randomly arranged over the phylogeny; such null hypothesis
+is represented by randomizing the association between terminal branches
+and covariance matrices, constructing $10000$ distributions of $v_i$
+values that represent this scenario. Each test is carried out using a
+different parameter derived from the distribution of $v_i$ values,
+comparing the actual value obtained with a null distribution constructed
+using permutations. The third hypothesis can be tested either by
+considering only the topology of the tree and by also considering branch
+lengths, and both tests are similar to Blomberg's (2003) $K$ test, as
+they search for a phylogenetic signal in covariance structure diversity.
+
+\subsection{Characterizing Covariance Matrix
+Variation}\label{characterizing-covariance-matrix-variation}
+
+The tests regarding matrix diversity along the phylogeny described in
+the previous section allow us to pinpoint which nodes contribute mostly
+to divergence in covariance structure; however, these tests are not
+designed to properly describe the actual changes in $P$-matrix structure
+that are responsible for such divergence. We first choose a bijective
+function between the Riemannian manifold of covariance matrices of size
+$p \times p$ ($Sym^{+}(p, \mathbb{R})$ in Mitteroecker \& Bookstein,
+2009) and an Euclidean space of equivalent dimensionality (in this case,
+$\mathbb{R}^{p (p - 1)/ 2}$); if
+$\mathbf{C}_i \in Sym^{+}(p, \mathbb{R})$,
+
+\begin{equation}
+\mathbf{C}'_i = log (\mathbf{M}^{- \frac{1}{2}} \mathbf{C}_i \mathbf{M}^{- \frac{1}{2}})
+\label{eq:map}
+\end{equation}
+
+represents one possible bijective map, as
+$\mathbf{C}'_i \in \mathbb{R}^{p (p - 1)/ 2}$; $\mathbf{M}$ refers to
+the location parameter of this particular map.
+
+Em seguida, usamos projeções da matriz sobre os autotensores como
+caracteres em uma Análise de Componentes Principais filogenética (pPCA;
+Jombart \emph{et al.}, 2010), que decompõe estes caracteres em eixos que
+estão associados a disparidade global (perto de raiz) e local (perto do
+topo). Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes
+de covariância, associadas aos limites inferior e superior do intervalo
+de confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à
+decomposição de resposta a seleção (SRD; Marroig \emph{et al.}, 2011), a
+fim de avaliar quais caracteres são associados à divergência na
+estrutura de covariância para cada nível hierárquico na filogenia,
+definidos pelos componentes principais filogenéticos.
 
 \section{Results}\label{results}
 
@@ -381,9 +457,9 @@ de interações funcionais e ontogenéticas.
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
 
-Aguirre, J.D., Hine, E., McGuigan, K. \& Blows, M.W. 2013. Comparing G :
-multivariate analysis of genetic variation in multiple populations.
-\emph{Heredity} \textbf{112}: 21--29.
+Blomberg, S.P., Garland Jr., T. \& Ives, A.R. 2003. Testing for
+phylogenetic signal in comparative data: behavioral traits are more
+labile. \emph{Evolution} \textbf{57}: 717--745.
 
 Esteve-Altava, B. \& Rasskin-Gutman, D. 2014. Beyond the functional
 matrix hypothesis: a network null model of human skull growth for the
@@ -395,12 +471,6 @@ Gelman, A., Carlin, J.B., Stern, H.S. \& Rubin, D.B. 2004.
 
 Haber, A. 2015. The Evolution of Morphological Integration in the
 Ruminant Skull. \emph{Evolutionary Biology} \textbf{42}: 99--114.
-
-Hine, E., Chenoweth, S.F., Rundle, H.D. \& Blows, M.W. 2009.
-Characterizing the evolution of genetic variance using genetic
-covariance tensors. \emph{Philosophical transactions of the Royal
-Society of London. Series B, Biological sciences} \textbf{364}:
-1567--78.
 
 Jombart, T., Pavoine, S., Devillard, S. \& Pontier, D. 2010. Putting
 phylogeny into the analysis of biological traits: A methodological
@@ -457,6 +527,9 @@ Monographs} \textbf{80}: 485--507.
 Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
 Variation, Growth Strategies, and the Evolution of Modularity in the
 Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
+
+Rao, C.R. 1982. Diversity and dissimilarity coefficients: a unified
+approach. \emph{Theoretical population biology} \textbf{21}: 24--43.
 
 Springer, M.S., Meredith, R.W., Gatesy, J., Emerling, C.A., Park, J. \&
 Rabosky, D.L.\emph{et al.} 2012. Macroevolutionary Dynamics and
