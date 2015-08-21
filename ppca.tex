@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{20 August 2015}
+  \date{21 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -309,33 +309,74 @@ they search for a phylogenetic signal in covariance structure diversity.
 \subsection{Characterizing Covariance Matrix
 Variation}\label{characterizing-covariance-matrix-variation}
 
-The tests regarding matrix diversity along the phylogeny described in
-the previous section allow us to pinpoint which nodes contribute mostly
-to divergence in covariance structure; however, these tests are not
-designed to properly describe the actual changes in $P$-matrix structure
-that are responsible for such divergence. We first choose a bijective
-function between the Riemannian manifold of covariance matrices of size
-$p \times p$ ($Sym^{+}(p, \mathbb{R})$ in Mitteroecker \& Bookstein,
-2009) and an Euclidean space of equivalent dimensionality (in this case,
-$\mathbb{R}^{p (p - 1)/ 2}$); if
-$\mathbf{C}_i \in Sym^{+}(p, \mathbb{R})$,
+The tests described in the previous section allow us to pinpoint which
+nodes contribute mostly to divergence in covariance structure; however,
+these tests are not designed to properly describe the actual changes in
+$\mathbf{P}$-matrix structure that are responsible for such divergence.
+To actually represent such changes in a comprehensible manner, we
+combine a number of ordination techniques to reduce the dimensionality
+of the manifold that contains covariance matrices of size $p \times p$
+(\autoref{fig:matrix_variation}).
+
+For a Riemannian manifold, there exists at least one bijective function
+defined in the neighbourhood of a given covariance matrix $\mathbf{M}$
+that maps the manifold to an Euclidean space --- a hyperplane with
+$p (p - 1) / 2$ dimensions also contained in $\mathbb{R}^{p \times p}$
+--- and equips the manifold with a notion of inner product, thus
+allowing the construction of an orthonormal basis that can be used to
+describe variation in $\mathbf{P}$-matrix structure. For a covariance
+matrix $\mathbf{X}$ in the neighbourhood of $\mathbf{M}$,
 
 \begin{equation}
-\mathbf{C}'_i = log (\mathbf{M}^{- \frac{1}{2}} \mathbf{C}_i \mathbf{M}^{- \frac{1}{2}})
+f(\mathbf{X}) = \log (\mathbf{M}^{- \frac{1}{2}} \mathbf{X} \mathbf{M}^{- \frac{1}{2}})
 \label{eq:map}
 \end{equation}
 
-represents one possible bijective map, as
-$\mathbf{C}'_i \in \mathbb{R}^{p (p - 1)/ 2}$; $\mathbf{M}$ refers to
-the location parameter of this particular map.
+represents one possible function. Here, the logarithm operator refers to
+matrix logarithm; for symmetric positive-definite matrices, this
+transformation is equivalent to applying the usual logarithm function to
+the eigenvalues of such matrix and reverting the spectral decomposition.
+The function defined in \autoref{eq:map} also transforms the Riemannian
+distance among covariance matrices defined in \autoref{eq:riemdist} into
+Euclidean distances between transformed matrices (Moakher, 2005).
 
-Em seguida, usamos projeções da matriz sobre os autotensores como
-caracteres em uma Análise de Componentes Principais filogenética (pPCA;
-Jombart \emph{et al.}, 2010), que decompõe estes caracteres em eixos que
-estão associados a disparidade global (perto de raiz) e local (perto do
-topo). Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes
-de covariância, associadas aos limites inferior e superior do intervalo
-de confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/matrix_variation.png}
+\caption{Representation of the steps used to characterize covariance
+matrix variation. In (a), the set of covariance matrices $\mathbf{A}$,
+$\mathbf{B}$ and $\mathbf{C}$ in the neighbourhood of $\mathbf{M}$ are
+projected into an Euclidean space and eigentensors are estimated (PM1
+and PM2); in (b), these eigentensors are rotated to incorporate
+phylogenetic relatedness; in (c), confidence intervals for each axis are
+returned back to the original manifold. See text for more details.
+\label{fig:matrix_variation}}
+\end{figure}
+
+We defined the average matrix among sampled $\mathbf{P}$-matrices as the
+location parameter $\mathbf{M}$ to map the entire set of posterior
+$\mathbf{P}$-matrices into an Euclidean space. We then used the
+transformed mean matrices for each OTU to produce axes of matrix
+variation using an eigentensor decomposition
+(\autoref{fig:matrix_variation}a), as proposed by Hine et al. (2009).
+Afterwards, we projected the entire set of posterior samples obtained
+over these axes, producing multivariate credibility intervals for each
+mean $\mathbf{P}$-matrix; as a consequence of using the mean covariance
+matrix for the entire sample over \autoref{eq:map}, the projections over
+eigentensors we obtained are naturally centered on $\mathbf{M}$.
+
+We used these projections of $\mathbf{P}$-matrices over eigentensor as
+traits in a phylogenetic Principal Component Analysis (pPCA; Jombart
+\emph{et al.}, 2010), which produces a new set of axes of matrix
+variation that considers both trait dispersal and phylogenetic
+relationships among OTUs simultaneously. Such analysis produces both
+positive and negative eigenvalues, which are respectively associated
+with phylogenetic signal (``Global pPC'') and convergence (``Local
+pPC'') in matrix structure (\autoref{fig:matrix_variation}b).
+
+Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes de
+covariância, associadas aos limites inferior e superior do intervalo de
+confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à
 decomposição de resposta a seleção (SRD; Marroig \emph{et al.}, 2011), a
 fim de avaliar quais caracteres são associados à divergência na
 estrutura de covariância para cada nível hierárquico na filogenia,
@@ -471,6 +512,12 @@ Gelman, A., Carlin, J.B., Stern, H.S. \& Rubin, D.B. 2004.
 
 Haber, A. 2015. The Evolution of Morphological Integration in the
 Ruminant Skull. \emph{Evolutionary Biology} \textbf{42}: 99--114.
+
+Hine, E., Chenoweth, S.F., Rundle, H.D. \& Blows, M.W. 2009.
+Characterizing the evolution of genetic variance using genetic
+covariance tensors. \emph{Philosophical transactions of the Royal
+Society of London. Series B, Biological sciences} \textbf{364}:
+1567--78.
 
 Jombart, T., Pavoine, S., Devillard, S. \& Pontier, D. 2010. Putting
 phylogeny into the analysis of biological traits: A methodological

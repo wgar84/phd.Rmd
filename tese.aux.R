@@ -60,21 +60,27 @@ attach ('Data/ppca.RData')
 
 captions <- list()
 
+## TEX
+
 render('tese.Rmd', output_file = 'tese.pdf')
+system('evince tese.pdf &')
+
 render('allo.Rmd', output_file = 'allo.pdf')
+system('evince allo.pdf &')
+
 render('ppca.Rmd', output_file = 'ppca.pdf')
+system('evince ppca.pdf &')
 
 render('modcomp.Rmd', output_file = 'modcomp.pdf')
+system('evince modcomp.pdf &')
+
 render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
-# system('evince modcomp.pdf &')
-# system('evince sup_modcomp.pdf &')
+system('evince sup_modcomp.pdf &')
 
 render('sup_base.Rmd', output_file = 'sup_base.pdf')
-
-system('evince tese.pdf &')
-system('evince allo.pdf &')
-system('evince ppca.pdf &')
 system('evince sup_base.pdf &')
+
+### PRES
 
 render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
        output_format = 'ioslides_presentation',
@@ -99,22 +105,4 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
-test <-
-  ddply (modsim.Data $ cor.wb.df, .(size, type, wb), summarize,
-         'med' = median (value),
-         'mean' = mean (value),
-         'sq.mean' = mean (value) ^ 2)
-
-test $ mean [seq (2, 12, 2)] / test $ mean [seq (1, 11, 2)]
-
-test $ sq.mean [seq (2, 12, 2)] / test $ sq.mean [seq (1, 11, 2)]
-
-RandomSkewers(OneDef [['Homo_sapiens']] $ ml.vcv, OneDef [['Gorilla_gorilla']] $ ml.vcv)
-
-RandomSkewers(ED [['Homo_sapiens']] $ ed.vcv, ED [['Gorilla_gorilla']] $ ed.vcv)
-
-RandomSkewers(ED [['Papio_anubis']] $ ed.vcv, ED [['Homo_sapiens']] $ ed.vcv)
-
-RandomSkewers(OneDef [['Papio_anubis']] $ ml.vcv [-1, -1],
-              OneDef [['Homo_sapiens']] $ ml.vcv [-1, -1])
 

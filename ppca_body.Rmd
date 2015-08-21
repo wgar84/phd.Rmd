@@ -3,6 +3,8 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 ```
 ```{r captions_ppca, include = FALSE}
 
+captions $ fig.matrix_variation <- 'Representation of the steps used to characterize covariance matrix variation. In (a), the set of covariance matrices $\\mathbf{A}$, $\\mathbf{B}$ and $\\mathbf{C}$ in the neighbourhood of $\\mathbf{M}$ are projected into an Euclidean space and eigentensors are estimated (PM1 and PM2); in (b), these eigentensors are rotated to incorporate phylogenetic relatedness; in (c), confidence intervals for each axis are returned back to the original manifold. See text for more details. \\label{fig:matrix_variation}'
+
 captions $ fig.phylo_decdiv <- 'Decomposição de diversidade filogenética em respeito à estrutura de covariância utilizando distâncias Riemannianas. O tamanho do círculo indica o valor de diversidade associada cada nó, de acordo com a legenda. \\label{fig:phylo_decdiv}'
 
 captions $ fig.ppca_eval <- 'Autovalores da decomposição espectral associada à Análise de Componentes Principais Filogenéticos. No painel superior, barras indicam o valor associado à cada autovalor; barras em cinza indicam autovalores cujos autovetores associados foram considerados nas análises subsequentes. No painel inferior, gráfico de dispersão entre a variância associada a cada autovetor e o índice de autocorrelação filogenética de Moran. \\label{fig:ppca_eval}'
@@ -84,15 +86,27 @@ The third hypothesis can be tested either by considering only the topology of th
 
 ## Characterizing Covariance Matrix Variation
 
-The tests regarding matrix diversity along the phylogeny described in the previous section allow us to pinpoint which nodes contribute mostly to divergence in covariance structure; however, these tests are not designed to properly describe the actual changes in $P$-matrix structure that are responsible for such divergence.
-We first choose a bijective function between the Riemannian manifold of covariance matrices of size $p \times p$ [$Sym^{+}(p, \mathbb{R})$ in @mitteroecker_ontogenetic_2009] and an Euclidean space of equivalent dimensionality (in this case, $\mathbb{R}^{p (p - 1)/ 2}$); if $\mathbf{C}_i \in Sym^{+}(p, \mathbb{R})$,
+The tests described in the previous section allow us to pinpoint which nodes contribute mostly to divergence in covariance structure; however, these tests are not designed to properly describe the actual changes in $\mathbf{P}$-matrix structure that are responsible for such divergence. To actually represent such changes in a comprehensible manner, we combine a number of ordination techniques to reduce the dimensionality of the manifold that contains covariance matrices of size $p \times p$ (\autoref{fig:matrix_variation}).
+
+For a Riemannian manifold, there exists at least one bijective function defined in the neighbourhood of a given covariance matrix $\mathbf{M}$ that maps the manifold to an Euclidean space --- a hyperplane with $p (p - 1) / 2$ dimensions also contained in $\mathbb{R}^{p \times p}$ --- and equips the manifold with a notion of inner product, thus allowing the construction of an orthonormal basis that can be used to describe variation in $\mathbf{P}$-matrix structure.
+For a covariance matrix $\mathbf{X}$ in the neighbourhood of $\mathbf{M}$,
 \begin{equation}
-\mathbf{C}'_i = \log (\mathbf{M}^{- \frac{1}{2}} \mathbf{C}_i \mathbf{M}^{- \frac{1}{2}})
+f(\mathbf{X}) = \log (\mathbf{M}^{- \frac{1}{2}} \mathbf{X} \mathbf{M}^{- \frac{1}{2}})
 \label{eq:map}
 \end{equation}
-represents one possible bijective map, as $\mathbf{C}'_i \in \mathbb{R}^{p (p - 1)/ 2}$; $\mathbf{M}$ refers to the location parameter of this particular map. 
+represents one possible function.
+Here, the logarithm operator refers to matrix logarithm; for symmetric positive-definite matrices, this transformation is equivalent to applying the usual logarithm function to the eigenvalues of such matrix and reverting the spectral decomposition.
+The function defined in \autoref{eq:map} also transforms the Riemannian distance among covariance matrices defined in \autoref{eq:riemdist} into Euclidean distances between transformed matrices [@moakher_differential_2005].
 
-Em seguida, usamos projeções da matriz sobre os autotensores como caracteres em uma Análise de Componentes Principais filogenética [pPCA; @jombart_putting_2010], que decompõe estes caracteres em eixos que estão associados a disparidade global (perto de raiz) e local (perto do topo). Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes de covariância, associadas aos limites inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à decomposição de resposta a seleção [SRD; @marroig_selection_2011], a fim de avaliar quais caracteres são associados à divergência na estrutura de covariância para cada nível hierárquico na filogenia, definidos pelos componentes principais filogenéticos.
+![`r captions $ fig.matrix_variation`](Figures/matrix_variation.png)
+
+We defined the average matrix among sampled $\mathbf{P}$-matrices as the location parameter $\mathbf{M}$ to map the entire set of posterior $\mathbf{P}$-matrices into an Euclidean space.
+We then used the transformed mean matrices for each OTU to produce axes of matrix variation using an eigentensor decomposition (\autoref{fig:matrix_variation}a), as proposed by @hine_characterizing_2009.
+Afterwards, we projected the entire set of posterior samples obtained over these axes, producing multivariate credibility intervals for each mean $\mathbf{P}$-matrix; as a consequence of using the mean covariance matrix for the entire sample over \autoref{eq:map}, the projections over eigentensors we obtained are naturally centered on $\mathbf{M}$. 
+
+We used these projections of $\mathbf{P}$-matrices over eigentensor as traits in a phylogenetic Principal Component Analysis [pPCA; @jombart_putting_2010], which produces a new set of axes of matrix variation that considers both trait dispersal and phylogenetic relationships among OTUs simultaneously. Such analysis produces both positive and negative eigenvalues, which are respectively associated with phylogenetic signal ("Global pPC") and convergence ("Local pPC") in matrix structure (\autoref{fig:matrix_variation}b). 
+
+Para cada eixo recuperado pela pPCA, reconstruímos duas matrizes de covariância, associadas aos limites inferior e superior do intervalo de confiança de 95\%. Nós sujeitamos cada um destes pares de matrizes à decomposição de resposta a seleção [SRD; @marroig_selection_2011], a fim de avaliar quais caracteres são associados à divergência na estrutura de covariância para cada nível hierárquico na filogenia, definidos pelos componentes principais filogenéticos.
 
 # Results
 
