@@ -57,6 +57,7 @@ for (i in 1:length (.source.files))
 attach ('Data/modcomp.Results.RData')
 attach ('Data/allo.Results.RData')
 attach ('Data/ppca.RData')
+attach ('Data/post.ppca.RData')
 
 captions <- list()
 
