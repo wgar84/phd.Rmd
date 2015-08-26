@@ -651,7 +651,7 @@ Goswami \& Polly, 2010; Martínez-Abadías \emph{et al.}, 2011; Sanger
 \emph{et al.}, 2012). The results found by these authors are sometimes
 in stark constrast with similar works using interlandmark distances
 (e.g. Cheverud \emph{et al.}, 1997; Oliveira \emph{et al.}, 2009; Porto
-\emph{et al.}, 2009) For instance, Martínez-Abadías et al. (2011) found
+\emph{et al.}, 2009). For instance, Martínez-Abadías et al. (2011) found
 a pattern of strong integration among partitions in human skull
 covariance patterns, while Oliveira et al. (2009) and Porto et al.
 (2009) demonstrated that humans are among the most modular examples of
@@ -669,6 +669,8 @@ patterns. For example, Martínez-Abadías et al. (2011) and Sanger et al.
 defined by Escoufier (1973) which has been used to quantify modular
 relationships over landmark covariance patterns since Klingenberg (2009)
 has proposed its use in this context.
+
+\subsubsection{Objectives}\label{objectives}
 
 In the present work, we compare the methods described by Cheverud et al.
 (1989) and Klingenberg (2009) to test \emph{a priori} defined modularity
@@ -1958,8 +1960,8 @@ iterations as a burnin period and further sampling one covariance matrix
 per 100 iterations to avoid autocorrelations induced by sequential
 sampling.
 
-\subsection{Phylogenetic Matrix
-Diversity}\label{phylogenetic-matrix-diversity}
+\subsection{Phylogenetic Decompostion of Matrix
+Diversity}\label{phylogenetic-decompostion-of-matrix-diversity}
 
 In order to evaluate the distribution of covariance structure diversity
 during Anthropoid diversification, we estimated Riemannian distances
@@ -2024,38 +2026,123 @@ distribution of $v_i$ values through Anthropoid diversification: (1)
 that matrix diversity is concentrated in a single node; (2) that
 $\mathbf{P}$-matrix diversity is concentrated in a reduced number of
 nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards either
-the root or tips of the phylogeny, in a two-tailed test Each test is
-carried out using a different parameter derived from the distribution of
-$v_i$ values (Pavoine \emph{et al.}, 2010). We test each hypothesis
-against the null hypothesis of random distribution of matrix diversity
-by randomizing the association between terminal branches and covariance
-matrices, constructing $10000$ distributions of $v_i$ values that
-represent this scenario. Regarding the third test, this hypothesis can
-be tested either by considering only the topology of the tree and by
-also considering branch lengths; in the first case, we test whether
-divergence only is sufficient for producing diversity in
-$\mathbf{P}$-matrices, while the second test also considers that the
-time since divergence can also influence such diversity. Both tests are
-similar to Blomberg's (2003) $K$ test, as they search for a phylogenetic
-signal in covariance structure diversity.
+the root or tips of the phylogeny, in a two-tailed test. We test each
+hypothesis against the null hypothesis that the distribution of matrix
+diversity is randomly arranged over the phylogeny; such null hypothesis
+is represented by randomizing the association between terminal branches
+and covariance matrices, constructing $9999$ distributions of $v_i$
+values that represent this scenario. Each test is carried out using a
+different parameter derived from the distribution of $v_i$ values
+(described in detail by Pavoine \emph{et al.}, 2010), comparing the
+actual value obtained with a null distribution constructed using
+permutations. The third hypothesis can be tested either by considering
+only the topology of the tree and by also considering branch lengths;
+both tests are similar to Blomberg's (2003) $K$ test, as they search for
+a phylogenetic signal in covariance structure diversity.
 
 \subsection{Characterizing Covariance Matrix
 Variation}\label{characterizing-covariance-matrix-variation}
 
-Além disso, a fim de descrever adequadamente a variação em matrizes de
-covariância, usamos uma decomposição em autotensores (Hine \emph{et
-al.}, 2009; Aguirre \emph{et al.}, 2013). Em seguida, usamos projeções
-da matriz sobre os autotensores como caracteres em uma Análise de
-Componentes Principais filogenética (pPCA; Jombart \emph{et al.}, 2010),
-que decompõe estes caracteres em eixos que estão associados a
-disparidade global (perto de raiz) e local (perto do topo). Para cada
-eixo recuperado pela pPCA, reconstruímos duas matrizes de covariância,
-associadas aos limites inferior e superior do intervalo de confiança de
-95\%. Nós sujeitamos cada um destes pares de matrizes à decomposição de
-resposta a seleção (SRD; Marroig \emph{et al.}, 2011), a fim de avaliar
-quais caracteres são associados à divergência na estrutura de
-covariância para cada nível hierárquico na filogenia, definidos pelos
-componentes principais filogenéticos.
+The tests described in the previous section allow us to pinpoint which
+nodes contribute mostly to divergence in covariance structure; however,
+these tests are not designed to properly describe the actual changes in
+$\mathbf{P}$-matrix structure that are responsible for such divergence.
+To actually represent such changes in a comprehensible manner, we
+combine a number of ordination techniques to reduce the dimensionality
+of the manifold that contains covariance matrices of size $p \times p$
+(\autoref{fig:matrix_variation}).
+
+For a Riemannian manifold, there exists at least one bijective function
+defined in the neighbourhood of a given covariance matrix $\mathbf{M}$
+that maps the manifold to an Euclidean space --- a hyperplane with
+$p (p - 1) / 2$ dimensions also contained in $\mathbb{R}^{p \times p}$
+--- and equips the manifold with a notion of inner product, thus
+allowing the construction of an orthonormal basis that can be used to
+describe variation in $\mathbf{P}$-matrix structure. For a covariance
+matrix $\mathbf{X}$ in the neighbourhood of $\mathbf{M}$,
+
+\begin{equation}
+f(\mathbf{X}) = \log (\mathbf{M}^{- \frac{1}{2}} \mathbf{X} \mathbf{M}^{- \frac{1}{2}})
+\label{eq:map}
+\end{equation}
+
+represents one possible function. Here, the logarithm operator refers to
+matrix logarithm; for symmetric positive-definite matrices, this
+transformation is equivalent to applying the usual logarithm function to
+the eigenvalues of such matrix and reverting the spectral decomposition.
+The function defined in \autoref{eq:map} also transforms the Riemannian
+distance among covariance matrices defined in \autoref{eq:riemdist} into
+Euclidean distances between transformed matrices (Moakher, 2005).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/matrix_variation.png}
+\caption{Representation of the steps used to characterize covariance
+matrix variation. In (a), the set of covariance matrices $\mathbf{A}$,
+$\mathbf{B}$ and $\mathbf{C}$ in the neighbourhood of $\mathbf{M}$ are
+projected into an Euclidean space and eigentensors are estimated (PM1
+and PM2); in (b), these eigentensors are rotated to incorporate
+phylogenetic relatedness; in (c), confidence intervals for each axis are
+returned back to the original manifold. See text for more details.
+\label{fig:matrix_variation}}
+\end{figure}
+
+We defined the average matrix among all sampled $\mathbf{P}$-matrices as
+the location parameter $\mathbf{M}$ to map the entire set of posterior
+$\mathbf{P}$-matrices into an Euclidean space. We then used these
+$\mathbf{P}$-matrices to produce axes of matrix variation using an
+eigentensor decomposition (Basser \& Pajevic, 2007; Hine \emph{et al.},
+2009) obtaining a set of eigentensors and eigenvalues that summarise
+matrix variation (\autoref{fig:matrix_variation}a). As a consequence of
+using the mean covariance matrix for the entire sample over
+\autoref{eq:map}, the projections over eigentensors we obtained are
+naturally centered on $\mathbf{M}$.
+
+We used the projections of $\mathbf{P}$-matrices over these eigentensors
+as traits in a phylogenetic Principal Component Analysis (pPCA; Jombart
+\emph{et al.}, 2010), which produces a new set of axes of matrix
+variation that considers both trait dispersal and phylogenetic
+relationships among OTUs simultaneously. Such analysis produces both
+positive and negative eigenvalues, which are respectively associated
+with phylogenetic signal (`Global') and convergence (`Local') in matrix
+structure (pPC1 and pPC2 in \autoref{fig:matrix_variation}b,
+respectively).
+
+For each pPC obtained in this manner, we obtained two covariance
+matrices by estimating the upper and lower limits of the 95\% confidence
+interval for each axis and mapping these values back to the manifold of
+symmetric positive-definite matrices (\autoref{fig:matrix_variation}c),
+defining the inverse operation associated with \autoref{eq:map} as
+
+\begin{equation}
+f^{-1}(\mathbf{X}) = \mathbf{M}^{\frac{1}{2}}\exp(\mathbf{X})\mathbf{M}^{\frac{1}{2}}
+\label{eq:inv}
+\end{equation}
+
+where the exponential operator refers to matrix exponential. We used
+these covariance matrices to describe matrix variation associated with
+each axis comparing each pair of matrices with the Selection Response
+Decomposition tool (Marroig \emph{et al.}, 2011), in order to pinpoint
+which traits are associated with the divergence in covariance structure
+associated with each pPC.
+
+In order to characterize such divergence in covariance structure with
+respect to the uncertainty in $\mathbf{P}$-matrix estimation, we carried
+out the analyses described in this section with both mean
+$\mathbf{P}$-matrices obtained from posterior samples, and with
+posterior samples themselves, obtaining $100$ sets of phylogenetic PCs
+and $100$ sets of paired covariance matrices for each axis, thus
+allowing us to estimate a posterior distribution of mean SRD scores for
+each trait in all pPCs. We use the phylogenetic PCA estimated over mean
+$\mathbf{P}$-matrices only to visualize the phylogenetic patterns
+described by each pPC, although these patterns do not change in the
+subset of posterior samples we examined.
+
+We use the posterior distribution of mean SRD scores over traits and pPC
+to investigate whether these changes in trait-specific covariance
+structure along Anthropoid diversification are randomly distributed with
+respect to the skull regions delimited in \autoref{tab:dist} by
+comparing SRD scores estimated within each region for all pPCs.
 
 \section{Results}\label{results-2}
 
@@ -2070,10 +2157,16 @@ filogenia, associada à divergência entre Platyrrhini e Catarrhini
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/phylo_decdiv-1.pdf}
-\caption{Decomposição de diversidade filogenética em respeito à
-estrutura de covariância utilizando distâncias Riemannianas. O tamanho
-do círculo indica o valor de diversidade associada cada nó, de acordo
-com a legenda. \label{fig:phylo_decdiv}}
+\caption{Distribution of covariance matrix diversity obtained from
+decomposing Riemannian distances among pairs of mean
+$\mathbf{P}$-matrices over the Anthropoid phylogeny. The size of each
+circle depicts the percentage of diversity associated with each node,
+according to the legend. Some particular clades are indicated
+(Platyrrhini: \textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
+\textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
+\textbf{Hom}inidae, \textbf{Hyl}obatidae, \textbf{Pap}ionini,
+\textbf{Cer}copithecini, and \textbf{Col}obinae).
+\label{fig:phylo_decdiv}}
 \end{figure}
 
 A análise de componentes principais filogenéticos recupera um conjunto
@@ -2087,13 +2180,13 @@ disparidade.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/ppca_eval-1.pdf}
-\caption{Autovalores da decomposição espectral associada à Análise de
-Componentes Principais Filogenéticos. No painel superior, barras indicam
-o valor associado à cada autovalor; barras em cinza indicam autovalores
-cujos autovetores associados foram considerados nas análises
-subsequentes. No painel inferior, gráfico de dispersão entre a variância
-associada a cada autovetor e o índice de autocorrelação filogenética de
-Moran. \label{fig:ppca_eval}}
+\caption{Characterizing $\mathbf{P}$-matrix variation using phylogenetic
+Principal Components. (a) Distribution of eigenvalues associated with
+pPCs; positive eigenvalues are associated with phylogenetic signal;
+negative eigenvalues are associated with convergence. (b) Distribution
+of mean SRD scores for each trait with respect to pPCs; each line
+represents a loess interpolation adjusted for each skull region,
+according to the legend. \label{fig:ppca_eval}}
 \end{figure}
 
 Podemos observar que as projeções das espécies sobre cada componente
@@ -2108,12 +2201,16 @@ entre as duas espécies de \emph{Gorilla} e entre as espécies do gênero
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/phylo_gl-1.pdf}
-\caption{Projeções da variação de estrutura de covariância de cada
-espécie sobre os Componentes Principais Filogenéticos considerados,
-segundo a \autoref{fig:ppca_eval}. Círculos azuis e vermelhos indicam
-valores positivos e negativos, respectivamente. A magnitude de cada
-projeção é indicada pelo tamanho do círculo, de acordo com a legenda.
-\label{fig:phylo_gl}}
+\caption{Phylogenetic structures associated with the first and last
+pairs of pPCs (Global 1-2 and Local 1-2, respectively), represented as
+the projections of each OTU over each axis. White circles indicate
+positive values; black circles indicate negative values. The absolute
+value of each projection is indicated by the size of the circle,
+according to the legend. Some particular clades are indicated
+(Platyrrhini: \textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
+\textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
+\textbf{Hom}inidae, \textbf{Hyl}obatidae, \textbf{Pap}ionini,
+\textbf{Cer}copithecini, and \textbf{Col}obinae). \label{fig:phylo_gl}}
 \end{figure}
 
 Ao reconstruírmos a variação em termos de estrutura de covariância
@@ -2131,19 +2228,22 @@ pela pPCA.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/srd_gl-1.pdf}
-\caption{Comparações utilizando o método SRD dos limites associados ao
-intervalo de confiança de 95\% cada Componente Principal Filogenético
-considerado, segundo a \autoref{fig:ppca_eval}. \label{fig:srd_gl}}
+\caption{Covariance structure variation associated with the first and
+last pairs of pPCs (Global 1-2 and Local 1-2, respectively), represented
+using posterior mean SRD scores. Traits are colored according to their
+assocation with each skull region, according to the legend.
+\label{fig:srd_gl}}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/srd_shape-1.pdf}
-\caption{Comparações utilizando o método SRD representados sobre a forma
-craniana de um macaco rhesus (\emph{Macaca mulatta}). Cores próximas ao
-vermelho indicam caracteres que divergem mais em relação à estrutura de
-covariância em cada comparação; cores próximas ao verde indicam pouca
-divergência. \label{fig:srd_shape}}
+\caption{Mean SRD scores for the first and last two phylogenetic PCs
+(Global 1-2 and Local 1-2, respectively) represented over the mean skull
+shape of rhesus macaques (\emph{Macaca mulatta}). Traits colored in
+green indicate higher mean SRD scores (low divergence); traits colored
+in red indicate lower SRD scores (high divergence).
+\label{fig:srd_shape}}
 \end{figure}
 
 \section{Discussion}\label{discussion-2}
@@ -2189,10 +2289,6 @@ Adams, D.C., Rohlf, F.J. \& Slice, D.E. 2004. Geometric morphometrics:
 Ten years of progress following the ``revolution''. \emph{Italian
 Journal of Zoology} \textbf{71}: 5--16.
 
-Aguirre, J.D., Hine, E., McGuigan, K. \& Blows, M.W. 2013. Comparing G :
-multivariate analysis of genetic variation in multiple populations.
-\emph{Heredity} \textbf{112}: 21--29.
-
 Akaike, H. 1974. A new look at the statistical model identification.
 \emph{IEEE Transactions on Automatic Control} \textbf{19}: 716--723.
 
@@ -2204,6 +2300,10 @@ Computational Biology} \textbf{7}: e1001131.
 Arnold, S.J., Bürger, R., Hohenlohe, P.A., Ajie, B.C. \& Jones, A.G.
 2008. Understanding the evolution and stability of the G-matrix.
 \emph{Evolution} \textbf{62}: 2451--2461.
+
+Basser, P.J. \& Pajevic, S. 2007. Spectral decomposition of a 4th-order
+covariance tensor: Applications to diffusion tensor MRI. \emph{Signal
+Processing} \textbf{87}: 220--236.
 
 Bastir, M. \& Rosas, A. 2005. Hierarchical nature of morphological
 integration and modularity in the human posterior face. \emph{American

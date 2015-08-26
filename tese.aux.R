@@ -106,4 +106,3 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
-

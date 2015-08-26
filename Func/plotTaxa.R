@@ -12,36 +12,38 @@ Plot.taxa <- function (names = TRUE)
     plotcircle(r = 0.46, from = 88 * (2 * pi / 109), to = 108 * (2 * pi / 109), lwd = 6)
     if (names)
       {
-        text(x = 0.54 * mean (cos (c(0, 9 * (2 * pi / 109)))),
-             y = 0.54 * mean (sin (c(0, 9 * (2 * pi / 109)))),
-             labels = 'Pitheciidae', cex = 0.65)
-        text(x = 0.54 * mean (cos (c(10, 19) * (2 * pi / 109))),
+        text(x = 0.53 * mean (cos (c(0, 9 * (2 * pi / 109)))),
+             y = 0.51 * mean (sin (c(0, 9 * (2 * pi / 109)))),
+             labels = 'Pit', cex = 1.5)
+        text(x = 0.57 * mean (cos (c(10, 19) * (2 * pi / 109))),
              y = 0.54 * mean (sin (c(10, 19) * (2 * pi / 109))) - 0.03,
-             labels = 'Atelidae', cex = 0.65)
-        text(x = 0.485 * mean (cos (c(20, 25) * (2 * pi / 109))) + 0.04,
-             y = 0.485 * mean (sin (c(20, 25) * (2 * pi / 109))),
-             labels = 'Cebinae', cex = 0.65)
+             labels = 'Ate', cex = 1.5)
+        text(x = 0.53 * mean (cos (c(20, 25) * (2 * pi / 109))) + 0.04,
+             y = 0.51 * mean (sin (c(20, 25) * (2 * pi / 109))),
+             labels = 'Ceb', cex = 1.5)
         text(x = 0.485 * mean (cos (c(26, 37) * (2 * pi / 109))) - 0.05,
              y = 0.485 * mean (sin (c(26, 37) * (2 * pi / 109))), pos = 3, 
-             labels = 'Callithrichinae', cex = 0.65)
-        text(x = 0.485 * mean (cos (c(38, 39) * (2 * pi / 109))) - 0.03,
-             y = 0.485 * mean (sin (c(38, 39) * (2 * pi / 109))) - 0.01,
-             labels = 'Aotinae', cex = 0.65)
+             labels = 'Cal', cex = 1.5)
+        text(x = 0.495 * mean (cos (c(38, 39) * (2 * pi / 109))) - 0.03,
+             y = 0.52 * mean (sin (c(38, 39) * (2 * pi / 109))) - 0.01,
+             labels = 'Aot', cex = 1.5)
         text(x = 0.485 * mean (cos (c(40, 45) * (2 * pi / 109))) + 0.02,
              y = 0.485 * mean (sin (c(40, 45) * (2 * pi / 109))), pos = 2,
-             labels = 'Hominidae', cex = 0.65)
+             labels = 'Hom', cex = 1.5)
         text(x = 0.485 * mean (cos (c(46, 50) * (2 * pi / 109))) + 0.02,
              y = 0.485 * mean (sin (c(46, 50) * (2 * pi / 109))), pos = 2,
-             labels = 'Hylobatidae', cex = 0.65)
-        text(x = 0.485 * mean (cos (c(51, 69) * (2 * pi / 109))) - 0.04,
-             y = 0.485 * mean (sin (c(51, 69) * (2 * pi / 109))), pos = 2,
-             labels = 'Papionini', cex = 0.65)
+             labels = 'Hyl', cex = 1.5)
+        text(x = 0.465 * mean (cos (c(61, 69) * (2 * pi / 109))) - 0.04,
+             y = 0.475 * mean (sin (c(61, 69) * (2 * pi / 109))), pos = 2,
+             labels = 'Pap', cex = 1.5)
         text(x = 0.485 * mean (cos (c(70, 87) * (2 * pi / 109))),
              y = 0.485 * mean (sin (c(70, 87) * (2 * pi / 109))) - 0.05, pos = 1,
-             labels = 'Cercopithecini', cex = 0.65)
+             labels = 'Cer', cex = 1.5)
         text(x = 0.485 * mean (cos (c(88, 108) * (2 * pi / 109))) + 0.05,
              y = 0.485 * mean (sin (c(88, 108) * (2 * pi / 109))) - 0.035, pos = 4,
-             labels = 'Colobinae', cex = 0.65)
+             labels = 'Col', cex = 1.5)
       }
   }
 
+taxa.legend <- function ()
+  'Platyrrhini: **Pit**hecidae, **Ate**lidae, **Ceb**inae, **Cal**lithrichinae, and **Aot**inae; Catarrhini: **Hom**inidae, **Hyl**obatidae, **Pap**ionini, **Cer**copithecini, and **Col**obinae'

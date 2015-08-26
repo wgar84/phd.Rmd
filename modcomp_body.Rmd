@@ -85,10 +85,12 @@ The approach advocated by @marquez_measurement_2012 proposes another definition 
 @marquez_measurement_2012 argue that such descriptors are proper local measurements of shape variation, as they can directly be linked to biological processes that generate covariation among morphological elements.
 
 Despite these methodological caveats regarding Procrustes estimators for covariance matrices, the use of such estimators for investigating aspects of morphological integration has increased in the past ten years [e.g. @klingenberg_integration_2004; @drake_large_2010; @goswami_influence_2010; @martinez-abadias_pervasive_2011; @sanger_roles_2012].
-The results found by these authors are sometimes in stark constrast with similar works using interlandmark distances [e.g. @cheverud_pleiotropic_1997; @oliveira_covariance_2009; @porto_evolution_2009]
+The results found by these authors are sometimes in stark constrast with similar works using interlandmark distances [e.g. @cheverud_pleiotropic_1997; @oliveira_covariance_2009; @porto_evolution_2009].
 For instance, @martinez-abadias_pervasive_2011 found a pattern of strong integration among partitions in human skull covariance patterns, while @oliveira_covariance_2009 and @porto_evolution_2009 demonstrated that humans are among the most modular examples of mammalian skull covariance patterns.
 Likewise, @klingenberg_integration_2004 has found no evidence for a modular distribution of pleiotropic effects among the partitions of the mouse mandible; using the same strain of intercrossed mice at the same generation, @cheverud_pleiotropic_1997 had shown that 70\% of the pleiotropic effects are confined to either anterior or posterior mandibular components, while the remaining 30\% are shared among the two regions.
 Furthermore, aside from the issues regarding Procrustes estimators, these works also propose different methods to quantify the effects of interactions over covariance patterns. For example, @martinez-abadias_pervasive_2011 and @sanger_roles_2012 use the RV coefficient, a multivariate correlation coefficient defined by @escoufier_traitement_1973 which has been used to quantify modular relationships over landmark covariance patterns since @klingenberg_morphometric_2009 has proposed its use in this context.
+
+### Objectives
 
 In the present work, we compare the methods described by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns using anthropoid primates as a model organism.
 In order to also compare the performance of these methods with respect to different representations of form, sample units are represented both as interlandmark distances and shape variables.

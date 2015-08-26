@@ -98,6 +98,10 @@ PlotShapeDeformation <- function (reference.shape, tesselation, magnify = 10,
     dimnames (Q) = dimnames (reference.shape)
     if (Q ['BR', 'Y'] < 0)
       Q [, 'Y'] <- -Q [, 'Y']
+    if (all (view == c(1, 2)))
+      Q <- Q %*% array (c(cos(pi/7), sin (pi/7), 0,
+                          -sin (pi/7), cos(pi/7), 0, 0, 0, 1),
+                        c(3, 3))
     Q <- t(t (Q * scale) + center)
     Q.tetra <- Q [tesselation, ]
     pts <- which (rownames (Q) %in% rownames (Q.tetra))
