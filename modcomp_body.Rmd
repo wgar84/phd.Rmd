@@ -246,14 +246,16 @@ One source of difference between local shape variables and interlandmark distanc
 For Procrustes residuals, the pattern of detection among sub-regions and OTUs is more  diffuse; it is noteworthy that the Base sub-region is detected among several OTUs, which contrasts this type of morphometric variable with the remaining two types.
 Furthermore, abstracting the actual tests performed, \autoref{fig:Func}a also indicates that Procrustes residuals display a low variance for MI values within each OTU, while both interlandmark distances and local shape variables display a consistent pattern of variation among MI values within each OTU, with lower values for the Base and, for interlandmark distances, Orbit trait sets, while the Oral, Nasal and Vault regions display higher values consistently.
 
-```{r Func, echo = FALSE, fig.cap = captions $ fig.Func, fig.width = 20, fig.height = 20, message = FALSE, fig.pos='h'}
+```{r Func, echo = FALSE, fig.cap = captions $ fig.Func, fig.width = 15, fig.height = 15, message = FALSE, fig.pos='h'}
 plot_grid(modcomp.Plots $ MI.Func + ylab('') +
-          theme(text = element_text(size = 16),
-                axis.text = element_text(size = 18)),
+          theme(text = element_text(size = 12),
+                strip.text = element_text(size = 9),
+                axis.text = element_text(size = 14)),
           modcomp.Plots $ RV.Func + ylab('') +
-          theme(text = element_text(size = 16),
-                axis.text = element_text(size = 18)), 
-          nrow = 2, labels = c('a', 'b'), label_size = 44)
+          theme(text = element_text(size = 12),
+                axis.text = element_text(size = 14),
+                strip.text = element_text(size = 9)),
+          nrow = 2, labels = c('a', 'b'), label_size = 36)
 ```
 
 Tests performed using RV coefficients (\autoref{fig:Func}b) show a more diffuse pattern among each variable type.

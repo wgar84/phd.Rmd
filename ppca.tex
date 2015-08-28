@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{26 August 2015}
+  \date{27 August 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -349,7 +349,8 @@ matrix variation. In (a), the set of covariance matrices $\mathbf{A}$,
 $\mathbf{B}$ and $\mathbf{C}$ in the neighbourhood of $\mathbf{M}$ are
 projected into an Euclidean space and eigentensors are estimated (PM1
 and PM2); in (b), these eigentensors are rotated to incorporate
-phylogenetic relatedness; in (c), confidence intervals for each axis are
+phylogenetic relatedness; in (c), covariance matrices corresponding to
+the upper and lower bounds of the confidence intervals for each axis are
 returned back to the original manifold. See text for more details.
 \label{fig:matrix_variation}}
 \end{figure}
@@ -369,11 +370,24 @@ We used the projections of $\mathbf{P}$-matrices over these eigentensors
 as traits in a phylogenetic Principal Component Analysis (pPCA; Jombart
 \emph{et al.}, 2010), which produces a new set of axes of matrix
 variation that considers both trait dispersal and phylogenetic
-relationships among OTUs simultaneously. Such analysis produces both
-positive and negative eigenvalues, which are respectively associated
-with phylogenetic signal (`Global') and convergence (`Local') in matrix
-structure (pPC1 and pPC2 in \autoref{fig:matrix_variation}b,
-respectively).
+relationships among OTUs simultaneously. If $\mathbf{Z}$ represents a
+matrix with projections of $\mathbf{P}$-matrices over each eigentensor
+on its columns, phylogenetic PCs are the eigenvectors obtained from
+
+\begin{equation}
+\frac{1}{2n} \mathbf{Z}^t(\mathbf{W} + \mathbf{W}^t) \mathbf{Z}
+\end{equation}
+
+where $\mathbf{W}$ represents the matrix of phylogenetic distances
+between OTUs; here, the distance $w_{ij}$ between tips $i$ and $j$ is
+the sum of branch lengths from their last common ancestor to both tips.
+Such analysis produces both positive and negative eigenvalues, which are
+respectively associated with variation close to the root of the tree
+(`Global') and variation close to the tips (`Local') in matrix structure
+(pPC1 and pPC2 in \autoref{fig:matrix_variation}b, respectively).
+Pavoine et al. (2010) argues that this contrast between Global and Local
+structures in phylogenetic PCs reflects phylogenetic signal and
+convergence in trait values, respectively.
 
 For each pPC obtained in this manner, we obtained two covariance
 matrices by estimating the upper and lower limits of the 95\% confidence
@@ -411,6 +425,20 @@ structure along Anthropoid diversification are randomly distributed with
 respect to the skull regions delimited in \autoref{tab:dist} by
 comparing SRD scores estimated within each region for all pPCs.
 
+\subsubsection{Software}\label{software}
+
+We performed all analyses under R 3.2.1 (R Core Team, 2015). We fitted
+Bayesian linear models for estimating posterior $\mathbf{P}$-matrix
+samples using the \emph{MCMCglmm} package (Hadfield, 2010). Source code
+for the eigentensor decomposition can be found at
+\url{http://github.com/wgar84}. The phylogenetic decomposition of
+diversity was provided by Pavoine et al. (2010) in their Supplemental
+Material, while pPCA is implemented in the \emph{adephylo} package
+(Jombart \& Dray, 2010); the SRD method is provided by the \emph{evolqg}
+package (Melo \emph{et al.}, in prep.). In order to obtain symmetrical
+landmarks configurations, we used code provided by Annat Haber,
+available at \url{http://life.bio.sunysb.edu/morph/soft-R.html}.
+
 \section{Results}\label{results}
 
 Os testes de disparidade de estrutura de covariância ao longo da
@@ -428,11 +456,11 @@ filogenia, associada à divergência entre Platyrrhini e Catarrhini
 decomposing Riemannian distances among pairs of mean
 $\mathbf{P}$-matrices over the Anthropoid phylogeny. The size of each
 circle depicts the percentage of diversity associated with each node,
-according to the legend. Some particular clades are indicated
-(Platyrrhini: \textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
-\textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
-\textbf{Hom}inidae, \textbf{Hyl}obatidae, \textbf{Pap}ionini,
-\textbf{Cer}copithecini, and \textbf{Col}obinae).
+according to the legend. Particular clades are indicated as
+abbreviations (Platyrrhini: \textbf{Pit}hecidae, \textbf{Ate}lidae,
+\textbf{Ceb}inae, \textbf{Cal}lithrichinae, and \textbf{Aot}inae;
+Catarrhini: \textbf{Hom}inidae, \textbf{Hyl}obatidae,
+\textbf{Pap}ionini, \textbf{Cer}copithecini, and \textbf{Col}obinae).
 \label{fig:phylo_decdiv}}
 \end{figure}
 
@@ -448,8 +476,8 @@ disparidade.
 \centering
 \includegraphics{Figures/ppca_eval-1.pdf}
 \caption{Characterizing $\mathbf{P}$-matrix variation using phylogenetic
-Principal Components. (a) Distribution of eigenvalues associated with
-pPCs; positive eigenvalues are associated with phylogenetic signal;
+Principal Components. (a) Posterior distribution of eigenvalues obtained
+for pPCs; positive eigenvalues are associated with phylogenetic signal;
 negative eigenvalues are associated with convergence. (b) Distribution
 of mean SRD scores for each trait with respect to pPCs; each line
 represents a loess interpolation adjusted for each skull region,
@@ -468,13 +496,13 @@ entre as duas espécies de \emph{Gorilla} e entre as espécies do gênero
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/phylo_gl-1.pdf}
-\caption{Phylogenetic structures associated with the first and last
-pairs of pPCs (Global 1-2 and Local 1-2, respectively), represented as
-the projections of each OTU over each axis. White circles indicate
-positive values; black circles indicate negative values. The absolute
-value of each projection is indicated by the size of the circle,
-according to the legend. Some particular clades are indicated
-(Platyrrhini: \textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
+\caption{Phylogenetic structures associated with the first and last two
+pPCs (Global 1-2 and Local 1-2, respectively), represented as the
+projections of each OTU over each axis. White circles indicate positive
+values; black circles indicate negative values. The absolute value of
+each projection is indicated by the size of the circle, according to the
+legend. Particular clades are indicated as abbreviations (Platyrrhini:
+\textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
 \textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
 \textbf{Hom}inidae, \textbf{Hyl}obatidae, \textbf{Pap}ionini,
 \textbf{Cer}copithecini, and \textbf{Col}obinae). \label{fig:phylo_gl}}
@@ -496,8 +524,9 @@ pela pPCA.
 \centering
 \includegraphics{Figures/srd_gl-1.pdf}
 \caption{Covariance structure variation associated with the first and
-last pairs of pPCs (Global 1-2 and Local 1-2, respectively), represented
-using posterior mean SRD scores. Traits are colored according to their
+last two pPCs (Global 1-2 and Local 1-2, respectively), represented
+using posterior mean SRD scores. Dotted lines represent average SRD
+scores for each comparison. Traits are colored according to their
 assocation with each skull region, according to the legend.
 \label{fig:srd_gl}}
 \end{figure}
@@ -559,11 +588,19 @@ Gelman, A., Carlin, J.B., Stern, H.S. \& Rubin, D.B. 2004.
 Haber, A. 2015. The Evolution of Morphological Integration in the
 Ruminant Skull. \emph{Evolutionary Biology} \textbf{42}: 99--114.
 
+Hadfield, J.D. 2010. MCMC Methods for Multi-Response Generalized Linear
+Mixed Models: The \{MCMCglmm\} \{R\} Package. \emph{Journa of
+Statistical Software} \textbf{33}: 1--22.
+
 Hine, E., Chenoweth, S.F., Rundle, H.D. \& Blows, M.W. 2009.
 Characterizing the evolution of genetic variance using genetic
 covariance tensors. \emph{Philosophical transactions of the Royal
 Society of London. Series B, Biological sciences} \textbf{364}:
 1567--78.
+
+Jombart, T. \& Dray, S. 2010. adephylo: exploratory analyses for the
+phylogenetic comparative method. \emph{Bioinformatics} \textbf{26}:
+1907--1909.
 
 Jombart, T., Pavoine, S., Devillard, S. \& Pontier, D. 2010. Putting
 phylogeny into the analysis of biological traits: A methodological
@@ -620,6 +657,9 @@ Monographs} \textbf{80}: 485--507.
 Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
 Variation, Growth Strategies, and the Evolution of Modularity in the
 Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
+
+R Core Team. 2015. \emph{R: A Language and Environment for Statistical
+Computing}. R Foundation for Statistical Computing, Vienna, Austria.
 
 Rao, C.R. 1982. Diversity and dissimilarity coefficients: a unified
 approach. \emph{Theoretical population biology} \textbf{21}: 24--43.

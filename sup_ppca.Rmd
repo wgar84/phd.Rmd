@@ -26,7 +26,7 @@ captions $ fig.landmarks <- 'Landmark configuration. Lines connecting landmarks 
 
 captions $ fig.phylo_model <- "Sample sizes and controlled fixed effects for 109 OTUs of anthropoid primates, depicted in a phylogenetic hypothesis from @springer_macroevolutionary_2012. \\label{fig:phylo_model}"
 
-captions $ fig_rs.riemd <- 'The relationship between Riemannian Distances and Random Skewers among pairs of $\\mathbf{P}$-matrices. Each observation is the posterior mean value for each statistic, estimated from $100$ posterior samples obtained for each OTU.'
+captions $ fig.rs_riemd <- 'The relationship between Riemannian Distances and Random Skewers among pairs of $\\mathbf{P}$-matrices. Each observation is the posterior mean value for each statistic, estimated from $100$ posterior samples obtained for each OTU. \\label{fig:rs_riemd}'
 
 ```
 
@@ -66,3 +66,9 @@ legend(0, 0,
        legend = c('-', 'subsp/pop', 'sex', 'subsp/pop + sex', 'subsp/pop * sex'),
        bty = 'o', bg = 'white', xjust = 0.5, yjust = 0.5)
 ```
+
+```{r rs_riemd, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.rs_riemd}
+post.ppca $ rs.riemdist
+```
+
+# References

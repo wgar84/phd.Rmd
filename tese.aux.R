@@ -72,6 +72,9 @@ system('evince allo.pdf &')
 render('ppca.Rmd', output_file = 'ppca.pdf')
 system('evince ppca.pdf &')
 
+render('sup_ppca.Rmd', output_file = 'sup_ppca.pdf')
+system('evince sup_ppca.pdf &')
+
 render('modcomp.Rmd', output_file = 'modcomp.pdf')
 system('evince modcomp.pdf &')
 
