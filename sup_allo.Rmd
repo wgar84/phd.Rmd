@@ -26,6 +26,15 @@ captions $ fig.landmarks <- 'Landmark configuration. Lines connecting landmarks 
 
 captions $ fig.phylo_model <- "Sample sizes and controlled fixed effects for 109 OTUs of anthropoid primates, depicted in a phylogenetic hypothesis from @springer_macroevolutionary_2012. \\label{fig:phylo_model}"
 
+captions $ fig.cac_vs_logCS <- "The relationship between log Centroid Size and the Common Allometric Component for all anthropoid primates. \\label{fig:cac_vs_logCS}"
+
+captions $ fig.cac_shape <- "Shape variation associated with the Common Allometric Component. \\label{fig:cac_shape}"
+
+captions $ fig.lambda_MI <- "Distribution of Pagel's lambda for the mixed regressions between AVG Indexes for each trait set and static allometric slopes ($b_s$). \\label{fig:lambda_MI}"
+
+captions $ fig.MI_vs_slopeW_si <- "AVG Indexes *vs.* static allometric slopes. For each local trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_si}"
+
+
 ```
 
 \renewcommand{\thefigure}{S\arabic{figure}}
@@ -64,3 +73,53 @@ legend(0, 0,
        legend = c('-', 'subsp/pop', 'sex', 'subsp/pop + sex', 'subsp/pop * sex'),
        bty = 'o', bg = 'white', xjust = 0.5, yjust = 0.5)
 ```
+
+```{r cac_shape, echo = FALSE, fig.cap = captions $ fig.cac_shape, fig.width = 9.6, fig.height = 10.8}
+for (i in 1:5)
+  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
+                       Aux $ tessel.38, view = c(1, 2),
+                       center = c(- 1, allo.Data $ cac.value [i], 0),
+                       xlim = c(-2, 2), ylim = c(-2.2, 2.2), bty = 'n', scale = 2.5,
+                       add = ifelse (i == 1, F, T),
+                       ylab = 'Common Allometric Component',
+                       graph.par = list ('mar' = c(2, 4, 0, 0)),
+                       Colors = Aux $ def.hyp [-1, 'Face'] + 1,
+                       palette = colorRampPalette(brewer.pal(3, 'RdBu')))
+
+for (i in 1:5)
+  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
+                       Aux $ tessel.38, view = c(1, 3),
+                       center = c(1, 0, allo.Data $ cac.value [i]),
+                       scale = 2.5, add = TRUE, 
+                       Colors = c(Aux $ def.hyp [-1, 'Face'],
+                         Aux $ def.hyp [-1, 'Face']) + 1,
+                       palette = colorRampPalette(brewer.pal (3, 'RdBu')))
+
+axis(side = 2, labels = allo.Data $ cac.value, at = allo.Data $ cac.value)
+
+legend('bottomright', legend = c('Neuro', 'Face'), lty = 1, lwd = 3, pch = NULL,
+       col = colorRampPalette(brewer.pal (3, 'RdBu'))(2), bty = 'n')
+```
+
+```{r cac_vs_logCS, echo = FALSE, fig.cap = captions $ fig.cac_vs_logCS}
+allo.Plots $ CAC.vs.logCS
+```
+
+```{r cac_wac_bs, echo = FALSE, fig.cap = captions $ fig.cac_wac_bs}
+ggplot (subset (allo.Data $ integra.df, pos == 'Terminal')) +
+  geom_text (aes (x = W.slope, y = atanh (abs (wAC.CAC)), label = node), size = 2) +
+  theme_bw() +
+  xlab (expression(b[s])) + ylab('Allometric Component Correlation')
+```
+
+\input{Tables/dic_allo_im.tex}
+
+```{r MI_vs_slopeW_si, echo = FALSE, fig.width = 6, fig.height = 8, fig.cap = captions $ fig.MI_vs_slopeW_si}
+allo.Plots $ MI.vs.Wslope.si
+```
+
+```{r lambda_MI, echo = FALSE, fig.width = 5, fig.height = 5, fig.cap = captions $ fig.lambda_MI}
+allo.Plots $ lambda.MI
+```
+
+# References

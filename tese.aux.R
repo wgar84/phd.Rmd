@@ -55,7 +55,7 @@ for (i in 1:length (.source.files))
   source (.source.files [i])
 
 attach ('Data/modcomp.Results.RData')
-attach ('Data/allo.Results.RData')
+attach ('Data/allo.results.RData')
 attach ('Data/ppca.RData')
 attach ('Data/post.ppca.RData')
 
@@ -68,6 +68,9 @@ system('evince tese.pdf &')
 
 render('allo.Rmd', output_file = 'allo.pdf')
 system('evince allo.pdf &')
+
+render('sup_allo.Rmd', output_file = 'sup_allo.pdf')
+system('evince sup_allo.pdf &')
 
 render('ppca.Rmd', output_file = 'ppca.pdf')
 system('evince ppca.pdf &')
@@ -109,3 +112,7 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
+allo.Plots $ size.var
+
+ggplot (allo.Data $ integra.df) +
+  geom_point (aes (x = ICV.ED, y = Oral.MI))

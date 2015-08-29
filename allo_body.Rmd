@@ -4,17 +4,9 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 
 ```{r captions_allo, include = FALSE}
 
-captions $ fig.cac_vs_logCS <- "The relationship between log Centroid Size and the Common Allometric Component for all anthropoid primates. \\label{fig:cac_vs_logCS}"
+captions $ fig.phylo_W <- paste0("Distribution of static allometric intercepts (a) and slopes (b) for the regression between the Common Allometric Component and log Centroid Size. Red circles indicate positive deviations, while blue circles indicate negative ones. The outer circles indicate whether a given deviation is distinct from zero, using 95\\% credible intervals. Particular clades are indicated as abbreviations (", taxa.legend(), "). \\label{fig:phylo_W}")
 
-captions $ fig.cac_shape <- "Shape variation associated with the Common Allometric Component. \\label{fig:cac_shape}"
-
-captions $ fig.phylo_slopeW <- "Static allometric slopes. Distribution of $b_s$ for the regression between the Common Allometric Component and log Centroid Size. Red circles indicate positive slope deviations, while blue circles indicate negative ones. The outer circles indicate whether a given slope deviation is distinct from zero, using 95\\% credible intervals. \\label{fig:phylo_slopeW}"
-
-captions $ fig.phylo_interW <- "Distribution of $a_s$ for the regression between the Common Allometric Component and log Centroid Size. Red circles indicate positive slope deviations, while blue circles indicate negative ones. The outer circles indicate whether a given intercept deviation is distinct from zero, using 95% credible intervals. \\label{fig:phylo_interW}"
-
-captions $ fig.MI_vs_slopeW <- "AVG Index *vs.* static allometric slopes. For each trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW}"
-
-captions $ fig.lambda_MI <- "Distribution of Pagel's lambda for the mixed regressions between AVG Indexes for each trait set and static allometric slopes ($b_s$). \\label{fig:lambda_MI}"
+captions $ fig.MI_vs_slopeW_main <- "AVG Indexes *vs.* static allometric slope deviations. For each global trait set (Face and Neurocranium), the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_main}"
 
 ```
 
@@ -91,69 +83,17 @@ All analysis were performed under R `r paste (version $ major, version $ minor, 
 
 # Results
 
-```{r cac_shape, echo = FALSE, fig.cap = captions $ fig.cac_shape, fig.width = 9.6, fig.height = 10.8}
-for (i in 1:5)
-  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
-                       Aux $ tessel.38, view = c(1, 2),
-                       center = c(- 1, allo.Data $ cac.value [i], 0),
-                       xlim = c(-2, 2), ylim = c(-2.2, 2.2), bty = 'n', scale = 2.5,
-                       add = ifelse (i == 1, F, T),
-                       ylab = 'Common Allometric Component',
-                       graph.par = list ('mar' = c(2, 4, 0, 0)),
-                       Colors = Aux $ def.hyp [-1, 'Face'] + 1,
-                       palette = colorRampPalette(brewer.pal(3, 'RdBu')))
-
-for (i in 1:5)
-  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
-                       Aux $ tessel.38, view = c(1, 3),
-                       center = c(1, 0, allo.Data $ cac.value [i]),
-                       scale = 2.5, add = TRUE, 
-                       Colors = c(Aux $ def.hyp [-1, 'Face'],
-                         Aux $ def.hyp [-1, 'Face']) + 1,
-                       palette = colorRampPalette(brewer.pal (3, 'RdBu')))
-
-axis(side = 2, labels = allo.Data $ cac.value, at = allo.Data $ cac.value)
-
-legend('bottomright', legend = c('Neuro', 'Face'), lty = 1, lwd = 3, pch = NULL,
-       col = colorRampPalette(brewer.pal (3, 'RdBu'))(2), bty = 'n')
-```
-
 \input{Tables/cac_dir}
 
 Em relação à associação entre o CAC e o log Tamanho do Centróide (\autoref{fig:cac_vs_logCS}), examinando a distribuição *a posteriori* de inclinações (\autoref{fig:phylo_slopeW}) e interceptos (\autoref{fig:phylo_interW}) estáticos dentre os vértices da filogenia, observamos que as inclinações são mais estáveis que interceptos. Apenas em duas linhagens (*Homo* e *Gorilla*) observamos desvios negativos em $b_s$; desvios de $a_s$ negativos e positivos são observados em diferentes linhagens.
 
-```{r cac_vs_logCS, echo = FALSE, fig.cap = captions $ fig.cac_vs_logCS}
-allo.Plots $ CAC.vs.logCS
-```
+```{r phylo_W, echo = FALSE, fig.height = 7, fig.width = 11, fig.cap = captions $ fig.phylo_W}
 
-```{r phylo_slopeW, echo = FALSE, fig.height = 9, fig.width = 11, fig.cap = captions $ fig.phylo_slopeW}
-par (omi = c(0.2, 0.8, 0.2, 0.8))
+par (mfrow = c(1, 2), mar = c(1.5, 1.5, 1.5, 1.5))
+
 plot.phylo(Tree [[1]], type = 'fan',
            use.edge.length = TRUE, show.tip.label = FALSE,
-           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.5))
-
-tiplabels(tip = allo.Data $ phylo.slope.df $ pMCMC < 0.05, 
-          pch = 21, col = rgb (0, 0, 0, 0.5), bg = NULL, 
-          cex = 1.7 * abs (allo.Data $ phylo.slope.df $ post.mean [
-            allo.Data $ phylo.slope.df $ pMCMC < 0.05]))
-
-tiplabels(tip = 1:217, pch = 20,
-          col = ifelse (allo.Data $ phylo.slope.df $ post.mean < 0,
-            rgb (0,0,1,0.5), rgb (1,0,0,0.5)),
-          cex = abs (allo.Data $ phylo.slope.df $ post.mean) * 1.5)
-
-legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
-       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
-       pch = 20, col = rgb (0,0,0,0.5), title = 'Slope Deviation')
-
-Plot.taxa()
-```
-
-```{r phylo_interW, echo = FALSE, fig.height = 9, fig.width = 11, fig.cap = captions $ fig.phylo_interW}
-par (omi = c(0.2, 0.8, 0.2, 0.8))
-plot.phylo(Tree [[1]], type = 'fan',
-           use.edge.length = TRUE, show.tip.label = FALSE,
-           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.5))
+           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.48))
 
 tiplabels(tip = allo.Data $ phylo.inter.df $ pMCMC < 0.05, 
           pch = 21, col = rgb (0, 0, 0, 0.5), bg = NULL, 
@@ -165,28 +105,46 @@ tiplabels(tip = 1:217, pch = 20,
             rgb (0,0,1,0.5), rgb (1,0,0,0.5)),
           cex = abs (allo.Data $ phylo.inter.df $ post.mean) * 1.5)
 
-legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
-       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
-       pch = 20, col = rgb (0,0,0,0.5), title = 'Intercept Deviation')
+legend('topleft', bty = 'n', cex = 3, legend = 'a')
 
 Plot.taxa()
+
+plot.phylo(Tree [[1]], type = 'fan',
+           use.edge.length = TRUE, show.tip.label = FALSE,
+           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.48, 0.5))
+
+tiplabels(tip = allo.Data $ phylo.slope.df $ pMCMC < 0.05, 
+          pch = 21, col = rgb (0, 0, 0, 0.5), bg = NULL, 
+          cex = 1.7 * abs (allo.Data $ phylo.slope.df $ post.mean [
+            allo.Data $ phylo.slope.df $ pMCMC < 0.05]))
+
+tiplabels(tip = 1:217, pch = 20,
+          col = ifelse (allo.Data $ phylo.slope.df $ post.mean < 0,
+            rgb (0,0,1,0.5), rgb (1,0,0,0.5)),
+          cex = abs (allo.Data $ phylo.slope.df $ post.mean) * 1.5)
+
+#legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
+#       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
+#       pch = 20, col = rgb (0,0,0,0.5), title = 'Slope Deviation')
+
+legend('topleft', bty = 'n', cex = 3, legend = 'b')
+
+legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
+       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
+       pch = 20, col = rgb (0,0,0,0.5), title = 'Deviation')
+
+Plot.taxa(FALSE)
 ```
 
 Em relação à associação entre parâmetros alométricos e índices AVG, os modelos de regressão indicam, em geral, que o modelo que considera apenas a inclinação alométrica estática $b_s$ como variável preditora possui um Critério de Informação de Deviância menor do que os demais modelos (\autoref{tab:dic_allo_im}), ainda que, na maioria dos casos, o modelo que contém o efeito conjunto de $a_s$ e $b_s$ é equivalente. No caso da subregião da Abóbada, o modelo que contém $a_s$ e $b_s$ possuem valores de DIC menores. No entanto, ao observar a distribuição *a posteriori* de coeficientes de regressão em cada um desses modelos de efeito conjunto, o efeito de $a_s$ não se mostra significativo, considerando um intervalo de credibilidade de 95\% (resultado não apresentado). Assim, consideramos os modelos que contém apenas $b_s$ como variável preditora como aqueles que melhor representam a associação entre parâmetros alométricos e índices AVG.
 
 É importante destacar que, no caso das subregiões da Órbita e Base, todos os modelos de regressão testados indicam que não há associação entre parâmetros alométricos e índices AVG, de maneira que os valores de DIC associados à estas duas regiões não foram incluídos.
 
-\input{Tables/dic_allo_im.tex}
-
 Dessa forma, é possível observar que inclinações alométricas possuem efeitos contrários sobre os índices AVG da Face e do Neurocrânio (\autoref{fig:MI_vs_slopeW}); aquelas subregiões que são contidas em cada uma destas regiões segue a mesma tendência da partição mais inclusiva que as contém.
 
-```{r MI_vs_slopeW, echo = FALSE, fig.width = 8, fig.height = 10, fig.cap = captions $ fig.MI_vs_slopeW}
-allo.Plots $ MI.vs.Wslope
+```{r MI_vs_slopeW_main, echo = FALSE, fig.width = 7, fig.height = 4, fig.cap = captions $ fig.MI_vs_slopeW_main}
+allo.Plots $ MI.vs.Wslope.main
 ```
-
-<!-- ```{r lambda_MI, echo = FALSE, fig.width = 5, fig.height = 5, fig.cap = captions $ fig.lambda_MI} -->
-<!-- allo.Plots $ lambda.MI -->
-<!-- ``` -->
 
 # Discussion
 
