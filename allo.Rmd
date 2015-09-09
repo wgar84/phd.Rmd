@@ -1,6 +1,6 @@
 ---
-title: "Allometric Constraints and Modularity"
-author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
+title: "The Evolution of Skull Allometry in Anthropoid Primates"
+author: Guilherme Garcia^1,2^, Thiago Zahn^1^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   pdf_document:
@@ -14,16 +14,20 @@ output:
     fig_width: 6
 fontsize: 12pt
 csl: Bib/journal-of-evolutionary-biology.csl
-bibliography: Bib/tese.bib
+bibliography: Bib/allo.bib
 ---	
 
 ^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
 
 ^2^<wgar@usp.br>
 
-running title: Allometry and Integration in Primates
+running title: Allometry in Anthropoids
 
 key words: 
+
+```{r, echo = FALSE}
+thesis <- FALSE
+```
 
 ```{r allo_body, child = 'allo_body.Rmd'}
 ```

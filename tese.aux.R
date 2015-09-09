@@ -56,6 +56,7 @@ for (i in 1:length (.source.files))
 
 attach ('Data/modcomp.Results.RData')
 attach ('Data/allo.results.RData')
+## detach (pos = 2)
 attach ('Data/ppca.RData')
 attach ('Data/post.ppca.RData')
 
@@ -99,6 +100,8 @@ render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
 
 ### source ('altplot.modcomp.R')
 
+### source ('ppca.extra.R')
+
 ### source ('parc.allo.R')
 
 riem.tab <- sapply(ppca.Data$riem.decdiv.def.table, as.numeric)
@@ -112,7 +115,7 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
-allo.Plots $ size.var
 
-ggplot (allo.Data $ integra.df) +
-  geom_point (aes (x = ICV.ED, y = Oral.MI))
+post.ppca $ rs.riemdist
+
+####

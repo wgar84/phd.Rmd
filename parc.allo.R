@@ -30,7 +30,6 @@ allo.Data $ model.intercepts %>%
   theme_bw() +
   geom_abline(intercept = 0, slope = 1, linetype = 'dashed')
 
-
 ggplot (subset (allo.Data $ integra.df, pos == 'Terminal')) +
   geom_text(aes (x = W.slope, y = wAC.CAC, label = node)) +
   theme_bw() + xlab ('Intercept') + ylab('<CAC, within-species AC>') +

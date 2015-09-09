@@ -19,6 +19,7 @@ bibliography: Bib/tese.bib
 
 ```{r options, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+thesis <- TRUE
 ```
 
 \pagestyle{fancy}
@@ -56,7 +57,7 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 ```
 
 \newpage
-\chapter{Allometric Constraints and Modularity}
+\chapter{The Evolution of Skull Allometry in Anthropoid Primates}
 \label{ch:allo}
 ```{r chapter_allo, child = 'allo_body.Rmd'}
 ```

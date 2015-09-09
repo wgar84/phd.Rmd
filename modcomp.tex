@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{27 August 2015}
+  \date{08 September 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -531,19 +531,28 @@ considered, while $\mathbf{A}_c$ represents the complementary set;
 $\mathbf{A}_b$ represents the block of covariances or correlations
 between the two sets. Thus, covariance ($\mathbf{S}$) or correlation
 ($\mathbf{C}$) matrices can be partitioned into a similar scheme. We
-estimated Modularity Indexes using the equation \[
+estimated Modularity Indexes using the equation
+
+\begin{equation}
 MI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
-\] where $\bar{\rho}_{+}$ represents the average correlation in
+\label{eq:mi}
+\end{equation}
+
+where $\bar{\rho}_{+}$ represents the average correlation in
 $\mathbf{C}_h$, $\bar{\rho}_{-}$ represents the average correlation of
 the complementary set (correlations in both $\mathbf{C}_b$ and
 $\mathbf{C}_c$), and $ICV$ is the coefficient of variation of
 eigenvalues of the associated covariance matrix, which is a measurement
 of the overall integration between all traits (Shirai \& Marroig, 2010).
 We estimated RV coefficients for each hypothesis using the relationship
-\[
+
+\begin{equation}
 RV = \frac{tr(\mathbf{S}_{b}\mathbf{S}^t_{b})}{\sqrt{tr(\mathbf{S}_h \mathbf{S}_h)tr(\mathbf{S}_c \mathbf{S}_c)}}
-\] where $tr$ represents the sum of diagonal elements in any given
-matrix ($tr \mathbf{A} = \sum_i a_{ii}$).
+\label{eq:rv}
+\end{equation}
+
+where $tr$ represents the sum of diagonal elements in any given matrix
+($tr \mathbf{A} = \sum_i a_{ii}$).
 
 The partitioning scheme outlined above assumes that the complementary
 set does not represent an actual hypothesis of trait association;
@@ -1144,10 +1153,13 @@ value of both correlation distributions by a similar amount
 these two sets actually increases, going from 0.042 to 0.061 when size
 is removed. However, since the actual average correlations for these two
 distributions approach zero, tests based on RV lose power more rapidly
-than those tests based on MI. Furthermore, as observed by Fruciano et
-al. (2013), sample sizes sensibly influence the estimation of RV
-coefficients, and we demostrate here that such sensitivity also extends
-to estimates of power for tests using this statistic.
+than those tests based on MI. This sensitivity might be associated to
+the use of squared covariances, as shown by Equation \ref{eq:rv}, while
+Modularity Indexes use correlations on their natural scale (Equation
+\ref{eq:mi}). Furthermore, as observed by Fruciano et al. (2013), sample
+sizes sensibly influence the estimation of RV coefficients, and we
+demostrate here that such sensitivity also extends to estimates of power
+for tests using this statistic.
 
 On the other hand, our estimates of power for tests using MI indicate
 that this statistic is more robust to differences in absolute

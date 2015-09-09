@@ -25,6 +25,10 @@ running title: Modularity, Error and Morphometrics
 
 key words: $P$-matrix; modularity; primates; development;
 
+```{r, echo = FALSE}
+thesis <- FALSE
+```
+
 ```{r modcomp_body, child = 'modcomp_body.Rmd'}
 ```
 

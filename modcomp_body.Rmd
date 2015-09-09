@@ -152,14 +152,16 @@ $$
 $$
 indicates that the block $\mathbf{A}_h$ contains covariances or correlations between traits that belong to the trait set being considered, while $\mathbf{A}_c$ represents the complementary set; $\mathbf{A}_b$ represents the block of covariances or correlations between the two sets.
 Thus, covariance ($\mathbf{S}$) or correlation ($\mathbf{C}$) matrices can be partitioned into a similar scheme. We estimated Modularity Indexes using the equation
-$$
+\begin{equation}
 MI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
-$$
+\label{eq:mi}
+\end{equation}
 where $\bar{\rho}_{+}$ represents the average correlation in $\mathbf{C}_h$, $\bar{\rho}_{-}$ represents the average correlation of the complementary set (correlations in both $\mathbf{C}_b$ and $\mathbf{C}_c$), and $ICV$ is the coefficient of variation of eigenvalues of the associated covariance matrix, which is a measurement of the overall integration between all traits [@shirai_skull_2010].
 We estimated RV coefficients for each hypothesis using the relationship
-$$
+\begin{equation}
 RV = \frac{tr(\mathbf{S}_{b}\mathbf{S}^t_{b})}{\sqrt{tr(\mathbf{S}_h \mathbf{S}_h)tr(\mathbf{S}_c \mathbf{S}_c)}}
-$$
+\label{eq:rv}
+\end{equation}
 where $tr$ represents the sum of diagonal elements in any given matrix ($tr \mathbf{A} = \sum_i a_{ii}$).
 
 The partitioning scheme outlined above assumes that the complementary set does not represent an actual hypothesis of trait association; however, we may choose to consider that both sets ($\mathbf{A}_h$ and $\mathbf{A}_c$) represent two distinct hypothesis.
@@ -392,7 +394,7 @@ However, in this case there is a substantial difference between within-set and b
 In those cases where both distributions for $\mathbf{C}_r$ and $\mathbf{C}_s$ matrices do not overlap substantially --- for example, when local shape variables are considered (\autoref{fig:type2_def}) --- power for tests performed using MI values always have higher power than tests using RV except when sample sizes are very high; in this case power for both metrics approaches equality.
 The same behavior can also be observed in interlandmark distances when size is retained (left column of \autoref{fig:type2_ed}). 
 
-These results indicate that RV coefficents are more sensitive to the absolute value of both within-set and between-set correlation distributions than Modularity Indexes. For interlandmark distances (\autoref{fig:type2_ed}), removing size variation reduced the average value of both correlation distributions by a similar amount (\autoref{fig:cor_dist}); the difference between average correlations in these two sets actually increases, going from 0.042 to 0.061 when size is removed. However, since the actual average correlations for these two distributions approach zero, tests based on RV lose power more rapidly than those tests based on MI.
+These results indicate that RV coefficents are more sensitive to the absolute value of both within-set and between-set correlation distributions than Modularity Indexes. For interlandmark distances (\autoref{fig:type2_ed}), removing size variation reduced the average value of both correlation distributions by a similar amount (\autoref{fig:cor_dist}); the difference between average correlations in these two sets actually increases, going from 0.042 to 0.061 when size is removed. However, since the actual average correlations for these two distributions approach zero, tests based on RV lose power more rapidly than those tests based on MI. This sensitivity might be associated to the use of squared covariances, as shown by Equation \ref{eq:rv}, while Modularity Indexes use correlations on their natural scale (Equation \ref{eq:mi}).
 Furthermore, as observed by @fruciano_resampling-based_2013, sample sizes sensibly influence the estimation of RV coefficients, and we demostrate here that such sensitivity also extends to estimates of power for tests using this statistic.
 
 On the other hand, our estimates of power for tests using MI indicate that this statistic is more robust to differences in absolute correlation values or sample sizes, thus allowing comparisons across more heterogeneous settings, such as our comparison between different representations of form, with substantial variation in sample sizes.

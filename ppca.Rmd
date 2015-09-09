@@ -25,6 +25,10 @@ running title: PCA of a PCA
 
 key words: $P$-matrix; modularity; primates; development;
 
+```{r, echo = FALSE}
+thesis <- FALSE
+```
+
 ```{r ppca_body, child = 'ppca_body.Rmd'}
 ```
 
