@@ -178,3 +178,62 @@ Rotate2MidlineMatrix <- function (X, midline)
     RM <-svd (var (W))$v
     return (RM)
   }
+
+ggshape <- function (shape, wireframe, colors, view = c(1, 2, 3),
+                     rotation = c(1, 1, 1), depth = 0.015, thickness = 3,
+                     palette = rev (brewer.pal (10, 'Spectral')))
+  {
+    Q <- shape
+    Lms <- rownames (Q)
+    Right <- grep ('-D', Lms)
+    Left <- grep ('-E', Lms)
+    Midline <- !(Lms %in% c (Lms [Right], Lms [Left]))
+    Q <- Q %*% Rotate2MidlineMatrix (Q, Lms [Midline]) 
+    Q <- Q %*% diag (rotation)
+    if (all (view == c(1, 2, 3)))
+      Q <- Q %*%
+        array (c(cos(pi/7), sin (pi/7), 0,
+                 -sin (pi/7), cos(pi/7), 0,
+                 0, 0, 1), c(3, 3))
+    colnames (Q) <- c('X', 'Y', 'Z')
+    ## pts <- which (rownames (Q) %in% rownames (Q.tetra))
+    Q <- Q [, view]
+    colnames (Q) <- c('X', 'Y', 'Z')
+    Q.tetra <- Q [wireframe, ]
+    dim (Q.tetra) <- c (dim (wireframe), ncol (Q))
+    Q.names <- array (rownames (Q) [wireframe], dim = dim (wireframe))
+    Q.names <- apply (Q.names, 1, paste, collapse = '.')
+    dimnames (Q.tetra) <- list('ild' = Q.names,
+                               'pos' = c(1, 2), 'dim' = c('X', 'Y', 'Z'))
+    Q.singular <- which (!duplicated (dimnames (Q.tetra) [[1]]))
+    Q.colors <- rep (colors, times = 2) [Q.singular]
+    Q.tetra <- Q.tetra [Q.singular, , ]
+    depth <- 0.015
+    Q.line.df <-
+      ddply (dcast (melt (Q.tetra), ild ~ dim + pos), .(ild), plyr::summarise,
+             'X' = c(X_1 - Z_1 * depth, X_1 + Z_1 * depth,
+               X_2 + Z_2 * depth, X_2 - Z_2 * depth),
+             'Y' = c(Y_1, Y_1, Y_2, Y_2))
+
+    Q.line.df $ color <- rep (Q.colors, each = 4)
+    
+    shape.plot <-
+      ggplot (data.frame(Q)) +
+        geom_point (aes (x = X, y = Y), alpha = 0) +
+          coord_fixed() +
+            theme_minimal() +
+              theme(plot.margin = unit(c(0, 0, 0, 0), 'cm')) +
+                scale_x_continuous(breaks = NULL) +
+                  scale_y_continuous(breaks = NULL) +
+                    guides(size = FALSE) +
+                      xlab('') + ylab('')
+
+    shape.plot <-
+      shape.plot +
+        geom_polygon(aes (x = X, y = Y, group = ild, 
+                          color = color, fill = color), Q.line.df, size = thickness)
+    spec.pal <- colorRampPalette (palette, space = 'Lab')
+    shape.plot +
+      scale_color_gradientn('', colours = spec.pal(10)) +
+        scale_fill_gradientn('', colours = spec.pal(10))
+  }
