@@ -990,7 +990,7 @@ decrease.
 
 \subsubsection{Software}\label{software}
 
-All analysis were performed under R 3.2.1 (R Core Team, 2015). Source
+All analysis were performed under R 3.2.2 (R Core Team, 2015). Source
 code for all analyses can be found at \url{http://github.com/wgar84}. It
 is noteworthy that previous tests we made indicated no differences
 between our estimation of empirical RV coefficients, based upon our own
@@ -1655,28 +1655,23 @@ al.}, 2004), which represents a pooled estimate of skull shape allometry
 proxy for the ancestral allometric relationships for anthropoid
 primates. This axis is associated with positive loadings for Facial
 traits and negative loadings for Neurocranial traits, thus representing
-a contrast between these regional sets (\autoref{fig:cac_shape}).
+a contrast between these regional sets (\autoref{fig:cac_logCS}a).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/cac_shape-1.pdf}
-\caption{Shape variation associated with the Common Allometric
-Component. \label{fig:cac_shape}}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/cac_vs_logCS-1.pdf}
-\caption{The relationship between log Centroid Size and the Common
-Allometric Component for all anthropoid primates.
-\label{fig:cac_vs_logCS}}
+\includegraphics{Figures/cac_logCS-1.pdf}
+\caption{\textbf{Allometric shape variation.} (a) Shape variation
+associated with the Common Allometric Component (CAC). (b) Random
+regression of projections on the CAC over log Centroid Size. A
+regression line is adjusted for each species, and dots represent mean
+values. \label{fig:cac_logCS}}
 \end{figure}
 
 To investigate whether species deviate from such ancestral
 relationships, we carried out a Bayesian mixed model, considering that
 slopes and intercepts for the regression between individuals projected
 over the CAC and log Centroid Size (logCS) within each species
-(\autoref{fig:cac_vs_logCS}) are codependent upon their phylogenetic
+(\autoref{fig:cac_logCS}b) are codependent upon their phylogenetic
 relationships. The posterior distribution of deviations from mean for
 both parameters estimated in this manner (\autoref{fig:phylo_W})
 indicates that intercepts deviate from the mean in at least seven
@@ -1693,11 +1688,10 @@ shallower than the mean (\autoref{fig:phylo_W}b).
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/phylo_W-1.pdf}
-\caption{Distribution of static allometric intercepts (a) and slopes (b)
-for the regression between the Common Allometric Component and log
-Centroid Size. Red circles indicate positive deviations, while blue
-circles indicate negative ones. The outer circles indicate whether a
-given deviation is distinct from zero, using 95\% credible intervals.
+\caption{\textbf{Deviations from ancestral allometry.} (a) Intercepts;
+(b) Slopes. Red circles indicate positive deviations, while blue circles
+indicate negative ones. The outer circles indicate whether a given
+deviation is distinct from zero, using 95\% credible intervals.
 Particular clades are indicated as abbreviations (Platyrrhini:
 \textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
 \textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
@@ -1737,10 +1731,11 @@ inclusive partition in which they are contained
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/MI_vs_slopeW_main-1.pdf}
-\caption{Modularity Indexes (MI) \emph{vs.} allometric slope deviations
-($b_s$). For each global trait set (Face and Neurocranium), the shaded
-region around regression lines indicate 95\% credible intervals around
-estimated regression parameters. \label{fig:MI_vs_slopeW_main}}
+\caption{\textbf{Allometry and modularity.} Modularity Hypothesis Index
+(MHI) regressed over allometric slope deviations ($b_s$). For each
+global trait set (Face and Neurocranium), the shaded region around
+regression lines indicate 95\% credible intervals around estimated
+regression parameters. \label{fig:MI_vs_slopeW_main}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -1933,7 +1928,7 @@ whose difference in DICs is lower than two are considered equivalent.
 
 \subsection{Software}\label{software-1}
 
-All analysis were performed under R 3.2.1 (R Core Team, 2015). Our code
+All analysis were performed under R 3.2.2 (R Core Team, 2015). Our code
 for the estimation of local shape variables can be found at
 \url{http://github.com/wgar84}. We performed MCMC sampling for all
 models using the MCMCglmm package in R (Hadfield, 2010). In order to
@@ -2217,7 +2212,7 @@ comparing SRD scores estimated within each region for all pPCs.
 
 \subsubsection{Software}\label{software-2}
 
-We performed all analyses under R 3.2.1 (R Core Team, 2015). We fitted
+We performed all analyses under R 3.2.2 (R Core Team, 2015). We fitted
 Bayesian linear models for estimating posterior $\mathbf{P}$-matrix
 samples using the \emph{MCMCglmm} package (Hadfield, 2010). Source code
 for the eigentensor decomposition can be found at

@@ -180,7 +180,7 @@ Rotate2MidlineMatrix <- function (X, midline)
   }
 
 ggshape <- function (shape, wireframe, colors, view = c(1, 2, 3),
-                     rotation = c(1, 1, 1), depth = 0.015, thickness = 3,
+                     rotation = c(1, 1, 1), culo = 0.015, thickness = 3,
                      palette = rev (brewer.pal (10, 'Spectral')))
   {
     Q <- shape
@@ -204,19 +204,42 @@ ggshape <- function (shape, wireframe, colors, view = c(1, 2, 3),
     Q.names <- array (rownames (Q) [wireframe], dim = dim (wireframe))
     Q.names <- apply (Q.names, 1, paste, collapse = '.')
     dimnames (Q.tetra) <- list('ild' = Q.names,
-                               'pos' = c(1, 2), 'dim' = c('X', 'Y', 'Z'))
-    Q.singular <- which (!duplicated (dimnames (Q.tetra) [[1]]))
-    Q.colors <- rep (colors, times = 2) [Q.singular]
-    Q.tetra <- Q.tetra [Q.singular, , ]
-    depth <- 0.015
-    Q.line.df <-
-      ddply (dcast (melt (Q.tetra), ild ~ dim + pos), .(ild), plyr::summarise,
-             'X' = c(X_1 - Z_1 * depth, X_1 + Z_1 * depth,
-               X_2 + Z_2 * depth, X_2 - Z_2 * depth),
-             'Y' = c(Y_1, Y_1, Y_2, Y_2))
+                               'pos' = c(1, 2),
+                               'dim' = c('X', 'Y', 'Z'))
 
-    Q.line.df $ color <- rep (Q.colors, each = 4)
+    Q.singular <- which (!duplicated (dimnames (Q.tetra) [[1]]))
+
+    Q.colors <- rep (colors, times = 2) [Q.singular]
+
+    Q.tetra <- Q.tetra [Q.singular, , ]
+
+    Q.tetra.df <- dcast (melt (Q.tetra), ild ~ dim + pos)
+
+    Q.tetra.df $ culo <- rep (culo, nrow (Q.tetra))
+
+    #Q.tetra.df $ Z_1 <-
+    #  (Q.tetra.df $ Z_1 - min (Q.tetra.df $ Z_1)) /
+    #    (max (Q.tetra.df $ Z_1) - min (Q.tetra.df $ Z_1))
+
+    #Q.tetra.df $ Z_2 <-
+    #  (Q.tetra.df $ Z_2 - min (Q.tetra.df $ Z_2)) /
+    #    (max (Q.tetra.df $ Z_2) - min (Q.tetra.df $ Z_2))
+   
+    Q.line.df <-
+      plyr::ddply (Q.tetra.df, .(ild), plyr::summarise,
+                   'X' = c(
+                     X_1 - Z_1 * culo,
+                     X_1 + Z_1 * culo,
+                     X_2 + Z_2 * culo,
+                     X_2 - Z_2 * culo),
+                   'Y' = c(
+                     Y_1,
+                     Y_1,
+                     Y_2,
+                     Y_2))
     
+    Q.line.df $ color <- rep (Q.colors, each = 4)
+  
     shape.plot <-
       ggplot (data.frame(Q)) +
         geom_point (aes (x = X, y = Y), alpha = 0) +

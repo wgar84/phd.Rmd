@@ -30,12 +30,15 @@ require (slidifyLibraries)
 require (StatMatch)
 require (scales)
 require (cowplot)
+require (ggtree)
+require (phylobase)
 
 registerDoMC (cores = 3)
 
 ## require (devtools)
 ## install_github('muschellij2/slidify')
 ## install_github('ramnathv/slidifyLibraries')
+## install_github('gjuggler/ggphylo')
 ## install_github('uyedaj/bayou')
 ## install_github ('mkoohafkan/kfigr')
 
@@ -56,9 +59,11 @@ for (i in 1:length (.source.files))
 
 attach ('Data/modcomp.Results.RData')
 attach ('Data/allo.results.RData')
+## search()
 ## detach (pos = 2)
 attach ('Data/ppca.RData')
 attach ('Data/post.ppca.RData')
+attach ('Data/tree.plots.RData')
 
 captions <- list()
 
@@ -115,7 +120,11 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
-
-post.ppca $ rs.riemdist
-
 ####
+source("https://bioconductor.org/biocLite.R")
+biocLite("ggtree")
+#### ttfw-devel, libtiff-devel
+
+
+
+

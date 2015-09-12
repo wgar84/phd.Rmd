@@ -4,18 +4,14 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 
 ```{r captions_allo, include = FALSE}
 
-captions $ fig.phylo_W <- paste0("Distribution of static allometric intercepts (a) and slopes (b) for the regression between the Common Allometric Component and log Centroid Size. Red circles indicate positive deviations, while blue circles indicate negative ones. The outer circles indicate whether a given deviation is distinct from zero, using 95\\% credible intervals. Particular clades are indicated as abbreviations (", taxa.legend(), "). \\label{fig:phylo_W}")
+captions $ fig.cac_logCS <- "**Allometric shape variation.** (a) Shape variation associated with the Common Allometric Component (CAC). (b) Random regression of projections on the CAC over log Centroid Size. A regression line is adjusted for each species, and dots represent mean values. \\label{fig:cac_logCS}"
 
-captions $ fig.MI_vs_slopeW_main <- "Modularity Indexes (MI) *vs.* allometric slope deviations ($b_s$). For each global trait set (Face and Neurocranium), the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_main}"
+captions $ fig.phylo_W <- paste0("**Deviations from ancestral allometry.** (a) Intercepts; (b) Slopes. Red circles indicate positive deviations, while blue circles indicate negative ones. The outer circles indicate whether a given deviation is distinct from zero, using 95\\% credible intervals. Particular clades are indicated as abbreviations (", taxa.legend(), "). \\label{fig:phylo_W}")
 
-captions $ fig.cac_shape <- "Shape variation associated with the Common Allometric Component. \\label{fig:cac_shape}"
+captions $ fig.MI_vs_slopeW_main <- "**Allometry and modularity.** Modularity Hypothesis Index (MHI) regressed over allometric slope deviations ($b_s$). For each global trait set (Face and Neurocranium), the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_main}"
 
 if (thesis) {
-
-  captions $ fig.cac_vs_logCS <- "The relationship between log Centroid Size and the Common Allometric Component for all anthropoid primates. \\label{fig:cac_vs_logCS}"
-  
-  captions $ fig.lambda_MI <- "Distribution of Pagel's lambda for the mixed regressions between Modularity Indexes for each trait set and allometric slopes ($b_s$). \\label{fig:lambda_MI}"
-
+ 
   captions $ fig.MI_vs_slopeW_si <- "Modularity Indexes (MI) *vs.* allometric slope deviations ($b_s$). For each local trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_si}"
 
 }
@@ -28,7 +24,7 @@ Anthropoid primates display an approximately thousand-fold variation of body siz
 
 Allometry may act as a constraint, diverting evolutionary trajectories in natural populations [@gould_spandrels_1979; @lande_quantitative_1979; @schluter_adaptive_1996]. For example, selection for body size driven by shifts in feeding habits has dominated diversification in New World monkeys, and differences in skull morphology among species in this group appear to be merely an indirect consequence of the allometric relationships between skull traits and body size [@marroig_size_2005; @marroig_size_2010; @marroig_modularity_2012]. With respect to Old World Monkeys, skull morphological evolution may also be adaptive and related to allometric associations, at least within Cercopithecines [@cardini_geometric_2007; @cardini_variation_2008], while @ackermann_detecting_2004 have shown that selection for the reduction of facial elements has operated during the early diversification of the genus *Homo*. 
 
-With respect to morphological traits, allometric slopes may be constrained throughout development due to stabilizing selection [@lande_genetic_1980; @cheverud_quantitative_1984; @cheverud_developmental_1996; @hansen_epigenetics:_2011; @zelditch_epigenetic_2011], while intercepts may be more labile on an evolutionary scale [@gould_allometry_1974; @egset_artificial_2012]. However, these parameters are dependant upon the mean individual growth rate and the covariance between these growth rates and body size achieved at adulthood; thus, selection on body size may also change allometric slopes [@pelabon_relationship_2013; @voje_allometric_2013]. Experimental evidence on the evolution of allometric relationships has accumulated, indicating that growth parameters harbor genetic variation and thus may be available to selection, an effect that will then cascade to populational allometric relationships [e.g. @frankino_natural_2005; @tobler_developmental_2010; @egset_artificial_2012], although methodological issues may hamper some of this evidence [@houle_measurement_2011; @voje_allometric_2013]. Therefore, whether and to which extent allometric slopes can evolve remain as open questions.
+Regarding morphological traits, allometric slopes may be constrained throughout development due to stabilizing selection [@lande_genetic_1980; @cheverud_quantitative_1984; @cheverud_developmental_1996; @hansen_epigenetics:_2011; @zelditch_epigenetic_2011], while intercepts may be more labile on an evolutionary scale [@gould_allometry_1974; @egset_artificial_2012]. However, these parameters are dependant upon the mean individual growth rate and the covariance between these growth rates and body size achieved at adulthood; thus, selection on body size may also change allometric slopes [@pelabon_relationship_2013; @voje_allometric_2013]. Experimental evidence on the evolution of allometric relationships has accumulated, indicating that growth parameters harbor genetic variation and thus may be available to selection, an effect that will then cascade to populational allometric relationships [e.g. @frankino_natural_2005; @tobler_developmental_2010; @egset_artificial_2012], although methodological issues may hamper some of this evidence [@houle_measurement_2011; @voje_allometric_2013]. Therefore, whether and to which extent allometric slopes can evolve remain as open questions.
 
 In the present work, we investigate the relationship between skull size and shape in a phylogenetic framework using anthropoid primates as model organisms. We focus on testing whether and to which proportion intercepts and slopes have changed during the diversification of this group. Moreover, integration patterns in skull form are quite stable in both New World [@marroig_comparison_2001] and Old World Monkeys, with some exceptions [@oliveira_covariance_2009]. Several authors have argued that allometric constraints contribute to integration patterns [e.g. @porto_evolution_2009; @armbruster_integrated_2014], but this association has never been formalized. Thus, we test the hypothesis that variation in allometric parameters, if present, will contribute to variation in the strength of association between skull traits. Considering both the spatial and temporal dynamics of mammalian skull development [@zelditch_ontogenetic_1989; @hallgrimsson_deciphering_2009; @cardini_larger_2013], we expect that such changes will affect Facial and Neurocranial traits in opposing ways, due to the distinction between early- and late-developmental factors in skull development.
 
@@ -36,91 +32,20 @@ Using a Bayesian phylogenetic random regression model of allometric shape agains
 
 # Results
 
-We used the Common Allometric Component [CAC; @mitteroecker_comparison_2004], which represents a pooled estimate of skull shape allometry [represented as local shape variables; @marquez_measurement_2012] as a proxy for the ancestral allometric relationships for anthropoid primates. This axis is associated with positive loadings for Facial traits and negative loadings for Neurocranial traits, thus representing a contrast between these regional sets (\autoref{fig:cac_shape}). 
+We used the Common Allometric Component [CAC; @mitteroecker_comparison_2004], which represents a pooled estimate of skull shape allometry [represented as local shape variables; @marquez_measurement_2012] as a proxy for the ancestral allometric relationships for anthropoid primates. This axis is associated with positive loadings for Facial traits and negative loadings for Neurocranial traits, thus representing a contrast between these regional sets (\autoref{fig:cac_logCS}a). 
 
-```{r cac_shape, echo = FALSE, fig.cap = captions $ fig.cac_shape, fig.width = 9.6, fig.height = 10.8}
-for (i in 1:5)
-  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
-                       Aux $ tessel.38, view = c(1, 2),
-                       center = c(- 1, allo.Data $ cac.value [i], 0),
-                       xlim = c(-2, 2), ylim = c(-2.2, 2.2), bty = 'n', scale = 2.5,
-                       add = ifelse (i == 1, F, T),
-                       ylab = 'Common Allometric Component',
-                       graph.par = list ('mar' = c(2, 4, 0, 0)),
-                       Colors = Aux $ def.hyp [-1, 'Face'] + 1,
-                       palette = colorRampPalette(brewer.pal(3, 'RdBu')))
-
-for (i in 1:5)
-  PlotShapeDeformation(allo.Data $ CAC.shapes [, , i],
-                       Aux $ tessel.38, view = c(1, 3),
-                       center = c(1, 0, allo.Data $ cac.value [i]),
-                       scale = 2.5, add = TRUE, 
-                       Colors = c(Aux $ def.hyp [-1, 'Face'],
-                         Aux $ def.hyp [-1, 'Face']) + 1,
-                       palette = colorRampPalette(brewer.pal (3, 'RdBu')))
-
-axis(side = 2, labels = allo.Data $ cac.value, at = allo.Data $ cac.value)
-
-legend('bottomright', legend = c('Neuro', 'Face'), lty = 1, lwd = 3, pch = NULL,
-       col = colorRampPalette(brewer.pal (3, 'RdBu'))(2), bty = 'n')
+```{r cac_logCS, echo = FALSE, fig.cap = captions $ fig.cac_logCS, fig.width = 12, fig.height = 9.8}
+allo.Plots $ CAC.logCS
 ```
 
-```{r cac_vs_logCS, echo = FALSE, fig.cap = captions $ fig.cac_vs_logCS, fig.width = 7.5, fig.height = 8}
-allo.Plots $ CAC.vs.logCS
+To investigate whether species deviate from such ancestral relationships, we carried out a Bayesian mixed model, considering that slopes and intercepts for the regression between individuals projected over the CAC and log Centroid Size (logCS) within each species (\autoref{fig:cac_logCS}b) are codependent upon their phylogenetic relationships. The posterior distribution of deviations from mean for both parameters estimated in this manner (\autoref{fig:phylo_W}) indicates that intercepts deviate from the mean in at least seven lineages: increases occur in *Pithecia* and *Callicebus* within Pitheciids, in the clade composed of Callithrichinae and Aotinae, and in *Alouatta* within Atelids, while lower intercepts are found in the clade composed of *Homo* and *Pan* within Hominidae, in *Hylobates* within Hylobatids, and also in *Ateles* within Atelids (\autoref{fig:phylo_W}a). Allometric slopes for terminals, on the other hand, deviate from the mean in only three species: *Homo sapiens* and both representatives of *Gorilla*, all with slopes shallower than the mean (\autoref{fig:phylo_W}b).
+
+```{r phylo_new, echo = FALSE, fig.height = 8.6, fig.width = 15, fig.cap = captions $ fig.phylo_W, message = FALSE}
+Tree.Plots $ interslope
+
 ```
 
-To investigate whether species deviate from such ancestral relationships, we carried out a Bayesian mixed model, considering that slopes and intercepts for the regression between individuals projected over the CAC and log Centroid Size (logCS) within each species (\autoref{fig:cac_vs_logCS}) are codependent upon their phylogenetic relationships. The posterior distribution of deviations from mean for both parameters estimated in this manner (\autoref{fig:phylo_W}) indicates that intercepts deviate from the mean in at least seven lineages: increases occur in *Pithecia* and *Callicebus* within Pitheciids, in the clade composed of Callithrichinae and Aotinae, and in *Alouatta* within Atelids, while lower intercepts are found in the clade composed of *Homo* and *Pan* within Hominidae, in *Hylobates* within Hylobatids, and also in *Ateles* within Atelids (\autoref{fig:phylo_W}a). Allometric slopes for terminals, on the other hand, deviate from the mean in only three species: *Homo sapiens* and both representatives of *Gorilla*, all with slopes shallower than the mean (\autoref{fig:phylo_W}b).
-
-```{r phylo_W, echo = FALSE, fig.height = 7, fig.width = 11, fig.cap = captions $ fig.phylo_W}
-
-par (mfrow = c(1, 2), mar = c(1.5, 1.5, 1.5, 1.5))
-
-plot.phylo(Tree [[1]], type = 'fan',
-           use.edge.length = TRUE, show.tip.label = FALSE,
-           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.48))
-
-tiplabels(tip = allo.Data $ phylo.inter.df $ pMCMC < 0.05, 
-          pch = 21, col = rgb (0, 0, 0, 0.5), bg = NULL, 
-          cex = 1.7 * abs (allo.Data $ phylo.inter.df $ post.mean [
-            allo.Data $ phylo.inter.df $ pMCMC < 0.05]))
-
-tiplabels(tip = 1:217, pch = 20,
-          col = ifelse (allo.Data $ phylo.inter.df $ post.mean < 0,
-            rgb (0,0,1,0.5), rgb (1,0,0,0.5)),
-          cex = abs (allo.Data $ phylo.inter.df $ post.mean) * 1.5)
-
-legend('topleft', bty = 'n', cex = 3, legend = 'a')
-
-Plot.taxa()
-
-plot.phylo(Tree [[1]], type = 'fan',
-           use.edge.length = TRUE, show.tip.label = FALSE,
-           y.lim = c(- 0.5, 0.5), x.lim = c(- 0.48, 0.5))
-
-tiplabels(tip = allo.Data $ phylo.slope.df $ pMCMC < 0.05, 
-          pch = 21, col = rgb (0, 0, 0, 0.5), bg = NULL, 
-          cex = 1.7 * abs (allo.Data $ phylo.slope.df $ post.mean [
-            allo.Data $ phylo.slope.df $ pMCMC < 0.05]))
-
-tiplabels(tip = 1:217, pch = 20,
-          col = ifelse (allo.Data $ phylo.slope.df $ post.mean < 0,
-            rgb (0,0,1,0.5), rgb (1,0,0,0.5)),
-          cex = abs (allo.Data $ phylo.slope.df $ post.mean) * 1.5)
-
-#legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
-#       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
-#       pch = 20, col = rgb (0,0,0,0.5), title = 'Slope Deviation')
-
-legend('topleft', bty = 'n', cex = 3, legend = 'b')
-
-legend('bottomright', bty = 'n', pt.cex = 1.5 * c(0.5, 1, 1.5, 2), yjust = 0.5,
-       legend = c(0.5, 1, 1.5, 2), cex = 0.6, y.intersp = 2, x.intersp = 2, 
-       pch = 20, col = rgb (0,0,0,0.5), title = 'Deviation')
-
-Plot.taxa(FALSE)
-```
-
-The association between allometric parameters and modularity was measured using regression models of Modularity Indexes for two regions (Face and Neurocranium) and three subregions within each region (Oral, Nasal and Zygomatic in the Face; Orbit, Vault and Basicranium in the Neurocranium) on the estimated allometric parameters. Model selection using the Deviance Information Criterion [DIC; @gelman_bayesian_2004] show that models considering only the intercept always have the worst fit. In most cases, models including only the slope are better than or equal ($\Delta DIC < 2$) to models with both parameters (intercept and slope), suggesting a negligible effect of the intercept. For the Neurocranium region and the Vault subregion, the model including intercept and slope shows a better fit than the slope-only model; in both cases, however, the effects of the intercept are not significant when one takes into account the posterior distribution of the regression coefficients (results not shown). We thus consider that the models including only allometric slopes provide the best representation of the association between allometric parameters and modularity indexes (\autoref{tab:dic_allo_im}). It should be noted that none of the models tested for the Orbit and Basicranium subregions show any association between allometric parameters and Modularity Indexes, therefore these subregions were not included in the model selection. Allometric slopes show opposite effects on the Modularity Index for Face and Neurocranium (\autoref{fig:MI_vs_slopeW_main}), and,  with the exception of the Orbit and Basicranium, subregions follow the same pattern as the more inclusive partition in which they are contained (\autoref{fig:MI_vs_slopeW_main}).
+The association between allometric parameters and modularity was measured using regression models of Modularity Indexes for two regions (Face and Neurocranium) and three subregions within each region (Oral, Nasal and Zygomatic in the Face; Orbit, Vault and Basicranium in the Neurocranium) on the estimated allometric parameters. Model selection using the Deviance Information Criterion [DIC; @gelman_bayesian_2004] show that models considering only the intercept always have the worst fit. In most cases, models including only the slope are better than or equal ($\Delta DIC < 2$) to models with both parameters (intercept and slope), suggesting a negligible effect of the intercept. For the Neurocranium region and the Vault subregion, the model including intercept and slope shows a better fit than the slope-only model; in both cases, however, the effects of the intercept are not significant when one takes into account the posterior distribution of the regression coefficients (results not shown). We thus consider that the models including only allometric slopes provide the best representation of the association between allometric parameters and modularity indexes (\autoref{tab:dic_allo_im}). It should be noted that none of the models tested for the Orbit and Basicranium subregions show any association between allometric parameters and Modularity Indexes, therefore these subregions were not included in the model selection. Allometric slopes show opposite effects on the Modularity Index for Face and Neurocranium (\autoref{fig:MI_vs_slopeW_main}), and,  with the exception of the Orbit and Basicranium, subregions follow the same pattern as the more inclusive partition in which they are contained (\autoref{fig:MI_vs_slopeW_si}).
 
 `r if (thesis) "\\input{Tables/dic_allo_im.tex}"`
 
