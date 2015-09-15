@@ -13,10 +13,10 @@ require (phytools)
 require (geiger)
 require (mvtnorm)
 require (MCMCglmm)
-require (grid)
-require (gridExtra)
-require (gridBase)
-require (surface)
+# require (grid)
+# require (gridExtra)
+# require (gridBase)
+# require (surface)
 require (rmarkdown)
 require (knitr)
 require (pander)
@@ -38,9 +38,7 @@ registerDoMC (cores = 3)
 ## require (devtools)
 ## install_github('muschellij2/slidify')
 ## install_github('ramnathv/slidifyLibraries')
-## install_github('gjuggler/ggphylo')
 ## install_github('uyedaj/bayou')
-## install_github ('mkoohafkan/kfigr')
 
 attach ('../Databases/Reference.RData')
 attach ('../Databases/ED.RData')
@@ -120,10 +118,10 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
-####
-source("https://bioconductor.org/biocLite.R")
-biocLite("ggtree")
-#### ttfw-devel, libtiff-devel
+#### GGTREE
+### source("https://bioconductor.org/biocLite.R")
+### biocLite("ggtree")
+#### fftw-devel, libtiff-devel
 
 
 

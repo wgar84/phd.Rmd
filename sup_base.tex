@@ -43,7 +43,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
-            pdftitle={Supplemental Material Base},
+            pdftitle={A Phylogenetic Analysis of Shape Covariance Structure in Anthropoid Primates - Supplemental Material},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -70,7 +70,8 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Supplemental Material Base}
+  \title{A Phylogenetic Analysis of Shape Covariance Structure in Anthropoid
+Primates - Supplemental Material}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{}
@@ -89,7 +90,7 @@
 \usepackage{booktabs}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx,wrapfig} % para incluir figuras
-\usepackage{amsfonts, amssymb,amsthm, amsmath, amscd} % pacote AMS
+\usepackage{amsfonts, amssymb, amsthm, amsmath, amscd} % pacote AMS
 \usepackage{color, bbm, multicol}
 \usepackage{verbatim, listings, booktabs}
 \usepackage{fancyhdr} % FANCYHEADER
@@ -125,7 +126,7 @@
 \newcommand{\hr}{\par\noindent\hrulefill\par}
 
 \usepackage {xr}
-\externaldocument{sup_base}
+\externaldocument{sup_allo}
 
 \selectlanguage{english}
 
@@ -150,21 +151,30 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/landmarks.png}
-\caption{Configuração de Marcos Anatômicos. As linhas conectando os
-marcos indicam os caracteres considerados, tanto sob a forma de
-distâncias euclidianas quanto variáveis locais de forma. Linhas
-pontilhadas e tracejadas indicam a associação dos caracteres às
-hipóteses \emph{a priori} de integração (Face e Neurocrânio,
-respectivamente). \label{fig:landmarks}}
+\caption{Landmark configuration. Lines connecting landmarks indicate
+traits considered, either as interlandmark distances or local shape
+variables. Dotted and dashed lines indicate the association of each
+trait to \emph{a priori} regional hypotheses of association (Face and
+Neurocranium, respectively). \label{fig:landmarks}}
 \end{figure}
 
 \input{Tables/dist_en}
 
+\begin{verbatim}
+## Warning: Removed 108 rows containing missing values (geom_text).
+\end{verbatim}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/phylo_model-1.pdf}
-\caption{Tamanhos amostrais e efeitos fixos controlados para as 109 OTUs
-de primatas antropóides. \label{fig:phylo_model}}
+\caption{Sample sizes and controlled fixed effects for 109 OTUs of
+anthropoid primates, depicted in a phylogenetic hypothesis from Springer
+et al. (2012). \label{fig:phylo_model}}
 \end{figure}
+
+Springer, M.S., Meredith, R.W., Gatesy, J., Emerling, C.A., Park, J. \&
+Rabosky, D.L.\emph{et al.} 2012. Macroevolutionary Dynamics and
+Historical Biogeography of Primate Diversification Inferred from a
+Species Supermatrix. \emph{PLoS ONE} \textbf{7}: e49521.
 
 \end{document}
