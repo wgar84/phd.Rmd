@@ -17,6 +17,7 @@ tree.df <-
 taxo.list <- llply (dlply(allo.Data $ onedef.mean, .(taxo.group)),
                     function (L) L $ animal)
 
+<<<<<<< HEAD
 node.vec <- unlist (llply (taxo.list, getMRCA, phy = Tree [[1]]))
 
 allo.tree <- ggtree(tree.df, aes (color = post.dev), size = 1.2)
@@ -26,6 +27,18 @@ for (i in 1:length (node.vec))
   annotation_clade(allo.tree, node = node.vec [i], angle = 0, color = '#777777FF',
                    label = names (node.vec) [i], offset = 0.008, hjust = -0.01)
 
+=======
+
+node.vec <- unlist (llply (taxo.list, getMRCA, phy = Tree [[1]]))
+
+allo.tree <- ggtree(tree.df, aes (color = post.dev), size = 1.2)
+
+for (i in 1:length (node.vec))
+  allo.tree <-
+  annotation_clade(allo.tree, node = node.vec [i], angle = 0, color = '#777777FF',
+                   label = names (node.vec) [i], offset = 0.008, hjust = -0.01)
+
+>>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
 intercept.df <-
   data.frame (
     'taxa' = c(Tree [[1]] $ tip.label, 110:217),
@@ -48,9 +61,13 @@ Tree.Plots $ inter.tree <-
   scale_shape_identity() +
   scale_color_gradientn('Intercept\nDeviation', colours = gradient(10)) +
   scale_x_continuous(limits = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
+<<<<<<< HEAD
   theme(legend.position = c(0.01, 0.75)) +
   annotate('segment', x = 0, y = 7, xend = 0.04, yend = 7) +
   annotate('text', x = 0.02, y = 9, label = '4 My', size = 3)
+=======
+  theme(legend.position = c(0.01, 0.75))
+>>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
 
 Tree.Plots $ slope.tree <-
   allo.tree %<+% slope.df +
@@ -58,9 +75,13 @@ Tree.Plots $ slope.tree <-
   scale_shape_identity() +
   scale_color_gradientn('Slope\nDeviation', colours = gradient(10)) +
   scale_x_continuous(limits = c(0, 0.5), breaks = c(0, 0.1, 0.2, 0.3, 0.4)) +
+<<<<<<< HEAD
   theme(legend.position = c(0.01, 0.75)) +
   annotate('segment', x = 0, y = 7, xend = 0.04, yend = 7) +
   annotate('text', x = 0.02, y = 9, label = '4 My', size = 3)
+=======
+  theme(legend.position = c(0.01, 0.75))
+>>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
 
 Tree.Plots $ interslope <-
   plot_grid (Tree.Plots $ inter.tree, Tree.Plots $ slope.tree, nrow = 2,
@@ -70,6 +91,16 @@ Tree.Plots $ interslope <-
 
 models.df <-
   data.frame (
+<<<<<<< HEAD
+=======
+    'taxa' = c(Tree [[1]] $ tip.label, node.vec),
+    'tip' =  c(Tree [[1]] $ tip.label, names(node.vec)),
+    'sample.size' = c(Aux $ sample.size, rep (NA, times = length(node.vec))),
+    'model' = c(Aux $ data.man.sp [, 2], rep (NA, times = length(node.vec))))
+
+models.df <-
+  data.frame (
+>>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
     'taxa' = Tree [[1]] $ tip.label,
     'tip' =  Tree [[1]] $ tip.label,
     'sample.size' = Aux $ sample.size, 
@@ -94,11 +125,14 @@ for (i in 1:length (node.vec))
   annotation_clade(model.tree, node = node.vec [i], angle = 0, color = '#777777FF',
                    label = names (node.vec) [i], offset = 0.105, hjust = -0.01)
 
+<<<<<<< HEAD
 model.tree <- model.tree +
   annotate('segment', x = 0, y = 7, xend = 0.04, yend = 7) +
   annotate('text', x = 0.02, y = 8, label = '4 My', size = 3)
 
 
+=======
+>>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
 Tree.Plots $ model <-
   model.tree %<+% models.df +
   geom_text(aes(label = tip, color = model), size = 3, hjust = -0.01) +
@@ -119,6 +153,7 @@ decdiv.df <-
 
 colnames(ppca.df) <- c('G1', 'G2', 'L1', 'L2')
 
+<<<<<<< HEAD
 
 div.tree <- ggtree(tree.df, color = 'black', size = 1.2, alpha = 0.2)
 div.tree <-
@@ -139,12 +174,34 @@ div.tree <-
                         range = c(1, 15), breaks = c(2, 5, 10, 15),
                         labels = paste0(c(2, 5, 10, 15), '%')) +
   scale_x_continuous(limits = c(0, 0.7))
+=======
+div.tree <- ggtree(tree.df, color = 'black', size = 1.2, alpha = 0.2)
+
+div.tree <-
+  div.tree %<+% decdiv.df +
+  geom_point(aes(size = div), alpha = 0.8, shape = 21, fill = 'grey')
+  
+### div.tree <- div.tree %<+% ppca.df
+
+div.tree <-
+  gheatmap(div.tree, ppca.df, colnames_position = 'top', offset = 0, width = 0.3) +
+  scale_fill_gradientn(name = 'pPC\nValue',
+                       colours = gradient(10)) +
+  scale_size_continuous(name = 'Matrix\nDiversity',
+                        range = c(1, 15), breaks = c(2, 5, 10, 15),
+                        labels = paste0(c(2, 5, 10, 15), '%')) +
+  guides(fill = guide_colorbar(),
+         size = guide_legend()) +
+  scale_x_continuous(limits = c(0, 0.7)) +
+  theme(legend.position = 'right')
+>>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
 
 for (i in 1:length (node.vec))
   div.tree <- 
   annotation_clade(div.tree, node = node.vec [i], angle = 0, color = '#777777FF',
                    label = names (node.vec) [i], offset = 0.16, hjust = -0.01)
 
+<<<<<<< HEAD
 
 
 Tree.Plots $ ppca <-
@@ -156,5 +213,9 @@ Tree.Plots $ ppca <-
   annotate('text', x = 0, y = 115, label = 'a', size = 12) +
   annotate('text', x = 0.455, y = 115, label = 'b', size = 12) +
   theme(legend.position = 'right', plot.margin = unit(c(0, 0, 0, 0), 'cm'))
+=======
+Tree.Plots $ ppca <- div.tree
+>>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
 
 save(Tree.Plots, file = 'Data/tree.plots.RData')
+
