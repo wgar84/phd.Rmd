@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{27 August 2015}
+  \date{16 September 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -92,7 +92,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
 \usepackage{booktabs}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx,wrapfig} % para incluir figuras
-\usepackage{amsfonts, amssymb, amsthm, amsmath, amscd} % pacote AMS
+\usepackage{amsfonts, amssymb,amsthm, amsmath, amscd} % pacote AMS
 \usepackage{color, bbm, multicol}
 \usepackage{verbatim, listings, booktabs}
 \usepackage{fancyhdr} % FANCYHEADER
@@ -128,7 +128,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
 \newcommand{\hr}{\par\noindent\hrulefill\par}
 
 \usepackage {xr}
-\externaldocument{sup_allo}
+\externaldocument{sup_ppca}
 
 \selectlanguage{english}
 
@@ -245,7 +245,13 @@ d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_
 
 where $\lambda_k(\cdot)$ refers to the $k$-th eigenvalue obtained from
 the spectral decomposition of a given matrix, in this case the product
-$\mathbf{C}_i\mathbf{C}_j^{-1}$.
+$\mathbf{C}_i\mathbf{C}_j^{-1}$. This distance among pairs of
+$\mathbf{P}$-matrices is negatively correlated with Random Skewers
+comparisons (\autoref{fig:rs_riem}), a measurement of matrix similarity
+explored elsewhere (Cheverud \& Marroig, 2007); such correlation
+indicates that our exploration of Riemmanian distances among
+$\mathbf{P}$-matrices could be extended to other types of measurement of
+similarity or dissimilarity among these objects without hindrances.
 
 Using these distances among $\mathbf{P}$-matrices, we estimate matrix
 diversity at each node of the phylogenetic tree of Anthropoidea using a
@@ -290,22 +296,22 @@ $w_i$ can be normalized as $v_i = w_i / \sum_i w_i$ to represent the
 percentage of diversity with respect to the total diversity on the
 phylogenetic tree. We test three different hypothesis regarding the
 distribution of $v_i$ values through Anthropoid diversification: (1)
-that matrix diversity is concentrated in a single node; (2) that
-$\mathbf{P}$-matrix diversity is concentrated in a reduced number of
-nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards either
-the root or tips of the phylogeny, in a two-tailed test. We test each
-hypothesis against the null hypothesis that the distribution of matrix
-diversity is randomly arranged over the phylogeny; such null hypothesis
-is represented by randomizing the association between terminal branches
-and covariance matrices, constructing $9999$ distributions of $v_i$
-values that represent this scenario. Each test is carried out using a
-different parameter derived from the distribution of $v_i$ values
-(described in detail by Pavoine \emph{et al.}, 2010), comparing the
-actual value obtained with a null distribution constructed using
-permutations. The third hypothesis can be tested either by considering
-only the topology of the tree and by also considering branch lengths;
-both tests are similar to Blomberg's (2003) $K$ test, as they search for
-a phylogenetic signal in covariance structure diversity.
+that $\mathbf{P}$-matrix diversity is concentrated in a single node; (2)
+that $\mathbf{P}$-matrix diversity is concentrated in a reduced number
+of nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards
+either the root or tips of the phylogeny, in a two-tailed test. We test
+each hypothesis against the null hypothesis that the distribution of
+matrix diversity is randomly arranged over the phylogeny; such null
+hypothesis is represented by randomizing the association between
+terminal branches and covariance matrices, constructing $9999$
+distributions of $v_i$ values that represent this scenario. Each test is
+carried out using a different parameter derived from the distribution of
+$v_i$ values (described in detail by Pavoine \emph{et al.}, 2010),
+comparing the actual value obtained with a null distribution constructed
+using permutations. The third hypothesis can be tested either by
+considering only the topology of the tree and by also considering branch
+lengths; both tests are similar to Blomberg's (2003) $K$ test, as they
+search for a phylogenetic signal in covariance structure diversity.
 
 \subsection{Characterizing Covariance Matrix
 Variation}\label{characterizing-covariance-matrix-variation}
@@ -427,7 +433,7 @@ comparing SRD scores estimated within each region for all pPCs.
 
 \subsubsection{Software}\label{software}
 
-We performed all analyses under R 3.2.1 (R Core Team, 2015). We fitted
+We performed all analyses under R 3.2.2 (R Core Team, 2015). We fitted
 Bayesian linear models for estimating posterior $\mathbf{P}$-matrix
 samples using the \emph{MCMCglmm} package (Hadfield, 2010). Source code
 for the eigentensor decomposition can be found at
@@ -451,17 +457,15 @@ filogenia, associada à divergência entre Platyrrhini e Catarrhini
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/phylo_decdiv-1.pdf}
-\caption{Distribution of covariance matrix diversity obtained from
-decomposing Riemannian distances among pairs of mean
-$\mathbf{P}$-matrices over the Anthropoid phylogeny. The size of each
-circle depicts the percentage of diversity associated with each node,
-according to the legend. Particular clades are indicated as
-abbreviations (Platyrrhini: \textbf{Pit}hecidae, \textbf{Ate}lidae,
-\textbf{Ceb}inae, \textbf{Cal}lithrichinae, and \textbf{Aot}inae;
-Catarrhini: \textbf{Hom}inidae, \textbf{Hyl}obatidae,
-\textbf{Pap}ionini, \textbf{Cer}copithecini, and \textbf{Col}obinae).
-\label{fig:phylo_decdiv}}
+\includegraphics{Figures/phylo_full-1.pdf}
+\caption{Phylogenetic decomposition of $\mathbf{P}$-matrix variation.
+(a) Decomposition of matrix diversity over the phylogenetic hypothesis
+for Anthropoidea; the size of each circle indicates the percentage of
+diversity on each node, according to the legend. (b) Mean
+$\mathbf{P}$-matrices of each species projected over the first and last
+two phylogenetic Principal Components (G1-2 and L1-2, respectively);
+cell colors represent projection values, according to the legend.
+\label{fig:phylo_full}}
 \end{figure}
 
 A análise de componentes principais filogenéticos recupera um conjunto
@@ -493,21 +497,6 @@ representam diferenças locais entre espécies-irmãs, como por exemplo
 entre as duas espécies de \emph{Gorilla} e entre as espécies do gênero
 \emph{Callithrix}.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/phylo_gl-1.pdf}
-\caption{Phylogenetic structures associated with the first and last two
-pPCs (Global 1-2 and Local 1-2, respectively), represented as the
-projections of each OTU over each axis. White circles indicate positive
-values; black circles indicate negative values. The absolute value of
-each projection is indicated by the size of the circle, according to the
-legend. Particular clades are indicated as abbreviations (Platyrrhini:
-\textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
-\textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
-\textbf{Hom}inidae, \textbf{Hyl}obatidae, \textbf{Pap}ionini,
-\textbf{Cer}copithecini, and \textbf{Col}obinae). \label{fig:phylo_gl}}
-\end{figure}
-
 Ao reconstruírmos a variação em termos de estrutura de covariância
 associada a estes componentes, a análise de SRD (Figuras
 \ref{fig:srd_gl} e \ref{fig:srd_shape}) sobre os limites do intervalo de
@@ -536,10 +525,7 @@ assocation with each skull region, according to the legend.
 \includegraphics{Figures/srd_shape-1.pdf}
 \caption{Mean SRD scores for the first and last two phylogenetic PCs
 (Global 1-2 and Local 1-2, respectively) represented over the mean skull
-shape of rhesus macaques (\emph{Macaca mulatta}). Traits colored in
-green indicate higher mean SRD scores (low divergence); traits colored
-in red indicate lower SRD scores (high divergence).
-\label{fig:srd_shape}}
+shape of rhesus macaques (\emph{Macaca mulatta}). \label{fig:srd_shape}}
 \end{figure}
 
 \section{Discussion}\label{discussion}
@@ -576,6 +562,10 @@ Processing} \textbf{87}: 220--236.
 Blomberg, S.P., Garland Jr., T. \& Ives, A.R. 2003. Testing for
 phylogenetic signal in comparative data: behavioral traits are more
 labile. \emph{Evolution} \textbf{57}: 717--745.
+
+Cheverud, J.M. \& Marroig, G. 2007. Comparing covariance matrices:
+Random skewers method compared to the common principal components model.
+\emph{Genetics and Molecular Biology} \textbf{30}: 461--469.
 
 Esteve-Altava, B. \& Rasskin-Gutman, D. 2014. Beyond the functional
 matrix hypothesis: a network null model of human skull growth for the

@@ -5,7 +5,7 @@ date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   pdf_document:
     includes:
-      in_header: Tex/chap_head.tex
+      in_header: Tex/ppca_head.tex
       before_body: Tex/chap_info.tex
     fig_caption: true
     keep_tex: true

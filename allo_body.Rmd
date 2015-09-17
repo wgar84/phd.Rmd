@@ -6,7 +6,7 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 
 captions $ fig.cac_logCS <- "**Allometric shape variation.** (a) Shape variation associated with the Common Allometric Component (CAC). (b) Random regression of projections on the CAC over log Centroid Size. A regression line is adjusted for each species, and dots represent mean values. \\label{fig:cac_logCS}"
 
-captions $ fig.phylo_W <- paste0("**Deviations from ancestral allometry.** (a) Intercepts; (b) Slopes. Red circles indicate positive deviations, while blue circles indicate negative ones. The outer circles indicate whether a given deviation is distinct from zero, using 95\\% credible intervals. Particular clades are indicated as abbreviations (", taxa.legend(), "). \\label{fig:phylo_W}")
+captions $ fig.phylo_W <- "**Deviations from ancestral allometry.** (a) Intercepts; (b) Slopes. Asterisks indicate whether a given deviation is distinct from zero, using 95\\% credible intervals. \\label{fig:phylo_W}"
 
 captions $ fig.MI_vs_slopeW_main <- "**Allometry and modularity.** Modularity Hypothesis Index (MHI) regressed over allometric slope deviations ($b_s$). For each global trait set (Face and Neurocranium), the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_main}"
 
@@ -40,7 +40,7 @@ allo.Plots $ CAC.logCS
 
 To investigate whether species deviate from such ancestral relationships, we carried out a Bayesian mixed model, considering that slopes and intercepts for the regression between individuals projected over the CAC and log Centroid Size (logCS) within each species (\autoref{fig:cac_logCS}b) are codependent upon their phylogenetic relationships. The posterior distribution of deviations from mean for both parameters estimated in this manner (\autoref{fig:phylo_W}) indicates that intercepts deviate from the mean in at least seven lineages: increases occur in *Pithecia* and *Callicebus* within Pitheciids, in the clade composed of Callithrichinae and Aotinae, and in *Alouatta* within Atelids, while lower intercepts are found in the clade composed of *Homo* and *Pan* within Hominidae, in *Hylobates* within Hylobatids, and also in *Ateles* within Atelids (\autoref{fig:phylo_W}a). Allometric slopes for terminals, on the other hand, deviate from the mean in only three species: *Homo sapiens* and both representatives of *Gorilla*, all with slopes shallower than the mean (\autoref{fig:phylo_W}b).
 
-```{r phylo_new, echo = FALSE, fig.height = 8.6, fig.width = 15, fig.cap = captions $ fig.phylo_W, message = FALSE}
+```{r phylo_new, echo = FALSE, fig.height = 12, fig.width = 10, fig.cap = captions $ fig.phylo_W, message = FALSE}
 Tree.Plots $ interslope
 
 ```

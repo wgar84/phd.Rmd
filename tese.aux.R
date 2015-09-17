@@ -13,10 +13,10 @@ require (phytools)
 require (geiger)
 require (mvtnorm)
 require (MCMCglmm)
-require (grid)
-require (gridExtra)
-require (gridBase)
-require (surface)
+# require (grid)
+# require (gridExtra)
+# require (gridBase)
+# require (surface)
 require (rmarkdown)
 require (knitr)
 require (pander)
@@ -38,9 +38,7 @@ registerDoMC (cores = 3)
 ## require (devtools)
 ## install_github('muschellij2/slidify')
 ## install_github('ramnathv/slidifyLibraries')
-## install_github('gjuggler/ggphylo')
 ## install_github('uyedaj/bayou')
-## install_github ('mkoohafkan/kfigr')
 
 attach ('../Databases/Reference.RData')
 attach ('../Databases/ED.RData')
@@ -70,27 +68,21 @@ captions <- list()
 ## TEX
 
 render('tese.Rmd', output_file = 'tese.pdf')
-system('evince tese.pdf &')
-
 render('allo.Rmd', output_file = 'allo.pdf')
-system('evince allo.pdf &')
-
 render('sup_allo.Rmd', output_file = 'sup_allo.pdf')
-system('evince sup_allo.pdf &')
-
 render('ppca.Rmd', output_file = 'ppca.pdf')
-system('evince ppca.pdf &')
-
 render('sup_ppca.Rmd', output_file = 'sup_ppca.pdf')
-system('evince sup_ppca.pdf &')
-
 render('modcomp.Rmd', output_file = 'modcomp.pdf')
-system('evince modcomp.pdf &')
-
 render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
-system('evince sup_modcomp.pdf &')
+#render('sup_base.Rmd', output_file = 'sup_base.pdf')
 
-render('sup_base.Rmd', output_file = 'sup_base.pdf')
+system('evince tese.pdf &')
+system('evince allo.pdf &')
+system('evince sup_allo.pdf &')
+system('evince ppca.pdf &')
+system('evince sup_ppca.pdf &')
+system('evince modcomp.pdf &')
+system('evince sup_modcomp.pdf &')
 system('evince sup_base.pdf &')
 
 ### PRES
@@ -109,6 +101,8 @@ render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
 
 ### source ('parc.allo.R')
 
+### source ('re-tree.R')
+
 riem.tab <- sapply(ppca.Data$riem.decdiv.def.table, as.numeric)
 rownames (riem.tab) <- rownames (ppca.Data$riem.decdiv.def.table)
 riem.tab <- round (riem.tab, 3)
@@ -120,10 +114,10 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
-####
-source("https://bioconductor.org/biocLite.R")
-biocLite("ggtree")
-#### ttfw-devel, libtiff-devel
+#### GGTREE
+### source("https://bioconductor.org/biocLite.R")
+### biocLite("ggtree")
+#### fftw-devel, libtiff-devel
 
 
 

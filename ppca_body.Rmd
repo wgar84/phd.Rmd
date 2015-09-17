@@ -1,24 +1,24 @@
 ```{r options_ppca, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 ```
+
 ```{r captions_ppca, include = FALSE}
-
 captions $ fig.matrix_variation <- 'Representation of the steps used to characterize covariance matrix variation. In (a), the set of covariance matrices $\\mathbf{A}$, $\\mathbf{B}$ and $\\mathbf{C}$ in the neighbourhood of $\\mathbf{M}$ are projected into an Euclidean space and eigentensors are estimated (PM1 and PM2); in (b), these eigentensors are rotated to incorporate phylogenetic relatedness; in (c), covariance matrices corresponding to the upper and lower bounds of the confidence intervals for each axis are returned back to the original manifold. See text for more details. \\label{fig:matrix_variation}'
-
-captions $ fig.phylo_decdiv <- paste0('Distribution of covariance matrix diversity obtained from decomposing Riemannian distances among pairs of mean $\\mathbf{P}$-matrices over the Anthropoid phylogeny.
-The size of each circle depicts the percentage of diversity associated with each node, according to the legend.
-Particular clades are indicated as abbreviations (', taxa.legend(), '). \\label{fig:phylo_decdiv}')
 
 captions $ fig.ppca_eval <- 'Characterizing $\\mathbf{P}$-matrix variation using phylogenetic Principal Components. (a) Posterior distribution of eigenvalues obtained for pPCs; positive eigenvalues are associated with phylogenetic signal; negative eigenvalues are associated with convergence. (b) Distribution of mean SRD scores for each trait with respect to pPCs; each line represents a loess interpolation adjusted for each skull region, according to the legend. \\label{fig:ppca_eval}'
 
-captions $ fig.phylo_gl <- paste0 ('Phylogenetic structures associated with the first and last two pPCs (Global 1-2 and Local 1-2, respectively), represented as the projections of each OTU over each axis.
-White circles indicate positive values; black circles indicate negative values. The absolute value of each projection is indicated by the size of the circle, according to the legend.
-Particular clades are indicated as abbreviations (', taxa.legend(), '). \\label{fig:phylo_gl}')
+captions $ fig.phylo_full <- 'Phylogenetic decomposition of $\\mathbf{P}$-matrix variation. (a) Decomposition of matrix diversity over the phylogenetic hypothesis for Anthropoidea; the size of each circle indicates the percentage of diversity on each node, according to the legend. (b) Mean $\\mathbf{P}$-matrices of each species projected over the first and last two phylogenetic Principal Components (G1-2 and L1-2, respectively); cell colors represent projection values, according to the legend. \\label{fig:phylo_full}'
 
 captions $ fig.srd_gl <- 'Covariance structure variation associated with the first and last two pPCs (Global 1-2 and Local 1-2, respectively), represented using posterior mean SRD scores. Dotted lines represent average SRD scores for each comparison. Traits are colored according to their assocation with each skull region, according to the legend. \\label{fig:srd_gl}'
 
-captions $ fig.srd_shape <- 'Mean SRD scores for the first and last two phylogenetic PCs (Global 1-2 and Local 1-2, respectively) represented over the mean skull shape of rhesus macaques (*Macaca mulatta*). Traits colored in green indicate higher mean SRD scores (low divergence); traits colored in red indicate lower SRD scores (high divergence). \\label{fig:srd_shape}'
+captions $ fig.srd_shape <- 'Mean SRD scores for the first and last two phylogenetic PCs (Global 1-2 and Local 1-2, respectively) represented over the mean skull shape of rhesus macaques (*Macaca mulatta*). \\label{fig:srd_shape}'
 
+### if thesis
+
+captions $ fig.rs_riem <- 'The relationship between Riemannian Distances and Random Skewers among pairs of $\\mathbf{P}$-matrices. Each observation is the posterior mean value for each statistic, estimated from $100$ posterior samples obtained for each OTU. Colors indicate the lower sample size in each pair, according to the legend. \\label{fig:rs_riem}'
+
+captions $ fig.ss_local1 <- 'Relationship between sample sizes and the first local phylogenetic Principal Component. \\label{fig:ss_local1}'
+    
 ```
 
 # Introduction
@@ -57,6 +57,11 @@ d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_
 \label{eq:riemdist}
 \end{equation}
 where $\lambda_k(\cdot)$ refers to the $k$-th eigenvalue obtained from the spectral decomposition of a given matrix, in this case the product $\mathbf{C}_i\mathbf{C}_j^{-1}$.
+This distance among pairs of $\mathbf{P}$-matrices is negatively correlated with Random Skewers comparisons (\autoref{fig:rs_riem}), a measurement of matrix similarity explored elsewhere [@cheverud_comparing_2007]; such correlation indicates that our exploration of Riemmanian distances among $\mathbf{P}$-matrices could be extended to other types of measurement of similarity or dissimilarity among these objects without hindrances. 
+
+```{r rs_riem, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.rs_riem}
+if (thesis) ppca.extra $ rs.riem
+```
 
 Using these distances among $\mathbf{P}$-matrices, we estimate matrix diversity at each node of the phylogenetic tree of Anthropoidea using a measurement of the weighted distance among the distributions of matrix distances for the two descending edges, based on @pavoine_decomposition_2010.
 For a fully resolved tree, diversity $w_i$ on node $i$ is given by
@@ -81,7 +86,7 @@ H_{\Delta} (P) = \sum_{i,j \in P} \frac{d^2(\mathbf{C}_i, \mathbf{C}_j)}{2}
 represents Rao's quadratic entropy among Riemannian distances $d(\mathbf{C}_i, \mathbf{C}_j)$ as defined in \autoref{eq:riemdist}.
 
 Following the framework estabilished by @pavoine_decomposition_2010, diversity $w_i$ can be normalized as $v_i = w_i / \sum_i w_i$ to represent the percentage of diversity with respect to the total diversity on the phylogenetic tree.
-We test three different hypothesis regarding the distribution of $v_i$ values through Anthropoid diversification: (1) that matrix diversity is concentrated in a single node; (2) that $\mathbf{P}$-matrix diversity is concentrated in a reduced number of nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards either the root or tips of the phylogeny, in a two-tailed test.
+We test three different hypothesis regarding the distribution of $v_i$ values through Anthropoid diversification: (1) that $\mathbf{P}$-matrix diversity is concentrated in a single node; (2) that $\mathbf{P}$-matrix diversity is concentrated in a reduced number of nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards either the root or tips of the phylogeny, in a two-tailed test.
 We test each hypothesis against the null hypothesis that the distribution of matrix diversity is randomly arranged over the phylogeny; such null hypothesis is represented by randomizing the association between terminal branches and covariance matrices, constructing $9999$ distributions of $v_i$ values that represent this scenario.
 Each test is carried out using a different parameter derived from the distribution of $v_i$ values [described in detail by @pavoine_decomposition_2010], comparing the actual value obtained with a null distribution constructed using permutations.
 The third hypothesis can be tested either by considering only the topology of the tree and by also considering branch lengths; both tests are similar to Blomberg's [-@blomberg_testing_2003] $K$ test, as they search for a phylogenetic signal in covariance structure diversity.
@@ -138,20 +143,8 @@ Os testes de disparidade de estrutura de covariância ao longo da filogenia (\au
 
 \input{Tables/riem_decdiv} <!-- tab:decdiv -->
 
-```{r phylo_decdiv, echo = FALSE, fig.width = 7, fig.height = 7, fig.cap = captions $ fig.phylo_decdiv}
-layout(matrix (c(1, 1, 1, 1, 1, 1, 1, 1, 2), nrow = 3, byrow = T))
-par(mar = c(0, 0, 0, 0))
-mu <- 1
-plot (Tree [[1]], type = 'fan', cex = 0.5, show.tip.label = FALSE,
-      x.lim = c(-.6, .6), y.lim = c(-.48, .48))
-nodelabels(cex = ppca.Data $ div.nodes.def * 100 * mu / sum (ppca.Data $ div.nodes.def),
-           frame = 'none', pch = 20, col = 'black')
-Plot.taxa()
-par(mar = c(0, 0, 2, 0), bty = 'n', xaxt = 'n', yaxt = 'n')
-plot (c(-1, 0, 1, 2), c(0, 0, 0, 0), pch = 20,
-      cex =  c(1, 2, 5, 10) * mu, xlim = c(-2.5, 2.5))
-text (x = c(-1, 0, 1, 2), y = c(0, 0, 0, 0) - 0.3,
-      labels = paste (c(1, 2, 5, 10), '%', sep = ''))
+```{r phylo_full, echo = FALSE, fig.width = 10, fig.height = 12, fig.cap = captions $ fig.phylo_full, warning = FALSE}
+Tree.Plots $ ppca
 ```
 
 A análise de componentes principais filogenéticos recupera um conjunto de autovalores positivos que, em geral, possuem magnitudes maiores do que suas contrapartes negativas (\autoref{fig:ppca_eval}). Isso indica que a maior parte da divergência de estrutura de covariância está localizada na divergência entre linhagens mais próximas da raiz da filogenia do que entre espécies irmãs, em concordância com a análise de disparidade.
@@ -167,30 +160,6 @@ plot_grid(
 
 Podemos observar que as projeções das espécies sobre cada componente principal filogenético considerado (\autoref{fig:phylo_gl}) indicam que o primeiro componente global está associado a um contraste entre Platyrrhini e Catarrhini, enquanto o segundo componente global se associa a contrastes dentre estas duas linhagens. Os componentes locais representam diferenças locais entre espécies-irmãs, como por exemplo entre as duas espécies de *Gorilla* e entre as espécies do gênero *Callithrix*.
 
-```{r phylo_gl, echo = FALSE, fig.width = 9, fig.height = 9, fig.cap = captions $ fig.phylo_gl}
-## values.axis <- post.ppca $ etd.ppca [[sample(1:100, 1)]] $ li [, c(1, 2, 108, 107)]
-values.axis <- etd.def.ppca $ li [, c(1, 2, 4, 3)]
-par (mfrow = c(2, 2), mar = c(1.5, 1.5, 1.5, 1.5))
-mu <- 0.7
-for (i in 1:4)
-  {
-    plot.phylo(Tree [[1]], type = 'fan',
-               main = unique (ppca.Data $ SRD.limits.df $ axis) [i],
-               use.edge.length = TRUE, show.tip.label = FALSE,
-               y.lim = c(- 0.5, 0.5), x.lim = c(- 0.5, 0.5))
-    tiplabels(tip = 1:109,
-              pch = 21,
-              bg = ifelse (values.axis [, i] < 0,
-                rgb (0,0,0,0.8), rgb (1,1,1,0.8)),
-              cex = abs (values.axis[, i]) * mu)
-    Plot.taxa(ifelse(i == 1, T, F))
-  }
-legend('bottomright', bty = 'n', pt.cex = 1:4 * mu, yjust = 0.5,
-       legend = 1:4, cex = 0.6, y.intersp = 2, x.intersp = 2, 
-       pch = 21, col = rgb (0,0,0,0.5))
-
-```
-
 Ao reconstruírmos a variação em termos de estrutura de covariância associada a estes componentes, a análise de SRD (Figuras \ref{fig:srd_gl} e \ref{fig:srd_shape}) sobre os limites do intervalo de confiança de 95\% de cada eixo indicam que em cada nível de divergência (associados aos contrastes entre linhagens na pPCA) as maiores diferenças em termos de estrutura de covariância se localizam dentre os caracteres da Órbita e da Base, conforme indicado pelas médias menores e desvios-padrão maiores na \autoref{fig:srd_gl}. Além dos caracteres nestas duas regiões, a estrutura de covariância associada ao tamanho do centróide também se mostrou divergente nos diferentes níveis delimitados pela pPCA.
 
 ```{r srd_gl, echo = FALSE, fig.width = 10, fig.height = 10, fig.cap = captions $ fig.srd_gl}
@@ -198,8 +167,13 @@ post.ppca $ plot.srd.gl12
 ```
 
 ```{r srd_shape, echo = FALSE, fig.width = 8.6, fig.height = 10.2, fig.cap = captions $ fig.srd_shape}
-plot (1:10, 1:10)
+ppca.shape.comp
 ```
+
+```{r ss_local1, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.ss_local1}
+if (thesis) ppca.extra $ ss.local1
+```
+
 
 # Discussion
 

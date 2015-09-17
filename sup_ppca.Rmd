@@ -3,7 +3,7 @@ title: "A Phylogenetic Analysis of Shape Covariance Structure in Anthropoid Prim
 output:
   pdf_document:
     includes:
-      in_header: Tex/chap_head.tex
+      in_header: Tex/sup_ppca_head.tex
       before_body: Tex/chap_info.tex
     fig_caption: true
     keep_tex: true
@@ -26,7 +26,9 @@ captions $ fig.landmarks <- 'Landmark configuration. Lines connecting landmarks 
 
 captions $ fig.phylo_model <- "Sample sizes and controlled fixed effects for 109 OTUs of anthropoid primates, depicted in a phylogenetic hypothesis from @springer_macroevolutionary_2012. \\label{fig:phylo_model}"
 
-captions $ fig.rs_riemd <- 'The relationship between Riemannian Distances and Random Skewers among pairs of $\\mathbf{P}$-matrices. Each observation is the posterior mean value for each statistic, estimated from $100$ posterior samples obtained for each OTU. \\label{fig:rs_riemd}'
+captions $ fig.rs_riem <- 'The relationship between Riemannian Distances and Random Skewers among pairs of $\\mathbf{P}$-matrices. Each observation is the posterior mean value for each statistic, estimated from $100$ posterior samples obtained for each OTU. \\label{fig:rs_riem}'
+
+captions $ fig.ss_local1 <- 'Relationship between sample sizes and the first local phylogenetic Principal Component. \\label{fig:ss_local1}'
 
 ```
 
@@ -39,36 +41,17 @@ captions $ fig.rs_riemd <- 'The relationship between Riemannian Distances and Ra
 
 \input{Tables/dist_en}
 
-```{r phylo_model, echo = FALSE, fig.width = 8.5, fig.height = 8.5, fig.cap = captions $ fig.phylo_model}
-par (omi = c(0, 0.1, 0, 0.1), mar = c(0, 0, 0, 0))
-plot.phylo(Tree [[1]],
-           type = 'fan', cex = 0.6, label.offset = .03,
-           use.edge.length = TRUE, y.lim = c(- 0.6, 0.6), x.lim = c(- 0.6, 0.6))
-
-models.adj <- as.factor (Aux $ data.man.sp [, 2])
-
-models.adj [30] <- 'SUB'
-
-models.adj <- factor (as.character (models.adj),
-                      levels = c('NONE', 'SUB', 'SEX', 'SUB + SEX', 'SUB * SEX'))
-
-tiplabels(bg = brewer.pal(5, 'Set1') [as.numeric (models.adj)],
-          cex = 2.2, pch = as.numeric (models.adj) + 20, col = NULL)
-
-tiplabels(text = Aux $ sample.size, frame = 'none', cex = 0.5, col = 'white')
-
-legend(0, 0,
-       pch = 21:25,
-       pt.cex = 1.3,
-       cex = 0.7,
-       col = 'white',
-       pt.bg = brewer.pal(5, 'Set1'),
-       legend = c('-', 'subsp/pop', 'sex', 'subsp/pop + sex', 'subsp/pop * sex'),
-       bty = 'o', bg = 'white', xjust = 0.5, yjust = 0.5)
+```{r phylo_model, echo = FALSE, fig.width = 15, fig.height = 18, fig.cap = captions $ fig.phylo_model, message = FALSE, warning = FALSE}
+Tree.Plots $ model
 ```
 
-```{r rs_riemd, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.rs_riemd}
-post.ppca $ rs.riemdist
+```{r rs_riem, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.rs_riem}
+ppca.extra $ rs.riem
 ```
+
+```{r ss_local1, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.ss_local1}
+ppca.extra $ ss.local1
+```
+
 
 # References

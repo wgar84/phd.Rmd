@@ -1599,23 +1599,23 @@ associations, at least within Cercopithecines (Cardini \emph{et al.},
 shown that selection for the reduction of facial elements has operated
 during the early diversification of the genus \emph{Homo}.
 
-With respect to morphological traits, allometric slopes may be
-constrained throughout development due to stabilizing selection (Lande,
-1980; Cheverud, 1984, 1996a; Hansen, 2011; Zelditch \& Swiderski, 2011),
-while intercepts may be more labile on an evolutionary scale (Gould,
-1974; Egset \emph{et al.}, 2012). However, these parameters are
-dependant upon the mean individual growth rate and the covariance
-between these growth rates and body size achieved at adulthood; thus,
-selection on body size may also change allometric slopes (Pélabon
-\emph{et al.}, 2013; Voje \emph{et al.}, 2013). Experimental evidence on
-the evolution of allometric relationships has accumulated, indicating
-that growth parameters harbor genetic variation and thus may be
-available to selection, an effect that will then cascade to populational
-allometric relationships (e.g. Frankino \emph{et al.}, 2005; Tobler \&
-Nijhout, 2010; Egset \emph{et al.}, 2012), although methodological
-issues may hamper some of this evidence (Houle \emph{et al.}, 2011; Voje
-\emph{et al.}, 2013). Therefore, whether and to which extent allometric
-slopes can evolve remain as open questions.
+Regarding morphological traits, allometric slopes may be constrained
+throughout development due to stabilizing selection (Lande, 1980;
+Cheverud, 1984, 1996a; Hansen, 2011; Zelditch \& Swiderski, 2011), while
+intercepts may be more labile on an evolutionary scale (Gould, 1974;
+Egset \emph{et al.}, 2012). However, these parameters are dependant upon
+the mean individual growth rate and the covariance between these growth
+rates and body size achieved at adulthood; thus, selection on body size
+may also change allometric slopes (Pélabon \emph{et al.}, 2013; Voje
+\emph{et al.}, 2013). Experimental evidence on the evolution of
+allometric relationships has accumulated, indicating that growth
+parameters harbor genetic variation and thus may be available to
+selection, an effect that will then cascade to populational allometric
+relationships (e.g. Frankino \emph{et al.}, 2005; Tobler \& Nijhout,
+2010; Egset \emph{et al.}, 2012), although methodological issues may
+hamper some of this evidence (Houle \emph{et al.}, 2011; Voje \emph{et
+al.}, 2013). Therefore, whether and to which extent allometric slopes
+can evolve remain as open questions.
 
 In the present work, we investigate the relationship between skull size
 and shape in a phylogenetic framework using anthropoid primates as model
@@ -1687,16 +1687,10 @@ shallower than the mean (\autoref{fig:phylo_W}b).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/phylo_W-1.pdf}
+\includegraphics{Figures/phylo_new-1.pdf}
 \caption{\textbf{Deviations from ancestral allometry.} (a) Intercepts;
-(b) Slopes. Red circles indicate positive deviations, while blue circles
-indicate negative ones. The outer circles indicate whether a given
-deviation is distinct from zero, using 95\% credible intervals.
-Particular clades are indicated as abbreviations (Platyrrhini:
-\textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
-\textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
-\textbf{Hom}inidae, \textbf{Hyl}obatidae, \textbf{Pap}ionini,
-\textbf{Cer}copithecini, and \textbf{Col}obinae). \label{fig:phylo_W}}
+(b) Slopes. Asterisks indicate whether a given deviation is distinct
+from zero, using 95\% credible intervals. \label{fig:phylo_W}}
 \end{figure}
 
 The association between allometric parameters and modularity was
@@ -1724,7 +1718,7 @@ show opposite effects on the Modularity Index for Face and Neurocranium
 (\autoref{fig:MI_vs_slopeW_main}), and, with the exception of the Orbit
 and Basicranium, subregions follow the same pattern as the more
 inclusive partition in which they are contained
-(\autoref{fig:MI_vs_slopeW_main}).
+(\autoref{fig:MI_vs_slopeW_si}).
 
 \input{Tables/dic_allo_im.tex}
 
@@ -2030,7 +2024,23 @@ d(\mathbf{C}_i, \mathbf{C}_j) = \sqrt{\sum_{k = 1}^p \ln^2 \lambda_k(\mathbf{C}_
 
 where $\lambda_k(\cdot)$ refers to the $k$-th eigenvalue obtained from
 the spectral decomposition of a given matrix, in this case the product
-$\mathbf{C}_i\mathbf{C}_j^{-1}$.
+$\mathbf{C}_i\mathbf{C}_j^{-1}$. This distance among pairs of
+$\mathbf{P}$-matrices is negatively correlated with Random Skewers
+comparisons (\autoref{fig:rs_riem}), a measurement of matrix similarity
+explored elsewhere (Cheverud \& Marroig, 2007); such correlation
+indicates that our exploration of Riemmanian distances among
+$\mathbf{P}$-matrices could be extended to other types of measurement of
+similarity or dissimilarity among these objects without hindrances.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/rs_riem-1.pdf}
+\caption{The relationship between Riemannian Distances and Random
+Skewers among pairs of $\mathbf{P}$-matrices. Each observation is the
+posterior mean value for each statistic, estimated from $100$ posterior
+samples obtained for each OTU. Colors indicate the lower sample size in
+each pair, according to the legend. \label{fig:rs_riem}}
+\end{figure}
 
 Using these distances among $\mathbf{P}$-matrices, we estimate matrix
 diversity at each node of the phylogenetic tree of Anthropoidea using a
@@ -2075,22 +2085,22 @@ $w_i$ can be normalized as $v_i = w_i / \sum_i w_i$ to represent the
 percentage of diversity with respect to the total diversity on the
 phylogenetic tree. We test three different hypothesis regarding the
 distribution of $v_i$ values through Anthropoid diversification: (1)
-that matrix diversity is concentrated in a single node; (2) that
-$\mathbf{P}$-matrix diversity is concentrated in a reduced number of
-nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards either
-the root or tips of the phylogeny, in a two-tailed test. We test each
-hypothesis against the null hypothesis that the distribution of matrix
-diversity is randomly arranged over the phylogeny; such null hypothesis
-is represented by randomizing the association between terminal branches
-and covariance matrices, constructing $9999$ distributions of $v_i$
-values that represent this scenario. Each test is carried out using a
-different parameter derived from the distribution of $v_i$ values
-(described in detail by Pavoine \emph{et al.}, 2010), comparing the
-actual value obtained with a null distribution constructed using
-permutations. The third hypothesis can be tested either by considering
-only the topology of the tree and by also considering branch lengths;
-both tests are similar to Blomberg's (2003) $K$ test, as they search for
-a phylogenetic signal in covariance structure diversity.
+that $\mathbf{P}$-matrix diversity is concentrated in a single node; (2)
+that $\mathbf{P}$-matrix diversity is concentrated in a reduced number
+of nodes; (3) that $\mathbf{P}$-matrix diversity is skewed towards
+either the root or tips of the phylogeny, in a two-tailed test. We test
+each hypothesis against the null hypothesis that the distribution of
+matrix diversity is randomly arranged over the phylogeny; such null
+hypothesis is represented by randomizing the association between
+terminal branches and covariance matrices, constructing $9999$
+distributions of $v_i$ values that represent this scenario. Each test is
+carried out using a different parameter derived from the distribution of
+$v_i$ values (described in detail by Pavoine \emph{et al.}, 2010),
+comparing the actual value obtained with a null distribution constructed
+using permutations. The third hypothesis can be tested either by
+considering only the topology of the tree and by also considering branch
+lengths; both tests are similar to Blomberg's (2003) $K$ test, as they
+search for a phylogenetic signal in covariance structure diversity.
 
 \subsection{Characterizing Covariance Matrix
 Variation}\label{characterizing-covariance-matrix-variation}
@@ -2236,17 +2246,15 @@ filogenia, associada à divergência entre Platyrrhini e Catarrhini
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/phylo_decdiv-1.pdf}
-\caption{Distribution of covariance matrix diversity obtained from
-decomposing Riemannian distances among pairs of mean
-$\mathbf{P}$-matrices over the Anthropoid phylogeny. The size of each
-circle depicts the percentage of diversity associated with each node,
-according to the legend. Particular clades are indicated as
-abbreviations (Platyrrhini: \textbf{Pit}hecidae, \textbf{Ate}lidae,
-\textbf{Ceb}inae, \textbf{Cal}lithrichinae, and \textbf{Aot}inae;
-Catarrhini: \textbf{Hom}inidae, \textbf{Hyl}obatidae,
-\textbf{Pap}ionini, \textbf{Cer}copithecini, and \textbf{Col}obinae).
-\label{fig:phylo_decdiv}}
+\includegraphics{Figures/phylo_full-1.pdf}
+\caption{Phylogenetic decomposition of $\mathbf{P}$-matrix variation.
+(a) Decomposition of matrix diversity over the phylogenetic hypothesis
+for Anthropoidea; the size of each circle indicates the percentage of
+diversity on each node, according to the legend. (b) Mean
+$\mathbf{P}$-matrices of each species projected over the first and last
+two phylogenetic Principal Components (G1-2 and L1-2, respectively);
+cell colors represent projection values, according to the legend.
+\label{fig:phylo_full}}
 \end{figure}
 
 A análise de componentes principais filogenéticos recupera um conjunto
@@ -2278,21 +2286,6 @@ representam diferenças locais entre espécies-irmãs, como por exemplo
 entre as duas espécies de \emph{Gorilla} e entre as espécies do gênero
 \emph{Callithrix}.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/phylo_gl-1.pdf}
-\caption{Phylogenetic structures associated with the first and last two
-pPCs (Global 1-2 and Local 1-2, respectively), represented as the
-projections of each OTU over each axis. White circles indicate positive
-values; black circles indicate negative values. The absolute value of
-each projection is indicated by the size of the circle, according to the
-legend. Particular clades are indicated as abbreviations (Platyrrhini:
-\textbf{Pit}hecidae, \textbf{Ate}lidae, \textbf{Ceb}inae,
-\textbf{Cal}lithrichinae, and \textbf{Aot}inae; Catarrhini:
-\textbf{Hom}inidae, \textbf{Hyl}obatidae, \textbf{Pap}ionini,
-\textbf{Cer}copithecini, and \textbf{Col}obinae). \label{fig:phylo_gl}}
-\end{figure}
-
 Ao reconstruírmos a variação em termos de estrutura de covariância
 associada a estes componentes, a análise de SRD (Figuras
 \ref{fig:srd_gl} e \ref{fig:srd_shape}) sobre os limites do intervalo de
@@ -2321,10 +2314,14 @@ assocation with each skull region, according to the legend.
 \includegraphics{Figures/srd_shape-1.pdf}
 \caption{Mean SRD scores for the first and last two phylogenetic PCs
 (Global 1-2 and Local 1-2, respectively) represented over the mean skull
-shape of rhesus macaques (\emph{Macaca mulatta}). Traits colored in
-green indicate higher mean SRD scores (low divergence); traits colored
-in red indicate lower SRD scores (high divergence).
-\label{fig:srd_shape}}
+shape of rhesus macaques (\emph{Macaca mulatta}). \label{fig:srd_shape}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/ss_local1-1.pdf}
+\caption{Relationship between sample sizes and the first local
+phylogenetic Principal Component. \label{fig:ss_local1}}
 \end{figure}
 
 \section{Discussion}\label{discussion-2}
@@ -2456,6 +2453,10 @@ on evolution by selection. \emph{Journal of Theoretical Biology}
 Cheverud, J.M. 1982b. Relationships among ontogenetic, static, and
 evolutionary allometry. \emph{American Journal of Physical Anthropology}
 \textbf{59}: 139--149.
+
+Cheverud, J.M. \& Marroig, G. 2007. Comparing covariance matrices:
+Random skewers method compared to the common principal components model.
+\emph{Genetics and Molecular Biology} \textbf{30}: 461--469.
 
 Cheverud, J.M. \& Richtsmeier, J.T. 1986. Finite-Element Scaling Applied
 to Sexual Dimorphism in Rhesus Macaque (Macaca Mulatta) Facial Growth.
