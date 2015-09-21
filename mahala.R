@@ -1,92 +1,75 @@
-require(StatMatch)
+anthro.normalized <- t (solve (sqrtm (allo.Data $ W.node.Def [['Anthropoidea']])) %*%
+                        t(laply (OneDef, function (L) L $ mean)))
 
-mahala.shape <-
-  cmdscale (
-    as.dist (
-      mahalanobis.dist(laply (OneDef, function (L) L $ mean [-1]),
-                       vc = allo.Data $ W.node.Def [['Anthropoidea']] [-1, -1])))
+anthro.pca <- prcomp (anthro.normalized)
 
-mahala.shape <-
-  data.frame ('OTU' = names (OneDef),
-              'pco' = mahala.shape)
+anthro.pc.df <- data.frame ('OTU' = names (OneDef), anthro.pca $ x)
 
-ggplot(mahala.shape) +
-  geom_text (aes(x = pco.1, y = pco.2, label = OTU))
+ggplot (anthro.pc.df) +
+  geom_text (aes(x = PC1, y = PC2, label = OTU)) +
+  theme_bw()
 
-sqrt (Evolvability(solve (allo.Data $ W.node.Def [['Anthropoidea']]) %*%
-                   (OneDef [[108]] $ mean - OneDef [[109]] $ mean),
-                   allo.Data $ W.node.Def [['Anthropoidea']]))
+pan.normalized <- t (solve (sqrtm (allo.Data $ W.all.Def [['Homo_sapiens']])) %*%
+                        t(laply (OneDef, function (L) L $ mean)))
 
-as.dist (
-  mahalanobis.dist(laply (OneDef, function (L) L $ mean),
-                   vc = allo.Data $ W.node.Def [['Platyrrhini']]))
+pan.pca <- prcomp (pan.normalized)
 
-mahala.ed <-
-  cmdscale (
-    as.dist (
-      mahalanobis.dist(laply (ED, function (L) L $ ed.mean) [, -20],
-                       vc = allo.Data $ W.node.ED [['Anthropoidea']])))
+pan.pc.df <- data.frame ('OTU' = names (OneDef), pan.pca $ x)
 
-mahala.ed <-
-  data.frame ('OTU' = names (OneDef),
-              'pco' = mahala.ed)
+pan.pc.df $ PC1 <- - pan.pc.df $ PC1
 
-ggplot(mahala.ed) +
-  geom_text (aes(x = pco.1, y = pco.2, label = OTU))
+plot_grid (
+  ggplot (pan.pc.df) +
+  geom_text (aes(x = PC1, y = PC2, label = OTU), size = 3) +
+  theme_bw(),
+  ggplot (anthro.pc.df) +
+  geom_text (aes(x = PC1, y = PC2, label = OTU), size = 3) +
+  theme_bw(), nrow = 1)
 
-sqrt (Evolvability(solve (allo.Data $ W.node.Def [['Anthropoidea']]) %*%
-                   (OneDef [[108]] $ mean - OneDef [[109]] $ mean),
-                   allo.Data $ W.node.Def [['Anthropoidea']]))
+dimnames (anthro.normalized) <- dimnames (pan.normalized) <-
+  list (names (OneDef), rownames (Aux $ def.hyp))
 
-as.dist (
-  mahalanobis.dist(laply (OneDef, function (L) L $ mean),
-                   vc = allo.Data $ W.node.Def [['Platyrrhini']]))
+pan.df <-
+  melt (as.matrix (dist (pan.normalized))) [which (lower.tri (diag (109))), ]
+
+anthro.df <-
+  melt (as.matrix (dist (anthro.normalized))) [which (lower.tri (diag (109))), ]
+
+compare.df <- data.frame (anthro.df, 'pan' = pan.df $ value)
+
+compare.df $ Homo_ <- 
+  ifelse(grepl('Homo', compare.df $ Var1) |
+         grepl('Homo', compare.df $ Var2) |
+         grepl('Pan', compare.df $ Var1) |
+         grepl('Pan', compare.df $ Var2) |
+         grepl('Gorilla', compare.df $ Var1) |
+         grepl('Gorilla', compare.df $ Var2),
+         TRUE, FALSE)
+
+colnames (compare.df)
+
+mean.evol.ratio <-
+  MeanMatrixStatistics(allo.Data $ W.node.Def [['Homo+Pan+Gorilla']])['evolvability'] /
+  MeanMatrixStatistics(allo.Data $ W.node.Def [['Anthropoidea']])['evolvability']
+                     
+
+ggplot (compare.df) +
+  geom_point(aes(x = value, y = pan, alpha = Homo_)) +
+  theme_bw() +
+  geom_abline(intercept = 0, slope = sqrt (mean.evol.ratio))
 
 
-sym.mean <- laply (Sym, function (L) L $ sym.mean)
-sym.mean <- aperm (sym.mean, c(2, 3, 1))
-sym.gpa <- procGPA(sym.mean, pcaoutput = FALSE)
+random.walk <- sim.char(Tree [[1]],
+                        par = allo.Data $ W.node.Def [['Anthropoidea']],
+                        model = 'BM',
+                        root = 0)
 
-tan <- t (sym.gpa $ tan)
+random.walk.norm <- t (solve (sqrtm (allo.Data $ W.node.Def [['Anthropoidea']])) %*%
+                       t (random.walk [, , 1]))
 
-pco.to.shape.1 <- coef (lm (tan ~ mahala.shape [, 2])) [2, ]
-pco.to.shape.2 <- coef (lm (tan ~ mahala.shape [, 3])) [2, ]
+random.walk.pca <- prcomp (random.walk.norm) $ x
 
-Norm(pco.to.shape.1)
-
-dim (pco.to.shape.1) <- c(36, 3)
-dim (pco.to.shape.2) <- c(36, 3)
-
-pco.shape.1 <- array (0, c(36, 3, 5))
-pco.value <- c(-2, -1, 0, 1, 2)
-for (i in 1:5)
-  pco.shape.1 [, , i] <-
-  allo.Data $ sym.gpa $ mshape + pco.value [i] * pco.to.shape.1
-  
-dimnames (pco.shape.1) [1:2] <- dimnames (Sym [[1]] $ sym) [1:2]
-
-for (i in 1:5)
-  {
-    coleurs <- colorRampPalette(c ('blue', 'red'))(5)
-    points3d(pco.shape.1 [, , i], rgl.open = ifelse (i == 1, T, F),
-             col = coleurs [i])
-    for (j in 1:(dim (Aux $ wireframe) [1]))
-      lines3d (allo.Data $ CAC.shape [Aux $ wireframe [j, ], , i], col = coleurs [i])
-  }
-
-pco.shape.2 <- array (0, c(36, 3, 5))
-pco.value <- c(-2, -1, 0, 1, 2)
-for (i in 1:5)
-  pco.shape.2 [, , i] <-
-  allo.Data $ sym.gpa $ mshape + pco.value [i] * pco.to.shape.2
-  
-dimnames (pco.shape.2) [1:2] <- dimnames (Sym [[1]] $ sym) [1:2]
-
-for (i in 1:5)
-  {
-    coleurs <- colorRampPalette(c ('blue', 'red'))(5)
-    points3d(pco.shape.2 [, , i], rgl.open = ifelse (i == 1, T, F),
-             col = coleurs [i])
-    for (j in 1:(dim (Aux $ wireframe) [1]))
-      lines3d (allo.Data $ CAC.shape [Aux $ wireframe [j, ], , i], col = coleurs [i])
-  }
+ggplot (data.frame('OTU' = names (OneDef),
+                   random.walk.pca)) +
+  geom_text (aes(x = PC1, y = PC2, label = OTU), size = 3) + coord_fixed() +
+  theme_bw()
