@@ -407,17 +407,17 @@ framework, in order to produce meaningful comparisons.
 \subsection{Sample}\label{sample}
 
 The database we used here (\autoref{tab:modcomp_otu}) consists of 21
-species, distributed across every clade within Anthropoidea above the
-genus level. We selected these species from a broader database (Marroig
-\& Cheverud, 2001; Oliveira \emph{et al.}, 2009) in order to reduce the
-effects of low sample sizes over estimates of modularity patterns.
-Individuals in our sample are represented by 36 registered landmarks,
-measured using a Polhemus 3Draw (for Platyrrhini) and a Microscribe 3DS
-(for Catarrhini). Twenty-two unique landmarks represent each individual
-(\autoref{fig:landmarks}, \autoref{tab:lms}), since 14 of the 36
-registered landmarks are bilaterally symmetrical. For more details on
-landmark registration, see Marroig \& Cheverud (2001) and Oliveira et
-al. (2009).
+species, distributed across all taxonomic ranks within Anthropoidea
+above the genus level. We selected these species from a broader database
+(Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009) in order to
+reduce the effects of low sample sizes over estimates of modularity
+patterns. Individuals in our sample are represented by 36 registered
+landmarks, measured using a Polhemus 3Draw (for Platyrrhini) and a
+Microscribe 3DS (for Catarrhini). Twenty-two unique landmarks represent
+each individual (\autoref{fig:landmarks}, \autoref{tab:lms}), since 14
+of the 36 registered landmarks are bilaterally symmetrical. For more
+details on landmark registration, see Marroig \& Cheverud (2001) and
+Oliveira et al. (2009).
 
 \input{Tables/modcomp_otu}
 
@@ -475,11 +475,16 @@ according to the different properties of each type of variable. For
 interlandmark distances we used the approach established by Bookstein et
 al. (1985); if $\mathbf{C}$ is a correlation matrix, we obtained a
 correlation matrix $\mathbf{R}$ without the effect of size using the
-equation \[
+equation
+
+\begin{equation}
 \mathbf{R} = \mathbf{C} - \lambda_1 v_1 v^{t}_1
-\] where $\lambda_1$ and $v_1$ refer respectively to the first
-eigenvalue and eigenvector of the spectral decomposition of $C$,
-considering that this eigenvector is associated with size variation
+\label{eq:iso}
+\end{equation}
+
+where $\lambda_1$ and $v_1$ refer respectively to the first eigenvalue
+and eigenvector of the spectral decomposition of $\mathbf{C}$,
+considering that this eigenvector is associated with size variation,
 which is a common pattern in mammalian correlation structure, especially
 when interlandmark distances are considered (Wagner, 1984; Mitteroecker
 \emph{et al.}, 2004; Mitteroecker \& Bookstein, 2007); $t$ denotes
@@ -496,9 +501,14 @@ of regression coefficents for each of the $m$ shape variables (either
 Procrustes residuals or local shape variables) over log Centroid Size.
 If $\mathbf{S}$ is a covariance matrix, we obtained a covariance matrix
 $\mathbf{R}$ without the influence of allometric relationships using the
-equation \[
+equation
+
+\begin{equation}
 \mathbf{R} = (I_m - aa^t) \mathbf{S} (I_m - aa^t)
-\] where $a$ refers to the normalized allometric component estimated for
+\label{eq:allo}
+\end{equation}
+
+where $a$ refers to the normalized allometric component estimated for
 each OTU and $I_m$ represents the identity matrix of size $m$.
 Therefore, our empirical dataset consists of six different sets of
 covariance/correlation matrices, considering both the nature of
@@ -539,13 +549,13 @@ MHI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
 \label{eq:mi}
 \end{equation}
 
-where $\bar{\rho}_{+}$ represents the average correlation in
-$\mathbf{C}_h$, $\bar{\rho}_{-}$ represents the average correlation for
-the remaining sets (both $\mathbf{C}_b$ and $\mathbf{C}_c$), and $ICV$
-is the coefficient of variation of eigenvalues of the associated
-covariance matrix, which is a measurement of the overall integration
-between all traits (Shirai \& Marroig, 2010). We estimated RV
-coefficients for each hypothesis using the relationship
+where $\bar{\rho}_{+}$ represents the mean correlation in
+$\mathbf{C}_h$, $\bar{\rho}_{-}$ represents the mean correlation in the
+remaining sets (both $\mathbf{C}_b$ and $\mathbf{C}_c$), and $ICV$ is
+the coefficient of variation of eigenvalues of the associated covariance
+matrix, which is a measurement of the overall integration between all
+traits (Shirai \& Marroig, 2010). We estimated RV coefficients for each
+hypothesis using the relationship
 
 \begin{equation}
 RV = \frac{tr(\mathbf{S}_{b}\mathbf{S}^t_{b})}{\sqrt{tr(\mathbf{S}_h \mathbf{S}_h)tr(\mathbf{S}_c \mathbf{S}_c)}}
@@ -572,23 +582,24 @@ disjoint trait sets when any morphometric variable type is considered,
 RV coefficient values for either set are equal; therefore, a single RV
 value is reported for both regions, for each variable type.
 
-In order to test the hypothesis that each trait set represent
-variational modules, we used a randomization procedure that generates
+In order to test the hypothesis that a particular trait set represents a
+variational module, we used a randomization procedure that generates
 1000 random trait sets with the same number of traits as the original
-set, calculating MHI and RV values for each iteration. These values were
-used to construct distributions for both statistics that represent the
-null hypothesis that a hypothetical trait set is a random arrangement
-without meaningful relationships; the value obtained for the real trait
-set is then compared to this distribution for all correlation/covariance
-matrices in our sample. For Modularity Hypothesis Indexes we consider
-that this null hypothesis is rejected when the real value is higher than
-the average value for the null distribution, considering the
-significance level established; for RV coefficients, the null hypothesis
-is rejected when the real RV value is lower than the average value for
-the distribution, also considering a certain significance level. For
-Procrustes residuals the randomization procedure considers that
-coordinates within the same landmark should remain together in each
-randomly generated trait set, following Klingenberg \& Leamy (2001).
+set, calculating MHI and RV values for each iteration. For each trait
+set and covariance/correlation matrix, such values were used to
+construct distributions for both statistics that represent the null
+hypothesis that a given trait set is a random arrangement without
+meaningful relationships; the value obtained for the real trait set is
+then compared to this null distribution. For Modularity Hypothesis
+Indexes we consider that this null hypothesis is rejected when the real
+value is higher than the average value obtained from the distribution,
+considering the significance level established; for RV coefficients, the
+null hypothesis is rejected when the real RV value is lower than the
+average value for the distribution, also considering a certain
+significance level. For Procrustes residuals the randomization procedure
+considers that coordinates within the same landmark should remain
+together in each randomly generated trait set, following Klingenberg \&
+Leamy (2001).
 
 It is noteworthy that, while the procedure for estimating significance
 in the case of Modularity Hypothesis Indexes is derived from Mantel's
@@ -617,7 +628,7 @@ For each correlation matrix in our empirical dataset, we estimated
 average correlations within and between all trait sets we considered,
 thus obtaining a distribution of within and between sets correlations
 associated with each type of morphometric variable (Procrustes
-Residuals, Interlandmark Distances and Local SHape Variables), also
+Residuals, Interlandmark Distances and Local Shape Variables), also
 considering whether size was retained or removed
 (\autoref{fig:cor_dist}). We constructed corresponding sets of
 $\mathbf{C}_{s}$ matrices by sampling each distribution we obtained in
@@ -646,7 +657,7 @@ statistical properties.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/cor_dist-1.pdf}
-\caption{Distribution of within-set and between-set average correlations
+\caption{Distribution of within-set and between-set mean correlations
 derived from the six types of empirical correlation matrices.
 \label{fig:cor_dist}}
 \end{figure}
@@ -1017,46 +1028,39 @@ developmental and functional interactions and to the particularities
 that either type exhibits, especially when we consider how the different
 components of size variation articulate with the observed patterns in
 each type, both before and after we remove these components from
-correlation patterns. Since interlandmark distances are size
-measurements, represented on a ratio scale (Houle \emph{et al.}, 2011),
-these measurements paint a clear picture of the influence that isometric
-variation has on integration, since in a ratio scale the multiplicative
-process of growth is represented to a greater extent than subtle
-allometric relationships. Thus, the Oral region is detected in most
-species as a valid variational module (upper left panel of
-\autoref{fig:Func}a); although size variation is expressed throughout
-the entire ontogeny, the induction of bone growth in the Oral region by
-muscular activity beginning in the pre-weaning period is the major
-factor that structures such pattern (Zelditch \& Carmichael, 1989;
-Hallgrímsson \emph{et al.}, 2009). Remaining regions are also integrated
-due to the effect of allometric interactions during this phase, if we
-consider the strength of association between traits in Oral, Nasal,
-Zygomatic and Vault regions is associated with allometric relationships
-in an evolutionary scale (Chapter 3); however, the impact isometric
-variation has on this type of representation masks the detection of
-variational modularity produced by allometry.
+correlation patterns. Considering that interlandmark distances are on a
+ratio scale, isometric variation will be represented to a greater extent
+when compared to subtle allometric relationships, due to the
+multiplicative nature of biological growth (Huxley, 1932). Thus, the
+Oral trait set is detected as a valid variational module (upper left
+panel of \autoref{fig:Func}a) since this region is strongly affected by
+the induction of bone growth due to muscular activity beginning in the
+pre-weaning period (Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et
+al.}, 2009).
 
 When size variation is removed from interlandmark distance covariance
 matrices, (upper right panel of \autoref{fig:Func}a), a pattern similar
-to raw local shape variables can be observed, considering that in local
-shape variables, the effect of isometric variation is removed, while
-allometric relationships are attenuated. Moreover, by removing
-allometric effects from local shape variables (lower right panel of
-\autoref{fig:Func}a), variational modularity can yet be detected in both
-Oral and Nasal regions, while in a number of species, the Vault region
-is no longer detected as a variational module. Vault integration may be
-achieved through both allometric relationships and the effect of
-relative brain growth, as Vault elements arise mostly through
-intramembranous ossification, induced by the secretion of a number of
-signaling factors from the outer brain membranous tissues, with a modest
-but necessary contribution of mesoderm-derived tissue that undergoes
-endochondral ossification (Jiang \emph{et al.}, 2002; Rice \emph{et
-al.}, 2003; Franz-Odendaal, 2011; Lieberman, 2011). Because the
-estimation of local shape variables excludes shape variation associated
-with affine transformations (Márquez \emph{et al.}, 2012), in those
-species that we cannot detect variational modularity in the Vault after
-removing allometry, the effect of relative brain growth may approximate
-such transformation.
+to raw local shape variables can be observed. With respect to local
+shape variables, the patterns expressed in these covariance/correlation
+matrices are influenced by allometric relationships defined on a proper
+scale (Jolicoeur, 1963; Houle \emph{et al.}, 2011) and local
+developmental processes. Furthermore, by removing allometric effects
+from local shape variables (lower right panel of \autoref{fig:Func}a),
+variational modularity can yet be detected in both Oral and Nasal
+regions, while in a number of species, the Vault region is no longer
+detected as a variational module. Vault integration may be achieved
+through both allometric relationships and the effect of relative brain
+growth, as Vault elements arise mostly through intramembranous
+ossification, induced by the secretion of a number of signaling factors
+from the outer brain membranous tissues, with a modest but necessary
+contribution of mesoderm-derived tissue that undergoes endochondral
+ossification (Jiang \emph{et al.}, 2002; Rice \emph{et al.}, 2003;
+Franz-Odendaal, 2011; Lieberman, 2011). Because the estimation of local
+shape variables excludes shape variation associated with affine
+transformations (Márquez \emph{et al.}, 2012), in those species that we
+cannot detect variational modularity in the Vault after removing
+allometry, the effect of relative brain growth may approximate such
+transformation.
 
 This observation might hold if we consider that in humans, the growth of
 Vault osteological elements occur, from a topological standpoint,
@@ -1442,9 +1446,14 @@ Huckemann, S.F. 2012. On the meaning of mean shape: manifold stability,
 locus and the two sample test. \emph{Annals of the Institute of
 Statistical Mathematics} \textbf{64}: 1227--1259.
 
+Huxley, J.S. 1932. \emph{Problems of relative growth}.
+
 Jiang, X., Iseki, S., Maxson, R.E., Sucov, H.M. \& Morriss-Kay, G.M.
 2002. Tissue Origins and Interactions in the Mammalian Skull Vault.
 \emph{Developmental Biology} \textbf{241}: 106--116.
+
+Jolicoeur, P. 1963. The Multivariate Generalization of the Allometry
+Equation. \emph{Biometrics}.
 
 Jones, A.G. 2007. The mutation matrix and the evolution of evolvability.
 \emph{Evolution} \textbf{61}: 727--745.
