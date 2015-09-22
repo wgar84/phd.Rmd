@@ -166,7 +166,7 @@ estimators, Procrustes-based estimators have properties that hinder
 their use in this context. Here, we compare different representations of
 organismal form, focusing on tests for detecting \emph{a priori} defined
 modularity patterns; we also compare two metrics that represent
-modularity: one derived from linear morphometrics (MI) and another that
+modularity: one derived from linear morphometrics (MHI) and another that
 emerged in the context of landmark-based representations (RV). With a
 dataset of Anthropoid skulls, we compare tests using both metrics over
 three representations of form: interlandmark distances, Procrustes
@@ -175,7 +175,7 @@ Procrustes residuals fail to detect modularity patterns, while remaining
 representations show the distinction between early- and late-development
 in mammalian skull ontogeny. To estimate error rates, we built
 covariance matrices of known structure, testing hypotheses over then;
-such tests indicate that power for tests using MI is more stable
+such tests indicate that power for tests using MHI is more stable
 considering effect and sample sizes; when using RV, power is sensitive
 to these parameters. However, both statistics have low power when used
 on matrices whose correlation distribution derives from Procrustes
@@ -556,7 +556,7 @@ where $tr$ represents the sum of diagonal elements in any given matrix
 ($tr \mathbf{A} = \sum_i a_{ii}$).
 
 The partitioning scheme outlined above assumes that the complementary
-trait set does not represent an actual hypothesis of trait association;
+trait set does not represent an actual hypothesis of association;
 however, we may choose to consider that both sets ($\mathbf{A}_h$ and
 $\mathbf{A}_c$) represent two distinct hypothesis. The estimation of RV
 coefficients remains the same; however, Modularity Hypothesis Indexes
@@ -575,30 +575,29 @@ value is reported for both regions, for each variable type.
 In order to test the hypothesis that each trait set represent
 variational modules, we used a randomization procedure that generates
 1000 random trait sets with the same number of traits as the original
-set, calculating both MHI and RV values for each generated set. These
-values were used to construct distributions for both statistics that
-represent the null hypothesis that a hypothetical trait set is a random
-arrangement without meaningful relationships; the value obtained for the
-real trait set is then compared to this distribution for all
-correlation/covariance matrices in our sample. For Modularity Hypothesis
-Indexes we consider that this null hypothesis is rejected when the real
-value is higher than the average value for the null distribution,
-considering the significance level established; for RV coefficients, the
-null hypothesis is rejected when the real RV value is lower than the
-average value for the distribution, also considering a certain
-significance level. For Procrustes residuals the randomization procedure
-considers that coordinates within the same landmark should remain
-together in each randomly generated trait set, following Klingenberg \&
-Leamy (2001).
+set, calculating MHI and RV values for each iteration. These values were
+used to construct distributions for both statistics that represent the
+null hypothesis that a hypothetical trait set is a random arrangement
+without meaningful relationships; the value obtained for the real trait
+set is then compared to this distribution for all correlation/covariance
+matrices in our sample. For Modularity Hypothesis Indexes we consider
+that this null hypothesis is rejected when the real value is higher than
+the average value for the null distribution, considering the
+significance level established; for RV coefficients, the null hypothesis
+is rejected when the real RV value is lower than the average value for
+the distribution, also considering a certain significance level. For
+Procrustes residuals the randomization procedure considers that
+coordinates within the same landmark should remain together in each
+randomly generated trait set, following Klingenberg \& Leamy (2001).
 
 It is noteworthy that, while the procedure for estimating significance
 in the case of Modularity Hypothesis Indexes is derived from Mantel's
 (1967) approach (as outlined by Cheverud \emph{et al.}, 1989), we chose
-to generate null distributions for MI directly, instead of estimating
+to generate null distributions for MHI directly, instead of estimating
 matrix correlation values for both real and permutated matrices.
 Estimated $p$-values in both cases remained the same, and the additional
 step of estimating matrix correlations would produce an unnecessary
-difference between the estimation of signficance for MI and RV.
+difference between the estimation of signficance for MHI and RV.
 
 \subsection{Estimation of Error Rates}\label{estimation-of-error-rates}
 
@@ -709,7 +708,7 @@ structure that is not detected simply due to small differences between
 within-set and between-set correlations. For each correlation matrix
 sampled, we kept the squared between-set correlation ($b^2$), in order
 to use it as an estimate of effect size that is not directly associated
-with either MI and RV statistics. We expect that power for either tests
+with either MHI and RV statistics. We expect that power for either tests
 decreases with increasing $b^2$ values, as effect size would also
 decrease.
 
@@ -763,10 +762,10 @@ values consistently.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/Func-1.pdf}
-\caption{MI (a) and RV (b) values for localized trait sets. Circles
+\caption{MHI (a) and RV (b) values for localized trait sets. Circles
 indicate whether a trait set is recognized as a variational module in a
 given OTU, with $P(\alpha)$ indicated by the legend. Notice that blue
-values are associated with higher MI values and lower RV values, as the
+values are associated with higher MHI values and lower RV values, as the
 alternate hypothesis for each statistic is formulated in a corresponding
 manner; see text for details. \label{fig:Func}}
 \end{figure}
@@ -788,7 +787,7 @@ with size retained and in Procrustes residuals, although this effect is
 more marked in the former type.
 
 With respect to regional trait sets (Face and Neurocranium), tests
-performed using MI (\autoref{fig:Dev}a) indicate a pattern consistent
+performed using MHI (\autoref{fig:Dev}a) indicate a pattern consistent
 with the findings regarding localized sets (\autoref{fig:Func}a).
 Considering only interlandmark distances, Facial traits are detected as
 a valid modular partition both with size variation retained or removed,
@@ -811,10 +810,10 @@ previously detected, this distinction is also detected as valid.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/Dev-1.pdf}
-\caption{MI (a) and RV (b) values for regional trait sets. Circles
+\caption{MHI (a) and RV (b) values for regional trait sets. Circles
 indicate whether a trait set is recognized in a given OTU, with
 $P(\alpha)$ indicated by the legend. Notice that blue values are
-associated with higher MI values and lower RV values, as the alternate
+associated with higher MHI values and lower RV values, as the alternate
 hypothesis for each statistic is formulated in a corresponding manner;
 see text for details. \label{fig:Dev}}
 \end{figure}
@@ -830,15 +829,15 @@ tests for each region.
 
 \subsection{Error Rates}\label{error-rates}
 
-Comparing the distributions of MI and RV values from theoretical
+Comparing the distributions of MHI and RV values from theoretical
 matrices with respect to their structure (\autoref{fig:stat_dist_sim})
 shows marked differences between statistics and morphometric variables
 from which correlations are sampled. For local shape variables the
-distribution of both MI and RV values for $\mathbf{C}_s$ and
+distribution of both MHI and RV values for $\mathbf{C}_s$ and
 $\mathbf{C}_r$ matrices overlap very little; for interlandmark distances
-the distribution of MI values for both matrix types also has little
+the distribution of MHI values for both matrix types also has little
 overlap, while the same distributions for RV have a substantial overlap.
-Finally, for Procrustes residuals, while the distribution of MI values
+Finally, for Procrustes residuals, while the distribution of MHI values
 for both matrix types overlap to some degree, the same distributions for
 RV values are identical. It is noteworthy that removing size or
 allometry does not change these distributions in most cases; only for RV
@@ -850,14 +849,14 @@ distributions.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/stat_dist_sim-1.pdf}
-\caption{Distribution of Modularity Index and RV Coefficient for
-theoretical correlation matrices. \label{fig:stat_dist_sim}}
+\caption{Distribution of Modularity Hypothesis Index and RV Coefficient
+for theoretical correlation matrices. \label{fig:stat_dist_sim}}
 \end{figure}
 
 Regarding the relationship between significance levels and Type I error
 rates estimated over $\mathbf{C}_r$ matrices, \autoref{fig:type1} shows
 that these quantities approach an identity relationship very closely
-regardless of whether we use MI or RV to quantify variational
+regardless of whether we use MHI or RV to quantify variational
 modularity; even at low sample sizes Type I error rates are very close
 to significance levels. Furthermore, the effect of sampling correlations
 from size-free distributions does not alter Type I error rates for both
@@ -874,14 +873,14 @@ identity relationship. \label{fig:type1}}
 
 When we consider the relationship between power and significance levels,
 estimated over $\mathbf{C}_s$ matrices, there are substantial
-differences with respect both to the chosen statistic (MI or RV) and to
+differences with respect both to the chosen statistic (MHI or RV) and to
 the type of variable from which correlations are sampled. Considering
-local shape variables (\autoref{fig:type2_def}), tests using either MI
+local shape variables (\autoref{fig:type2_def}), tests using either MHI
 and RV have high power, even at low sample or effect sizes; increasing
 these quantities produces a further increase in power. However, it is
 noteworthy that, for lower effect sizes (represented by high average
 squared correlation between sets, $b^2$) power for tests performed using
-MI is higher than for those using RV. As effect size increases (lower
+MHI is higher than for those using RV. As effect size increases (lower
 $b^2$ values), the difference in power between the two statistics
 decreases. For this type of variable, sampling from its associated
 size-free correlation distribution implies minor differences in power
@@ -890,12 +889,12 @@ for both statistics.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_def-1.pdf}
-\caption{Power for both MI and RV statistics as a function of the chosen
-significance levels with respect to tests for variational modularity
-applied on $\mathbf{C}_s$ matrices with values sampled from the
-distribution of correlations between local shape variables. Lines are
-colored with respect to quantiles of the $b^2$ distribution, according
-to the legend. \label{fig:type2_def}}
+\caption{Power for both MHI and RV statistics as a function of the
+chosen significance levels with respect to tests for variational
+modularity applied on $\mathbf{C}_s$ matrices with values sampled from
+the distribution of correlations between local shape variables. Lines
+are colored with respect to quantiles of the $b^2$ distribution,
+according to the legend. \label{fig:type2_def}}
 \end{figure}
 
 For interlandmark distances (\autoref{fig:type2_ed}) there are
@@ -913,17 +912,17 @@ when higher effect sizes (low $b^2$ values) are considered.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_ed-1.pdf}
-\caption{Power for both MI and RV statistics as a function of the chosen
-significance levels with respect to tests for variational modularity
-applied on $\mathbf{C}_s$ correlation matrices with values sampled from
-the distribution of correlations between interlandmark distances. Lines
-are colored with respect to quantiles of the $b^2$ distribution,
-according to the legend. The solid black line represents the identity
-relationship. \label{fig:type2_ed}}
+\caption{Power for both MHI and RV statistics as a function of the
+chosen significance levels with respect to tests for variational
+modularity applied on $\mathbf{C}_s$ correlation matrices with values
+sampled from the distribution of correlations between interlandmark
+distances. Lines are colored with respect to quantiles of the $b^2$
+distribution, according to the legend. The solid black line represents
+the identity relationship. \label{fig:type2_ed}}
 \end{figure}
 
 With respect to Procrustes residuals (\autoref{fig:type2_sym}), tests
-using either MI or RV have reduced power regardless of effect or sample
+using either MHI or RV have reduced power regardless of effect or sample
 size. Sampling from size-free correlation distributions to build
 $\mathbf{C}_s$ matrices also has little effect. As for interlandmark
 distances without size variation, power for tests performed using RV
@@ -934,10 +933,10 @@ above 50\%.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_sym-1.pdf}
-\caption{Power for both MI and RV statistics as a function of the chosen
-significance levels with respect to tests for variational modularity
-applied on $\mathbf{C}_s$ matrices with values sampled from the
-distribution of correlations between Procrustes residuals. Lines are
+\caption{Power for both MHI and RV statistics as a function of the
+chosen significance levels with respect to tests for variational
+modularity applied on $\mathbf{C}_s$ matrices with values sampled from
+the distribution of correlations between Procrustes residuals. Lines are
 colored with respect to quantiles of the $b^2$ distribution, according
 to the legend. The solid black line represents the identity
 relationship. \label{fig:type2_sym}}
@@ -983,15 +982,14 @@ posterior Basicranium, (Lieberman \emph{et al.}, 2000); meanwhile, the
 anterior portion suffers influence from the development of Facial
 elements (Bastir \& Rosas, 2005). Thus, we might consider that since the
 Basicranium ossifies early in development, the composed effect of all
-posterior steps of cranial development will erase (or, at the very
-least, blur) any pattern of integration this region might have, as
-predicted by the palimpsest model of development (Hallgrímsson \emph{et
-al.}, 2009). Moreover, the angulation between anterior and posterior
-elements of the Basicranium has changed sensibly during primate
-evolution, and such property appears to evolve in coordination with
-Facial growth relative to the cranial Vault, in order to accomodate both
-structures on each other (Scott, 1958; Lieberman \emph{et al.}, 2000,
-2008).
+posterior steps of cranial development will overshadow any pattern of
+integration this region might have, as predicted by the palimpsest model
+of development (Hallgrímsson \emph{et al.}, 2009). Moreover, the
+angulation between anterior and posterior elements of the Basicranium
+has changed sensibly during primate evolution, and such property appears
+to evolve in coordination with Facial growth relative to the cranial
+Vault, in order to accomodate both structures on each other (Scott,
+1958; Lieberman \emph{et al.}, 2000, 2008).
 
 Due to this heterogeneity of developmental processes acting on the
 Basicranium, we should not consider that the Basicranium is a
@@ -1135,11 +1133,11 @@ For Procrustes residuals, a substantial overlap occurs regardless of
 whether size variation was removed or retained; unsurprisingly, our
 estimates of power for RV in this type of representation are very low
 (\autoref{fig:type2_sym}); nonetheless, power estimated for tests based
-on Modularity Index is lower than in other types of representation,
-since the difference between within-set and between-set correlations in
-Procrustes residuals (\autoref{fig:cor_dist}) is the lowest of all
-representations. A substantial overlap in RV distributions for
-$\mathbf{C}_r$ and $\mathbf{C}_s$ matrices also occurs with
+on Modularity Hypothesis Index is lower than in other types of
+representation, since the difference between within-set and between-set
+correlations in Procrustes residuals (\autoref{fig:cor_dist}) is the
+lowest of all representations. A substantial overlap in RV distributions
+for $\mathbf{C}_r$ and $\mathbf{C}_s$ matrices also occurs with
 interlandmark distances when size variation is removed, and it implies
 low power for tests using RV values in this type of representation
 (right column of \autoref{fig:type2_ed}). However, in this case there is
@@ -1159,20 +1157,20 @@ column of \autoref{fig:type2_ed}).
 
 These results indicate that RV coefficents are more sensitive to the
 absolute value of both within-set and between-set correlation
-distributions than Modularity Indexes. For interlandmark distances
-(\autoref{fig:type2_ed}), removing size variation reduced the average
-value of both correlation distributions by a similar amount
+distributions than Modularity Hypothesis Indexes. For interlandmark
+distances (\autoref{fig:type2_ed}), removing size variation reduced the
+average value of both correlation distributions by a similar amount
 (\autoref{fig:cor_dist}); the difference between average correlations in
 these two sets actually increases, going from 0.042 to 0.061 when size
 is removed. However, since the actual average correlations for these two
 distributions approach zero, tests based on RV lose power more rapidly
 than those tests based on MI. This sensitivity might be associated to
 the use of squared covariances, as shown by Equation \ref{eq:rv}, while
-Modularity Indexes use correlations on their natural scale (Equation
-\ref{eq:mi}). Furthermore, as observed by Fruciano et al. (2013), sample
-sizes sensibly influence the estimation of RV coefficients, and we
-demostrate here that such sensitivity also extends to estimates of power
-for tests using this statistic.
+Modularity Hypothesis Indexes use correlations on their natural scale
+(Equation \ref{eq:mi}). Furthermore, as observed by Fruciano et al.
+(2013), sample sizes sensibly influence the estimation of RV
+coefficients, and we demostrate here that such sensitivity also extends
+to estimates of power for tests using this statistic.
 
 On the other hand, our estimates of power for tests using MI indicate
 that this statistic is more robust to differences in absolute
@@ -1185,12 +1183,12 @@ groups of observations (correlations between traits in the same subset
 \emph{versus} correlations between traits in different subsets) have a
 significant difference in average values; we use resampling procedures
 to estimate significance in this case only due to the interdependency
-between pairwise correlations. Thus, as Modularity Indexes are estimated
-with a formula that is very similar to that of a \emph{t} statistic
-(difference between location parameters for two groups, divided by a
-scale parameter --- ICV), we believe that this statistic is a proper way
-to represent variational modularity; the robustness of the tests using
-this statistic reinforce this belief.
+between pairwise correlations. Thus, as Modularity Hypothesis Indexes
+are estimated with a formula that is very similar to that of a \emph{t}
+statistic (difference between location parameters for two groups,
+divided by a scale parameter --- ICV), we believe that this statistic is
+a proper way to represent variational modularity; the robustness of the
+tests using this statistic reinforce this belief.
 
 Our approach to construct theoretical matrices attempts to simulate the
 most simple situation in detecting variational modularity, that is, the
