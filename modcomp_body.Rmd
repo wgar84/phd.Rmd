@@ -251,6 +251,7 @@ Furthermore, abstracting the actual tests performed, \autoref{fig:Func}a also in
 
 ```{r Func, echo = FALSE, fig.cap = captions $ fig.Func, fig.width = 15, fig.height = 15, message = FALSE, fig.pos='h'}
 plot_grid(modcomp.Plots $ MI.Func + ylab('') +
+          ggtitle('Modularity Hypothesis Index') +
           theme(text = element_text(size = 12),
                 strip.text = element_text(size = 9),
                 axis.text = element_text(size = 14)),
@@ -279,6 +280,7 @@ The tests for the distinction of within-set and between-set correlations for the
 ```{r Dev, echo = FALSE, fig.cap = captions $ fig.Dev, fig.width = 15, fig.height = 10, message = FALSE, fig.pos='t'}
 
 plot_grid(modcomp.Plots $ MI.Dev + ylab('') +
+          ggtitle('Modularity Hypothesis Index') +
           theme(strip.text.y = element_text(size = 6),
                 axis.text = element_text(size = 13)),
           modcomp.Plots $ RV.NeuroFace +
