@@ -13,7 +13,7 @@ output:
     fig_caption: true
     fig_width: 6
 fontsize: 12pt
-csl: Bib/journal-of-evolutionary-biology.csl
+csl: Bib/systematic-biology.csl
 bibliography: Bib/modcomp.bib
 ---	
 
@@ -31,6 +31,10 @@ thesis <- FALSE
 
 ```{r modcomp_body, child = 'modcomp_body.Rmd'}
 ```
+
+### Acknowledgements
+
+We thank A. Porto and G. Burin for comments on an early draft. This work has been funded by CNPq (Conselho Nacional de Pesquisa e Desenvolvimento Tecnológico) and FAPESP (Fundação de Apoio à Pesquisa do Estado de São Paulo)
 
 # References
 
