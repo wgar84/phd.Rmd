@@ -33,7 +33,7 @@ require (cowplot)
 require (ggtree)
 require (phylobase)
 
-registerDoMC (cores = 3)
+registerDoMC (cores = 10)
 
 ## require (devtools)
 ## install_github('muschellij2/slidify')
@@ -124,3 +124,4 @@ browseURL('index.html', 'firefox')
 
 
 
+allo.Plots$FaceMI.vs.Wslope + geom_text(aes (x = W.slope, y = Face.MI, label = node))

@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{16 September 2015}
+  \date{02 October 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -268,11 +268,9 @@ where $\alpha$ and $\beta$ represent the subsets of descendants from
 node $i$, and $n$ refers to the number of OTUs on each set ($n_i$ for
 the total descendants of node $i$; $n_T$ for the total number of OTUs
 considered; $n_\alpha$ and $n_\beta$ for the size of descending
-subsets).
-
-$D_{\Delta}(P_\alpha, P_\beta)$ represents the actual distance between
-the two distributions $P_\alpha$ and $P_\beta$ for descending nodes, as
-formulated by Rao (1982):
+subsets). $D_{\Delta}(P_\alpha, P_\beta)$ represents the actual distance
+between the two distributions $P_\alpha$ and $P_\beta$ for descending
+nodes, as formulated by Rao (1982):
 
 \begin{equation}
 D_{\Delta} (P_\alpha, P_\beta) =
@@ -447,12 +445,6 @@ available at \url{http://life.bio.sunysb.edu/morph/soft-R.html}.
 
 \section{Results}\label{results}
 
-Os testes de disparidade de estrutura de covariância ao longo da
-filogenia (\autoref{tab:riem_decdiv}) indicam, em conjunto, que a maior
-parte das diferenças em estrutura de covariância se localizam na base da
-filogenia, associada à divergência entre Platyrrhini e Catarrhini
-(\autoref{fig:phylo_decdiv}).
-
 \input{Tables/riem_decdiv}
 
 \begin{figure}[htbp]
@@ -468,14 +460,6 @@ cell colors represent projection values, according to the legend.
 \label{fig:phylo_full}}
 \end{figure}
 
-A análise de componentes principais filogenéticos recupera um conjunto
-de autovalores positivos que, em geral, possuem magnitudes maiores do
-que suas contrapartes negativas (\autoref{fig:ppca_eval}). Isso indica
-que a maior parte da divergência de estrutura de covariância está
-localizada na divergência entre linhagens mais próximas da raiz da
-filogenia do que entre espécies irmãs, em concordância com a análise de
-disparidade.
-
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/ppca_eval-1.pdf}
@@ -487,27 +471,6 @@ of mean SRD scores for each trait with respect to pPCs; each line
 represents a loess interpolation adjusted for each skull region,
 according to the legend. \label{fig:ppca_eval}}
 \end{figure}
-
-Podemos observar que as projeções das espécies sobre cada componente
-principal filogenético considerado (\autoref{fig:phylo_gl}) indicam que
-o primeiro componente global está associado a um contraste entre
-Platyrrhini e Catarrhini, enquanto o segundo componente global se
-associa a contrastes dentre estas duas linhagens. Os componentes locais
-representam diferenças locais entre espécies-irmãs, como por exemplo
-entre as duas espécies de \emph{Gorilla} e entre as espécies do gênero
-\emph{Callithrix}.
-
-Ao reconstruírmos a variação em termos de estrutura de covariância
-associada a estes componentes, a análise de SRD (Figuras
-\ref{fig:srd_gl} e \ref{fig:srd_shape}) sobre os limites do intervalo de
-confiança de 95\% de cada eixo indicam que em cada nível de divergência
-(associados aos contrastes entre linhagens na pPCA) as maiores
-diferenças em termos de estrutura de covariância se localizam dentre os
-caracteres da Órbita e da Base, conforme indicado pelas médias menores e
-desvios-padrão maiores na \autoref{fig:srd_gl}. Além dos caracteres
-nestas duas regiões, a estrutura de covariância associada ao tamanho do
-centróide também se mostrou divergente nos diferentes níveis delimitados
-pela pPCA.
 
 \begin{figure}[htbp]
 \centering
@@ -525,32 +488,11 @@ assocation with each skull region, according to the legend.
 \includegraphics{Figures/srd_shape-1.pdf}
 \caption{Mean SRD scores for the first and last two phylogenetic PCs
 (Global 1-2 and Local 1-2, respectively) represented over the mean skull
-shape of rhesus macaques (\emph{Macaca mulatta}). \label{fig:srd_shape}}
+shape of diana guenons (\emph{Cercopithecus diana}).
+\label{fig:srd_shape}}
 \end{figure}
 
 \section{Discussion}\label{discussion}
-
-Os resultados obtidos aqui indicam que a magnitude de disparidade em
-estrutura de covariância para variáveis de forma e tamanho do centróide
-está associada à distância filogenética (\autoref{tab:riem_decdiv},
-\autoref{fig:phylo_decdiv}); entretanto, aqueles caracteres que
-representam estas divergências em estrutura de covariância são os mesmo
-independente da escala taxonômica considerada.
-
-O Basicrânio é composto de um mosaico de células originadas de tecidos
-distintos, que ossificam muito cedo durante o desenvolvimento (Lieberman
-\emph{et al.}, 2008; Lieberman, 2011); ademais, os ossos do basicrânio
-se associam topologicamente a grande maioria dos ossos do crânio
-(Esteve-Altava \& Rasskin-Gutman, 2014), sofrendo, ao longo do
-desenvolvimento, influência do crescimento e diferenciação dos ossos
-circundantes. Em contrapartida, a estrutura de covariância associada ao
-tamanho do centróide reflete principalmente o crescimento e
-diferenciação pós-natal (Porto \emph{et al.}, 2013).
-
-Assim sendo, mudanças na estrutura de covariância estão associadas a
-eventos particulares do desenvolvimento, mostrando um padrão consistente
-ao longo da diversificação dos primatas antropóides, refletindo o efeito
-de interações funcionais e ontogenéticas.
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
@@ -566,11 +508,6 @@ labile. \emph{Evolution} \textbf{57}: 717--745.
 Cheverud, J.M. \& Marroig, G. 2007. Comparing covariance matrices:
 Random skewers method compared to the common principal components model.
 \emph{Genetics and Molecular Biology} \textbf{30}: 461--469.
-
-Esteve-Altava, B. \& Rasskin-Gutman, D. 2014. Beyond the functional
-matrix hypothesis: a network null model of human skull growth for the
-formation of bone articulations. \emph{Journal of Anatomy} \textbf{225}:
-306--316.
 
 Gelman, A., Carlin, J.B., Stern, H.S. \& Rubin, D.B. 2004.
 \emph{Bayesian data analysis}, 2ª ed. CRC Press, New York.
@@ -599,17 +536,6 @@ approach. \emph{Journal of Theoretical Biology} \textbf{264}: 693--701.
 Klingenberg, C.P., Barluenga, M. \& Meyer, A. 2002. Shape analysis of
 symmetric structures: Quantifying variation among individuals and
 asymmetry. \emph{Evolution} \textbf{56}: 1909--1920.
-
-Lieberman, D.E. 2011. Epigenetic Integration, Complexity and
-Evolvability of the Head: Rethinking the Functional Matrix Hypothesis.
-In: \emph{Epigenetics: Linking Genotype and Phenotype in Development and
-Evolution} (B. Hallgrímsson \& B. K. Hall, eds), pp. 271--289.
-University of California Press.
-
-Lieberman, D.E., Hallgrímsson, B., Liu, W., Parsons, T.E. \& Jamniczky,
-H.A. 2008. Spatial packing, cranial base angulation, and craniofacial
-shape variation in the mammalian skull: testing a new model using mice.
-\emph{Journal of Anatomy} \textbf{212}: 720--735.
 
 Marroig, G. \& Cheverud, J.M. 2001. A comparison of phenotypic variation
 and covariation patterns and the role of phylogeny, ecology, and
@@ -643,10 +569,6 @@ evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
 Pavoine, S., Baguette, M. \& Bonsall, M.B. 2010. Decomposition of trait
 diversity among the nodes of a phylogenetic tree. \emph{Ecological
 Monographs} \textbf{80}: 485--507.
-
-Porto, A., Shirai, L.T., Oliveira, F.B. de \& Marroig, G. 2013. Size
-Variation, Growth Strategies, and the Evolution of Modularity in the
-Mammalian Skull. \emph{Evolution} \textbf{67}: 3305--3322.
 
 R Core Team. 2015. \emph{R: A Language and Environment for Statistical
 Computing}. R Foundation for Statistical Computing, Vienna, Austria.

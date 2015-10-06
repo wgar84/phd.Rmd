@@ -37,9 +37,12 @@ ppca.extra $ ss.local1 <-
 
 ppca.shape <- list ()
 
+gradient <- colorRampPalette(brewer.pal(10, 'Spectral'))
+
 ppca.Data $ post.arc %>%
   filter(Type == 'Local Shape Variables') %>%
-  mutate('trait2' = factor (as.character(trait), levels = rownames (Aux $ def.hyp))) %>%
+  mutate('trait2' = factor (as.character(trait),
+           levels = rownames (Aux $ def.hyp))) %>%
   group_by(axis, trait2) %>%
   summarise_each(funs(mean), value) %$%
   {
@@ -47,14 +50,43 @@ ppca.Data $ post.arc %>%
       {
         current.value <- value [axis == levels (axis) [i]]
         ppca.shape [[i]] <<-
-          ggshape(Reference [, , 'Macaca_mulatta'],
-                  Aux $ single.tessel.38, current.value [-1],
-                  palette = brewer.pal(10, 'Spectral'),
-                  culo = 0.03, thickness = 1.5) +
-                    xlab(gsub ('\\.', ' ', levels (axis) [i])) +
-                      guides(color = guide_colorbar(title = 'SRD'),
-                             fill = guide_colorbar(title = 'SRD'))
+          ggshape(
+            Reference [, , 'Cercopithecus_diana'],
+            Aux $ single.tessel.38, current.value [-1],
+            palette = brewer.pal(10, 'Spectral'), rotation = c(1, 1, 1),
+            culo = 0.03, thickness = 1.5) +
+              ggtitle(gsub ('\\.', ' ', levels (axis) [i]))
+
+        if (i < 3)
+          ppca.shape [[i]] <<-
+            ppca.shape [[i]] +
+              scale_color_gradientn(
+                limits = c(0.75, 1), colours = gradient(10),
+                breaks = c(0.8, 0.9, 1)) +
+                  scale_fill_gradientn(
+                    limits = c(0.75, 1), colours = gradient(10),
+                    breaks = c(0.8, 0.9, 1))
+                      
+        else
+          ppca.shape [[i]] <<-
+            ppca.shape [[i]] +
+              scale_color_gradientn(
+                limits = c(0.98, 1), colours = gradient(10),
+                breaks = c(0.98, 0.99, 1)) +
+                  scale_fill_gradientn(
+                    limits = c(0.98, 1), colours = gradient(10),
+                    breaks = c(0.98, 0.99, 1))
+        
+        if (i %% 2 == 0)
+          ppca.shape [[i]] <<-
+            ppca.shape [[i]] +
+              guides(color = guide_colorbar(title = ifelse(i == 2, 'Global', 'Local')),
+                     fill = guide_colorbar(title = ifelse(i == 2, 'Global', 'Local')))
+        else
+          ppca.shape [[i]] <<- ppca.shape [[i]] +
+            guides(color = FALSE, fill = FALSE)
+
       }
   }
 
-ppca.shape.comp <- plot_grid(plotlist = ppca.shape, ncol = 2)
+ppca.shape.comp <- plot_grid(plotlist = ppca.shape, ncol = 2, rel_widths = c(1, 1.275))

@@ -43,13 +43,10 @@ captions $ fig.ss_local1 <- 'Relationship between sample sizes and the first loc
 
 ```{r phylo_model, echo = FALSE, fig.width = 15, fig.height = 18, fig.cap = captions $ fig.phylo_model, message = FALSE, warning = FALSE}
 Tree.Plots $ model
-<<<<<<< HEAD
 ```
 
 ```{r rs_riem, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.rs_riem}
 ppca.extra $ rs.riem
-=======
->>>>>>> cd21f4e109f0ba58c1efc5bf4a8e7f45f0daf73a
 ```
 
 ```{r ss_local1, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.ss_local1}
