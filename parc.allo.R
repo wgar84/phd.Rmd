@@ -30,6 +30,21 @@ allo.Data $ model.intercepts %>%
   theme_bw() +
   geom_abline(intercept = 0, slope = 1, linetype = 'dashed')
 
+data.frame('node' = ,
+           'pos' = rep('Ancestor', 109),
+           'post.mean' = allo.Parc $ inter)
+
+subset (allo.Data $ model.intercepts,
+        pos == 'Ancestor') [
+          allo.Parc $ inter <
+          subset (allo.Data $ model.intercepts, pos == 'Ancestor')[, 'l.95..CI'] |
+          allo.Parc $ inter >
+          subset (allo.Data $ model.intercepts, pos == 'Ancestor')[, 'u.95..CI'], 'node']
+
+
+
+
+
 ggplot (subset (allo.Data $ integra.df, pos == 'Terminal')) +
   geom_text(aes (x = W.slope, y = wAC.CAC, label = node)) +
   theme_bw() + xlab ('Intercept') + ylab('<CAC, within-species AC>') +

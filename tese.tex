@@ -1666,10 +1666,13 @@ organisms. We focus on testing whether and to which proportion
 intercepts and slopes have changed during the diversification of this
 group. Moreover, integration patterns in skull form are quite stable in
 both New World (Marroig \& Cheverud, 2001) and Old World Monkeys, with
-some exceptions (Oliveira \emph{et al.}, 2009). Several authors have
-argued that allometric constraints contribute to integration patterns
+some exceptions (Oliveira \emph{et al.}, 2009). The association between
+relative size variation and integration has been shown for mammals in
+general (Porto \emph{et al.}, 2009, 2013) and several authors have
+argued that such association is imposed through allometric constraints
 (e.g. Porto \emph{et al.}, 2009; Armbruster \emph{et al.}, 2014), but
-this association has never been formalized. Thus, we test the hypothesis
+this association has never been formalized, considering a strict
+definition of allometric relationships. Thus, we test the hypothesis
 that variation in allometric parameters, if present, will contribute to
 variation in the strength of association between skull traits.
 Considering both the spatial and temporal dynamics of mammalian skull
@@ -1745,7 +1748,18 @@ variables with a correlation structure among OTUs derived from branch
 lengths obtained from the phylogenetic hypothesis we use. This allows
 the model to estimate $a_s$ and $b_s$ for each terminal OTU and also for
 ancestral nodes, enabling us to track changes in both parameters along
-the phylogeny.
+the phylogeny. Furthermore, in order to evaluate whether such
+reconstruction is affected by the model we chose, we compared the
+estimated posterior distribution of both intercepts and slopes for all
+nodes within the phylogeny with point estimates produced under a linear
+parcimony model, implemented in Mesquite ({\textbf{???}}). For
+allometric slopes, all parsimony estimates fall within the 95\% credible
+intervals obtained from the random regression model. For intercepts,
+only in five nodes (Catarrhini, Pitheciidae, Cebidae, \emph{Pithecia},
+and the clade composed of \emph{Brachyteles}, \emph{Lagothrix} and
+\emph{Ateles}) differences are observed between the two types of
+estimates; however, such differences do not hamper the interpretation of
+changes in intercepts we elaborate here.
 
 We projected all individuals in our sample along the Common Allometric
 Component (CAC; Mitteroecker \emph{et al.}, 2004), which is the pooled
@@ -1759,7 +1773,9 @@ state of MCMC samplers available. Therefore, we limit ourselves to test
 whether the strength of association between size and allometric shape,
 represented by projections over this CAC (which we consider the best
 representation of the ancestral allometric shape variation) has changed
-during the diversification of Anthropoid Primates.
+during the diversification of Anthropoid Primates, measuring such
+strength of association as increases in CAC values for an unit increase
+in logCS standard deviation within each OTU.
 
 We used uniform prior distributions for all $a_s$ and $b_s$. In order to
 sample the posterior distribution for our model, we used a MCMC sampler
@@ -1810,16 +1826,21 @@ models separately for each trait subset, using MHI values as response
 variables and allometric parameters as predictors. We also use a
 Bayesian framework to estimate such models. In order to evaluate which
 parameters are sufficient to explain variation in MHI values, we
-adjusted three different models: one for static intercepts alone
-($a_s$), one for static slopes ($b_s$), and a third model that considers
-the joint effect of both parameters, without interactions ($a_s$ +
-$b_s$). We compared these three models using the Deviance Information
-Criterion (DIC; Gelman \emph{et al.}, 2004), which increases as a
-function of the average posterior likelihood for a particular model and
-decreases as a function of the number of parameters considered; in a
-equivalent manner to Akaike's (1974) Information Criterion, the model
-with the smallest DIC is considered the best fit; models whose
-difference in DICs is lower than two are considered equivalent.
+adjusted four different models: one for static intercepts alone ($a_s$),
+one for static slopes ($b_s$), a third model that considers the joint
+effect of both parameters, without interactions ($a_s$ + $b_s$). We also
+fit a model that considers only realtive size variation (measured as
+coefficients of variation in log Centroid Size for each OTU) acting on
+MHI values, since it has been shown that such variation suffices in
+explaining variation in integration patterns, albeit on a larger
+phylogenetic scale (Porto \emph{et al.}, 2009, 2013). We compared these
+four models using the Deviance Information Criterion (DIC; Gelman
+\emph{et al.}, 2004), which increases as a function of the average
+posterior likelihood for a particular model and decreases as a function
+of the number of parameters considered; in a equivalent manner to
+Akaike's (1974) Information Criterion, the model with the smallest DIC
+is considered the best fit; models whose difference in DICs is lower
+than two are considered equivalent.
 
 \subsection{Software}\label{software-1}
 
@@ -1833,13 +1854,15 @@ Annat Haber, available at
 
 \section{Results}\label{results-1}
 
-We used the Common Allometric Component (CAC; Mitteroecker \emph{et
-al.}, 2004), which represents a pooled estimate of skull shape allometry
-(represented as local shape variables; Márquez \emph{et al.}, 2012) as a
-proxy for the ancestral allometric relationships for Anthropoid
-Primates. This axis is associated with positive loadings for Facial
-traits and negative loadings for Neurocranial traits, thus representing
-a contrast between these regional sets (\autoref{fig:cac_logCS}a).
+We obtained local shape variables (Márquez \emph{et al.}, 2012) to
+represent skull shape variation, and projected them over the Common
+Allometric Component (CAC; Mitteroecker \emph{et al.}, 2004), which
+represents the pooled within-species allometric shape variation. We used
+such component as a proxy for the ancestral allometric relationships for
+Anthropoid Primates (see `Methods' for details). This axis is associated
+with positive loadings for Facial traits and negative loadings for
+Neurocranial traits, thus representing a contrast between these regional
+sets (\autoref{fig:cac_logCS}a).
 
 \begin{figure}[htbp]
 \centering
@@ -1857,17 +1880,17 @@ slopes and intercepts for the regression between individuals projected
 over the CAC and log Centroid Size (logCS) within each species
 (\autoref{fig:cac_logCS}b) are codependent upon their phylogenetic
 relationships. The posterior distribution of deviations from mean for
-both parameters estimated in this manner (\autoref{fig:phylo_W})
+intercepts and slopes estimated in this manner (\autoref{fig:phylo_W})
 indicates that intercepts deviate from the mean in at least seven
 lineages: increases occur in \emph{Pithecia} and \emph{Callicebus}
 within Pitheciids, in the clade composed of Callithrichinae and Aotinae,
 and in \emph{Alouatta} within Atelids, while lower intercepts are found
 in the clade composed of \emph{Homo} and \emph{Pan} within Hominidae, in
 \emph{Hylobates} within Hylobatids, and also in \emph{Ateles} within
-Atelids (\autoref{fig:phylo_W}a). Allometric slopes for terminals, on
-the other hand, deviate from the mean in only three species: \emph{Homo
-sapiens} and both representatives of \emph{Gorilla}, all with slopes
-shallower than the mean (\autoref{fig:phylo_W}b).
+Atelids (\autoref{fig:phylo_W}a). Allometric slopes on the other hand
+deviate from the mean in only three species: \emph{Homo sapiens} and
+both representatives of \emph{Gorilla}, all with slopes shallower than
+the mean (\autoref{fig:phylo_W}b).
 
 \begin{figure}[htbp]
 \centering
@@ -1882,27 +1905,28 @@ measured using regression models of Modularity Hypothesis Indexes (MHI;
 Porto \emph{et al.}, 2013) for two regions (Face and Neurocranium) and
 three sub-regions within each region (Oral, Nasal and Zygomatic in the
 Face; Orbit, Vault and Basicranium in the Neurocranium) on the estimated
-allometric parameters. Model selection using Deviance Information
-Criteria (DIC; Gelman \emph{et al.}, 2004) shows that models considering
-only the intercept always have the worst fit. In most cases, models
-including only the slope are better than or equal ($\Delta DIC < 2$) to
-models with both parameters (intercept and slope), suggesting a
-negligible effect of the intercept. For the Neurocranium region and the
-Vault sub-region, the model including intercept and slope shows a better
-fit than the slope-only model; in both cases, however, the effects of
-the intercept are not significant when one takes into account the
-posterior distribution of the regression coefficients (results not
-shown). We thus consider that the models including only allometric
-slopes provide the best representation of the association between
-allometric parameters and modularity indexes
-(\autoref{tab:dic_allo_im}). It should be noted that none of the models
-tested for the Orbit and Basicranium sub-regions show any association
-between allometric parameters and Modularity Indexes, therefore these
-sub-regions were not included in the model selection. Allometric slopes
-show opposite effects on MHI values for Face and Neurocranium
-(\autoref{fig:MI_vs_slopeW_main}), and, with the exception of the Orbit
-and Basicranium, sub-regions follow the same pattern as the more
-inclusive partition in which they are contained
+allometric parameters, and also on size variation alone, measured as the
+coefficient of variation in log Centroid Size. Model selection using
+Deviance Information Criteria (DIC; Gelman \emph{et al.}, 2004) shows
+that models considering either intercept or size variation only always
+have the worst fit. In most cases, models including only the slope are
+better than or equal ($\Delta DIC < 2$) to models with both parameters
+(intercept and slope), suggesting a negligible effect of the intercept.
+For the Neurocranium region and the Vault sub-region, the model
+including intercept and slope shows a better fit than the slope-only
+model; in both cases, however, the effects of the intercept are not
+significant when one takes into account the posterior distribution of
+the regression coefficients (results not shown). We thus consider that
+the models including only allometric slopes provide the best
+representation of the association between allometric parameters and
+modularity indexes (\autoref{tab:dic_allo_im}). It should be noted that
+none of the models tested for the Orbit and Basicranium sub-regions show
+any association between allometric parameters and Modularity Indexes,
+therefore these sub-regions were not included in the model selection.
+Allometric slopes show opposite effects on MHI values for Face and
+Neurocranium (\autoref{fig:MI_vs_slopeW_main}), and, with the exception
+of the Orbit and Basicranium, sub-regions follow the same pattern as the
+more inclusive partition in which they are contained
 (\autoref{fig:MI_vs_slopeW_si}).
 
 \input{Tables/dic_allo_im.tex}
@@ -1933,17 +1957,17 @@ changes in morphological, physiological and other organismal aspects
 along a size-trait gradient (e.g. Gould, 1974) has historically been
 confronted with the opposing view that allometry may be in fact much
 more dynamic and evolvable (e.g. Kodric-Brown \emph{et al.}, 2006;
-Bonduriansky, 2007; Frankino \emph{et al.}, 2009). As recently stated by
-some authors (Voje \emph{et al.}, 2013; Pélabon \emph{et al.}, 2014),
-this seeming paradox may in large part owe its existence to different
-meanings for allometry: one related to any monotonic relationship
-between variables, while the other specifically deals with power-law
-relationships between variables as defined by Huxley (1932). This
-imprecision of definition greatly hampers evidence in favor of a dynamic
-interpretation of allometry; considering the few studies estimating
-evolvability of narrow-sense allometry, only two demonstrate changes in
-allometric slopes (Tobler \& Nijhout, 2010; Bolstad \emph{et al.},
-2015).
+Bonduriansky, 2007; Frankino \emph{et al.}, 2009). This paradox may owe
+its existence to different meanings for allometry (Houle \emph{et al.},
+2011; Voje \emph{et al.}, 2013; Pélabon \emph{et al.}, 2014): one
+related to any monotonic relationship of a given trait with size,
+measured on an arbitrary scale, while the other specifically deals with
+power-law relationships as defined by Huxley (1932), thus linear on a
+log-log scale. This imprecision of definition greatly hampers evidence
+in favor of a dynamic interpretation of allometry; considering the few
+studies estimating evolvability of narrow-sense allometry, only two
+demonstrate changes in allometric slopes (Tobler \& Nijhout, 2010;
+Bolstad \emph{et al.}, 2015).
 
 The results we obtained from the phylogenetic random regression model
 indicate that substantial changes have occurred on intercepts,
@@ -2018,29 +2042,33 @@ and cooking reduces masticatory loadings associated with its intake.
 
 Shifts in allometric slopes throughout Anthropoid diversification imply
 changes in the strength of association between Facial and Neurocranial
-traits, in opposing directions (\autoref{fig:MI_vs_slopeW_main}). Thus,
-although the distinction between these two regions is the by-product of
-developmental interactions since the initial steps of skull ontogeny
-(Hallgrímsson \& Lieberman, 2008), allometric relationships reinforce
-the effect of such interactions due to the induction of facial growth by
-muscular activity from weaning to adulthood (Zelditch \emph{et al.},
-1992, 2009), since post-natal growth represents a great portion of body
-size variation observed in this group. Hence, groups with steeper
-slopes, such as \emph{Ateles} and \emph{Alouatta}, exhibit strong Facial
-integration and lower Neurocranial integration, while groups with
-shallower slopes, such as Callithrichines, \emph{Homo}, and
-\emph{Gorilla}, exhibit similar integration values for both regions,
-indicating that the restriction over allometric relationships may be
-associated with the maintenance of the functional interactions among
-skull traits. Although the bulk of this effect over phenotypic variation
-may have an environmental origin (Cheverud, 1982b), muscular activity is
-necessary for the proper development of osteological elements (Herring,
-2011), thus indicating that even though such functional interactions are
-dependent on the environment, they are canalized through skull ontogeny
-in a predictable manner, since developmental systems themselves are
-under selection for robustness and replicability (Wagner \& Altenberg,
-1996; Hansen, 2011; Pavlicev \& Hansen, 2011), exhibiting behaviors
-similar to machine learning algorithms (Watson \emph{et al.}, 2013).
+traits, in opposing directions (\autoref{fig:MI_vs_slopeW_main});
+furthermore, allometric slopes explain this effect on integration to a
+greater extent than relative size variation alone
+(\autoref{tab:dic_allo_im}). Thus, although the distinction between
+these two regions is the by-product of developmental interactions since
+the initial steps of skull ontogeny (Hallgrímsson \& Lieberman, 2008),
+allometric relationships reinforce the effect of such interactions due
+to the induction of facial growth by muscular activity from weaning to
+adulthood (Zelditch \emph{et al.}, 1992, 2009), since post-natal growth
+represents a great portion of body size variation observed in this
+group. Hence, groups with steeper slopes, such as \emph{Ateles} and
+\emph{Alouatta}, exhibit strong Facial integration and lower
+Neurocranial integration, while groups with shallower slopes, such as
+Callithrichines, \emph{Homo}, and \emph{Gorilla}, exhibit similar
+integration values for both regions, indicating that the restriction
+over allometric relationships are associated with the maintenance of the
+functional interactions among skull traits. Although the bulk of this
+effect over phenotypic variation may have an environmental origin
+(Cheverud, 1982b), muscular activity is necessary for the proper
+development of osteological elements (Herring, 2011), thus indicating
+that even though such functional interactions are dependent on the
+environment, they are canalized in a predictable manner given the
+existance of epigenetic effects through the course of skull development
+(Lieberman, 2011), since developmental systems themselves are under
+selection for robustness and replicability (Wagner \& Altenberg, 1996;
+Hansen, 2011; Pavlicev \& Hansen, 2011), exhibiting behaviors similar to
+machine learning algorithms (Watson \emph{et al.}, 2013).
 
 Here, we demonstrated under a comparative framework that allometric
 intercepts are more labile than slopes in a macroevolutionary scale and
@@ -2053,7 +2081,7 @@ constraint for mammals, but one that is not absolute and may be overcome
 in particular situations. The approach we used here to estimate
 allometric parameters benefits from properly separating variation within
 and among populations, considering the interdependence arising from
-phylogenetic relatedness simultaneously; for instance, the same approach
+phylogenetic relatedness simultaneously. For instance, the same approach
 could be used to evaluate variation in allometric parameters between
 individuals in a population whose genealogy is available, enabling us to
 quantify the influence of both genetic and environmental factors over
