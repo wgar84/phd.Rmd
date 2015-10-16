@@ -80,7 +80,7 @@ Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{15 October 2015}
+  \date{16 October 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -233,20 +233,18 @@ organisms. We focus on testing whether and to which proportion
 intercepts and slopes have changed during the diversification of this
 group. Moreover, integration patterns in skull form are quite stable in
 both New World (Marroig \& Cheverud, 2001) and Old World Monkeys, with
-some exceptions (Oliveira \emph{et al.}, 2009). The association between
-relative size variation and integration has been shown for mammals in
-general (Porto \emph{et al.}, 2009, 2013) and several authors have
-argued that such association is imposed through allometric constraints
-(e.g. Porto \emph{et al.}, 2009; Armbruster \emph{et al.}, 2014), but
-this association has never been formalized, considering a strict
-definition of allometric relationships. Thus, we test the hypothesis
-that variation in allometric parameters, if present, will contribute to
-variation in the strength of association between skull traits.
-Considering both the spatial and temporal dynamics of mammalian skull
-development (Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et al.},
-2009; Cardini \& Polly, 2013), we expect that such changes will affect
-Facial and Neurocranial traits in opposing ways, due to the distinction
-between early- and late-developmental factors in skull development.
+the exception of some Hominids (Oliveira \emph{et al.}, 2009). Several
+authors (e.g. Porto \emph{et al.}, 2013; Armbruster \emph{et al.}, 2014)
+have argued that such association is imposed through the joint effect of
+both size variation and allometric relationships within populations;
+thus, we test the hypothesis that variation in allometric parameters
+among Anthropoid species, if present, will contribute to variation in
+the strength of association between skull traits. Considering both the
+spatial and temporal dynamics of mammalian skull development (Zelditch
+\& Carmichael, 1989; Hallgrímsson \emph{et al.}, 2009; Cardini \& Polly,
+2013), we expect that such changes will affect Facial and Neurocranial
+traits in opposing ways, due to the distinction between early- and
+late-developmental factors in skull development.
 
 Using a Bayesian phylogenetic random regression model of allometric
 shape against size, we estimate allometric parameters along the
@@ -521,8 +519,7 @@ a symmetrical landmark configuration was obtained by taking the mean
 shape between each individual configuration and its reflection along the
 sagittal plane (Klingenberg \emph{et al.}, 2002).
 
-\subsection{Allometric Slopes and
-Intercepts}\label{allometric-slopes-and-intercepts}
+\subsection{Allometric Relationships}\label{allometric-relationships}
 
 We estimated allometric parameters using local shape variables (Márquez
 \emph{et al.}, 2012), which are measurements of infinitesimal log volume
@@ -537,44 +534,17 @@ interest in the present context, such as sexual dimorphism, and
 variation between subspecies or populations within each OTU, according
 to Figure \ref{fig:phylo_model}, using generalized linear models.
 
-We used a phylogenetic random regression model under a Bayesian
-framework in order to estimate static (within populations; Cheverud,
-1982; Pélabon \emph{et al.}, 2013) allometric intercepts ($a_s$) and
-slopes ($b_s$) for all OTUs simultaneously while considering their
-phylogenetic structure. This model assumes that both $a_s$ and $b_s$
-evolve under Brownian motion, as both parameters are defined as random
-variables with a correlation structure among OTUs derived from branch
-lengths obtained from the phylogenetic hypothesis we use. This allows
-the model to estimate $a_s$ and $b_s$ for each terminal OTU and also for
-ancestral nodes, enabling us to track changes in both parameters along
-the phylogeny. Furthermore, in order to evaluate whether such
-reconstruction is affected by the model we chose, we compared the
-estimated posterior distribution of both intercepts and slopes for all
-nodes within the phylogeny with point estimates produced under a linear
-parsimony model, implemented in Mesquite (Maddison \& Maddison, 2011).
-For allometric slopes, all parsimony estimates fall within the 95\%
-credible intervals obtained from the random regression model. For
-intercepts, only in five nodes (Catarrhini, Pitheciidae, Cebidae,
-\emph{Pithecia}, and the clade composed of \emph{Brachyteles},
-\emph{Lagothrix} and \emph{Ateles}) differences are observed between the
-two types of estimates; however, such differences do not hamper the
-interpretation of changes in intercepts we elaborate here.
-
 We projected all individuals in our sample along the Common Allometric
 Component (CAC; Mitteroecker \emph{et al.}, 2004), which is the pooled
 within-species regression coefficients between local shape variables and
-log Centroid Size (logCS). The CAC summarizes all allometric shape
-variation, and we regress this single variable against logCS in our
-random regression model. This reduction in dimensionality is necessary
-because a full multivariate random regression model using all 38 shape
-variables would be computationally untractable, considering the actual
-state of MCMC samplers available. Therefore, we limit ourselves to test
-whether the strength of association between size and allometric shape,
-represented by projections over this CAC (which we consider the best
-representation of the ancestral allometric shape variation) has changed
-during the diversification of Anthropoid Primates, measuring such
-strength of association as increases in CAC values for an unit increase
-in logCS standard deviation within each OTU.
+log Centroid Size (logCS), thus summarizing all shape variation related
+to size in a single variable. To estimate differences in the
+relationship between logCS and CAC projections among Anthropoid species
+we used a phylogenetic random regression model under a Bayesian
+framework, obtaining static (within populations; Cheverud, 1982; Pélabon
+\emph{et al.}, 2013) allometric intercepts ($a_s$) and slopes ($b_s$)
+for all spcies simultaneously while considering their phylogenetic
+relatedness (see 'Supplemental Information for details).
 
 We used uniform prior distributions for all $a_s$ and $b_s$. In order to
 sample the posterior distribution for our model, we used a MCMC sampler
@@ -594,8 +564,7 @@ between the parameter estimated at both points. If this interval
 excludes the null value, we considered that as evidence that the
 parameter ($a_s$ or $b_s$) has changed in that particular node.
 
-\subsection{Morphological Integration and
-Modularity}\label{morphological-integration-and-modularity}
+\subsection{Morphological Integration}\label{morphological-integration}
 
 Using our landmark configuration database, we calculated 38
 interlandmark distances (\autoref{fig:landmarks}), based on previous
@@ -805,10 +774,6 @@ Evolvability of the Head: Rethinking the Functional Matrix Hypothesis.
 In: \emph{Epigenetics: Linking Genotype and Phenotype in Development and
 Evolution} (B. Hallgrímsson \& B. K. Hall, eds), pp. 271--289.
 University of California Press.
-
-Maddison, W.P. \& Maddison, D.R. 2011. Mesquite: a modular system for
-evolutionary analysis. Version 2.75. 2011. \emph{URL
-http://mesquiteproject. org}.
 
 Marroig, G. 2007. When size makes a difference: allometry, life-history
 and morphological evolution of capuchins (Cebus) and squirrels (Saimiri)

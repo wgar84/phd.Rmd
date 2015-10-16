@@ -44,9 +44,8 @@ Therefore, whether and to which extent allometric slopes can evolve remain as op
 
 In the present work, we investigate the relationship between skull size and shape in a phylogenetic framework using Anthropoid Primates as model organisms.
 We focus on testing whether and to which proportion intercepts and slopes have changed during the diversification of this group.
-Moreover, integration patterns in skull form are quite stable in both New World [@marroig_comparison_2001] and Old World Monkeys, with some exceptions [@oliveira_covariance_2009].
-The association between relative size variation and integration has been shown for mammals in general [@porto_evolution_2009; @porto_size_2013] and several authors have argued that such association is imposed through allometric constraints [e.g. @porto_evolution_2009; @armbruster_integrated_2014], but this association has never been formalized, considering a strict definition of allometric relationships.
-Thus, we test the hypothesis that variation in allometric parameters, if present, will contribute to variation in the strength of association between skull traits.
+Moreover, integration patterns in skull form are quite stable in both New World [@marroig_comparison_2001] and Old World Monkeys, with the exception of some Hominids [@oliveira_covariance_2009].
+Several authors [e.g. @porto_size_2013; @armbruster_integrated_2014] have argued that such association is imposed through the joint effect of both size variation and allometric relationships within populations; thus, we test the hypothesis that variation in allometric parameters among Anthropoid species, if present, will contribute to variation in the strength of association between skull traits.
 Considering both the spatial and temporal dynamics of mammalian skull development [@zelditch_ontogenetic_1989; @hallgrimsson_deciphering_2009; @cardini_larger_2013], we expect that such changes will affect Facial and Neurocranial traits in opposing ways, due to the distinction between early- and late-developmental factors in skull development.
 
 Using a Bayesian phylogenetic random regression model of allometric shape against size, we estimate allometric parameters along the phylogeny of Anthropoidea.

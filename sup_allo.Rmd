@@ -46,6 +46,19 @@ captions $ fig.MI_vs_slopeW_si <- "Modularity Indexes (MI) *vs.* allometric slop
 
 \input{Tables/dist_en}
 
+# Summarising Shape Variation
+
+We projected all individuals in our sample along the Common Allometric Component [CAC; @mitteroecker_comparison_2004], which is the pooled within-species regression coefficients between local shape variables and log Centroid Size (logCS). This reduction in dimensionality is necessary because a full multivariate random regression model using all 38 shape variables would be computationally untractable, considering the actual state of MCMC samplers available.
+
+# Random Regression Model
+
+The random regression model assumes that both $a_s$ and $b_s$ evolve under Brownian motion, as both parameters are defined as random variables with a correlation structure among OTUs derived from branch lengths obtained from the phylogenetic hypothesis we use.
+This allows the model to estimate $a_s$ and $b_s$ for each terminal OTU and also for ancestral nodes, enabling us to track changes in both parameters along the phylogeny.
+In order to test the robustness of such reconstruction, we also produced point estimates under a linear parsimony model, implemented in Mesquite [@maddison_mesquite:_2011]; estimates for all parameters (slopes and intercepts) using both models yields similar results (not shown), indicating that the Bayesian estimates we used here is robust regardless of the model chosen to reconstruct ancestral allometric parameters.
+
+
+Measuring such strength of association as increases in CAC values for an unit increase in logCS standard deviation within each OTU.
+
 ```{r phylo_model, echo = FALSE, fig.width = 15, fig.height = 18, fig.cap = captions $ fig.phylo_model, message = FALSE, warning = FALSE}
 Tree.Plots $ model
 ```
@@ -66,6 +79,10 @@ allo.Plots $ MI.vs.Wslope.si
 ```
 
 <!---
+```{r csperc_sim, echo = FALSE, fig.height = 13, fig.width = 13}
+allo.Plots $ sim.cs.perc
+```
+
 ```{r lambda_MI, echo = FALSE, fig.width = 5, fig.height = 5, fig.cap = captions $ fig.lambda_MI}
 allo.Plots $ lambda.MI
 ```

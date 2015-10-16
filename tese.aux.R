@@ -124,4 +124,4 @@ browseURL('index.html', 'firefox')
 
 
 
-allo.Plots$FaceMI.vs.Wslope + geom_text(aes (x = W.slope, y = Face.MI, label = node))
+
