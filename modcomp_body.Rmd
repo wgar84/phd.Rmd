@@ -430,14 +430,13 @@ Another valid approach is to model certain aspects of development as null hypoth
 Such approach could be extended to investigate morphological covariance structure; if we consider the geometric properties of the features we measure [@mitteroecker_conceptual_2007], one could formulate the null hypothesis that topological proximity is a sufficient explanation for the observed covariance structure, against the alternative hypothesis that local developmental processes coupled with functional interactions produce stronger relationships among close elements that surpass these purely topological interactions.
 Alternatively, one could actively look for variational boundaries between regions, as boundary formation is a phenomenom that has been well studied under a dynamical perspective on development [e.g. @turing_chemical_1952; @meinhardt_boundary_1983; @tiedemann_dynamic_2012].
 
-## Conclusions
+The approach of partitioning covariance matrices into blocks that correspond to inferred modular associations has the advantage that it is simple from an operational standpoint; however, modularity patterns are almost certainly not expressed in phenotypic data as the binary hypotheses we used here [@hallgrimsson_deciphering_2009].
+Thus, hypotheses and inferences made from them have to be contextualized in the light of developmental dynamics, since the measurements we make and the parameters we estimate have to be properly connected to the models we are considering; otherwise, inferences made from such models may be devoid of meaning [@wagner_measurement_2010; @houle_measurement_2011].
 
-Considering the results we observed here, Procrustes estimators for covariance matrices fail to capture the modularity patterns embedded in phenotypic data, regardless of which metric is chosen to represent such patterns.
+## Conclusion
+
+Here we show that Procrustes estimators for covariance matrices fail to capture the modularity patterns embedded in phenotypic data, regardless of which metric is chosen to represent such patterns.
 Either interlandmark distances and local shape variables seem valid options to represent morphological variation, if their limitations are taken into consideration.
-This statement is valid to any type of representation of morphological variation one can devise, as these representations are themselves models --- at the very least, of what it is important to represent --- not fully capturing the phenomena we may be interested.
-
-The approach we explored here, the partitioning of covariance matrices into blocks that correspond to inferred modular associations, has the advantage that it is simple from an operational standpoint, when compared to other approaches; however, almost certainly modularity patterns are not expressed in phenotypic data as the binary hypotheses we used here [@hallgrimsson_deciphering_2009].
-Thus, such hypotheses and inferences made from them have to be contextualized in the light of developmental dynamics, since the measurements we make and the parameters we estimate have to be properly connected to the models we are considering; otherwise, inferences made from such models may be devoid of meaning [@wagner_measurement_2010; @houle_measurement_2011].
-
+We wish to stress this point: any representation of morphological variation has limitations, as such representations are themselves models --- at the very least, of what it is important to represent --- not fully capturing the phenomena we may be interested in.
 
 
