@@ -443,40 +443,35 @@ de primatas antropóides. \label{fig:phylo_model}}
 
 The study of modularity in morphological systems has increased in the
 past twenty years, parallel to the popularization of geometric
-morphometrics; as a consequence of this popularization, different
-operational criteria for detecting modularity using landmark-based data
-have been proposed. However, compared to the usual covariance matrix
-estimators, Procrustes-based estimators have properties that hinder
-their use in this context. Here, we compare different representations of
-organismal form, focusing on tests for detecting \emph{a priori} defined
-modularity patterns; we also compare two metrics that represent
-modularity: one derived from linear morphometrics (MHI) and another that
-emerged in the context of landmark-based representations (RV). With a
-dataset of Anthropoid skulls, we compare tests using both metrics over
-three representations of form: interlandmark distances, Procrustes
-residuals, and local shape variables. Tests using either metrics over
-Procrustes residuals fail to detect modularity patterns, while remaining
-representations show the distinction between early- and late-development
-in mammalian skull ontogeny. To estimate error rates, we built
-covariance matrices of known structure, testing hypotheses over then;
-such tests indicate that power for tests using MHI is more stable
-considering effect and sample sizes; when using RV, power is sensitive
-to these parameters. However, both statistics have low power when used
-on matrices whose correlation distribution derives from Procrustes
-residuals. These results indicate that the influence of development and
-function is poorly represented on Procrustes estimators for covariance
-matrices, regardless of the measurement used to represent modularity.
+morphometrics, which has led to the emergence of different criteria for
+detecting modularity on landmark data. However, compared to usual
+covariance matrix estimators, Procrustes estimators have properties that
+hinder their use. Here, we compare different representations of form,
+focusing on detecting modularity patterns defined \emph{a priori}; we
+also compare two metrics: one derived from traditional morphometrics
+(MHI) and another that emerged in the context of landmark data (RV).
+Using Anthropoid skulls, we compare these metrics over three
+representations of form: interlandmark distances, Procrustes residuals,
+and local shape variables. Over Procrustes residuals, both tests fail to
+detect modularity patterns, while in remaining representations they show
+the distinction between early and late development in skull ontogeny. To
+estimate type I and II error rates, we built covariance matrices of
+known structure; these tests indicate that, considering both effect and
+sample sizes, tests using MHI are more robust than those using RV.
+However, both metrics have low power when used on Procrustes residuals.
+Thus, we conclude that the influence of development and function is
+poorly represented on Procrustes estimators for covariance matrices.
 
 \section{Introduction}\label{introduction}
 
 Modularity is a characteristic property that biological systems exhibit
-concerning the distribution of interactions between their composing
+regarding the distribution of interactions between their composing
 elements; that is, in a given system, certain subsets of elements,
 denominated modules, interact more among themselves than with other such
 subsets (Newman, 2006; Mitteroecker \& Bookstein, 2007; Wagner \emph{et
-al.}, 2007). This has been well documented at different levels of
-biological organization, from the dynamics of metabolic networks (e.g.
-Ravasz \emph{et al.}, 2002; Andrade \emph{et al.}, 2011) to the
+al.}, 2007). This property has been well documented at different levels
+of biological organization, from the dynamics of metabolic networks
+(e.g. Ravasz \emph{et al.}, 2002; Andrade \emph{et al.}, 2011) to the
 structure of interactions among individuals in populations (e.g. Fortuna
 \emph{et al.}, 2008) and among species in ecological communities (e.g.
 Genini \emph{et al.}, 2010).
@@ -484,129 +479,113 @@ Genini \emph{et al.}, 2010).
 Regarding morphological systems, the concept of modularity is associated
 with the framework of morphological integration (Olson \& Miller, 1958;
 Cheverud, 1996a), which refers to the organization of covariances or
-correlations among morphological elements and the hypotheses concerning
-their biological relationships. In this context, modularity refers to
+correlations between morphological elements and the hypotheses
+concerning their relationships. In this context, modularity refers to
 the uneven distribution of genetic effects over phenotypic variation
 articulated through development (genotype/phenotype map; Wagner, 1996);
-in a classical quantitative genetics view these shared genetic effects
-are the result of pleiotropy and linkage disequilibrium (Falconer \&
-Mackay, 1996; Lynch \& Walsh, 1998). A genotype/phenotype map composed
-of clusters of genes that affect clusters of traits (with little overlap
-among groups) exhibits a modular organization, and such structure is
-thought to emerge as the result of selection for distinct functional
-demands (Wagner \& Altenberg, 1996; Espinosa-Soto \& Wagner, 2010;
-Rueffler \emph{et al.}, 2012; Melo \& Marroig, 2015). For instance, the
-decoupling between fore- and hindlimb function in certain mammalian
-lineages such as bats (Young \& Hallgrímsson, 2005) and apes (Young
-\emph{et al.}, 2010) is associated with the modularization of both
-structures, as shown by a reduction of phenotypic correlations among
-limbs and an increase in correlations within limbs.
+in a classical quantitative genetics view, these genetic effects are the
+result of pleiotropy and linkage disequilibrium (Falconer \& Mackay,
+1996; Lynch \& Walsh, 1998). A genotype/phenotype map composed of
+clusters of genes that affect clusters of traits (with little overlap)
+exhibits a modular organization; this structure is thought to emerge as
+the result of selection for distinct demands (Wagner \& Altenberg, 1996;
+Espinosa-Soto \& Wagner, 2010; Rueffler \emph{et al.}, 2012; Melo \&
+Marroig, 2015). For instance, the decoupling between fore- and hindlimb
+function in certain mammalian lineages such as bats (Young \&
+Hallgrímsson, 2005) and apes (Young \emph{et al.}, 2010) is associated
+with the modularization of both structures, as shown by reduced
+phenotypic correlations between fore- and hindlimbs and increased
+correlations between elements within these limbs.
 
 The recognition of variational modules (Wagner \& Altenberg, 1996;
-Wagner \emph{et al.}, 2007) over covariance or correlation patterns in
-adult populations involves a comprehension of the underlying
+Wagner \emph{et al.}, 2007) using covariance or correlation patterns in
+adult populations involves an uderstanding of the underlying
 developmental and functional dynamics among morphological traits (Polly,
-2008; Zelditch \& Swiderski, 2011). In the mammalian skull for example,
-development is composed of a series of steps, such as neurocranial
-growth induced by the underlying developing brain and growth mediated by
-muscle-bone interactions, with a considerate degree of spatiotemporal
-overlapping among them (Hallgrímsson \& Lieberman, 2008; Herring, 2011;
-Cardini \& Polly, 2013). The regulation of both timing and scope of each
-step is mediated by different profiles of genetic expression exhibited
-by cells originated from different embryonic precursors and their
-response to signaling factors expressed at the regional level; the
-response to these signaling factors further changes the expression
-profile in the affected cells, thus generating a feedback loop of cell
-and tissue diferentiation (Turing, 1952; Marcucio \emph{et al.}, 2005;
-Meinhardt, 2008; Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal, 2011;
-Minelli, 2011). Each step in this temporal hierarchy may be regarded as
-modular, in the sense that they affect a coherent subset of tissues more
-so than others (Hallgrímsson \& Lieberman, 2008), although each step
-affect adjoining regions through interactions among developing tissues
-(Cheverud \emph{et al.}, 1992; Lieberman, 2011; Esteve-Altava \&
-Rasskin-Gutman, 2014); thus, the association between correlation
-patterns and ontogenetic processes may be complicated by the overlapping
-of such processes through the course of development (Hallgrímsson
+2008; Zelditch \& Swiderski, 2011). Skull development in mammals is
+composed of a series of steps, such as neurocranial growth induced by
+brain development, and growth mediated by muscle-bone interactions, with
+spatiotemporal overlapping between such steps (Hallgrímsson \&
+Lieberman, 2008; Herring, 2011; Cardini \& Polly, 2013). Both timing and
+scope of each step is regulated by different profiles of genetic
+expression exhibited by cells originated from different embryonic
+precursors and their response to signaling factors expressed at the
+regional level; the response to these signaling factors further changes
+cell expression profiles, thus generating a feedback loop of
+diferentiation (Turing, 1952; Marcucio \emph{et al.}, 2005; Meinhardt,
+2008; Hallgrímsson \emph{et al.}, 2009; Franz-Odendaal, 2011; Minelli,
+2011). Each step in this temporal hierarchy may be regarded as modular,
+since they affect a coherent subset of tissues more so than others
+(Hallgrímsson \& Lieberman, 2008), although each step affect adjoining
+regions through interactions among developing tissues (Cheverud \emph{et
+al.}, 1992; Lieberman, 2011; Esteve-Altava \& Rasskin-Gutman, 2014);
+thus, the overlapping of such processes throughout development may
+complicate their association with correlation patterns (Hallgrímsson
 \emph{et al.}, 2009).
 
-Furthermore, variation in overall growth rates which in adult
-populations produces the emergence of size variation (Pélabon \emph{et
-al.}, 2013; Porto \emph{et al.}, 2013), has a particular importance in
-the context of mammalian morphological systems; here size variation
-refers to variation in both scale (isometric variation) and scale
-relationships (allometric variation). This source of variation affects
-the overall level of phenotypic correlations among morphological traits
-(Wagner, 1984; Young \& Hallgrímsson, 2005), and the magnitude of
-integration has important consequences for both the evolution of mean
-phenotypes among species (Schluter, 1996; Marroig \& Cheverud, 2005,
-2010; Cardini \& Polly, 2013) and the evolution of morphological
-integration itself (Oliveira \emph{et al.}, 2009; Porto \emph{et al.},
-2009, 2013; Shirai \& Marroig, 2010).
+Furthermore, variation in growth rates, which emerges into size
+variation (Pélabon \emph{et al.}, 2013; Porto \emph{et al.}, 2013), has
+a particular importance in the context of mammalian morphological
+systems. Here size variation refers to variation in both scale
+(isometric variation) and scale relationships (allometric variation).
+This source of variation affects the overall level of correlations
+between morphological traits (Wagner, 1984; Young \& Hallgrímsson,
+2005), and the magnitude of integration has important consequences for
+both the evolution of mean phenotypes (Schluter, 1996; Marroig \&
+Cheverud, 2005, 2010; Cardini \& Polly, 2013) and the evolution of
+morphological integration itself (Oliveira \emph{et al.}, 2009; Porto
+\emph{et al.}, 2009, 2013; Shirai \& Marroig, 2010).
 
-Considerations based on theoretical (e.g. Lande, 1980; Pavlicev \emph{et
-al.}, 2010), experimental (Pavlicev \emph{et al.}, 2008, 2011; e.g.
-Hallgrímsson \emph{et al.}, 2009) or simulation-based approaches (e.g.
-Jones, 2007; Jones \emph{et al.}, 2012; Watson \emph{et al.}, 2013; Melo
-\& Marroig, 2015) point out that integration patterns evolve to a
-equilibrium state dictated by the effect of pleiotropic mutations and
-selective regimes; thus, changes in integration patterns will be a
-consequence of changes in one of these components. In this context,
-adaptive landscapes may be the central component governing both the
-stability and divergence in integration patterns, as both stabilizing
-(Jones, 2007; Arnold \emph{et al.}, 2008) and directional (Jones
-\emph{et al.}, 2012; Melo \& Marroig, 2015) selection have been shown to
-produce changes in integration patterns.
-
-Moreover, in the past twenty years, there has been a consistent effort
-in measuring covariance and correlation patterns in different organisms
-and morphological structures at different phylogenetic scales, a
-research program named ``comparative quantitative genetics'' by Steppan
-et al. (2002). The empirical evidence available demonstrates that both
-stability (e.g. Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009;
-Porto \emph{et al.}, 2009; Willmore \emph{et al.}, 2009) and divergence
-(e.g. Monteiro \& Nogueira, 2010; Grabowski \emph{et al.}, 2011; Sanger
-\emph{et al.}, 2012; Haber, 2015) of integration patterns are possible
-outcomes of the evolutionary process. Therefore, the question of whether
-any of these two scenarios is the rule or exception at macroevolutionary
-scales remains open, although some theoretical and methodological
-differences between these works with respect to the representation of
-morphological features need to be taken into consideration.
+In this context, adaptive landscapes may be the central component
+governing both the stability and divergence in integration patterns, as
+both stabilizing (Jones, 2007; Arnold \emph{et al.}, 2008) and
+directional (Jones \emph{et al.}, 2012; Melo \& Marroig, 2015) selection
+have been shown to produce changes in integration patterns. The
+empirical evidence available demonstrates that both stability (e.g.
+Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009; Porto \emph{et
+al.}, 2009; Willmore \emph{et al.}, 2009) and divergence (e.g. Monteiro
+\& Nogueira, 2010; Grabowski \emph{et al.}, 2011; Sanger \emph{et al.},
+2012; Haber, 2015) of integration patterns are possible outcomes of the
+evolutionary process. Therefore, the question of whether any of these
+two scenarios is the rule or exception at macroevolutionary scales
+remains open, although some theoretical and methodological differences
+between these works with respect to the representation of morphological
+features need to be taken into consideration.
 
 \subsubsection{Morphometrics}\label{morphometrics}
 
-Traditionally, morphological traits and features are measured using
-distances among elements defined in general terms, such as ``cranial
-length'' or ``cranial width''. Pearson \& Davin (1924) introduced the
-notion that such measurements should be restricted to single
-osteological elements, preferably as distances between homologous
-features that could be identified in a wide taxonomic coverage. Cheverud
-(1982a) accomodates this notion into the framework of morphological
-integration, thus considering individual measurements over bones are
-local representations of regional phenomena, that is, the functional,
+Traditionally, morphological features are measured using distances among
+elements defined in general terms, such as ``cranial length'' or
+``cranial width''. Pearson \& Davin (1924) introduced the notion that
+measurements should be restricted to single osteological elements,
+preferably as distances between homologous features that could be
+identified in a wide taxonomic coverage. Cheverud (1982a) accomodates
+this notion into the framework of morphological integration, thus
+considering individual measurements over single bones as local
+representations of regional phenomena, that is, the functional,
 developmental and genetic interactions that produce covariances among
 these elements. The influence of such interactions over covariance or
-correlation matrices can then be accessed by defining a subset of
+correlation matrices can be accessed by defining a subset of
 measurements which fall under the scope of a particular process and
-further estimating a metric that summarizes such partitioning; the null
+estimating a metric that summarizes such partitioning; the null
 hypothesis that this partition is undistinguishable from
-randomly-defined partitions can be tested using randomization procedures
+randomly-defined partitions can then be tested using Monte Carlo methods
 (Mantel, 1967; Cheverud \emph{et al.}, 1989).
 
 In the past three decades, geometric morphometrics (Bookstein, 1982,
 1991; Kendall, 1984; Rohlf \& Slice, 1990; Goodall, 1991) have been
 consolidated as a quantitative framework for the representation of
 biological shape as geometric configurations of homologous features
-(landmarks; Bookstein, 1991). Two principles are central to this
-framework: first, the conceptual and statistical separation of size and
-shape as the main components of biological form; second, the use of
-superimposition-based methods (GPA: Generalized Procrustes Analysis;
-Rohlf \& Slice, 1990; Goodall, 1991) for the estimation of shape
-statistical parameters, such as mean shape and shape covariance
-structure. Procrustes estimators were proposed as a solution to the
-problem that landmark configurations are arbitrarily rotated and
-translated; such nuisance parameters are impossible to estimate without
-any assumptions (Goodall, 1991; Lele \& McCulloch, 2002), a situation
-known as the identifiability problem (Neyman \& Scott, 1948).
+(landmarks; Bookstein, 1991). Two principles are central here: first,
+the conceptual and statistical separation of size and shape as
+components of biological form; second, the use of superimposition-based
+methods (GPA: Generalized Procrustes Analysis; Rohlf \& Slice, 1990;
+Goodall, 1991) for the estimation of shape statistical parameters, such
+as mean shape and shape covariance structure. Procrustes estimators were
+proposed as a solution to the problem that landmark configurations are
+arbitrarily rotated and translated; such nuisance parameters are
+impossible to estimate without any assumptions (Goodall, 1991; Lele \&
+McCulloch, 2002), a situation known as the identifiability problem
+(Neyman \& Scott, 1948).
 
 Although the use of Procrustes estimators is currently widespread in
 geometric morphometrics toolboxes (e.g. Klingenberg, 2011; Adams \&
@@ -614,77 +593,74 @@ Otárola-Castillo, 2013), it has not been without criticisms, either with
 respect to the estimation of mean shape configurations (e.g. Lele, 1993;
 Kent \& Mardia, 1997; Huckemann, 2012) and of shape covariance matrices
 (Walker, 2000; Adams \emph{et al.}, 2004; Linde \& Houle, 2009; Márquez
-\emph{et al.}, 2012). For shape configurations in two-dimensional space,
-Procrustes estimators for mean shape have been shown to perform well
-under isotropic landmark covariance structure (Kent \& Mardia, 1997),
-that is, a situation of null covariances among landmarks and
-coordinates; however, when such assumption does not hold Procrustes
-estimates for mean shape may behave badly, especially in situations
-where shape variation is high (Huckemann, 2011). The simple example
-provided by Linde \& Houle (2009) demonstrates that when such assumption
-is broken shape covariance patterns are also poorly estimated; if the
-unknown landmark covariance matrix is structured due to regional
-differences in covariance-generating processes, such variation will be
-displaced and effectively spread out through the entire landmark
-configuration when GPA is used.
+\emph{et al.}, 2012). For configurations in two-dimensional space,
+Procrustes estimators for mean shape perform well under isotropic
+landmark covariance structure (Kent \& Mardia, 1997), a situation of
+null covariances among landmarks and coordinates; however, when this
+assumption does not hold, Procrustes estimates for mean shape behave
+badly, especially when shape variation is high (Huckemann, 2011). The
+example provided by Linde \& Houle (2009) demonstrates that when such
+assumption is broken shape covariance patterns are also poorly
+estimated; if the unknown landmark covariance matrix is structured due
+to regional differences in covariance-generating processes, such
+variation will be displaced and effectively spread out through the
+entire landmark configuration.
 
-A number of alternatives for dealing with the estimation of shape
-covariance matrices have been proposed; some of these alternatives (e.g.
-Monteiro \emph{et al.}, 2005; Theobald \& Wuttke, 2006; Linde \& Houle,
-2009; Zelditch \emph{et al.}, 2009) propose modifications to the
-Procrustes analysis in order to deal with heterogeneity in landmark
-covariance structure. The approach advocated by Márquez et al. (2012)
-proposes another definition of shape descriptors using
-interpolation-based techniques (Cheverud \& Richtsmeier, 1986;
+A number of alternatives for estimating shape covariance matrices have
+already emerged; some of these alternatives (e.g. Monteiro \emph{et
+al.}, 2005; Theobald \& Wuttke, 2006; Linde \& Houle, 2009; Zelditch
+\emph{et al.}, 2009) propose modifications to the Procrustes analysis in
+order to deal with heterogeneity in landmark covariance structure.
+Márquez et al. (2012) propose another definition of shape descriptors
+using interpolation-based techniques (Cheverud \& Richtsmeier, 1986;
 Bookstein, 1989) as a starting point; such descriptors refer to
 infinitesimal expansions or retractions in reference to a unknown mean
 shape (Woods, 2003) estimated at definite locations amidst sampled
-landmarks. Márquez et al. (2012) argue that such descriptors are proper
-local measurements of shape variation, as they can directly be linked to
+landmarks. The authors argue that these descriptors are proper local
+measurements of shape variation, as they can directly be linked to
 biological processes that generate covariation among morphological
 elements.
 
-Despite these methodological caveats regarding Procrustes estimators for
-covariance matrices, the use of such estimators for investigating
-aspects of morphological integration has increased in the past ten years
-(e.g. Klingenberg \emph{et al.}, 2004; Drake \& Klingenberg, 2010;
-Goswami \& Polly, 2010; Martínez-Abadías \emph{et al.}, 2011; Sanger
-\emph{et al.}, 2012). The results found by these authors are sometimes
-in stark constrast with similar works using interlandmark distances
-(e.g. Cheverud \emph{et al.}, 1997; Oliveira \emph{et al.}, 2009; Porto
+Despite these caveats regarding Procrustes estimators for covariance
+matrices, the use of such estimators for investigating aspects of
+morphological integration has increased in the past ten years (e.g.
+Klingenberg \emph{et al.}, 2004; Drake \& Klingenberg, 2010; Goswami \&
+Polly, 2010; Martínez-Abadías \emph{et al.}, 2011; Sanger \emph{et al.},
+2012). The results found by these authors are sometimes in stark
+constrast with similar works using interlandmark distances (e.g.
+Cheverud \emph{et al.}, 1997; Oliveira \emph{et al.}, 2009; Porto
 \emph{et al.}, 2009). For instance, Martínez-Abadías et al. (2011) found
 a pattern of strong integration among partitions in human skull
 covariance patterns, while Oliveira et al. (2009) and Porto et al.
 (2009) demonstrated that humans are among the most modular examples of
-mammalian skull covariance patterns. Likewise, Klingenberg et al. (2004)
-has found no evidence for a modular distribution of pleiotropic effects
-among the partitions of the mouse mandible; using the same strain of
-intercrossed mice at the same generation, Cheverud et al. (1997) had
-shown that 70\% of the pleiotropic effects are confined to either
-anterior or posterior mandibular components, while the remaining 30\%
-are shared among the two regions. Furthermore, aside from the issues
-regarding Procrustes estimators, these works also propose different
-methods to quantify the effects of interactions over covariance
-patterns. For example, Martínez-Abadías et al. (2011) and Sanger et al.
-(2012) use the RV coefficient, a multivariate correlation coefficient
-defined by Escoufier (1973) which has been used to quantify modular
-relationships over landmark covariance patterns since Klingenberg (2009)
-has proposed its use in this context.
+mammalian skull covariance patterns. Likewise, while Cheverud et al.
+(1997) had shown that 70\% of the pleiotropic effects are confined to
+either anterior or posterior mandibular components, Klingenberg et al.
+(2004) has found no evidence for a modular distribution of pleiotropic
+effects among the partitions of the mouse mandible using the same strain
+of intercrossed mice at the same generation. Furthermore, aside from the
+issues regarding Procrustes estimators, these works also propose
+different methods to quantify the effects of interactions over
+covariance patterns. For example, Martínez-Abadías et al. (2011) and
+Sanger et al. (2012) use the RV coefficient, a multivariate correlation
+coefficient defined by Escoufier (1973) which has been used to quantify
+modular relationships over landmark covariance patterns since
+Klingenberg (2009) has proposed its use in this context.
 
 \subsubsection{Objectives}\label{objectives}
 
 In the present work, we compare the methods described by Cheverud et al.
 (1989) and Klingenberg (2009) to test \emph{a priori} defined modularity
-patterns using anthropoid primates as a model organism. In order to also
+patterns using anthropoid primates as a model organism. In order to
 compare the performance of these methods with respect to different
 representations of form, individuals in our sample are represented both
-as interlandmark distances and shape variables. Furthermore, we also
-used an approach based on the construction of theoretical covariance
-matrices; such matrices are used in order to estimate Type I and Type II
-error rates for both methods. Since these methods were designed under
-different frameworks, the present work also puts some effort into
-unifying both methods into the same conceptual and statistical
-framework, in order to produce meaningful comparisons.
+as interlandmark distances and shape variables. Furthermore, we used an
+approach based on the construction of theoretical covariance matrices;
+such matrices are used in order to estimate Type I and Type II error
+rates for both methods. Since these methods were designed under
+different frameworks, the present work puts some effort into unifying
+both methods into the same conceptual and statistical framework, in
+order to produce meaningful comparisons.
 
 \section{Methods}\label{methods}
 
@@ -753,7 +729,7 @@ group means to each species' mean shape since the loss of degrees of
 freedom imposed by the GPA prohibits the use of a full multivariate
 linear model over this kind of data to remove fixed effects.
 
-In order to consider the effects of size variation over modularity
+In order to consider the effects of size variation on modularity
 patterns we used a different procedure to remove the influence of size,
 according to the different properties of each type of variable. For
 interlandmark distances we used the approach established by Bookstein et
@@ -795,7 +771,7 @@ equation
 where $a$ refers to the normalized allometric component estimated for
 each OTU and $I_m$ represents the identity matrix of size $m$.
 Therefore, our empirical dataset consists of six different sets of
-covariance/correlation matrices, considering both the nature of
+covariance/correlation matrices, corresponding to each type of
 morphometric variables and the presence or absence of variation
 associated with size.
 
@@ -853,46 +829,45 @@ The partitioning scheme outlined above assumes that the complementary
 trait set does not represent an actual hypothesis of association;
 however, we may choose to consider that both sets ($\mathbf{A}_h$ and
 $\mathbf{A}_c$) represent two distinct hypothesis. The estimation of RV
-coefficients remains the same; however, Modularity Hypothesis Indexes
-are estimated considering that $\bar{\rho}_{+}$ is the average
-correlation in both $\mathbf{C}_h$ and $\mathbf{C}_c$, while
-$\bar{\rho}_{-}$ represents the average correlation only in
-$\mathbf{C}_b$. In the particular case of the distinction between Facial
-and Neurocranial traits, we also estimated MHI values in this manner,
-reporting values for this estimate under the denomination `Neuroface',
-following Marroig \& Cheverud (2001), along independent MHI estimates
-for each region. Furthermore, since both Face and Neurocranium are two
-disjoint trait sets when any morphometric variable type is considered,
-RV coefficient values for either set are equal; therefore, a single RV
-value is reported for both regions, for each variable type.
+coefficients remains the same; however, MHI values are estimated
+considering that $\bar{\rho}_{+}$ is the average correlation in both
+$\mathbf{C}_h$ and $\mathbf{C}_c$, while $\bar{\rho}_{-}$ represents the
+average correlation only in $\mathbf{C}_b$. In the particular case of
+the distinction between Facial and Neurocranial traits, we also
+estimated MHI values in this manner, reporting values for this estimate
+under the denomination `Neuroface', following Marroig \& Cheverud
+(2001), along independent MHI estimates for each region. Furthermore,
+since both Face and Neurocranium are two disjoint trait sets when any
+morphometric variable type is considered, RV coefficient values for
+either set are equal; therefore, a single RV value is reported for both
+regions, for each variable type.
 
 In order to test the hypothesis that a particular trait set represents a
 variational module, we used a randomization procedure that generates
 1000 random trait sets with the same number of traits as the original
 set, calculating MHI and RV values for each iteration. For each trait
-set and covariance/correlation matrix, such values were used to
+set and covariance/correlation matrix, these values were used to
 construct distributions for both statistics that represent the null
 hypothesis that a given trait set is a random arrangement without
 meaningful relationships; the value obtained for the real trait set is
-then compared to this null distribution. For Modularity Hypothesis
-Indexes we consider that this null hypothesis is rejected when the real
-value is higher than the average value obtained from the distribution,
-considering the significance level established; for RV coefficients, the
-null hypothesis is rejected when the real RV value is lower than the
-average value for the distribution, also considering a certain
-significance level. For Procrustes residuals the randomization procedure
-considers that coordinates within the same landmark should remain
-together in each randomly generated trait set, following Klingenberg \&
-Leamy (2001).
+then compared to this null distribution. For MHIs we consider that this
+null hypothesis is rejected when the real value is higher than the
+average value obtained from the distribution, considering the
+significance level established; for RV coefficients, the null hypothesis
+is rejected when the real RV value is lower than the average value for
+the distribution, also considering a certain significance level. For
+Procrustes residuals the randomization procedure considers that
+coordinates within the same landmark should remain together in each
+randomly generated trait set, following Klingenberg \& Leamy (2001).
 
 It is noteworthy that, while the procedure for estimating significance
-in the case of Modularity Hypothesis Indexes is derived from Mantel's
-(1967) approach (as outlined by Cheverud \emph{et al.}, 1989), we chose
-to generate null distributions for MHI directly, instead of estimating
-matrix correlation values for both real and permutated matrices.
-Estimated $p$-values in both cases remained the same, and the additional
-step of estimating matrix correlations would produce an unnecessary
-difference between the estimation of signficance for MHI and RV.
+in the case of MHIs is derived from Mantel's (1967) approach (as
+outlined by Cheverud \emph{et al.}, 1989), we chose to generate null
+distributions for MHI directly, instead of estimating matrix correlation
+values for both real and permutated matrices. Estimated $p$-values in
+both cases remained the same, and the additional step of estimating
+matrix correlations would produce an unnecessary difference between the
+estimation of signficance for MHI and RV.
 
 \subsection{Estimation of Error Rates}\label{estimation-of-error-rates}
 
@@ -931,8 +906,8 @@ distribution, the corresponding $\mathbf{C}_{s}$ matrix will be \[
 -0.1 & -0.1 & 0.3 & 1 \\
 \end{bmatrix}
 \] filling each cell in each block with the sampled correlation
-associated with that particular block. Thus, we abstracted each type of
-morphometric variable to a pair of correlation distributions
+associated with that particular block. Thus, we represent each type of
+morphometric variable as a pair of correlation distributions
 (\autoref{fig:cor_dist}), building six sets of theoretical correlation
 matrices that are representative of each type (also considering the
 presence or absence of size variation) which also retain their
@@ -1010,49 +985,41 @@ decrease.
 \subsubsection{Software}\label{software}
 
 All analysis were performed under R 3.2.2 (R Core Team, 2015). Source
-code for all analyses can be found at \url{http://github.com/wgar84}. It
-is noteworthy that previous tests we made indicated no differences
-between our estimation of empirical RV coefficients, based upon our own
-code, and estimates provided by MorphoJ (Klingenberg, 2011). In order to
-obtain symmetrical landmarks configurations, we used code provided by
-Annat Haber, available at
-\url{http://life.bio.sunysb.edu/morph/soft-R.html}.
+code for all analyses can be found at \url{http://github.com/wgar84}.
+Previous tests we made indicated no differences between our estimation
+of empirical RV coefficients, based upon our own code, and estimates
+provided by MorphoJ (Klingenberg, 2011). In order to obtain symmetrical
+landmarks configurations, we used code provided by Annat Haber,
+available at \url{http://life.bio.sunysb.edu/morph/soft-R.html}.
 
 \section{Results}\label{results}
 
 \subsection{Empirical Tests}\label{empirical-tests}
 
-Tests performed using Modularity Hypothesis Indexes for localized trait
-sets (Oral, Nasal, Zygomatic, Orbit, Base, and Vault;
-\autoref{fig:Func}a) detect a consistent pattern among OTUs for both
-interlandmark distances and local shape variables; in the first set the
-Oral sub-region is detected as a modular partition, and, when size is
-removed, the Vault sub-region is also detected; both Orbit and Base
-region are not detected in any of the tests with this type of variable.
-With local shape variables, both Oral and Vault sets were also detected
-consistently across OTUs, along Nasal and Zygomatic traits; moreover,
-the removal of allometric variation affects only the detection of the
-Vault in some groups. Furthermore, the Base sub-region is detected only
-in 3 of 42 tests performed over local shape variables, pooling together
-both size and size-free correlation patterns. One source of difference
-between local shape variables and interlandmark distances regarding the
-detection of localized variational modules are the Hominoids
-(\emph{Gorilla}. \emph{Homo}, \emph{Hylobates}, and \emph{Pan}), which
-display a considerate heterogeneity in detected regions in interlandmark
-distances; however, when considering local shape variables, a more
-conserved pattern of detection is observed.
+Tests performed using MHI for localized trait sets (Oral, Nasal,
+Zygomatic, Orbit, Base, and Vault; \autoref{fig:Func}a) detect a
+consistent pattern among OTUs for both interlandmark distances and local
+shape variables; in the first set the Oral subregion is detected as a
+modular partition, and, when size is removed, the Vault subregion is
+also detected; both Orbit and Base region are not detected in any of the
+tests with this type of variable. With local shape variables, both Oral
+and Vault sets were also detected consistently across OTUs, along Nasal
+and Zygomatic traits; moreover, the removal of allometric variation
+affects only the detection of the Vault in some groups. Furthermore, the
+Base sub-region is detected only in 3 of 42 tests performed over local
+shape variables, pooling together both size and size-free correlation
+patterns.
 
 For Procrustes residuals, the pattern of detection among sub-regions and
-OTUs is more diffuse; it is noteworthy that the Base sub-region is
-detected among several OTUs, which contrasts this type of morphometric
-variable with the remaining two types. Furthermore, abstracting the
-actual tests performed, \autoref{fig:Func}a also indicates that
-Procrustes residuals display a low variance for MHI values within each
-OTU, while both interlandmark distances and local shape variables
-display a consistent pattern of variation among MHI values within each
-OTU, with lower values for the Base and, for interlandmark distances,
-Orbit trait sets, while the Oral, Nasal and Vault regions display higher
-values consistently.
+OTUs is more inconsistent. The Base sub-region is detected among several
+OTUs, which contrasts this type of morphometric variable with the
+remaining two types. Furthermore, observing the actual MHI values,
+\autoref{fig:Func}a also indicates that Procrustes residuals display a
+low variance for MHI values within each OTU, while both interlandmark
+distances and local shape variables display a consistent pattern of
+variation among MHI values within each OTU, with lower values for the
+Base and, for interlandmark distances, Orbit trait sets, while the Oral,
+Nasal and Vault regions display higher values consistently.
 
 \begin{figure}[htbp]
 \centering
@@ -1066,7 +1033,7 @@ manner; see text for details. \label{fig:Func}}
 \end{figure}
 
 Tests performed using RV coefficients (\autoref{fig:Func}b) show a more
-diffuse pattern among each variable type. When interlandmark distances
+irregular pattern for each variable type. When interlandmark distances
 are considered, most tests detect the Vault sub-region with size
 variation retained, and the Base sub-region when size variation is
 removed. For Procrustes residuals, few tests are able to reject their
@@ -1079,7 +1046,7 @@ within each OTU; notably, \emph{Macaca fascicularis} and \emph{Papio
 anubis} show RV values much higher than those estimated on remaining
 species. This pattern can be observed both on interlandmark distances
 with size retained and in Procrustes residuals, although this effect is
-more marked in the former type.
+more marked in interlandmark distances.
 
 With respect to regional trait sets (Face and Neurocranium), tests
 performed using MHI (\autoref{fig:Dev}a) indicate a pattern consistent
@@ -1134,12 +1101,11 @@ the distribution of MHI values for both matrix types also has little
 overlap, while the same distributions for RV have a substantial overlap.
 Finally, for Procrustes residuals, while the distribution of MHI values
 for both matrix types overlap to some degree, the same distributions for
-RV values are identical. It is noteworthy that removing size or
-allometry does not change these distributions in most cases; only for RV
-values estimated over matrices derived from correlation distributions
-for interlandmark distances, in which the removal of size variation
-increases the overlap in $\mathbf{C}_s$ and $\mathbf{C}_r$
-distributions.
+RV values are identical. Removing size or allometry does not change
+these distributions in most cases; only for RV values estimated over
+matrices derived from correlation distributions for interlandmark
+distances, in which the removal of size variation increases the overlap
+in $\mathbf{C}_s$ and $\mathbf{C}_r$ distributions.
 
 \begin{figure}[htbp]
 \centering
@@ -1172,14 +1138,13 @@ differences with respect both to the chosen statistic (MHI or RV) and to
 the type of variable from which correlations are sampled. Considering
 local shape variables (\autoref{fig:type2_def}), tests using either MHI
 and RV have high power, even at low sample or effect sizes; increasing
-these quantities produces a further increase in power. However, it is
-noteworthy that, for lower effect sizes (represented by high average
-squared correlation between sets, $b^2$) power for tests performed using
-MHI is higher than for those using RV. As effect size increases (lower
-$b^2$ values), the difference in power between the two statistics
-decreases. For this type of variable, sampling from its associated
-size-free correlation distribution implies minor differences in power
-for both statistics.
+these quantities further increases power. However, for lower effect
+sizes (represented by high average squared correlation between sets,
+$b^2$) power for tests using MHI is higher than for those using RV. As
+effect size increases (lower $b^2$ values), the difference in power
+between the two statistics decreases. Thus, for local shape variables,
+sampling from its associated size-free correlation distribution implies
+minor differences in power for both statistics.
 
 \begin{figure}[htbp]
 \centering
@@ -1240,102 +1205,98 @@ relationship. \label{fig:type2_sym}}
 \section{Discussion}\label{discussion}
 
 Covariance matrices derived from morphological traits are supposed to
-represent the pattern of co-dependence that arises due to a variety of
-different interactions among developing morphological elements. Such
-interactions are the expression of local developmental factors, as they
-interact with the expression profiles of surrounding cell types,
-producing coordinated changes in their cell cycles, thus integrating
-resulting tissues in the adult population. Although these events of
-local integration overlap, and the composed effect over adult covariance
-patterns may produce a mixed signal (Hallgrímsson \& Lieberman, 2008;
-Hallgrímsson \emph{et al.}, 2009), we believe that a careful comparison
-of different yet equally proper ways of measuring and representing
-organismal form may be informative of the underlying processes that
-generate covariance patterns.
+represent the pattern of codependence that arises due to a variety of
+interactions among developing morphological elements. Such interactions
+are the expression of local developmental factors, as they interact with
+the expression profiles of surrounding cell types, producing coordinated
+changes in their cell cycles, thus integrating resulting tissues in the
+adult population. Although these events of local integration overlap,
+and the composed effect over adult covariance patterns may be confusing
+(Hallgrímsson \& Lieberman, 2008; Hallgrímsson \emph{et al.}, 2009), we
+believe that a careful comparison of different yet equally proper ways
+of measuring and representing form may be informative of the underlying
+processes that produce covariances.
 
 Due to the minimization of quadratic distances among homologous
 landmarks during GPA, covariance matrices derived from Procrustes
-estimators lose this signal of localized effects on covariance patterns
-(Linde \& Houle, 2009); therefore, the use of such estimators to
-investigate morphological integration or modularity implicitly imply in
-a divorce between the phenomenom we would like to investigate and the
-numerical representation we choose to use. This disconnection between
-theory and measurement may have grave consequences for the hypotheses we
-wish to test (Houle \emph{et al.}, 2011); such consequences are
-observable in both our empirical tests and those tests performed on
-theoretical matrices, as we explore below.
+estimators lose the signal of localized effects on covariance patterns
+(Linde \& Houle, 2009). Therefore, the use of Procrustes estimators to
+investigate morphological integration or modularity implicitly implies
+in a divorce between the phenomenom we would like to investigate and the
+representation we choose to use. This disconnection between theory and
+measurement may have grave consequences for the hypotheses we wish to
+test (Houle \emph{et al.}, 2011); such consequences are observable in
+both our empirical tests and those tests performed on theoretical
+matrices, as we explore below.
 
 The mammalian Basicranium is composed of thirteen independent precursor
-tissues originated from either paraxial mesoderm or neural crest; these
-precursors from different origins may merge to form single bones, such
-as the sphenoid (Jiang \emph{et al.}, 2002; Lieberman, 2011).
+tissues originated from either paraxial mesoderm or neural crest, and
+these precursors from different origins may merge to form single bones,
+such as the sphenoid (Jiang \emph{et al.}, 2002; Lieberman, 2011).
 Furthermore, these precursors ossify early in development, with a mosaic
 pattern composed of both endochondral and intramembranous ossification,
 and, as the brain grows in posterior developmental phases, it induces a
 pattern of internal resorption and exterior deposition on the underlying
-posterior Basicranium, (Lieberman \emph{et al.}, 2000); meanwhile, the
+posterior Basicranium (Lieberman \emph{et al.}, 2000); meanwhile, the
 anterior portion suffers influence from the development of Facial
-elements (Bastir \& Rosas, 2005). Thus, we might consider that since the
-Basicranium ossifies early in development, the composed effect of all
-posterior steps of cranial development will overshadow any pattern of
-integration this region might have, as predicted by the palimpsest model
-of development (Hallgrímsson \emph{et al.}, 2009). Moreover, the
-angulation between anterior and posterior elements of the Basicranium
-has changed sensibly during primate evolution, and such property appears
-to evolve in coordination with Facial growth relative to the cranial
-Vault, in order to accomodate both structures on each other (Scott,
-1958; Lieberman \emph{et al.}, 2000, 2008).
+elements (Bastir \& Rosas, 2005). Thus, since the Basicranium ossifies
+early in development, the composed effect of all posterior steps of
+cranial development will overshadow any pattern of integration this
+region might have, as predicted by the palimpsest model of development
+(Hallgrímsson \emph{et al.}, 2009). Moreover, the angulation between
+anterior and posterior elements of the Basicranium has changed sensibly
+during primate evolution, and such property appears to have evolved in
+coordination with Facial growth relative to the cranial Vault, in order
+to accomodate both structures on each other (Scott, 1958; Lieberman
+\emph{et al.}, 2000, 2008).
 
 Due to this heterogeneity of developmental processes acting on the
-Basicranium, we should not consider that the Basicranium is a
-variational module, further expecting that a test of this property over
-skull covariance patterns will fail to reject the null hypothesis of
-random association for this region. However, considering the 42 tests we
-performed over covariance matrices derived from Procrustes residuals
-regarding localized hypotheses (left and right midpanels of
-\autoref{fig:Func}a), the Basicranium is detected as a valid variational
-module in 27 cases, distributed through matrices with size either
-retained or removed; in some cases (e.g. \emph{Alouatta};
-\emph{Cercopithecus}), the Basicranium is the only region detected.
-Thus, Procrustes residuals show a pattern of detection of variational
-modules that is the opposite of the expectation for this particular
-test. In the set of matrices derived from interlandmark distances, the
-Basicranium is not detected a single time; with local shape variables,
-either with size variation retained or removed (remaining panels of
-\autoref{fig:Func}a), the Basicranium is detected only three out of 42
-times.
+Basicranium, we would not expect it to be a variational module, further
+expecting that a test of this property over skull covariance patterns
+will fail to reject the null hypothesis of random association for this
+region. However, considering the 42 tests we performed over covariance
+matrices derived from Procrustes residuals regarding localized
+hypotheses (left and right midpanels of \autoref{fig:Func}a), the
+Basicranium is detected as a valid variational module in 27 cases,
+distributed through matrices with size either retained or removed; in
+some cases (e.g. \emph{Alouatta}, \emph{Cercopithecus}), the Basicranium
+is the only region detected. Thus, Procrustes residuals show a pattern
+of detection of variational modules that is the opposite of the
+expectation for this particular test. In the set of matrices derived
+from interlandmark distances, the Basicranium is not detected a single
+time; with local shape variables, either with size variation retained or
+removed (remaining panels of \autoref{fig:Func}a), the Basicranium is
+detected only three out of 42 times.
 
 These two remaining types of representations, interlandmark distances
 and local shape variables, show patterns of detection of variational
 modules that are both consistent to the expectations derived from
-developmental and functional interactions and to the particularities
-that either type exhibits, especially when we consider how the different
-components of size variation articulate with the observed patterns in
-each type, both before and after we remove these components from
-correlation patterns. Considering that interlandmark distances are on a
-ratio scale, isometric variation will be represented to a greater extent
-when compared to subtle allometric relationships, due to the
-multiplicative nature of biological growth (Huxley, 1932). Therefore,
-the Oral trait set is detected as a valid variational module,
-considering covariance matrices among interlandmark distances (upper
-left panel of \autoref{fig:Func}a), since this region is strongly
-affected by the induction of bone growth due to muscular activity
-beginning in the pre-weaning period (Zelditch \& Carmichael, 1989;
-Hallgrímsson \emph{et al.}, 2009). Furthermore, in these matrices,
-allometric interactions are associated with the strength of association
-between traits in Oral, Nasal, Zygomatic and Vault regions in an
-evolutionary scale (Chapter 3); thus, allometric relationships also play
-some role in the determination of covariance/correlation patterns for
-other subregions, although such pattern may be masked in interlandmark
-distances by the effect of isometric variation. On the other hand, the
-patterns expressed in covariance/correlation matrices for local shape
-variables are influenced by allometric relationships defined on a proper
-scale (Jolicoeur, 1963; Houle \emph{et al.}, 2011; Márquez \emph{et
-al.}, 2012) and local developmental processes. Thus, they may reflect
-this association between integration and allometry.
+developmental and functional interactions and to the patterns emerging
+from these representations when we remove variation associated with
+size. Considering that interlandmark distances are on a ratio scale,
+isometric variation will be represented to a greater extent when
+compared to subtle allometric relationships, due to the multiplicative
+nature of biological growth (Huxley, 1932). Therefore, the Oral trait
+set is detected as a valid variational module, considering covariance
+matrices among interlandmark distances (upper left panel of
+\autoref{fig:Func}a), since this region is strongly affected by the
+induction of bone growth due to muscular activity beginning in the
+pre-weaning period (Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et
+al.}, 2009). Furthermore, in these matrices, allometric interactions are
+associated with the strength of association between traits in Oral,
+Nasal, Zygomatic and Vault regions in an evolutionary scale (Chapter 3);
+thus, allometric relationships also play some role in the determination
+of covariance/correlation patterns for other subregions, although such
+pattern may be masked in interlandmark distances by the effect of
+isometric variation. On the other hand, the patterns expressed in
+covariance/correlation matrices for local shape variables are influenced
+by allometric relationships defined on a proper scale (Jolicoeur, 1963;
+Houle \emph{et al.}, 2011; Márquez \emph{et al.}, 2012) and local
+developmental processes. Thus, they reflect this association between
+integration and allometry.
 
 By removing allometric effects from local shape variables (lower right
-panel of \autoref{fig:Func}a), variational modularity can yet be
+panel of \autoref{fig:Func}a), variational modularity can still be
 detected in both Oral and Nasal regions, while in a number of species,
 the Vault region is no longer detected as a variational module. Vault
 integration may be achieved through both allometric relationships and
@@ -1344,40 +1305,36 @@ through intramembranous ossification, induced by the secretion of a
 number of signaling factors from the outer brain membranous tissues,
 with a modest but necessary contribution of mesoderm-derived tissue that
 undergoes endochondral ossification (Jiang \emph{et al.}, 2002; Rice
-\emph{et al.}, 2003; Franz-Odendaal, 2011; Lieberman, 2011). Because the
-estimation of local shape variables excludes shape variation associated
-with affine transformations (Márquez \emph{et al.}, 2012), in those
-species that we cannot detect variational modularity in the Vault after
-removing allometry, the effect of relative brain growth may approximate
-such transformation. This observation might hold if we consider that in
-humans, the growth of Vault osteological elements occur, from a
-topological standpoint, without deviations from an isometric growth
-model, forming regular connections among bones (Esteve-Altava \&
-Rasskin-Gutman, 2014), since the boundary of interactions between the
-tissue inducing growth (brain) and the tissue whose growth is being
-induced (Vault bones) is also regular. Thus, as this effect dominates
-the latter stages of pre-natal development (Hallgrímsson \& Lieberman,
-2008; Lieberman, 2011), the overall effect over skull growth patterns in
-this stage may mirror an affine transformation, thus rendering it
+\emph{et al.}, 2003; Franz-Odendaal, 2011; Lieberman, 2011). In humans,
+the growth of Vault osteological elements occur, from a topological
+standpoint, without deviations from an isometric growth model, forming
+regular connections among bones (Esteve-Altava \& Rasskin-Gutman, 2014),
+since the boundary of interactions between the tissue inducing growth
+(brain) and the tissue whose growth is being induced (Vault bones) is
+also regular. Thus, as this effect dominates the latter stages of
+pre-natal development (Hallgrímsson \& Lieberman, 2008; Lieberman,
+2011), the overall effect of brain growth over skull growth patterns in
+this stage may mirror an affine transformation, rendering it
 undetectable over covariance patterns derived from local shape
-variables. In contrast, Oral and Nasal elements have more complex
-patterns of connectivity arising from their tight integration with the
-soft tissues that compose the remaining elements of the Face (Lieberman,
-2011; Esteve-Altava \emph{et al.}, 2013; Esteve-Altava \&
-Rasskin-Gutman, 2014), thus producing an intrincate pattern of
-associations that may be responsible for the variational modularity we
-are able to detect in all species, regardless of whether size variation
-is retained or removed.
+variables, since their estimation excludes shape variation associated
+with affine transformations (Márquez \emph{et al.}, 2012). In contrast,
+Oral and Nasal elements have more complex patterns of connectivity
+arising from their tight integration with the soft tissues that compose
+the remaining elements of the Face (Lieberman, 2011; Esteve-Altava
+\emph{et al.}, 2013; Esteve-Altava \& Rasskin-Gutman, 2014), thus
+producing an intrincate pattern of associations that may be responsible
+for the variational modularity we are able to detect in all species,
+regardless of whether size variation is retained or removed.
 
-The differences among the pattern of detection in all representations
-for local trait sets for RV values (\autoref{fig:Func}b) difficult the
-interpretation of the results for this metric, as opposed to the results
-regarding MHI values. It is noteworthy that the variance among species
-with respect to RV values seem to indicate that RV values are sensitive
-to the magnitude of morphological integration, as \emph{Papio} and
-\emph{Macaca} are among the Catarrhines who display large values of this
-quantity (Oliveira \emph{et al.}, 2009) and score higher (orange/red) RV
-values for all local trait sets, at least when we consider interlandmark
+The differences between the pattern of detection in all representations
+for local trait sets for RV values (\autoref{fig:Func}b) makes a similar
+interpretation of the results for this metric difficult, as opposed to
+the results regarding MHI values. The variance of RV values among
+species seems to indicate that RV values are sensitive to the magnitude
+of morphological integration, as \emph{Papio} and \emph{Macaca} are
+among the Catarrhines who display large values of this quantity
+(Oliveira \emph{et al.}, 2009) and score higher (orange/red) RV values
+for all local trait sets, at least when we consider interlandmark
 distances. Such sensitivity might be one of the factors responsible for
 the low power estimated for the RV metric using theoretical covariance
 matrices; interestingly enough, this effect of magnitude of integration
@@ -1388,38 +1345,36 @@ structure arising from allometric relationships is removed or not.
 
 However, for the set of hypotheses concerning differences between Facial
 and Neurocranial traits (\autoref{fig:Dev}), there is substantial
-agreement between tests performed using MI and RV values with respect to
-the pattern of rejection of null hypotheses. For MI values
-(\autoref{fig:Dev}a), the overall pattern of detection is similar to the
-pattern detected in local trait sets, for all variable types; for RV
-values (\autoref{fig:Dev}b), there is ample support for the hypotheses
-that both Face and Neurocranium represent variational modules, in both
-local shape variables and interlandmark distances. These regions have
-marked differences in timing and pattern formation during development,
-as observed from the behavior of their composing units (Zelditch \&
-Carmichael, 1989; Hallgrímsson \emph{et al.}, 2009; Lieberman, 2011;
-Esteve-Altava \& Rasskin-Gutman, 2014); therefore, it is expected that
-the more general pattern of distinction between Face and Neurocranium
-would be detected regardless of the metric we choose to represent
-modularity.
+agreement between tests performed using MHI and RV values. For MHI
+values (\autoref{fig:Dev}a), the overall pattern of detection is similar
+to the pattern detected in local trait sets, for all variable types; for
+RV values (\autoref{fig:Dev}b), there is ample support for the
+hypotheses that both Face and Neurocranium represent variational
+modules, in both local shape variables and interlandmark distances.
+These regions have marked differences in timing and pattern formation
+during development, as observed from the behavior of their composing
+units (Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et al.}, 2009;
+Lieberman, 2011; Esteve-Altava \& Rasskin-Gutman, 2014); therefore, it
+is expected that the more general pattern of distinction between Face
+and Neurocranium would be detected regardless of the metric we choose to
+represent modularity.
 
 \subsection{Theoretical Matrices and Error
 Rates}\label{theoretical-matrices-and-error-rates}
 
-The distribution of MI and RV values obtained from the theoretical
+The distribution of MHI and RV values obtained from the theoretical
 matrices we constructed (\autoref{fig:stat_dist_sim}) is a starting
 point for understanding the differences in power for tests using these
 two statistics (Figures \ref{fig:type2_def}--\ref{fig:type2_sym}). For
-MI values, the distribution obtained from random ($\mathbf{C}_r$)
+MHI values, the distribution obtained from random ($\mathbf{C}_r$)
 matrices is consistently the same, regardless of what representation we
 used to sample correlations, or whether size was retained or removed. On
 the other hand, the distribution of RV values for this kind of matrix
 change depending on the representation sampled or whether size variation
 has been removed or retained. Moreover, this change in behavior for the
-distribution of RV values for $\mathbf{C}_r$ matrices implies in
-different levels of overlap between these null distributions and the
-distribution of values obtained for structured ($\mathbf{C}_s$)
-matrices.
+distribution of RV values for $\mathbf{C}_r$ matrices implies different
+levels of overlap between these null distributions and the distribution
+of values obtained for structured ($\mathbf{C}_s$) matrices.
 
 For Procrustes residuals, a substantial overlap occurs regardless of
 whether size variation was removed or retained; unsurprisingly, our
@@ -1434,104 +1389,99 @@ interlandmark distances when size variation is removed, and it implies
 low power for tests using RV values in this type of representation
 (right column of \autoref{fig:type2_ed}). However, in this case there is
 a substantial difference between within-set and between-set correlations
-(\autoref{fig:cor_dist}), and tests using MI to represent modularity are
-still able to detect such difference albeit with reduced power when
+(\autoref{fig:cor_dist}), and tests using MHI to represent modularity
+are still able to detect such difference albeit with reduced power when
 compared to tests over $\mathbf{C}_s$ matrices derived from
 interlandmark distances with size retained (\autoref{fig:type2_ed}). In
 those cases where both distributions for $\mathbf{C}_r$ and
 $\mathbf{C}_s$ matrices do not overlap substantially --- for example,
 when local shape variables are considered (\autoref{fig:type2_def}) ---
-power for tests performed using MI values is always higher than for
+power for tests performed using MHI values is always higher than for
 tests using RV except when sample sizes are very high; in this case
-power for both metrics approaches equality. The same behavior can also
-be observed in interlandmark distances when size is retained (left
-column of \autoref{fig:type2_ed}).
+power for both metrics are similar. The same behavior can also be
+observed in interlandmark distances when size is retained (left column
+of \autoref{fig:type2_ed}).
 
 These results indicate that RV coefficents are more sensitive to the
 absolute value of both within-set and between-set correlation
-distributions than Modularity Hypothesis Indexes. For interlandmark
-distances (\autoref{fig:type2_ed}), removing size variation reduced the
-average value of both correlation distributions by a similar amount
+distributions than MHI values. For interlandmark distances
+(\autoref{fig:type2_ed}), removing size variation reduced the average
+value of both correlation distributions by a similar amount
 (\autoref{fig:cor_dist}); the difference between average correlations in
 these two sets actually increases, going from 0.042 to 0.061 when size
 is removed. However, since the actual average correlations for these two
 distributions approach zero, tests based on RV lose power more rapidly
-than those tests based on MI. This sensitivity might be associated to
-the use of squared covariances, as shown by Equation \ref{eq:rv}, while
+than tests based on MHI. This sensitivity might be associated to the use
+of squared covariances, as shown by Equation \ref{eq:rv}, while
 Modularity Hypothesis Indexes use correlations on their natural scale
 (Equation \ref{eq:mi}). Furthermore, as observed by Fruciano et al.
 (2013), sample sizes sensibly influence the estimation of RV
 coefficients, and we demostrate here that such sensitivity also extends
 to estimates of power for tests using this statistic.
 
-On the other hand, our estimates of power for tests using MI indicate
+On the other hand, our estimates of power for tests using MHI indicate
 that this statistic is more robust to differences in absolute
 correlation values or sample sizes, thus allowing comparisons across
 more heterogeneous settings, such as our comparison between different
-representations of form, with substantial variation in sample sizes. It
-is noteworthy that the detection of variational modularity is akin to
-Student's \emph{t} test, since we are trying to determine whether two
-groups of observations (correlations between traits in the same subset
-\emph{versus} correlations between traits in different subsets) have a
-significant difference in average values; we use resampling procedures
-to estimate significance in this case only due to the interdependency
-between pairwise correlations. Thus, as Modularity Hypothesis Indexes
-are estimated with a formula that is very similar to that of a \emph{t}
+representations of form, with substantial variation in sample sizes. The
+detection of variational modularity is akin to Student's \emph{t} test,
+since we are trying to determine whether two groups of observations
+(correlations between traits in the same subset \emph{versus}
+correlations between traits in different subsets) have a significant
+difference in average values; we use resampling procedures to estimate
+significance in this case only due to the interdependency between
+pairwise correlations. Thus, as Modularity Hypothesis Indexes are
+estimated with a formula that is very similar to that of a \emph{t}
 statistic (difference between location parameters for two groups,
-divided by a scale parameter --- ICV), we believe that this statistic is
-a proper way to represent variational modularity; the robustness of the
-tests using this statistic reinforce this belief.
+divided by a scale parameter --- ICV; Equation \ref{eq:mi}), we believe
+that this statistic is a proper way to represent variational modularity;
+the robustness of the tests using this statistic reinforce this belief.
 
-Our approach to construct theoretical matrices attempts to simulate the
-most simple situation in detecting variational modularity, that is, the
-situation where there are only two subsets of traits; this situation is
-akin to the distinction between Face and Neurocranium in our empirical
-dataset (\autoref{fig:Dev}). This simplified setting may be the reason
-why the estimation of Type I error rates (\autoref{fig:type1}) indicates
-no difference among representations of form or statistic used to
-represent modularity. In a simple setting such as this, both statistics
-are capable of detecting the distinction between Face and Neurocranium,
-expect when both are used on covariance/correlation patterns derived
-from Procrustes residuals. In that case the issues regarding Procrustes
-estimators difficult the detection of modularity patterns even in the
-most simple situation; even though we built theoretical matrices using
-correlations sampled from these estimators, actually simulating the
-interference in covariance structure that such estimators produce in our
-theoretical matrices is quite difficult.
+Our approach for constructing theoretical matrices attempts to simulate
+the most simple situation, that is, the situation where there are only
+two subsets of traits, akin to the distinction between Face and
+Neurocranium in our empirical dataset (\autoref{fig:Dev}). In this
+setting, both statistics are capable of detecting this distinction,
+except when both are used on covariance/correlation patterns derived
+from Procrustes residuals. However, even though we built theoretical
+matrices using correlations sampled from these estimators, actually
+simulating the interference in covariance structure that such estimators
+produce in our theoretical matrices is quite difficult. Thus, the lack
+of differences in type I error rates for all cases may be a limitation
+of our scheme for building correlation matrices.
 
-The issues we found with both the use of Procrustes estimators for
-covariance matrices and the use of RV coefficients to estimate and
-detect variational modularity may explain results found by other authors
-regarding the detection of modular patterns; for instance,
-Martínez-Abadías et al. (2011) has found no evidence indicating that
+The issues we found with the use of Procrustes estimators for covariance
+matrices and the use of RV coefficients to estimate and detect
+variational modularity may explain results found by other authors; for
+instance, Martínez-Abadías et al. (2011) has found no evidence that
 either genetic or phenotypic covariance structure for human skulls
 conforms to a modular structure, since all tests performed by these
 authors failed to reject the null hypothesis of random association.
 These authors use Procrustes estimators to represent covariance
 structure, and test their hypothesis of partitioning (Face, Vault and
 Base) using RV as the statistic representing variational modularity.
-Thus, as this combination implies in very low power
+Since this combination implies in very low power
 (\autoref{fig:type2_sym}), not rejecting the null hypothesis in their
-case might be a consequence of the chosen estimates of both covariance
-structure and variational modularity. Moreover, a failure in rejecting
-null hypotheses implies that the partitioning the authors propose cannot
-be differentiated from a random association without meaningful
-relationships; however, the authors argue that this is an evidence that
-the human skull is highly integrated.
+case might be a consequence of the choice of estimates of both
+covariance structure and variational modularity; thus, these authors'
+assertion of pervasive genetic integration in the human skull may be
+misleading, considering that skull covariance patterns in humans are one
+of the most modular examples of such patterns when compared to other
+mammals (Porto \emph{et al.}, 2009) or catarrhine primates (Oliveira
+\emph{et al.}, 2009).
 
 The approach we explore in the present work is but one of the different
-manners one can investigate the association between genetic, functional
-and developmental interactions and correlation structure (Mitteroecker
-\& Bookstein, 2007). For example, Perez et al. (2009) relies on
-abstracting correlation matrices into networks, further using
-community-detection algorithms to search for modular patterns without
-\emph{a priori} hypotheses, associating their results with knockout
-experiments that support the communities they found among traits;
-however, to what extent correlation matrices are actually well
-represented in this manner remains an open question. Furthermore, the
-authors use Procrustes estimators, which may bias the detection of
-modularity patterns in this setting in the same manner as we
-demonstrated here.
+ways one can investigate the association between genetic, functional and
+developmental interactions and correlation structure (Mitteroecker \&
+Bookstein, 2007). For example, Perez et al. (2009) relies on abstracting
+correlation matrices into networks, then using community-detection
+algorithms to search for modular patterns without \emph{a priori}
+hypotheses, associating their results with knockout experiments that
+support the communities they found among traits; however, it is not
+clear how much relevant information is retained in these network
+representations. Furthermore, the authors use Procrustes estimators,
+which may bias the detection of modularity patterns in this setting in
+the same manner as we demonstrated here.
 
 Monteiro et al. (2005) assumes that the underlying morphogenetic
 components of the rodent mandible behave as modules, further
@@ -1550,40 +1500,44 @@ of correlation patterns (Jones, 2007; Jones \emph{et al.}, 2012; Melo \&
 Marroig, 2015).
 
 Another valid approach is to model certain aspects of development as
-null hypotheses; Esteve-Altava \& Rasskin-Gutman (2014), when
-investigating the pattern of connections among human cranial bones,
-conceived the null hypothesis that unconstrained bone growth is
-sufficient to explain the observed patterns. Such approach could be
-extended to investigate morphological covariance structure; if we
-consider the geometric properties of the features we measure
-(Mitteroecker \& Bookstein, 2007), one could formulate the null
-hypothesis that topological proximity is a sufficient explanation for
-the observed covariance structure, against the alternative hypothesis
-that local developmental processes coupled with functional interactions
-produce stronger relationships among close elements that surpass these
-purely topological interactions. Alternatively, one could actively look
-for variational boundaries between regions, as boundary formation is a
-phenomenom that has been well studied under a dynamical perspective on
-development (e.g. Turing, 1952; Meinhardt, 1983; Tiedemann \emph{et
-al.}, 2012).
+null hypotheses; Esteve-Altava \& Rasskin-Gutman (2014), investigating
+the pattern of connections among human cranial bones, conceived the null
+hypothesis that unconstrained bone growth is sufficient to explain the
+observed patterns. Such approach could be extended to investigate
+morphological covariance structure; if we consider the geometric
+properties of the features we measure (Mitteroecker \& Bookstein, 2007),
+one could formulate the null hypothesis that topological proximity is a
+sufficient explanation for the observed covariance structure, against
+the alternative hypothesis that local developmental processes coupled
+with functional interactions produce stronger relationships among close
+elements that surpass these purely topological interactions.
+Alternatively, one could actively look for variational boundaries
+between regions, as boundary formation is a phenomenom that has been
+well studied under a dynamical perspective on development (e.g. Turing,
+1952; Meinhardt, 1983; Tiedemann \emph{et al.}, 2012).
+
+The approach of partitioning covariance matrices into blocks that
+correspond to inferred modular associations has the advantage that it is
+simple from an operational standpoint; however, modularity patterns are
+almost certainly not expressed in phenotypic data as the binary
+hypotheses we used here (Hallgrímsson \emph{et al.}, 2009). Thus,
+hypotheses and inferences made from them have to be contextualized in
+the light of developmental dynamics, since the measurements we make and
+the parameters we estimate have to be properly connected to the models
+we are considering; otherwise, inferences made from such models may be
+devoid of meaning (Wagner, 2010; Houle \emph{et al.}, 2011).
 
 \subsection{Conclusion}\label{conclusion}
 
-Considering the issues we explored here regarding the use of Procrustes
-estimators for covariance or correlation matrices and the use of RV to
-measure modular relationships among traits, the approaches we explored
-here are simple from an operational standpoint. Almost certainly
-modularity patterns are not expressed in phenotypic data as the binary
-hypotheses we used here (Hallgrímsson \emph{et al.}, 2009); however,
-such hypotheses must be interpreted in the light of developmental
-dynamics. Either interlandmark distances and local shape variables seem
-valid options to represent morphological variation, if their limitations
-are taken into consideration; such statement is valid to any type of
-representation of form one can devise. Moreover, the measurements we
-make and the parameters we estimate from them have to be properly
-connected to the models we are considering; otherwise, inferences made
-from such models may be devoid of meaning (Wagner, 2010; Houle \emph{et
-al.}, 2011).
+Here we show that Procrustes estimators for covariance matrices fail to
+capture the modularity patterns embedded in phenotypic data, regardless
+of which metric is chosen to represent such patterns. Either
+interlandmark distances and local shape variables seem valid options to
+represent morphological variation, if their limitations are taken into
+consideration. We wish to stress this point: any representation of
+morphological variation has limitations, as such representations are
+themselves models --- at the very least, of what it is important to
+represent --- not fully capturing the phenomena we may be interested in.
 
 \newpage
 \chapter{The Evolution of Skull Allometry in Anthropoid Primates}
@@ -1666,20 +1620,18 @@ organisms. We focus on testing whether and to which proportion
 intercepts and slopes have changed during the diversification of this
 group. Moreover, integration patterns in skull form are quite stable in
 both New World (Marroig \& Cheverud, 2001) and Old World Monkeys, with
-some exceptions (Oliveira \emph{et al.}, 2009). The association between
-relative size variation and integration has been shown for mammals in
-general (Porto \emph{et al.}, 2009, 2013) and several authors have
-argued that such association is imposed through allometric constraints
-(e.g. Porto \emph{et al.}, 2009; Armbruster \emph{et al.}, 2014), but
-this association has never been formalized, considering a strict
-definition of allometric relationships. Thus, we test the hypothesis
-that variation in allometric parameters, if present, will contribute to
-variation in the strength of association between skull traits.
-Considering both the spatial and temporal dynamics of mammalian skull
-development (Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et al.},
-2009; Cardini \& Polly, 2013), we expect that such changes will affect
-Facial and Neurocranial traits in opposing ways, due to the distinction
-between early- and late-developmental factors in skull development.
+the exception of some Hominids (Oliveira \emph{et al.}, 2009). Several
+authors (e.g. Porto \emph{et al.}, 2013; Armbruster \emph{et al.}, 2014)
+have argued that such association is imposed through the joint effect of
+both size variation and allometric relationships within populations;
+thus, we test the hypothesis that variation in allometric parameters
+among Anthropoid species, if present, will contribute to variation in
+the strength of association between skull traits. Considering both the
+spatial and temporal dynamics of mammalian skull development (Zelditch
+\& Carmichael, 1989; Hallgrímsson \emph{et al.}, 2009; Cardini \& Polly,
+2013), we expect that such changes will affect Facial and Neurocranial
+traits in opposing ways, due to the distinction between early- and
+late-developmental factors in skull development.
 
 Using a Bayesian phylogenetic random regression model of allometric
 shape against size, we estimate allometric parameters along the
@@ -1722,8 +1674,7 @@ a symmetrical landmark configuration was obtained by taking the mean
 shape between each individual configuration and its reflection along the
 sagittal plane (Klingenberg \emph{et al.}, 2002).
 
-\subsection{Allometric Slopes and
-Intercepts}\label{allometric-slopes-and-intercepts}
+\subsection{Allometric Relationships}\label{allometric-relationships}
 
 We estimated allometric parameters using local shape variables (Márquez
 \emph{et al.}, 2012), which are measurements of infinitesimal log volume
@@ -1738,44 +1689,17 @@ interest in the present context, such as sexual dimorphism, and
 variation between subspecies or populations within each OTU, according
 to Figure \ref{fig:phylo_model}, using generalized linear models.
 
-We used a phylogenetic random regression model under a Bayesian
-framework in order to estimate static (within populations; Cheverud,
-1982b; Pélabon \emph{et al.}, 2013) allometric intercepts ($a_s$) and
-slopes ($b_s$) for all OTUs simultaneously while considering their
-phylogenetic structure. This model assumes that both $a_s$ and $b_s$
-evolve under Brownian motion, as both parameters are defined as random
-variables with a correlation structure among OTUs derived from branch
-lengths obtained from the phylogenetic hypothesis we use. This allows
-the model to estimate $a_s$ and $b_s$ for each terminal OTU and also for
-ancestral nodes, enabling us to track changes in both parameters along
-the phylogeny. Furthermore, in order to evaluate whether such
-reconstruction is affected by the model we chose, we compared the
-estimated posterior distribution of both intercepts and slopes for all
-nodes within the phylogeny with point estimates produced under a linear
-parsimony model, implemented in Mesquite (Maddison \& Maddison, 2011).
-For allometric slopes, all parsimony estimates fall within the 95\%
-credible intervals obtained from the random regression model. For
-intercepts, only in five nodes (Catarrhini, Pitheciidae, Cebidae,
-\emph{Pithecia}, and the clade composed of \emph{Brachyteles},
-\emph{Lagothrix} and \emph{Ateles}) differences are observed between the
-two types of estimates; however, such differences do not hamper the
-interpretation of changes in intercepts we elaborate here.
-
 We projected all individuals in our sample along the Common Allometric
 Component (CAC; Mitteroecker \emph{et al.}, 2004), which is the pooled
 within-species regression coefficients between local shape variables and
-log Centroid Size (logCS). The CAC summarizes all allometric shape
-variation, and we regress this single variable against logCS in our
-random regression model. This reduction in dimensionality is necessary
-because a full multivariate random regression model using all 38 shape
-variables would be computationally untractable, considering the actual
-state of MCMC samplers available. Therefore, we limit ourselves to test
-whether the strength of association between size and allometric shape,
-represented by projections over this CAC (which we consider the best
-representation of the ancestral allometric shape variation) has changed
-during the diversification of Anthropoid Primates, measuring such
-strength of association as increases in CAC values for an unit increase
-in logCS standard deviation within each OTU.
+log Centroid Size (logCS), thus summarizing all shape variation related
+to size in a single variable. To estimate differences in the
+relationship between logCS and CAC projections among Anthropoid species
+we used a phylogenetic random regression model under a Bayesian
+framework, obtaining static (within populations; Cheverud, 1982b;
+Pélabon \emph{et al.}, 2013) allometric intercepts ($a_s$) and slopes
+($b_s$) for all spcies simultaneously while considering their
+phylogenetic relatedness (see 'Supplemental Information for details).
 
 We used uniform prior distributions for all $a_s$ and $b_s$. In order to
 sample the posterior distribution for our model, we used a MCMC sampler
@@ -1795,8 +1719,7 @@ between the parameter estimated at both points. If this interval
 excludes the null value, we considered that as evidence that the
 parameter ($a_s$ or $b_s$) has changed in that particular node.
 
-\subsection{Morphological Integration and
-Modularity}\label{morphological-integration-and-modularity}
+\subsection{Morphological Integration}\label{morphological-integration}
 
 Using our landmark configuration database, we calculated 38
 interlandmark distances (\autoref{fig:landmarks}), based on previous
@@ -2814,10 +2737,6 @@ from Geometric Data. \emph{Evolutionary Biology} \textbf{36}: 311--322.
 Lynch, M. \& Walsh, B. 1998. \emph{Genetics and analysis of quantitative
 traits}. Sinauer Associates, Sunderland.
 
-Maddison, W.P. \& Maddison, D.R. 2011. Mesquite: a modular system for
-evolutionary analysis. Version 2.75. 2011. \emph{URL
-http://mesquiteproject. org}.
-
 Mantel, N. 1967. The detection of disease clustering and a generalized
 regression approach. \emph{Cancer Res} \textbf{27}: 209--220.
 
@@ -2941,11 +2860,6 @@ Pavlicev, M. \& Hansen, T.F. 2011. Genotype-Phenotype Maps Maximizing
 Evolvability: Modularity Revisited. \emph{Evolutionary Biology}
 \textbf{38}: 371--389.
 
-Pavlicev, M., Cheverud, J.M. \& Wagner, G.P. 2010. Evolution of adaptive
-phenotypic variation patterns by direct selection for evolvability.
-\emph{Proceedings of The Royal Society B}, doi:
-\href{http://dx.doi.org/10.1098/rspb.2010.2113}{10.1098/rspb.2010.2113}.
-
 Pavlicev, M., Kenney-Hunt, J.P., Norgard, E.A., Roseman, C.C., Wolf,
 J.B. \& Cheverud, J.M. 2008. Genetic variation in pleiotropy:
 differential epistasis as a source of variation in the allometric
@@ -3036,10 +2950,6 @@ Springer, M.S., Meredith, R.W., Gatesy, J., Emerling, C.A., Park, J. \&
 Rabosky, D.L.\emph{et al.} 2012. Macroevolutionary Dynamics and
 Historical Biogeography of Primate Diversification Inferred from a
 Species Supermatrix. \emph{PLoS ONE} \textbf{7}: e49521.
-
-Steppan, S.J., Phillips, P.C. \& Houle, D. 2002. Comparative
-quantitative genetics: evolution of the G matrix. \emph{Trends in
-Ecology and Evolution} \textbf{17}: 320--327.
 
 Theobald, D.L. \& Wuttke, D.S. 2006. Empirical Bayes hierarchical models
 for regularizing maximum likelihood estimation in the matrix Gaussian
