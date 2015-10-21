@@ -41,7 +41,7 @@ captions $ fig.type2_sym <-
 
 # Introduction
 
-Modularity is a characteristic property that biological systems exhibit regarding the distribution of interactions between their composing elements; that is, in a given system, certain subsets of elements, denominated modules, interact more among themselves than with other such subsets [@newman_modularity_2006; @mitteroecker_conceptual_2007; @wagner_road_2007].
+Modularity is a characteristic property that biological systems exhibit regarding the distribution of interactions between their composing elements; that is, in a given system, subsets of elements, denominated modules, interact more among themselves than with other such subsets [@newman_modularity_2006; @mitteroecker_conceptual_2007; @wagner_road_2007].
 This property has been well documented at different levels of biological organization, from the dynamics of metabolic networks [e.g. @ravasz_hierarchical_2002; @andrade_detecting_2011] to the structure of interactions among individuals in populations [e.g. @fortuna_spatial_2008] and among species in ecological communities [e.g. @genini_cheaters_2010].
 
 Regarding morphological systems, the concept of modularity is associated with the framework of morphological integration [@olson_morphological_1958; @cheverud_developmental_1996], which refers to the organization of covariances or correlations between morphological elements and the hypotheses concerning their relationships.
