@@ -43,7 +43,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
-            pdftitle={Supplemental Material for Type I and II Error Rates in Modularity Hypothesis Testing},
+            pdftitle={Modularity and Morphometrics: Error Rates in Hypothesis Testing - Supplemental Information},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -70,8 +70,8 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Supplemental Material for `Type I and II Error Rates in Modularity
-Hypothesis Testing'}
+  \title{Modularity and Morphometrics: Error Rates in Hypothesis Testing -
+Supplemental Information}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{}
@@ -159,5 +159,81 @@ Neurocranium, respectively). \label{fig:landmarks}}
 \end{figure}
 
 \input{Tables/dist_en}
+
+\subsection{Constructing Theoretical
+Matrices}\label{constructing-theoretical-matrices}
+
+To evaluate the statistical properties of these metrics and the
+randomization procedure, we built theoretical correlation matrices \[
+\mathbf{C}_{s} =
+\begin{bmatrix}
+\mathbf{W}_1 & \mathbf{B} \\
+\mathbf{B}^t & \mathbf{W}_2 \\
+\end{bmatrix}
+\] where $\mathbf{W}_1$ and $\mathbf{W}_2$ are correlation blocks
+associated with two distinct trait sets, and $\mathbf{B}$ represents the
+correlation block between sets.
+
+For each correlation matrix in our empirical dataset, we estimated
+average correlations within and between all trait sets we considered,
+obtaining a distribution of within and between sets correlations
+associated with each type of morphometric variable (Procrustes
+Residuals, Interlandmark Distances and Local Shape Variables), also
+considering whether size was retained or removed
+(\autoref{fig:cor_dist}). We constructed corresponding sets of
+$\mathbf{C}_{s}$ matrices sampling each distribution obtained; for each
+matrix, we sampled two within-set correlations and one between-set
+correlation, filling the corresponding blocks ($\mathbf{W}_1$,
+$\mathbf{W}_2$ and $\mathbf{B}$) in each theoretical matrix with the
+sampled correlations. For example, with only four traits divided into
+two blocks of two traits, sampling the values $0.5$ and $0.3$ from the
+within-set distribution and $-0.1$ from the between-set distribution
+produces \[
+\mathbf{C}_s =
+\begin{bmatrix}
+1 & 0.5 & -0.1 & -0.1 \\
+0.5 & 1 & -0.1 & -0.1 \\
+-0.1 & -0.1 & 1 & 0.3 \\
+-0.1 & -0.1 & 0.3 & 1 \\
+\end{bmatrix}
+\] filling all cells in each block with the associated sampled
+correlation. Thus, we represent each type of morphometric variable as
+two correlation distributions (\autoref{fig:cor_dist}), building six
+sets of theoretical correlation matrices that are representative of each
+type (considering the presence or absence of size variation) which
+retain their statistical properties.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/cor_dist-1.pdf}
+\caption{Distribution of within-set and between-set mean correlations
+derived from the six types of empirical correlation matrices.
+\label{fig:cor_dist}}
+\end{figure}
+
+For each pair of correlation distributions, we built 10000 correlation
+matrices for 40 traits; previous tests indicate that matrix
+dimensionality does not qualitatively affect our results. We also
+sampled variances from each type of morphometric variable, thus
+constructing an associated covariance matrix, since the estimation of RV
+values uses covariance matrices. We considered only positive-definite
+matrices; if any given matrix did not fit this criterion, we discarded
+that matrix and sampled new correlations; thus, we can sample
+observations from a multivariate normal distribution using each of these
+60000 matrices as the $\Sigma$ parameter. For each matrix, we also
+randomly determine the number of traits in both sets, establishing a
+minimum value of five for set size.
+
+We used this set of 60000 covariance matrices of known structure
+($\mathbf{C}_s$) to built another set of covariance matrices of unknown,
+random structure ($\mathbf{C}_r$) by simply shuffling both lines and
+columns of each matrix. For all matrices ($\mathbf{C}_r$ and
+$\mathbf{C}_s$) we obtained samples of increasing size (20, 40, 60, 80,
+100 individuals) and re-estimated a covariance matrix for each sample,
+thus considering in our tests the uncertainty derived from sampling. For
+each matrix estimated, both $\mathbf{C}_r$ and $\mathbf{C}_s$, we test
+the hypothesis that the two sets used to generate each $\mathbf{C}_s$
+matrix represent two variational modules, using both MHI and RV
+coefficients, as described in the section `Empirical Tests'.
 
 \end{document}

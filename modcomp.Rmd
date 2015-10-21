@@ -34,7 +34,7 @@ thesis <- FALSE
 
 ### Acknowledgements
 
-We thank A. Porto, D. A. R. Melo, and G. Burin for comments on an early draft. This work has been funded by CNPq (Conselho Nacional de Pesquisa e Desenvolvimento Tecnológico) and FAPESP (Fundação de Apoio à Pesquisa do Estado de São Paulo).
+We thank G. Burin, D. Melo, and A. Porto for comments on an early draft. This work has been funded by CNPq (Conselho Nacional de Pesquisa e Desenvolvimento Tecnológico) and FAPESP (Fundação de Apoio à Pesquisa do Estado de São Paulo).
 
 # References
 

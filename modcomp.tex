@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{20 October 2015}
+  \date{21 October 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -396,24 +396,23 @@ For each OTU, we estimated phenotypic covariance and correlation
 matrices for three different types of variables: tangent space
 residuals, estimated from a Procrustes superimposition for the entire
 sample, using the set of landmarks described on both \autoref{tab:lms}
-and \autoref{fig:landmarks} (henceforth refered to as Procrustes
-residuals); interlandmark distances, as described in \autoref{tab:dist};
-and local shape variables (Márquez et al. 2012), which are measurements
-of infinitesimal log volume transformations between each sample unit and
-a reference (mean) shape, based upon an interpolation function that
+and \autoref{fig:landmarks} (henceforth Procrustes residuals);
+interlandmark distances, described in \autoref{tab:dist}; and local
+shape variables (Márquez et al. 2012), which are measurements of
+infinitesimal log volume transformations between each sample unit and a
+reference (mean) shape, based upon an interpolation function that
 describes shape variation between sampled landmarks. In this context, we
-use thin plate splines as the interpolating function (Bookstein 1989).
-These transformations were calculated at 38 points, corresponding to the
-locations of the mipoints between pairs of landmarks used to calculate
-interlandmark distances, in order to produce a dataset that represents
-shape (i.e., form without isometric variation; Bookstein 1991; Zelditch
-et al. 2004) while retaining the same overall properties of the
-interlandmark distance dataset such as dimensionality for example.
-Furthermore, we were able to use the same hypotheses of trait
-associations for both types of variables since the position of local
-shape variables through the skull mirrors the position of interlandmark
-distances, although they are conceptually different types of
-measurements.
+used thin plate splines as interpolating functions (Bookstein 1989). We
+obtained 38 transformations corresponding to the locations of the
+mipoints between pairs of landmarks used to define interlandmark
+distances, in order to produce a dataset that represents shape (i.e.,
+form without isometric variation; Bookstein 1991; Zelditch et al. 2004)
+while retaining the overall properties of the interlandmark distance
+dataset, such as dimensionality for example. Furthermore, we were able
+to use the same hypotheses of trait associations for both types of
+variables since the position of local shape variables through the skull
+mirrors the position of interlandmark distances, although they are
+conceptually different types of measurements.
 
 Here we considered only covariance or correlation structure for the
 symmetrical component of variation; therefore, prior to any analysis, we
@@ -441,12 +440,11 @@ freedom imposed by the GPA prohibits the use of a full multivariate
 linear model over this kind of data to remove fixed effects.
 
 In order to consider the effects of size variation on modularity
-patterns we used a different procedure to remove the influence of size,
-according to the different properties of each type of variable. For
-interlandmark distances we used the approach established by Bookstein et
-al. (1985); if $\mathbf{C}$ is a correlation matrix, we obtained a
-correlation matrix $\mathbf{R}$ without the effect of size using the
-equation
+patterns we used different procedures to remove the influence of size
+from each type of variable. For interlandmark distances we used the
+approach established by Bookstein et al. (1985); if $\mathbf{C}$ is a
+correlation matrix, we obtained a correlation matrix $\mathbf{R}$
+without the effect of size using the equation
 
 \begin{equation}
 \mathbf{R} = \mathbf{C} - \lambda_1 v_1 v^{t}_1
@@ -454,54 +452,49 @@ equation
 \end{equation}
 
 where $\lambda_1$ and $v_1$ refer respectively to the first eigenvalue
-and eigenvector of the spectral decomposition of $\mathbf{C}$,
-considering that this eigenvector is associated with size variation,
-which is a common pattern in mammalian correlation structure, especially
-when interlandmark distances are considered (Wagner 1984; Mitteroecker
-et al. 2004; Mitteroecker and Bookstein 2007); $t$ denotes matrix
-transpose.
+and eigenvector of the spectral decomposition of $\mathbf{C}$, since
+this eigenvector commonly represents size variation in mammals,
+especially when interlandmark distances are considered (Wagner 1984;
+Mitteroecker et al. 2004; Mitteroecker and Bookstein 2007); $t$ denotes
+matrix transpose.
 
 For Procrustes residuals and local shape variables the effects of
 isometric variation were removed by normalizing each individual to unit
-centroid size. However, allometric effects still influence covariance or
-correlation structure. In order to remove such effects we used a
-procedure similar to that of interlandmark distances, based upon
-Mitteroecker et al. (2004), which relies on the estimation of an
-allometric component for each OTU; this allometric component is composed
-of regression coefficents for each of the $m$ shape variables (either
-Procrustes residuals or local shape variables) over log Centroid Size.
-If $\mathbf{S}$ is a covariance matrix, we obtained a covariance matrix
-$\mathbf{R}$ without the influence of allometric relationships using the
-equation
+centroid size. However, allometric relationships still influence
+covariance or correlation structure. In order to remove this effect we
+used a procedure based upon Mitteroecker et al. (2004), which relies on
+the estimation of an allometric component $a$ for each OTU, composed of
+normalized regression coefficents for each of the $m$ shape variables
+(either Procrustes residuals or local shape variables) over log Centroid
+Size. If $\mathbf{S}$ is a covariance matrix, we obtained a covariance
+matrix $\mathbf{R}$ without the influence of allometric relationships
+using the equation
 
 \begin{equation}
 \mathbf{R} = (I_m - aa^t) \mathbf{S} (I_m - aa^t)
 \label{eq:allo}
 \end{equation}
 
-where $a$ refers to the normalized allometric component estimated for
-each OTU and $I_m$ represents the identity matrix of size $m$.
-Therefore, our empirical dataset consists of six different sets of
-covariance/correlation matrices, corresponding to each type of
-morphometric variables and the presence or absence of variation
-associated with size.
+where $I_m$ represents the identity matrix of size $m$. Therefore, our
+empirical dataset consists of six sets of covariance/correlation
+matrices, corresponding to each type of morphometric variables
+considering the presence or absence of size variation.
 
-\subsection{Empirical Modularity Hypothesis
-Tests}\label{empirical-modularity-hypothesis-tests}
+\subsection{Empirical Tests}\label{empirical-tests}
 
 Using these six sets of covariance/correlation matrices, we tested the
-hypotheses of trait associations described in both \autoref{tab:lms} for
+hypotheses of trait associations described in \autoref{tab:lms} for
 Procrustes residuals and \autoref{tab:dist} for interlandmark distances
 and local shape variables. These trait sets are grouped with respect to
 their scope; two regional sets (Face and Neurocranium), each divided
-into three more localized trait sets (Oral, Nasal and Zygomatic for the
-Face; Orbit, Base and Vault for the Neurocranium).
+into three localized trait sets (Oral, Nasal and Zygomatic for the Face;
+Orbit, Base and Vault for the Neurocranium).
 
-For all hypotheses, we estimated both Modularity Hypothesis Indexes
-(MHI; Porto et al. 2013) and the RV coefficient (Klingenberg 2009). Both
-statistics are estimated by partitioning any given covariance or
-correlation matrix into blocks; if $\mathbf{A}$ is a covariance or
-correlation matrix, the partition \[
+For all hypotheses, we estimated Modularity Hypothesis Indexes (MHI;
+Porto et al. 2013) and the RV coefficient (Klingenberg 2009). Both
+statistics are estimated by partitioning covariance or correlation
+matrices into blocks; if $\mathbf{A}$ is a covariance or correlation
+matrix, the partition \[
 \mathbf{A} =
 \begin{bmatrix}
 \mathbf{A}_h & \mathbf{A}_b \\
@@ -513,7 +506,7 @@ considered, while $\mathbf{A}_c$ represents the complementary trait set;
 $\mathbf{A}_b$ represents the block of covariances or correlations
 between the two sets. Thus, covariance ($\mathbf{S}$) or correlation
 ($\mathbf{C}$) matrices can be partitioned into a similar scheme. We
-estimated Modularity Hypothesis Indexes using the equation
+estimated MHI values using the equation
 
 \begin{equation}
 MHI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
@@ -537,161 +530,92 @@ where $tr$ represents the sum of diagonal elements in any given matrix
 ($tr \mathbf{A} = \sum_i a_{ii}$).
 
 The partitioning scheme outlined above assumes that the complementary
-trait set does not represent an actual hypothesis of association;
-however, we may choose to consider that both sets ($\mathbf{A}_h$ and
-$\mathbf{A}_c$) represent two distinct hypothesis. The estimation of RV
-coefficients remains the same; however, MHI values are estimated
-considering that $\bar{\rho}_{+}$ is the average correlation in both
-$\mathbf{C}_h$ and $\mathbf{C}_c$, while $\bar{\rho}_{-}$ represents the
-average correlation only in $\mathbf{C}_b$. In the particular case of
-the distinction between Facial and Neurocranial traits, we also
-estimated MHI values in this manner, reporting values for this estimate
-under the denomination `Neuroface', following Marroig and Cheverud
-(2001), along independent MHI estimates for each region. Furthermore,
-since both Face and Neurocranium are two disjoint trait sets when any
-morphometric variable type is considered, RV coefficient values for
-either set are equal; therefore, a single RV value is reported for both
-regions, for each variable type.
+trait set does not represent an actual hypothesis; however, we may
+choose to consider that both sets ($\mathbf{A}_h$ and $\mathbf{A}_c$)
+represent two distinct hypothesis. The estimation of RV coefficients
+remains the same; however, MHI values are estimated considering that
+$\bar{\rho}_{+}$ is the average correlation in both $\mathbf{C}_h$ and
+$\mathbf{C}_c$, while $\bar{\rho}_{-}$ represents the average
+correlation only in $\mathbf{C}_b$. In the case of the distinction
+between Facial and Neurocranial traits, we estimated MHI values in this
+manner, reporting values for this estimate under the denomination
+`Neuroface', following Marroig and Cheverud (2001), along independent
+MHI estimates for each region. Furthermore, since both Face and
+Neurocranium are two disjoint trait sets when any morphometric variable
+type is considered, RV coefficient values for either set are equal;
+therefore, a single RV value is reported for both regions, for each
+variable type.
 
-In order to test the hypothesis that a particular trait set represents a
-variational module, we used a randomization procedure that generates
-1000 random trait sets with the same number of traits as the original
-set, calculating MHI and RV values for each iteration. For each trait
-set and covariance/correlation matrix, these values were used to
-construct distributions for both statistics that represent the null
-hypothesis that a given trait set is a random arrangement without
-meaningful relationships; the value obtained for the real trait set is
-then compared to this null distribution. For MHIs we consider that this
-null hypothesis is rejected when the real value is higher than the
-average value obtained from the distribution, considering the
-significance level established; for RV coefficients, the null hypothesis
-is rejected when the real RV value is lower than the average value for
-the distribution, also considering a certain significance level. For
-Procrustes residuals the randomization procedure considers that
-coordinates within the same landmark should remain together in each
-randomly generated trait set, following Klingenberg and Leamy (2001).
+In order to test the hypothesis that a trait set represents a
+variational module, we used a randomization procedure generating 1000
+random trait sets with the same number of traits as the original set,
+calculating MHI and RV values for each iteration. For each trait set and
+covariance/correlation matrix, we used these values to construct
+distributions for both statistics representing the null hypothesis that
+a given trait set is a random arrangement without meaningful
+relationships; we then compare this null distribution to the real value
+obtained. For MHIs we consider this null hypothesis rejected when the
+real value is higher than the upper bound for the distribution,
+considering the significance level established; for RV coefficients, the
+null hypothesis is rejected when the real RV value is lower than the
+lower bound for the distribution, also considering significance level.
+For Procrustes residuals the randomization procedure maintains
+coordinates within the same landmark together in each randomly generated
+trait set, following Klingenberg and Leamy (2001).
 
-It is noteworthy that, while the procedure for estimating significance
-in the case of MHIs is derived from Mantel's (1967) approach (as
-outlined by Cheverud et al. 1989), we chose to generate null
-distributions for MHI directly, instead of estimating matrix correlation
-values for both real and permutated matrices. Estimated $p$-values in
-both cases remained the same, and the additional step of estimating
-matrix correlations would produce an unnecessary difference between the
-estimation of signficance for MHI and RV.
+While the procedure for estimating significance for MHIs is derived from
+Mantel's (1967) approach (as outlined by Cheverud et al. 1989), we chose
+to generate null distributions for MHI directly, instead of estimating
+matrix correlation values for both real and randomized matrices.
+Estimated $p$-values in both cases remain the same, and the additional
+step of calculating matrix correlations would produce an unnecessary
+difference between the estimation of signficance for MHI and RV.
 
 \subsection{Estimation of Error Rates}\label{estimation-of-error-rates}
 
-In order to evaluate the statistical properties of both statistics and
-the randomization procedure, we built theoretical correlation matrices
-\[
-\mathbf{C}_{s} =
-\begin{bmatrix}
-\mathbf{W}_1 & \mathbf{B} \\
-\mathbf{B}^t & \mathbf{W}_2 \\
-\end{bmatrix}
-\] where $\mathbf{W}_1$ and $\mathbf{W}_2$ represent correlation blocks
-associated with two distinct trait sets, and $\mathbf{B}$ represents the
-correlation block between both sets.
+We used a set of theoretical covariance matrices to investigate Type I
+and II error rates for either MHI and RV metrics; the construction of
+such matrices is detailed in the Supplemental Information. Here, it
+suffices to say that we build two different sets of covariance matrices:
+one with known modular patterns embedded, referred to as $\mathbf{C}_s$
+matrices, and another that represents random covariance structure,
+denominated $\mathbf{C}_r$ matrices. For each of the six sets of
+empirical matrices we use here, we built a set of $10000$ covariance
+matrices of each case (either $\mathbf{C}_s$ or $\mathbf{C}_r$) that
+mimic the statistical properties of each set, obtaining from these
+matrices samples of increasing sample size (20, 40, 60, 80, 100
+individuals).
 
-For each correlation matrix in our empirical dataset, we estimated
-average correlations within and between all trait sets we considered,
-thus obtaining a distribution of within and between sets correlations
-associated with each type of morphometric variable (Procrustes
-Residuals, Interlandmark Distances and Local Shape Variables), also
-considering whether size was retained or removed
-(\autoref{fig:cor_dist}). We constructed corresponding sets of
-$\mathbf{C}_{s}$ matrices by sampling each distribution we obtained in
-this manner; for each matrix, we sampled two within-set correlations and
-one between-set correlation, filling the corresponding block
-($\mathbf{W}_1$, $\mathbf{W}_2$ and $\mathbf{B}$) in each theoretical
-matrix with the sampled correlation. For example, with only four traits
-divided into two blocks of two traits, if we sample the values $0.5$ and
-$0.3$ from the within-set distribution and $-0.1$ from the between-set
-distribution, the corresponding $\mathbf{C}_{s}$ matrix will be \[
-\mathbf{C}_s =
-\begin{bmatrix}
-1 & 0.5 & -0.1 & -0.1 \\
-0.5 & 1 & -0.1 & -0.1 \\
--0.1 & -0.1 & 1 & 0.3 \\
--0.1 & -0.1 & 0.3 & 1 \\
-\end{bmatrix}
-\] filling each cell in each block with the sampled correlation
-associated with that particular block. Thus, we represent each type of
-morphometric variable as a pair of correlation distributions
-(\autoref{fig:cor_dist}), building six sets of theoretical correlation
-matrices that are representative of each type (also considering the
-presence or absence of size variation) which also retain their
-statistical properties.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/cor_dist-1.pdf}
-\caption{Distribution of within-set and between-set mean correlations
-derived from the six types of empirical correlation matrices.
-\label{fig:cor_dist}}
-\end{figure}
-
-For each of the six pairs of correlation distributions, we built 10000
-theoretical correlation matrices for 40 traits; previous tests indicate
-that matrix dimensionality does not qualitatively affect any of our
-results. We also sampled variances from each different type of
-morphometric variable, thus constructing an associated covariance
-matrix, since the estimation of RV values uses covariance matrices. We
-considered only positive-definite matrices; if any given matrix did not
-fit this criterion, we discarded that matrix and sampled a new set of
-correlations. This allows us to sample observations from a multivariate
-normal distribution using each of these 60000 matrices as the $\Sigma$
-parameter. For each matrix, we also randomly determine the number of
-traits in both sets; we established a minimal value of five traits for
-the size of any set.
-
-We used this set of 60000 covariance matrices of known structure
-($\mathbf{C}_s$) to built another set of covariance matrices of unknown,
-random structure ($\mathbf{C}_r$) by simply shuffling both lines and
-columns of each matrix; therefore, each $\mathbf{C}_r$ matrix is
-associated with a $\mathbf{C}_s$ matrix. For all matrices
-($\mathbf{C}_r$ and $\mathbf{C}_s$) we obtained samples of increasing
-size (20, 40, 60, 80, 100 individuals) and re-estimated a covariance
-matrix for each sample, thus also considering in our tests the
-uncertainty derived from sampling. For each matrix estimated, both
-$\mathbf{C}_r$ and $\mathbf{C}_s$, we test the hypothesis that the two
-sets used to generate each $\mathbf{C}_s$ matrix represent two
-variational modules, using both MHI and RV coefficients, as described in
-the previous section.
-
-The case in which samples were generated from a $\mathbf{C}_r$ matrix
-represents a situation of a true null hypothesis for either tests, since
-the correlation matrix used to produce the sample was generated by a
+If samples were generated from a $\mathbf{C}_r$ matrix, this represents
+a situation of a true null hypothesis for either tests, since the
+correlation matrix used to produce the sample was generated by a
 permutation of the hypothesis being tested. Therefore, testing
-hypotheses over $\mathbf{C}_r$ matrices allowed us to estimate Type I
-error rates for both tests, that is, the proportion of cases in which
-the null hypothesis is rejected even though it is true, given a
-significance level. In an adequate test, we expect that both quantities,
-significance level and Type I error rate, will be identical.
+hypotheses over $\mathbf{C}_r$ matrices allows us to estimate Type I
+error rates, or the proportion of cases in which a true null hypothesis
+is rejected, given a significance level. In an adequate test, we expect
+that both quantities, significance level and Type I error rate, will be
+identical.
 
 The opposite case, when we sampled $\mathbf{C}_s$ matrices, represents a
-situation in which we know that the null hypothesis of either tests is
+situation in which we know that the null hypothesis of either test is
 false, since we are testing the hypothesis that the partitioning scheme
 used to generate that particular matrix actually represents two
-variational modules. Thus, we estimated, in this case, the Type II error
-rates, that is, the probability that the null hypothesis is not rejected
-even though it is false, given a significance level; here, we represent
-Type II error using the power for each test, by simply calculating the
-complementar probability to Type II error rate. In an adequate test, we
-expect that power will rapidly reach a plateau when significance level
-is still close to zero, and further increasing $P(\alpha)$ will not
-produce a great increase in power.
+variational modules. Thus, we estimated Type II error rates, or the
+probability that a false null hypothesis is not rejected, given a
+significance level; here, we represent Type II error using the power for
+each test, by simply calculating the complementar probability to Type II
+error rate. In an adequate test, we expect that power will rapidly reach
+a plateau when significance level is still close to zero, and further
+increasing $P(\alpha)$ will not produce a great increase in power.
 
 Our estimates of power for both statistics should also be controlled for
 effect size, since sampled correlations may generate a correlation
-structure that is not detected simply due to small differences between
-within-set and between-set correlations. For each correlation matrix
-sampled, we kept the squared between-set correlation ($b^2$), in order
-to use it as an estimate of effect size that is not directly associated
-with either MHI and RV statistics. We expect that power for either tests
-decreases with increasing $b^2$ values, as effect size would also
-decrease.
+structure that is not detected due to small differences among within-set
+and between-set correlations. For each correlation matrix sampled, we
+estimate squared between-set correlations ($b^2$), in order to use it as
+an estimate of effect size that is not directly associated with either
+MHI and RV metrics. We expect that power for either tests decreases with
+increasing $b^2$ values, as effect size would also decrease.
 
 \subsubsection{Software}\label{software}
 
@@ -705,32 +629,31 @@ available at \url{http://life.bio.sunysb.edu/morph/soft-R.html}.
 
 \section{Results}\label{results}
 
-\subsection{Empirical Tests}\label{empirical-tests}
+\subsection{Empirical Tests}\label{empirical-tests-1}
 
 Tests performed using MHI for localized trait sets (Oral, Nasal,
 Zygomatic, Orbit, Base, and Vault; \autoref{fig:Func}a) detect a
-consistent pattern among OTUs for both interlandmark distances and local
+consistent pattern among OTUs for interlandmark distances and local
 shape variables; in the first set the Oral subregion is detected as a
 modular partition, and, when size is removed, the Vault subregion is
-also detected; both Orbit and Base region are not detected in any of the
-tests with this type of variable. With local shape variables, both Oral
-and Vault sets were also detected consistently across OTUs, along Nasal
-and Zygomatic traits; moreover, the removal of allometric variation
-affects only the detection of the Vault in some groups. Furthermore, the
-Base sub-region is detected only in 3 of 42 tests performed over local
-shape variables, pooling together both size and size-free correlation
-patterns.
+also detected; both Orbit and Base region are not detected in any of
+these tests. With local shape variables, Oral, Vault Nasal, and
+Zygomatic sets were detected consistently across OTUs; the removal of
+allometric variation affects only the detection of the Vault in some
+groups. Furthermore, the Base sub-region is detected only in 3 of 42
+tests performed over local shape variables, pooling together size and
+size-free correlation patterns.
 
 For Procrustes residuals, the pattern of detection among sub-regions and
-OTUs is more inconsistent. The Base sub-region is detected among several
-OTUs, which contrasts this type of morphometric variable with the
-remaining two types. Furthermore, observing the actual MHI values,
+OTUs is more inconsistent; for instance, the Base sub-region is detected
+in several OTUs, which contrasts this type of morphometric variable with
+the other two types. Observing the actual MHI values,
 \autoref{fig:Func}a also indicates that Procrustes residuals display a
-low variance for MHI values within each OTU, while both interlandmark
+low variance of this metric within each OTU, while interlandmark
 distances and local shape variables display a consistent pattern of
-variation among MHI values within each OTU, with lower values for the
-Base and, for interlandmark distances, Orbit trait sets, while the Oral,
-Nasal and Vault regions display higher values consistently.
+variation, with lower values for the Base and, for interlandmark
+distances, Orbit trait sets, while the Oral, Nasal and Vault regions
+display higher values consistently.
 
 \begin{figure}[htbp]
 \centering
@@ -755,30 +678,29 @@ variation has been retained or removed. Moreover, RV values display a
 pattern of marked variation among OTUs, more so than between values
 within each OTU; notably, \emph{Macaca fascicularis} and \emph{Papio
 anubis} show RV values much higher than those estimated on remaining
-species. This pattern can be observed both on interlandmark distances
-with size retained and in Procrustes residuals, although this effect is
-more marked in interlandmark distances.
+species. Such pattern can be observed both on interlandmark distances
+with size retained and in Procrustes residuals.
 
 With respect to regional trait sets (Face and Neurocranium), tests
 performed using MHI (\autoref{fig:Dev}a) indicate a pattern consistent
 with the findings regarding localized sets (\autoref{fig:Func}a).
-Considering only interlandmark distances, Facial traits are detected as
-a valid modular partition both with size variation retained or removed,
+Considering interlandmark distances, Facial traits are detected as a
+valid modular partition both with size variation retained or removed,
 while Neurocranial traits are detected as a valid partition only when
 size variation is removed. This pattern mirrors the contrast between
 Oral and Vault traits in the localized sets regarding interlandmark
-distances. Considering Procrustes residuals, Neurocranial traits are a
-valid partition with both size retained and removed; once again, this
-pattern mirrors the detection of the Basicranial partition as valid in
-the localized sets. Finally, in local shape variables, both Face and
+distances. For Procrustes residuals, Neurocranial traits are a valid
+partition with both size retained and removed; once again, this pattern
+mirrors the detection of the Basicranial partition as valid in the
+localized sets. Finally, in local shape variables, both Face and
 Neurocranium are detected as valid with size retained; with size
 removed, only the Face is recognized consistently. The same can be
-observed in the localized sets, where removing allometric variation
-affects the detection of the Vault set in some OTUs. The tests for the
+observed for localized sets, where removing allometric variation affects
+the detection of the Vault set in some OTUs. The tests for the
 distinction of within-set and between-set correlations for these two
 sets (designated `Neuroface') show a pattern that is consistent with
-tests for the individual sets, that is, if one of the sets was
-previously detected, this distinction is also detected as valid.
+tests for the individual sets: if one of the sets was previously
+detected, this distinction is also detected as valid.
 
 \begin{figure}[htbp]
 \centering
@@ -791,32 +713,29 @@ hypothesis for each statistic is formulated in a corresponding manner;
 see text for details. \label{fig:Dev}}
 \end{figure}
 
-Tests performed for this distinction between Face and Neurocranium using
-RV coefficients (\autoref{fig:Dev}b) show that in most cases, for both
-interlandmark distances and local shape variables, both regions are
-considered distinct and valid variational modules; in Procrustes
-residuals only in a handful of taxa the same result can be observed. In
-this case the correspondence with results for localized trait sets
-(\autoref{fig:Func}b) is more difficult due to the lack of independent
-tests for each region.
+Testing the distinction between Face and Neurocranium using RV
+coefficients (\autoref{fig:Dev}b) show that in most cases both regions
+are considered distinct and valid variational modules for interlandmark
+distances and local shape variables; for Procrustes residuals, only a
+handful of taxa show the same result. In this case the correspondence
+with localized trait sets (\autoref{fig:Func}b) is more difficult due to
+the lack of independent tests for each region.
 
 \subsection{Error Rates}\label{error-rates}
 
 Comparing the distributions of MHI and RV values from theoretical
 matrices with respect to their structure (\autoref{fig:stat_dist_sim})
-shows marked differences between statistics and morphometric variables
-from which correlations are sampled. For local shape variables the
-distribution of both MHI and RV values for $\mathbf{C}_s$ and
-$\mathbf{C}_r$ matrices overlap very little; for interlandmark distances
-the distribution of MHI values for both matrix types also has little
-overlap, while the same distributions for RV have a substantial overlap.
-Finally, for Procrustes residuals, while the distribution of MHI values
-for both matrix types overlap to some degree, the same distributions for
-RV values are identical. Removing size or allometry does not change
-these distributions in most cases; only for RV values estimated over
-matrices derived from correlation distributions for interlandmark
-distances, in which the removal of size variation increases the overlap
-in $\mathbf{C}_s$ and $\mathbf{C}_r$ distributions.
+shows marked differences between metrics and morphometric variables from
+which correlations are sampled. In general, the distribution of MHI
+values obtained from $\mathbf{C}_r$ matrices is the same, while the
+distributions for $\mathbf{C}_s$ matrices for this metric are more
+disjoint from the former distribution in local shape variables than in
+Procrustes residuals, with interlandmark distances representing an
+intermediate case, regardless of whether size was retained or removed.
+For RV values, all distributions overlap to some degree; for local shape
+variables and interlandmark distances with size retained, either
+distributions ($\mathbf{C}_r$ and $\mathbf{C}_s$) overlap to a lesser
+extent.
 
 \begin{figure}[htbp]
 \centering
@@ -831,8 +750,7 @@ that these quantities approach an identity relationship very closely
 regardless of whether we use MHI or RV to quantify variational
 modularity; even at low sample sizes Type I error rates are very close
 to significance levels. Furthermore, the effect of sampling correlations
-from size-free distributions does not alter Type I error rates for both
-tests.
+from size-free distributions does not change Type I error rates.
 
 \begin{figure}[htbp]
 \centering
@@ -843,19 +761,19 @@ $\mathbf{C}_r$ correlation matrices. The solid black line represents the
 identity relationship. \label{fig:type1}}
 \end{figure}
 
-When we consider the relationship between power and significance levels,
-estimated over $\mathbf{C}_s$ matrices, there are substantial
-differences with respect both to the chosen statistic (MHI or RV) and to
-the type of variable from which correlations are sampled. Considering
-local shape variables (\autoref{fig:type2_def}), tests using either MHI
-and RV have high power, even at low sample or effect sizes; increasing
-these quantities further increases power. However, for lower effect
-sizes (represented by high average squared correlation between sets,
-$b^2$) power for tests using MHI is higher than for those using RV. As
-effect size increases (lower $b^2$ values), the difference in power
-between the two statistics decreases. Thus, for local shape variables,
-sampling from its associated size-free correlation distribution implies
-minor differences in power for both statistics.
+The relationship between power and significance levels (estimated over
+$\mathbf{C}_s$ matrices) shows substantial differences with respect to
+the chosen metric (MHI or RV) and to the type of variable that provides
+sampled correlations. Considering local shape variables
+(\autoref{fig:type2_def}), tests using either MHI and RV have high
+power, even at low sample or effect sizes; increasing these quantities
+further increases power. However, for lower effect sizes (represented by
+high average squared correlation between sets, $b^2$) power for tests
+using MHI is higher than for those using RV; as effect size increases
+(lower $b^2$ values), the difference in power between the two statistics
+decreases. For local shape variables, sampling from its associated
+size-free correlation distribution implies minor differences in power
+for both statistics.
 
 \begin{figure}[htbp]
 \centering
@@ -895,11 +813,10 @@ the identity relationship. \label{fig:type2_ed}}
 With respect to Procrustes residuals (\autoref{fig:type2_sym}), tests
 using either MHI or RV have reduced power regardless of effect or sample
 size. Sampling from size-free correlation distributions to build
-$\mathbf{C}_s$ matrices also has little effect. As for interlandmark
-distances without size variation, power for tests performed using RV
-values approaches an identity relationship with significance level;
-increasing sample size has some effect, but it does not increase power
-above 50\%.
+$\mathbf{C}_s$ matrices also has little effect. In this case, power for
+tests performed using RV values approaches an identity relationship with
+significance level; increasing sample size has some effect, but it does
+not increase power above 50\% in any case.
 
 \begin{figure}[htbp]
 \centering
@@ -1123,25 +1040,25 @@ Modularity Hypothesis Indexes use correlations directly (Equation
 \ref{eq:mi}). Furthermore, as observed by Fruciano et al. (2013), sample
 sizes sensibly influence the estimation of RV coefficients, and we
 demostrate here that such sensitivity also extends to estimates of power
-for tests using this statistic.
+for tests using this metric.
 
 On the other hand, our estimates of power for tests using MHI indicate
-that this statistic is more robust to differences in absolute
-correlation values or sample sizes, thus allowing comparisons across
-more heterogeneous settings, such as our comparison between different
-representations of form, with substantial variation in sample sizes. The
-detection of variational modularity is akin to Student's \emph{t} test,
-since we are trying to determine whether two groups of observations
-(correlations between traits in the same subset \emph{versus}
-correlations between traits in different subsets) have a significant
-difference in average values; we use resampling procedures to estimate
-significance in this case only due to the interdependency between
-pairwise correlations. Thus, as Modularity Hypothesis Indexes are
-estimated with a formula that is very similar to that of a \emph{t}
-statistic (difference between location parameters for two groups,
-divided by a scale parameter --- ICV; Equation \ref{eq:mi}), we believe
-that this statistic is a proper way to represent variational modularity;
-the robustness of the tests using this statistic reinforce this belief.
+that it is more robust to differences in absolute correlation values or
+sample sizes, thus allowing comparisons across more heterogeneous
+settings, such as our comparison between different representations of
+form, with substantial variation in sample sizes. The detection of
+variational modularity is akin to Student's \emph{t} test, since we are
+trying to determine whether two groups of observations (correlations
+between traits in the same subset \emph{versus} correlations between
+traits in different subsets) have a significant difference in average
+values; we use resampling procedures to estimate significance in this
+case only due to the interdependency between pairwise correlations.
+Thus, as Modularity Hypothesis Indexes are estimated with a formula that
+is very similar to that of a \emph{t} statistic (difference between
+location parameters for two groups, divided by a scale parameter ---
+ICV; Equation \ref{eq:mi}), we believe that this statistic is a proper
+way to represent variational modularity; the robustness of the tests
+using this statistic reinforce this belief.
 
 Our approach for constructing theoretical matrices attempts to simulate
 the most simple situation, that is, the situation where there are only
@@ -1160,21 +1077,20 @@ The issues we found with the use of Procrustes estimators for covariance
 matrices and the use of RV coefficients to estimate and detect
 variational modularity may explain results found by other authors; for
 instance, Martínez-Abadías et al. (2011) has found no evidence that
-either genetic or phenotypic covariance structure for human skulls
-conforms to a modular structure, since all tests performed by these
-authors failed to reject the null hypothesis of random association.
-These authors use Procrustes estimators to represent covariance
-structure, and test their hypothesis of partitioning (Face, Vault and
-Base) using RV as the statistic representing variational modularity.
-Since this combination implies in very low power
-(\autoref{fig:type2_sym}), not rejecting the null hypothesis in their
-case might be a consequence of the choice of estimates of both
-covariance structure and variational modularity; thus, these authors'
-assertion of pervasive genetic integration in the human skull may be
-misleading, considering that skull covariance patterns in humans are one
-of the most modular examples of such patterns when compared to other
-mammals (Porto et al. 2009) or catarrhine primates (Oliveira et al.
-2009).
+genetic and phenotypic covariance structure for human skulls conforms to
+a modular structure, since all tests performed by these authors failed
+to reject the null hypothesis of random association. These authors use
+Procrustes estimators to represent covariance structure, and test their
+hypothesis of partitioning (Face, Vault and Base) using RV as the
+statistic representing variational modularity. Since this combination
+implies in very low power (\autoref{fig:type2_sym}), not rejecting the
+null hypothesis in their case might be a consequence of the choice of
+estimates of both covariance structure and variational modularity; thus,
+these authors' assertion of pervasive genetic integration in the human
+skull may be misleading, considering that skull covariance patterns in
+humans are one of the most modular examples of such patterns when
+compared to other mammals (Porto et al. 2009) or catarrhine primates
+(Oliveira et al. 2009).
 
 The approach we explore in the present work is but one of the different
 ways one can investigate the association between genetic, functional and
@@ -1247,10 +1163,10 @@ represent --- not fully capturing the phenomena we may be interested in.
 
 \subsubsection{Acknowledgements}\label{acknowledgements}
 
-We thank A. Porto, D. A. R. Melo, and G. Burin for comments on an early
-draft. This work has been funded by CNPq (Conselho Nacional de Pesquisa
-e Desenvolvimento Tecnológico) and FAPESP (Fundação de Apoio à Pesquisa
-do Estado de São Paulo).
+We thank G. Burin, D. Melo, and A. Porto for comments on an early draft.
+This work has been funded by CNPq (Conselho Nacional de Pesquisa e
+Desenvolvimento Tecnológico) and FAPESP (Fundação de Apoio à Pesquisa do
+Estado de São Paulo).
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
