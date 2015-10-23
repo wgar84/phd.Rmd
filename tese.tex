@@ -466,12 +466,12 @@ poorly represented on Procrustes estimators for covariance matrices.
 
 Modularity is a characteristic property that biological systems exhibit
 regarding the distribution of interactions between their composing
-elements; that is, in a given system, certain subsets of elements,
-denominated modules, interact more among themselves than with other such
-subsets (Newman, 2006; Mitteroecker \& Bookstein, 2007; Wagner \emph{et
-al.}, 2007). This property has been well documented at different levels
-of biological organization, from the dynamics of metabolic networks
-(e.g. Ravasz \emph{et al.}, 2002; Andrade \emph{et al.}, 2011) to the
+elements; that is, in a given system, subsets of elements, denominated
+modules, interact more among themselves than with other such subsets
+(Newman, 2006; Mitteroecker \& Bookstein, 2007; Wagner \emph{et al.},
+2007). This property has been well documented at different levels of
+biological organization, from the dynamics of metabolic networks (e.g.
+Ravasz \emph{et al.}, 2002; Andrade \emph{et al.}, 2011) to the
 structure of interactions among individuals in populations (e.g. Fortuna
 \emph{et al.}, 2008) and among species in ecological communities (e.g.
 Genini \emph{et al.}, 2010).
@@ -862,8 +862,9 @@ RV.
 
 \subsection{Estimation of Error Rates}\label{estimation-of-error-rates}
 
-To evaluate the statistical properties of these metrics and the
-randomization procedure, we built theoretical correlation matrices \[
+To evaluate the statistical properties of metrics, types of morphometric
+variables, and the randomization procedure, we built theoretical
+correlation matrices \[
 \mathbf{C}_{s} =
 \begin{bmatrix}
 \mathbf{W}_1 & \mathbf{B} \\
@@ -1137,15 +1138,16 @@ according to the legend. \label{fig:type2_def}}
 
 For interlandmark distances (\autoref{fig:type2_ed}) there are
 substantial differences on the relationship between power and
-significance level if we consider the different parameters. First, the
-effect of sampling from the size-free correlation distribution in order
-to build $\mathbf{C}_s$ matrices produces a substantial decrease in
-power for either tests; however, this decrease is more pronounced for
-tests based on the RV statistic, since for lower effect sizes (high
-$b^2$ values) power approaches an identity relationship with
-significance level. Sample size also interferes with this relationship
-since increasing this quantity also increases power when higher effect
-sizes (low $b^2$ values) are considered.
+significance level if we consider the different parameters. In general,
+power for tests using MHI are always higher than for tests using RV;
+this effect is more pronounced on $\mathbf{C}_s$ matrices derived from
+size-free interlandmark distances, although tests on these matrices have
+a substantial decrease in power for either tests. However, this decrease
+is more pronounced for tests based on the RV statistic, since for lower
+effect sizes (high $b^2$ values) power approaches an identity
+relationship with significance level. Sample size also interferes with
+this relationship since increasing this quantity also increases power
+when higher effect sizes (low $b^2$ values) are considered.
 
 \begin{figure}[htbp]
 \centering
@@ -1183,12 +1185,13 @@ relationship. \label{fig:type2_sym}}
 
 Covariance matrices derived from morphological traits are supposed to
 represent the pattern of codependence that arises due to a variety of
-interactions among developing morphological elements. Such interactions
-are the expression of local developmental factors, as they interact with
-the expression profiles of surrounding cell types, producing coordinated
-changes in their cell cycles, thus integrating resulting tissues in the
-adult population. Although these events of local integration overlap,
-and the composed effect over adult covariance patterns may be confusing
+interactions among developing morphological elements (Olson \& Miller,
+1958; Cheverud, 1996a). Such interactions are the expression of local
+developmental factors, as they interact with the expression profiles of
+surrounding cell types, producing coordinated changes in their cycles
+and differentiation, thus integrating resulting tissues in the adult
+population. Although these events of local integration overlap, and the
+composed effect over adult covariance patterns may be confusing
 (Hallgrímsson \& Lieberman, 2008; Hallgrímsson \emph{et al.}, 2009), we
 believe that a careful comparison of different yet equally proper ways
 of measuring and representing form may be informative of the underlying
@@ -1248,20 +1251,20 @@ and local shape variables, show patterns of detection of variational
 modules that are both consistent to the expectations derived from
 developmental and functional interactions and to the patterns emerging
 from these representations when size variation is removed. Considering
-that interlandmark distances are on a ratio scale, isometric variation
-will be represented to a greater extent when compared to subtle
-allometric relationships, due to the multiplicative nature of biological
-growth (Huxley, 1932). Therefore, the Oral trait set is detected as a
-valid variational module, considering covariance matrices among
-interlandmark distances (upper left panel of \autoref{fig:Func}a), since
-this region is strongly affected by the induction of bone growth due to
-muscular activity beginning in the pre-weaning period (Zelditch \&
-Carmichael, 1989; Hallgrímsson \emph{et al.}, 2009). Furthermore, in
-these matrices, allometric interactions are associated with the strength
-of association between traits in Oral, Nasal, Zygomatic and Vault
-regions in an evolutionary scale (Chapter 3); thus, allometric
-relationships also play some role in the determination of
-covariance/correlation patterns for other subregions, although such
+that interlandmark distances are on a ratio scale (Houle \emph{et al.},
+2011), isometric variation will be represented to a greater extent when
+compared to subtle allometric relationships, due to the multiplicative
+nature of biological growth (Huxley, 1932). Therefore, the Oral trait
+set is detected as a valid variational module, considering covariance
+matrices among interlandmark distances (upper left panel of
+\autoref{fig:Func}a), since this region is strongly affected by the
+induction of bone growth due to muscular activity beginning in the
+pre-weaning period (Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et
+al.}, 2009). Furthermore, in these matrices, allometric interactions are
+associated with the strength of association between traits in Oral,
+Nasal, Zygomatic and Vault regions in an evolutionary scale (Chapter 3);
+thus, allometric relationships also play some role in the determination
+of covariance/correlation patterns for other subregions, although such
 pattern may be masked in interlandmark distances by the effect of
 isometric variation. On the other hand, the patterns expressed in
 covariance/correlation matrices for local shape variables are influenced
@@ -1420,9 +1423,13 @@ except when both are used on covariance/correlation patterns derived
 from Procrustes residuals. However, even though we built theoretical
 matrices using correlations sampled from these estimators, actually
 simulating the interference in covariance structure that such estimators
-produce in our theoretical matrices is quite difficult. Thus, the lack
-of differences in type I error rates for all cases may be a limitation
-of our scheme for building correlation matrices.
+produce in our theoretical matrices is quite difficult. Furthermore,
+constructing such matrices with more complicated patterns (with three
+modules, for instance) while maintaining their connection to the
+correlation distributions of each morphometric type is also difficult,
+due to the restriction on positive-definiteness we enforce on them.
+Thus, the lack of differences in type I error rates for all cases may be
+a limitation of our scheme for building theoretical matrices.
 
 The issues we found with the use of Procrustes estimators for covariance
 matrices and the use of RV coefficients to estimate and detect
@@ -1504,12 +1511,14 @@ devoid of meaning (Wagner, 2010; Houle \emph{et al.}, 2011).
 
 Here we show that Procrustes estimators for covariance matrices fail to
 capture the modularity patterns embedded in phenotypic data, regardless
-of which metric is chosen to represent such patterns. Either
-interlandmark distances and local shape variables seem valid options to
-represent morphological variation, if their limitations are taken into
-consideration. We wish to stress this point: any representation of
-morphological variation has limitations, as such representations are
-themselves models --- at the very least, of what it is important to
+of which metric is chosen to represent such patterns, although the
+combination of this type of variable with RV coefficients for
+investigating modularity has even more problems than either has alone.
+Both interlandmark distances and local shape variables seem valid
+options to represent morphological variation, if their limitations are
+taken into consideration. We wish to stress this point: any
+representation of morphological variation has limitations since they are
+themselves models --- at the very least of what it is important to
 represent --- not fully capturing the phenomena we may be interested in.
 
 \newpage
@@ -2289,7 +2298,7 @@ for the eigentensor decomposition can be found at
 diversity was provided by Pavoine et al. (2010) in their Supplemental
 Material, while pPCA is implemented in the \emph{adephylo} package
 (Jombart \& Dray, 2010); the SRD method is provided by the \emph{evolqg}
-package (Melo \emph{et al.}, in prep.). In order to obtain symmetrical
+package (Melo \emph{et al.}, 2015). In order to obtain symmetrical
 landmarks configurations, we used code provided by Annat Haber,
 available at \url{http://life.bio.sunysb.edu/morph/soft-R.html}.
 
@@ -2775,6 +2784,11 @@ Melo, D. \& Marroig, G. 2015. Directional selection can drive the
 evolution of modularity in complex traits. \emph{Proceedings of the
 National Academy of Sciences} \textbf{112}: 470--475.
 
+Melo, D., Garcia, G., Hubbe, A., Assis, A.P. \& Marroig, G. 2015. EvolQG
+- An R package for evolutionary quantitative genetics.
+\emph{F1000Research}, doi:
+\href{http://dx.doi.org/10.12688/f1000research.7082.1}{10.12688/f1000research.7082.1}.
+
 Minelli, A. 2011. A principle of developmental inertia.
 \emph{Epigenetics: Linking Genotype and Phenotype in Development and
 Evolution} 116--133.
@@ -3024,6 +3038,44 @@ Integration of Mandibular Shape. \emph{Evolutionary Biology}
 \chapter*{Apêndice: Artigos Publicados}
 \addcontentsline{toc}{chapter}{Apêndice: Artigos Publicados}
 
+\textbf{2011}
+
+\textit{Selection Response Decomposition (SRD): A New Tool for Dissecting Differences and Similarities Between Matrices.}
+
+Gabriel Marroig, Diogo Melo, Arthur Porto, Harley Sebastião \& \textbf{Guilherme Garcia}.
+
+Evolutionary Biology 38: 225–241.
+
+\vspace {0.3 cm}
+
+\textbf {2012}
+
+\textit {Modularity, Noise and Natural Selection.}
+
+Gabriel Marroig, Diogo A. R. Melo, \& \textbf {Guilherme Garcia}.  
+
+Evolution 66: 1506–1524.
+
+\vspace {0.3 cm}
+
+\textbf{2014}
+
+\textit{Quantitative Genetics and Modularity in Cranial and Mandibular Morphology of \emph{Calomys expulsus}}.
+
+\textbf {Guilherme Garcia}, Erika Hingst-Zaher, Rui Cerqueira \& Gabriel Marroig.
+
+Evolutionary Biology 41: 619–636.
+
+\vspace {0.3 cm}
+
+\textbf{2015}
+
+\textit {EvolQG - An R package for evolutionary quantitative genetics.}
+
+Diogo Melo, \textbf{Guilherme Garcia}, Alex Hubbe, Ana Paula Assis \& Gabriel Marroig.  
+
+F1000Research, doi: 10.12688/f1000research.7082.1.
+
 \includepdf[
             pages=-,
             width=189mm,
@@ -3047,5 +3099,13 @@ Integration of Mandibular Shape. \emph{Evolutionary Biology}
             offset=15pt 0pt,
             pagecommand={\pagestyle{plain}}            
             ]{Appendix/Garcia2014.pdf}
+
+\includepdf[
+            pages=-,
+            width=189mm,
+            height=267.3mm,
+            offset=15pt 0pt,
+            pagecommand={\pagestyle{plain}}            
+            ]{Appendix/Melo2015.pdf}
 
 \end{document}

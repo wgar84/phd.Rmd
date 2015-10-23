@@ -13,7 +13,7 @@ output:
     fig_caption: true
     fig_width: 6
 fontsize: 12pt
-csl: Bib/systematic-biology.csl
+csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/modcomp.bib
 ---	
 
@@ -23,7 +23,7 @@ bibliography: Bib/modcomp.bib
 
 running title: Modularity, Error and Morphometrics
 
-key words: $P$-matrix; modularity; primates; development;
+key words: $P$-matrix; statistical power; primates; development; genotype/phenotype map
 
 ```{r, echo = FALSE}
 thesis <- FALSE

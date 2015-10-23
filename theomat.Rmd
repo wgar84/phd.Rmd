@@ -1,4 +1,4 @@
-To evaluate the statistical properties of these metrics and the randomization procedure, we built theoretical correlation matrices
+To evaluate the statistical properties of metrics, types of morphometric variables, and the randomization procedure, we built theoretical correlation matrices
 $$
 \mathbf{C}_{s} =
 \begin{bmatrix}

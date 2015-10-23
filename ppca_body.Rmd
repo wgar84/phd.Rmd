@@ -133,8 +133,8 @@ We use the posterior distribution of mean SRD scores over traits and pPC to inve
 We performed all analyses under R `r paste (version $ major, version $ minor, sep = '.')` [@r_core_team_r:_2015].
 We fitted Bayesian linear models for estimating posterior $\mathbf{P}$-matrix samples using the *MCMCglmm* package [@hadfield_mcmc_2010].
 Source code for the eigentensor decomposition can be found at <http://github.com/wgar84>.
-The phylogenetic decomposition of diversity was provided by @pavoine_decomposition_2010 in their Supplemental Material, while pPCA is implemented in the *adephylo* package [@jombart_adephylo:_2010]; the SRD method is provided by the *evolqg* package (Melo *et al.*, in prep.).
-In order to obtain symmetrical landmarks configurations, we used code provided by Annat Haber, available at <http://life.bio.sunysb.edu/morph/soft-R.html>.
+The phylogenetic decomposition of diversity was provided by @pavoine_decomposition_2010 in their Supplemental Material, while pPCA is implemented in the *adephylo* package [@jombart_adephylo:_2010]; the SRD method is provided by the *evolqg* package [@melo_evolqg_2015].
+In order to obtain symmetrical landmarks configurations, we used code provided by Annat Haber, available at <http://life.bio.sunysb.edu/morph/soft-R.html>. 
 
 # Results
 

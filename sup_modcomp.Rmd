@@ -1,5 +1,7 @@
 ---
 title: "Modularity and Morphometrics: Error Rates in Hypothesis Testing - Supplemental Information"
+author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
+date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   pdf_document:
     includes:
@@ -14,6 +16,10 @@ fontsize: 11pt
 csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/tese.bib
 ---	
+
+^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
+
+^2^<wgar@usp.br>
 
 ```{r options_intro, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
