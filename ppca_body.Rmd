@@ -42,7 +42,7 @@ We followed the procedure outlined in @klingenberg_shape_2002 for bilateral stru
 We used this database to obtain local shape variables [@marquez_measurement_2012], which represent infinitesimal volumetric expansions or retractions, calculated as the natural logarithm determinants of derivatives of the TPS function between each individual in our sample and a reference shape (in our case, the mean shape for the entire sample, estimated from a Generalized Procrustes algorithm).
 Such derivatives were evaluated at the midpoints between pairs of landmarks represented in \autoref{fig:landmarks}, for a total of 38 local shape variables.
 
-After obtaining these values, we estimated covariance $\mathbf{P}$-matrices for size (represented by the logarithm of Centroid Size) and local shape variables after removing fixed effects of little interest in the present context, such as sexual dimorphism, for example.
+After obtaining these values, we estimated covariance $\mathbf{P}$-matrices for size (represented by the natural logarithm of Centroid Size) and local shape variables after removing fixed effects of little interest in the present context, such as sexual dimorphism, for example.
 These effects were removed through a multivariate linear model adjusted for each species, according to \autoref{fig:phylo_model}.
 We adjusted such models under a Bayesian framework, sampling $100$ residual covariance matrices from the posterior distribution of each model.
 These distributions allow us to estimate uncertainty for any parameters derived from these matrices as credibility intervals; furthermore, since posterior distributions are conditional upon the prior distribution we used --- a uniform Wishart distribution --- every matrix sampled from these posterior distributions is also a realization of a Wishart distribution, therefore positive-definite regardless of sample size [@gelman_bayesian_2004]; in this framework, lower sample sizes imply in broader, less informative, credibility intervals.
@@ -137,6 +137,9 @@ The phylogenetic decomposition of diversity was provided by @pavoine_decompositi
 In order to obtain symmetrical landmarks configurations, we used code provided by Annat Haber, available at <http://life.bio.sunysb.edu/morph/soft-R.html>. 
 
 # Results
+
+The distribution of covariance matrix diversity along the Anthropoid phylogeny (\autoref{fig:phylo_full}a) indicates that the divergence between Catarrhini and Platyrrhini contributes to approximately 10\% of all covariance matrix diversity; within New World Monkeys, the divergence between Atelidae and Cebidae contributes with 4\% to covariance structure diversity, while for Catarrhines, the divergence between Hominoidea and Cercopithecoidea contributes 3\% to overall covariance matrix diversity.
+With respect to the hierarchy of tests exploring the phylogenetic distribution of matrix diversity (\autoref{tab:riem_decdiv}), all tests reject their null hypotheses of random arrangements of diversity along the Anthropoid phylogeny, thus indicating that covariance matrix diversity exhibits some degree of phylogenetic structure, with these few basal nodes contributing to a greater extent to such diversity.
 
 \input{Tables/riem_decdiv} <!-- tab:decdiv -->
 

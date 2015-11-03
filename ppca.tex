@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{22 October 2015}
+  \date{03 November 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -202,12 +202,12 @@ represented in \autoref{fig:landmarks}, for a total of 38 local shape
 variables.
 
 After obtaining these values, we estimated covariance
-$\mathbf{P}$-matrices for size (represented by the logarithm of Centroid
-Size) and local shape variables after removing fixed effects of little
-interest in the present context, such as sexual dimorphism, for example.
-These effects were removed through a multivariate linear model adjusted
-for each species, according to \autoref{fig:phylo_model}. We adjusted
-such models under a Bayesian framework, sampling $100$ residual
+$\mathbf{P}$-matrices for size (represented by the natural logarithm of
+Centroid Size) and local shape variables after removing fixed effects of
+little interest in the present context, such as sexual dimorphism, for
+example. These effects were removed through a multivariate linear model
+adjusted for each species, according to \autoref{fig:phylo_model}. We
+adjusted such models under a Bayesian framework, sampling $100$ residual
 covariance matrices from the posterior distribution of each model. These
 distributions allow us to estimate uncertainty for any parameters
 derived from these matrices as credibility intervals; furthermore, since
@@ -442,9 +442,23 @@ Material, while pPCA is implemented in the \emph{adephylo} package
 package (Melo \emph{et al.}, 2015). In order to obtain symmetrical
 landmarks configurations, we used code provided by Annat Haber,
 available at \url{http://life.bio.sunysb.edu/morph/soft-R.html}.
-({\textbf{???}})
 
 \section{Results}\label{results}
+
+The distribution of covariance matrix diversity along the Anthropoid
+phylogeny (\autoref{fig:phylo_full}a) indicates that the divergence
+between Catarrhini and Platyrrhini contributes to approximately 10\% of
+all covariance matrix diversity; within New World Monkeys, the
+divergence between Atelidae and Cebidae contributes with 4\% to
+covariance structure diversity, while for Catarrhines, the divergence
+between Hominoidea and Cercopithecoidea contributes 3\% to overall
+covariance matrix diversity. With respect to the hierarchy of tests
+exploring the phylogenetic distribution of matrix diversity
+(\autoref{tab:riem_decdiv}), all tests reject their null hypotheses of
+random arrangements of diversity along the Anthropoid phylogeny, thus
+indicating that covariance matrix diversity exhibits some degree of
+phylogenetic structure, with these few basal nodes contributing to a
+greater extent to such diversity.
 
 \input{Tables/riem_decdiv}
 

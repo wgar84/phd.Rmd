@@ -79,6 +79,12 @@ render('modcomp.Rmd', output_file = 'modcomp.pdf')
 render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
 #render('sup_base.Rmd', output_file = 'sup_base.pdf')
 
+render('rel_gen.Rmd', output_file = 'rel_gen.pdf')
+system('evince rel_gen.pdf &')
+
+render('review-borja.Rmd', output_file = 'review_EVOL-D-15-00087.pdf')
+system('evince review_EVOL-D-15-00087.pdf &')
+
 system('evince tese.pdf &')
 system('evince allo.pdf &')
 system('evince sup_allo.pdf &')
