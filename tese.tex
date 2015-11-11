@@ -2264,15 +2264,12 @@ respectively associated with variation close to the root of the tree
 Pavoine et al. (2010) argues that this contrast between Global and Local
 components in phylogenetic PCs reflects phylogenetic signal and
 convergence in trait values, respectively, as observed in the
-distribution of Moran's ({\textbf{???}}) autocorrelation Indexes for
-each axis constructed in this manner. This index can be understood as a
-correlation coefficient between raw observed values on each axis for
-each OTU and their product with phylogenetic distances expressed in
-$\mathbf{W}$, in a similar manner to autoregressive models
-({\textbf{???}}), ranging from $-1$, in which phylogenetic relatedness
-implies in dissimilarity, to $1$, which implies in the converse.
-Therefore, Global components have positive values of Moran's Index while
-Local components have negative values.
+distribution of Moran's (1948, 1950) autocorrelation Indexes for each
+axis constructed in this manner. This index can be understood as the
+degree onto which an observed value in a given OTU is determined by the
+values on its phylogenetic ``neighborhood'' (as expressed by
+$\mathbf{W}$), in a similar manner to autoregressive models (Cheverud \&
+Dow, 1985; Cheverud \emph{et al.}, 1985).
 
 For each pPC obtained in this manner, we obtained two covariance
 matrices by estimating the upper and lower limits of the 95\% confidence
@@ -2332,13 +2329,15 @@ all covariance matrix diversity; within New World Monkeys, the
 divergence between Atelidae and Cebidae contributes with 4\% to
 covariance structure diversity, while for Catarrhines, the divergence
 between Hominoidea and Cercopithecoidea contributes 3\% to overall
-covariance matrix diversity. With respect to the hierarchy of tests
-exploring the phylogenetic distribution of matrix diversity
-(\autoref{tab:riem_decdiv}), all tests reject their null hypotheses of
-random arrangements of diversity along the Anthropoid phylogeny, thus
-indicating that covariance matrix diversity exhibits some degree of
-phylogenetic structure, with these few basal nodes contributing to a
-greater extent to such diversity.
+covariance matrix diversity. The remaining $\mathbf{P}$-matrix diversity
+is distributed along the tree, with a consistent decay of explained
+diversity the closer any given node is from terminal branches. With
+respect to the hierarchy of tests exploring the phylogenetic
+distribution of matrix diversity (\autoref{tab:riem_decdiv}), all tests
+reject their null hypotheses of random arrangements of diversity along
+the Anthropoid phylogeny, thus indicating that covariance matrix
+diversity exhibits some degree of phylogenetic structure, with these few
+basal nodes contributing to a greater extent to such diversity.
 
 \input{Tables/riem_decdiv}
 
@@ -2349,21 +2348,25 @@ greater extent to such diversity.
 (a) Decomposition of matrix diversity over the phylogenetic hypothesis
 for Anthropoidea; the size of each circle indicates the percentage of
 diversity on each node, according to the legend. (b) Mean
-$\mathbf{P}$-matrices of each species projected over the first and last
-two phylogenetic Principal Components (G1-2 and L1-2, respectively);
+$\mathbf{P}$-matrices of each species projected over the first three and
+the last phylogenetic Principal Components (G1-3 and L1, respectively);
 cell colors represent projection values, according to the legend.
 \label{fig:phylo_full}}
 \end{figure}
 
 The eigenvalue distribution of phylogenetic Principal Components that
-describe $\mathbf{P}$-matrix structure (\autoref{fig:eval} shows that
+describe $\mathbf{P}$-matrix structure (\autoref{fig:eval}) shows that
 individual Global components surpass their Global counterparts in terms
 of explained variance, such that the first Global component has a larger
 contribution than the first Local component to interspecific
 $\mathbf{P}$-matrix variation. While there are less positive than
 negative eigenvalues, Global components explain more than half (57\%) of
 the total $\mathbf{P}$-matrix variation, considering mean absolute
-eigenvalues obtained from their posterior distribution.
+eigenvalues obtained from their posterior distribution. The posterior
+distribution of Moran's Index for phylogenetic Principal Components
+(\autoref{fig:moran}) is assymetric towards positive values, indicating
+that the similarity produced by shared history is greater than the
+similarity produced by convergence in $\mathbf{P}$-matrix structure.
 
 \begin{figure}[htbp]
 \centering
@@ -2381,15 +2384,29 @@ phylogenetic PC \emph{versus} Moran's Indexes estimated for each axis.
 \label{fig:moran}}
 \end{figure}
 
+Considering the distribution of matrix projections for each OTU on these
+pPCs (\autoref{fig:phylo_full}b), we observe that the first Global pPC
+separates New World and Old Monkeys, while the second Global pPC
+consists of a contrast between Atelids and Cebids, and the third Global
+pPC generally contrasts Hominids with the remaining Anthropoids, thus
+indicating a pattern of $\mathbf{P}$-matrix variation consistent with
+those observed in the diversity decomposition summarized in
+\autoref{fig:phylo_full}a. The first Local pPC consists of localized
+contrasts between sister species, such as the two representatives of
+\emph{Saimiri}, for instance; however, matrix projections over this axis
+can be explained by the effect of sample sizes
+(\autoref{fig:ss_local1}). These localized contrasts can thus be
+explained on the account of substantial sample size differences between
+sister species.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/srd_gl-1.pdf}
-\caption{Covariance structure variation associated with the first and
-last two pPCs (Global 1-2 and Local 1-2, respectively), represented
-using posterior mean SRD scores. Dotted lines represent average SRD
-scores for each comparison. Traits are colored according to their
-assocation with each skull region, according to the legend.
-\label{fig:srd_gl}}
+\caption{Covariance structure variation associated with the first three
+and last pPCs (Global 1-3 and Local 1, respectively), represented using
+posterior mean SRD scores. Dotted lines represent average SRD scores for
+each comparison. Traits are colored according to their assocation with
+each skull region, according to the legend. \label{fig:srd_gl}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -2520,6 +2537,10 @@ Cheverud, J.M. 1982b. Relationships among ontogenetic, static, and
 evolutionary allometry. \emph{American Journal of Physical Anthropology}
 \textbf{59}: 139--149.
 
+Cheverud, J.M. \& Dow, M.M. 1985. An autocorrelation analysis of genetic
+variation due to lineal fission in social groups of rhesus macaques.
+\emph{American Journal of Physical Anthropology} \textbf{67}: 113--121.
+
 Cheverud, J.M. \& Marroig, G. 2007. Comparing covariance matrices:
 Random skewers method compared to the common principal components model.
 \emph{Genetics and Molecular Biology} \textbf{30}: 461--469.
@@ -2527,6 +2548,11 @@ Random skewers method compared to the common principal components model.
 Cheverud, J.M. \& Richtsmeier, J.T. 1986. Finite-Element Scaling Applied
 to Sexual Dimorphism in Rhesus Macaque (Macaca Mulatta) Facial Growth.
 \emph{Systematic Biology} \textbf{35}: 381--399.
+
+Cheverud, J.M., Dow, M.M. \& Leutenegger, W. 1985. The Quantitative
+Assessment of Phylogenetic Constraints in Comparative Analyses: Sexual
+Dimorphism in Body Weight Among Primates. \emph{Evolution} \textbf{39}:
+1335--1351.
 
 Cheverud, J.M., Kohn, L.A.P., Konigsberg, L.W. \& Leigh, S.R. 1992.
 Effects of fronto-occipital artificial cranial vault modification on the
@@ -2873,6 +2899,13 @@ Monteiro, L.R., Bonato, V. \& Reis, S.F. 2005. Evolutionary integration
 and morphological diversification in complex morphological structures:
 mandible shape divergence in spiny rats (Rodentia, Echimyidae).
 \emph{Evolution \& Development} \textbf{7}: 429--439.
+
+Moran, P.A.P. 1950. Notes on Continuous Stochastic Phenomena.
+\emph{Biometrika} \textbf{37}: 17--23.
+
+Moran, P.A.P. 1948. The Interpretation of Statistical Maps.
+\emph{Journal of the Royal Statistical Society. Series B
+(Methodological)} \textbf{10}: 243--251.
 
 Newman, M.E.J. 2006. Modularity and community structure in networks.
 \emph{Proceedings of the National Academy of Sciences} \textbf{103}:

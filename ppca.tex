@@ -79,7 +79,7 @@ Oliveira\textsuperscript{1} \& Gabriel Marroig\textsuperscript{1}}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{10 November 2015}
+  \date{11 November 2015}
 
 %--- USEPACKAGES ---
 \usepackage[utf8]{inputenc}
@@ -398,7 +398,7 @@ the sum of branch lengths from their last common ancestor to both tips.
 Other definition of phylogenetic distances may be used (see Jombart
 \emph{et al.}, 2010); the results we show here were not changed by
 considering different measures of phylogenetic distance, regardless of
-whether such distances consider branch lengths among OTUs.
+whether these distances consider branch lengths among OTUs or not.
 
 Such analysis produces both positive and negative eigenvalues, which are
 respectively associated with variation close to the root of the tree
@@ -408,14 +408,11 @@ Pavoine et al. (2010) argues that this contrast between Global and Local
 components in phylogenetic PCs reflects phylogenetic signal and
 convergence in trait values, respectively, as observed in the
 distribution of Moran's (1948, 1950) autocorrelation Indexes for each
-axis constructed in this manner. This index can be understood as a
-correlation coefficient between raw observed values on each axis for
-each OTU and their product with phylogenetic distances expressed in
-$\mathbf{W}$, in a similar manner to autoregressive models (Cheverud \&
-Dow, 1985; Cheverud \emph{et al.}, 1985), ranging from $-1$, in which
-phylogenetic relatedness implies in dissimilarity, to $1$, which implies
-in the converse. Therefore, Global components have positive values of
-Moran's Index while Local components have negative values.
+axis constructed in this manner. This index can be understood as the
+degree onto which an observed value in a given OTU is determined by the
+values on its phylogenetic ``neighborhood'' (as expressed by
+$\mathbf{W}$), in a similar manner to autoregressive models (Cheverud \&
+Dow, 1985; Cheverud \emph{et al.}, 1985).
 
 For each pPC obtained in this manner, we obtained two covariance
 matrices by estimating the upper and lower limits of the 95\% confidence
@@ -475,13 +472,15 @@ all covariance matrix diversity; within New World Monkeys, the
 divergence between Atelidae and Cebidae contributes with 4\% to
 covariance structure diversity, while for Catarrhines, the divergence
 between Hominoidea and Cercopithecoidea contributes 3\% to overall
-covariance matrix diversity. With respect to the hierarchy of tests
-exploring the phylogenetic distribution of matrix diversity
-(\autoref{tab:riem_decdiv}), all tests reject their null hypotheses of
-random arrangements of diversity along the Anthropoid phylogeny, thus
-indicating that covariance matrix diversity exhibits some degree of
-phylogenetic structure, with these few basal nodes contributing to a
-greater extent to such diversity.
+covariance matrix diversity. The remaining $\mathbf{P}$-matrix diversity
+is distributed along the tree, with a consistent decay of explained
+diversity the closer any given node is from terminal branches. With
+respect to the hierarchy of tests exploring the phylogenetic
+distribution of matrix diversity (\autoref{tab:riem_decdiv}), all tests
+reject their null hypotheses of random arrangements of diversity along
+the Anthropoid phylogeny, thus indicating that covariance matrix
+diversity exhibits some degree of phylogenetic structure, with these few
+basal nodes contributing to a greater extent to such diversity.
 
 \input{Tables/riem_decdiv}
 
@@ -492,21 +491,25 @@ greater extent to such diversity.
 (a) Decomposition of matrix diversity over the phylogenetic hypothesis
 for Anthropoidea; the size of each circle indicates the percentage of
 diversity on each node, according to the legend. (b) Mean
-$\mathbf{P}$-matrices of each species projected over the first and last
-two phylogenetic Principal Components (G1-2 and L1-2, respectively);
+$\mathbf{P}$-matrices of each species projected over the first three and
+the last phylogenetic Principal Components (G1-3 and L1, respectively);
 cell colors represent projection values, according to the legend.
 \label{fig:phylo_full}}
 \end{figure}
 
 The eigenvalue distribution of phylogenetic Principal Components that
-describe $\mathbf{P}$-matrix structure (\autoref{fig:eval} shows that
+describe $\mathbf{P}$-matrix structure (\autoref{fig:eval}) shows that
 individual Global components surpass their Global counterparts in terms
 of explained variance, such that the first Global component has a larger
 contribution than the first Local component to interspecific
 $\mathbf{P}$-matrix variation. While there are less positive than
 negative eigenvalues, Global components explain more than half (57\%) of
 the total $\mathbf{P}$-matrix variation, considering mean absolute
-eigenvalues obtained from their posterior distribution.
+eigenvalues obtained from their posterior distribution. The posterior
+distribution of Moran's Index for phylogenetic Principal Components
+(\autoref{fig:moran}) is assymetric towards positive values, indicating
+that the similarity produced by shared history is greater than the
+similarity produced by convergence in $\mathbf{P}$-matrix structure.
 
 \begin{figure}[htbp]
 \centering
@@ -524,24 +527,62 @@ phylogenetic PC \emph{versus} Moran's Indexes estimated for each axis.
 \label{fig:moran}}
 \end{figure}
 
+Considering the distribution of matrix projections for each OTU on these
+pPCs (\autoref{fig:phylo_full}b), we observe that the first Global pPC
+separates New World and Old Monkeys, while the second Global pPC
+consists of a contrast between Atelids and Cebids, and the third Global
+pPC generally contrasts Hominids with the remaining Anthropoids, thus
+indicating a pattern of $\mathbf{P}$-matrix variation consistent with
+those observed in the diversity decomposition summarized in
+\autoref{fig:phylo_full}a. The first Local pPC consists of localized
+contrasts between sister species, such as the two representatives of
+\emph{Saimiri}, for instance; however, matrix projections over this axis
+can be explained by the effect of sample sizes
+(\autoref{fig:ss_local1}). These localized contrasts can thus be
+explained on the account of substantial sample size differences between
+sister species.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/srd_gl-1.pdf}
-\caption{Covariance structure variation associated with the first and
-last two pPCs (Global 1-2 and Local 1-2, respectively), represented
-using posterior mean SRD scores. Dotted lines represent average SRD
-scores for each comparison. Traits are colored according to their
-assocation with each skull region, according to the legend.
-\label{fig:srd_gl}}
+\caption{Covariance structure variation associated with the first three
+and last pPCs (Global 1-3 and Local 1, respectively), represented using
+posterior mean SRD scores. Dotted lines represent average SRD scores for
+each comparison. Traits are colored according to their assocation with
+each skull region, according to the legend. \label{fig:srd_gl}}
 \end{figure}
+
+The variation in trait-specific covariance structure described by these
+four phylogenetic Principal Components, as captured by comparing the
+posterior distribution of confidence intervals for each axis using
+Selection Response Decomposition (\autoref{fig:srd_gl}) indicates that,
+regardless of which axis is considered, traits with lower posterior SRD
+scores are usually localized in either Orbit or Basicranium, along with
+log Centroid Size, which represents the covariance structure associated
+with allometric relationships. Traits in remaining skull regions (Oral,
+Nasal, Zygomatic, Vault) consistently exhibit higher SRD, thus
+indicating a more stable covariance structure associated with these
+regions throughout Anthropoid diversification.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/loess-1.pdf}
 \caption{Distribution of mean SRD scores for each trait with respect to
-pPCs; each line represents a loess interpolation adjusted for each skull
-region, according to the legend. \label{fig:loess}}
+pPCs; each line represents a fifth order polynomial interpolation
+adjusted for each skull region, according to the legend.
+\label{fig:loess}}
 \end{figure}
+
+The overall distribution of average posterior SRD scores along the
+entire set of phylogenetic PCs (\autoref{fig:loess}) indicates that this
+behavior detailed on \autoref{fig:srd_gl} for G1-3 and L1 is pervasive,
+that is, Orbit and Basicranial traits along with allometric
+relationships consistenly have lower average SRD scores than remaining
+regions. Notice that the explained amount of variance for intermediate
+pPCs (roughly from pPC 30 to 60) is very close to zero
+(\autoref{fig:eval}); thus, although matrices describing confidence
+intervals in these axes can be recovered, the pattern expressed by then
+should not be taken into account.
 
 \section{Discussion}\label{discussion}
 

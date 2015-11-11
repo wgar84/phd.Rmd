@@ -83,9 +83,6 @@ render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
 render('rel_gen.Rmd', output_file = 'rel_gen.pdf')
 system('evince rel_gen.pdf &')
 
-render('review-borja.Rmd', output_file = 'review_EVOL-D-15-00087.pdf')
-system('evince review_EVOL-D-15-00087.pdf &')
-
 system('evince tese.pdf &')
 system('evince allo.pdf &')
 system('evince sup_allo.pdf &')
@@ -135,3 +132,26 @@ browseURL('index.html', 'firefox')
 ## var <- var $ mean.var
 
 ## sum (var [var > 0]) / sum (abs (var))
+
+
+### poe isso no ppca.extra.R depois
+alt.spline <- 
+  ggplot(post.ppca $ mean.srd.df) +
+  geom_point(aes (x = pm, y = mean.trait, color = hyp),
+             size = 3, alpha = 0.4, shape = '+') +
+  geom_smooth(aes (x = pm, y = mean.trait, fill = hyp, color = hyp),
+              alpha = 0.1, method = 'rlm', formula = y ~ poly(x,5),
+              size = 1) +
+  theme_bw() +
+  scale_color_brewer(name = 'Region',
+                     labels = c('Size', 'Oral', 'Oral/Nasal', 'Nasal', 'Zygomatic',
+                       'Orbit', 'Base', 'Vault'),
+                     palette = 'Dark2') +
+  scale_fill_brewer(name = 'Region',
+                     labels = c('Size', 'Oral', 'Oral/Nasal', 'Nasal', 'Zygomatic',
+                       'Orbit', 'Base', 'Vault'),
+                     palette = 'Dark2') +
+  xlab('pPC') + ylab('Posterior SRD Mean') +
+  guides(color = guide_legend (ncol = 4), 
+         fill = guide_legend (ncol = 4)) +
+  theme(legend.position = "bottom")
