@@ -131,14 +131,14 @@ Tree.Plots $ model <-
 
 ppca.df <- 
   data.frame (
-    'ppc' = etd.def.ppca $ li [, c(1, 2, 4, 3)])
+    'ppc' = etd.def.ppca $ li [, c(1, 2, 3, 5)])
 
 decdiv.df <-
   data.frame(
     'taxa' = 110:217,
     'div' = ppca.Data $ div.nodes.def * 100 / sum (ppca.Data $ div.nodes.def))
 
-colnames(ppca.df) <- c('G1', 'G2', 'L1', 'L2')
+colnames(ppca.df) <- c('G1', 'G2', 'G3', 'L1')
 
 div.tree <- ggtree(tree.df, color = 'black', size = 1.2, alpha = 0.2)
 div.tree <-

@@ -65,6 +65,7 @@ attach ('Data/allo.results.RData')
 attach ('Data/ppca.RData')
 attach ('Data/post.ppca.RData')
 attach ('Data/tree.plots.RData')
+attach ('Data/etd.def3.RData')
 
 captions <- list()
 
@@ -128,7 +129,9 @@ browseURL('index.html', 'firefox')
 ### biocLite("ggtree")
 #### fftw-devel, libtiff-devel
 
+## var <- ddply (post.ppca $ plot.ppca.eval $ data, .(axis), plyr::summarise,
+##               'mean.var' = mean(var))
 
+## var <- var $ mean.var
 
-
-
+## sum (var [var > 0]) / sum (abs (var))

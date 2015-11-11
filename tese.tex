@@ -182,7 +182,6 @@
 
 
 % Capa
-\begin{titlepage}
 \begin{center}
 \par
 \LARGE {\bf \nomedoaluno} \\
@@ -196,7 +195,6 @@
 {\bf{\large São Paulo}\\
   {\large \ano}}
 \end{center}
-\end{titlepage}
 
 \pagestyle{empty}
 \newpage
@@ -2006,12 +2004,22 @@ fully characterize the conditions in which this feature evolves.
 
 \section{Introduction}\label{introduction-2}
 
-In the present work, we build upon Haber's (2015) contribution on the
-subject of comparing patterns of morphological integration under a
-phylogenetic framework, using Anthropoid Primates as a model organism,
-under the hypothesis that changes in covariance structure among
-Anthropoid species will follow a non-random pattern consistent with
-functional and developmental interactions.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Comparative Quantitative Genetics 101
+\item
+  Functional/Developmental Interactions on the Skull
+\item
+  Anthropoids
+\end{enumerate}
+
+In the present work, we evaluate the stability of cranial phenotypic
+covariance structure along the diversification of Anthropoid Primates
+under an explicit phylogenetic framework, considering that either
+developmental interactions and stabilizing selection will produce
+different degrees of stability among different cranial regions, thus
+producing a non-random pattern of changes in covariance structure.
 
 \section{Methods}\label{methods-2}
 
@@ -2051,12 +2059,12 @@ represented in \autoref{fig:landmarks}, for a total of 38 local shape
 variables.
 
 After obtaining these values, we estimated covariance
-$\mathbf{P}$-matrices for size (represented by the logarithm of Centroid
-Size) and local shape variables after removing fixed effects of little
-interest in the present context, such as sexual dimorphism, for example.
-These effects were removed through a multivariate linear model adjusted
-for each species, according to \autoref{fig:phylo_model}. We adjusted
-such models under a Bayesian framework, sampling $100$ residual
+$\mathbf{P}$-matrices for size (represented by the natural logarithm of
+Centroid Size) and local shape variables after removing fixed effects of
+little interest in the present context, such as sexual dimorphism, for
+example. These effects were removed through a multivariate linear model
+adjusted for each species, according to \autoref{fig:phylo_model}. We
+adjusted such models under a Bayesian framework, sampling $100$ residual
 covariance matrices from the posterior distribution of each model. These
 distributions allow us to estimate uncertainty for any parameters
 derived from these matrices as credibility intervals; furthermore, since
@@ -2177,7 +2185,7 @@ The tests described in the previous section allow us to pinpoint which
 nodes contribute mostly to divergence in covariance structure; however,
 these tests are not designed to properly describe the actual changes in
 $\mathbf{P}$-matrix structure that are responsible for such divergence.
-To actually represent such changes in a comprehensible manner, we
+To actually represent these changes in a comprehensible manner, we
 combine a number of ordination techniques to reduce the dimensionality
 of the manifold that contains covariance matrices of size $p \times p$
 (\autoref{fig:matrix_variation}).
@@ -2244,13 +2252,27 @@ on its columns, phylogenetic PCs are the eigenvectors obtained from
 where $\mathbf{W}$ represents the matrix of phylogenetic distances
 between OTUs; here, the distance $w_{ij}$ between tips $i$ and $j$ is
 the sum of branch lengths from their last common ancestor to both tips.
+Other definition of phylogenetic distances may be used (see Jombart
+\emph{et al.}, 2010); the results we show here were not changed by
+considering different measures of phylogenetic distance, regardless of
+whether such distances consider branch lengths among OTUs.
+
 Such analysis produces both positive and negative eigenvalues, which are
 respectively associated with variation close to the root of the tree
 (`Global') and variation close to the tips (`Local') in matrix structure
 (pPC1 and pPC2 in \autoref{fig:matrix_variation}b, respectively).
 Pavoine et al. (2010) argues that this contrast between Global and Local
-structures in phylogenetic PCs reflects phylogenetic signal and
-convergence in trait values, respectively.
+components in phylogenetic PCs reflects phylogenetic signal and
+convergence in trait values, respectively, as observed in the
+distribution of Moran's ({\textbf{???}}) autocorrelation Indexes for
+each axis constructed in this manner. This index can be understood as a
+correlation coefficient between raw observed values on each axis for
+each OTU and their product with phylogenetic distances expressed in
+$\mathbf{W}$, in a similar manner to autoregressive models
+({\textbf{???}}), ranging from $-1$, in which phylogenetic relatedness
+implies in dissimilarity, to $1$, which implies in the converse.
+Therefore, Global components have positive values of Moran's Index while
+Local components have negative values.
 
 For each pPC obtained in this manner, we obtained two covariance
 matrices by estimating the upper and lower limits of the 95\% confidence
@@ -2278,9 +2300,8 @@ posterior samples themselves, obtaining $100$ sets of phylogenetic PCs
 and $100$ sets of paired covariance matrices for each axis, thus
 allowing us to estimate a posterior distribution of mean SRD scores for
 each trait in all pPCs. We use the phylogenetic PCA estimated over mean
-$\mathbf{P}$-matrices only to visualize the phylogenetic patterns
-described by each pPC, although these patterns do not change in the
-subset of posterior samples we examined.
+$\mathbf{P}$-matrices in order to represent the phylogenetic patterns
+described by each pPC.
 
 We use the posterior distribution of mean SRD scores over traits and pPC
 to investigate whether these changes in trait-specific covariance
@@ -2304,6 +2325,21 @@ available at \url{http://life.bio.sunysb.edu/morph/soft-R.html}.
 
 \section{Results}\label{results-2}
 
+The distribution of covariance matrix diversity along the Anthropoid
+phylogeny (\autoref{fig:phylo_full}a) indicates that the divergence
+between Catarrhini and Platyrrhini contributes to approximately 10\% of
+all covariance matrix diversity; within New World Monkeys, the
+divergence between Atelidae and Cebidae contributes with 4\% to
+covariance structure diversity, while for Catarrhines, the divergence
+between Hominoidea and Cercopithecoidea contributes 3\% to overall
+covariance matrix diversity. With respect to the hierarchy of tests
+exploring the phylogenetic distribution of matrix diversity
+(\autoref{tab:riem_decdiv}), all tests reject their null hypotheses of
+random arrangements of diversity along the Anthropoid phylogeny, thus
+indicating that covariance matrix diversity exhibits some degree of
+phylogenetic structure, with these few basal nodes contributing to a
+greater extent to such diversity.
+
 \input{Tables/riem_decdiv}
 
 \begin{figure}[htbp]
@@ -2319,16 +2355,30 @@ cell colors represent projection values, according to the legend.
 \label{fig:phylo_full}}
 \end{figure}
 
+The eigenvalue distribution of phylogenetic Principal Components that
+describe $\mathbf{P}$-matrix structure (\autoref{fig:eval} shows that
+individual Global components surpass their Global counterparts in terms
+of explained variance, such that the first Global component has a larger
+contribution than the first Local component to interspecific
+$\mathbf{P}$-matrix variation. While there are less positive than
+negative eigenvalues, Global components explain more than half (57\%) of
+the total $\mathbf{P}$-matrix variation, considering mean absolute
+eigenvalues obtained from their posterior distribution.
+
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/ppca_eval-1.pdf}
-\caption{Characterizing $\mathbf{P}$-matrix variation using phylogenetic
-Principal Components. (a) Posterior distribution of eigenvalues obtained
-for pPCs; positive eigenvalues are associated with phylogenetic signal;
-negative eigenvalues are associated with convergence. (b) Distribution
-of mean SRD scores for each trait with respect to pPCs; each line
-represents a loess interpolation adjusted for each skull region,
-according to the legend. \label{fig:ppca_eval}}
+\includegraphics{Figures/eval-1.pdf}
+\caption{Posterior distribution of eigenvalues obtained for pPCs;
+positive eigenvalues are associated with phylogenetic signal; negative
+eigenvalues are associated with convergence. \label{fig:eval}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/moran-1.pdf}
+\caption{Posterior bivariate distribution of variances explained by each
+phylogenetic PC \emph{versus} Moran's Indexes estimated for each axis.
+\label{fig:moran}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -2344,11 +2394,10 @@ assocation with each skull region, according to the legend.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/srd_shape-1.pdf}
-\caption{Mean SRD scores for the first and last two phylogenetic PCs
-(Global 1-2 and Local 1-2, respectively) represented over the mean skull
-shape of diana guenons (\emph{Cercopithecus diana}).
-\label{fig:srd_shape}}
+\includegraphics{Figures/loess-1.pdf}
+\caption{Distribution of mean SRD scores for each trait with respect to
+pPCs; each line represents a loess interpolation adjusted for each skull
+region, according to the legend. \label{fig:loess}}
 \end{figure}
 
 \begin{figure}[htbp]

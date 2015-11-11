@@ -5,7 +5,11 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 ```{r captions_ppca, include = FALSE}
 captions $ fig.matrix_variation <- 'Representation of the steps used to characterize covariance matrix variation. In (a), the set of covariance matrices $\\mathbf{A}$, $\\mathbf{B}$ and $\\mathbf{C}$ in the neighbourhood of $\\mathbf{M}$ are projected into an Euclidean space and eigentensors are estimated (PM1 and PM2); in (b), these eigentensors are rotated to incorporate phylogenetic relatedness; in (c), covariance matrices corresponding to the upper and lower bounds of the confidence intervals for each axis are returned back to the original manifold. See text for more details. \\label{fig:matrix_variation}'
 
-captions $ fig.ppca_eval <- 'Characterizing $\\mathbf{P}$-matrix variation using phylogenetic Principal Components. (a) Posterior distribution of eigenvalues obtained for pPCs; positive eigenvalues are associated with phylogenetic signal; negative eigenvalues are associated with convergence. (b) Distribution of mean SRD scores for each trait with respect to pPCs; each line represents a loess interpolation adjusted for each skull region, according to the legend. \\label{fig:ppca_eval}'
+captions $ fig.eval <- 'Posterior distribution of eigenvalues obtained for pPCs; positive eigenvalues are associated with phylogenetic signal; negative eigenvalues are associated with convergence. \\label{fig:eval}'
+
+captions $ fig.loess <- 'Distribution of mean SRD scores for each trait with respect to pPCs; each line represents a loess interpolation adjusted for each skull region, according to the legend. \\label{fig:loess}'
+
+captions $ fig.moran <- 'Posterior bivariate distribution of variances explained by each phylogenetic PC *versus* Moran\'s Indexes estimated for each axis. \\label{fig:moran}'
 
 captions $ fig.phylo_full <- 'Phylogenetic decomposition of $\\mathbf{P}$-matrix variation. (a) Decomposition of matrix diversity over the phylogenetic hypothesis for Anthropoidea; the size of each circle indicates the percentage of diversity on each node, according to the legend. (b) Mean $\\mathbf{P}$-matrices of each species projected over the first and last two phylogenetic Principal Components (G1-2 and L1-2, respectively); cell colors represent projection values, according to the legend. \\label{fig:phylo_full}'
 
@@ -23,7 +27,13 @@ captions $ fig.ss_local1 <- 'Relationship between sample sizes and the first loc
 
 # Introduction
 
-In the present work, we build upon Haber's [-@haber_evolution_2015] contribution on the subject of comparing patterns of morphological integration under a phylogenetic framework, using Anthropoid Primates as a model organism, under the hypothesis that changes in covariance structure among Anthropoid species will follow a non-random pattern consistent with functional and developmental interactions.
+1. Comparative Quantitative Genetics 101
+
+2. Functional/Developmental Interactions on the Skull
+
+3. Anthropoids
+
+In the present work, we evaluate the stability of cranial phenotypic covariance structure along the diversification of Anthropoid Primates under an explicit phylogenetic framework, considering that either developmental interactions and stabilizing selection will produce different degrees of stability among different cranial regions, thus producing a non-random pattern of changes in covariance structure.
 
 # Methods
 
@@ -92,7 +102,7 @@ The third hypothesis can be tested either by considering only the topology of th
 
 ## Characterizing Covariance Matrix Variation
 
-The tests described in the previous section allow us to pinpoint which nodes contribute mostly to divergence in covariance structure; however, these tests are not designed to properly describe the actual changes in $\mathbf{P}$-matrix structure that are responsible for such divergence. To actually represent such changes in a comprehensible manner, we combine a number of ordination techniques to reduce the dimensionality of the manifold that contains covariance matrices of size $p \times p$ (\autoref{fig:matrix_variation}).
+The tests described in the previous section allow us to pinpoint which nodes contribute mostly to divergence in covariance structure; however, these tests are not designed to properly describe the actual changes in $\mathbf{P}$-matrix structure that are responsible for such divergence. To actually represent these changes in a comprehensible manner, we combine a number of ordination techniques to reduce the dimensionality of the manifold that contains covariance matrices of size $p \times p$ (\autoref{fig:matrix_variation}).
 
 For a Riemannian manifold, there exists at least one bijective function defined in the neighbourhood of a given covariance matrix $\mathbf{M}$ that maps the manifold to an Euclidean space --- a hyperplane with $p (p - 1) / 2$ dimensions also contained in $\mathbb{R}^{p \times p}$ --- and equips the manifold with a notion of inner product, thus allowing the construction of an orthonormal basis that can be used to describe variation in $\mathbf{P}$-matrix structure.
 For a covariance matrix $\mathbf{X}$ in the neighbourhood of $\mathbf{M}$,
@@ -114,8 +124,9 @@ We used the projections of $\mathbf{P}$-matrices over these eigentensors as trai
 \begin{equation}
 \frac{1}{2n} \mathbf{Z}^t(\mathbf{W} + \mathbf{W}^t) \mathbf{Z}
 \end{equation}
-where $\mathbf{W}$ represents the matrix of phylogenetic distances between OTUs; here, the distance $w_{ij}$ between tips $i$ and $j$ is the sum of branch lengths from their last common ancestor to both tips.
-Such analysis produces both positive and negative eigenvalues, which are respectively associated with variation close to the root of the tree ('Global') and variation close to the tips ('Local') in matrix structure (pPC1 and pPC2 in \autoref{fig:matrix_variation}b, respectively). @pavoine_decomposition_2010 argues that this contrast between Global and Local structures in phylogenetic PCs reflects phylogenetic signal and convergence in trait values, respectively.
+where $\mathbf{W}$ represents the matrix of phylogenetic distances between OTUs; here, the distance $w_{ij}$ between tips $i$ and $j$ is the sum of branch lengths from their last common ancestor to both tips. Other definition of phylogenetic distances may be used [see @jombart_putting_2010]; the results we show here were not changed by considering different measures of phylogenetic distance, regardless of whether such distances consider branch lengths among OTUs.
+
+Such analysis produces both positive and negative eigenvalues, which are respectively associated with variation close to the root of the tree ('Global') and variation close to the tips ('Local') in matrix structure (pPC1 and pPC2 in \autoref{fig:matrix_variation}b, respectively). @pavoine_decomposition_2010 argues that this contrast between Global and Local components in phylogenetic PCs reflects phylogenetic signal and convergence in trait values, respectively, as observed in the distribution of Moran's [-@moran_interpretation_1948; -@moran_notes_1950] autocorrelation Indexes for each axis constructed in this manner. This index can be understood as a correlation coefficient between raw observed values on each axis for each OTU and their product with phylogenetic distances expressed in $\mathbf{W}$, in a similar manner to autoregressive models [@cheverud_autocorrelation_1985; @cheverud_quantitative_1985], ranging from $-1$, in which phylogenetic relatedness implies in dissimilarity, to $1$, which implies in the converse. Therefore, Global components have positive values of Moran's Index while Local components have negative values.
 
 For each pPC obtained in this manner, we obtained two covariance matrices by estimating the upper and lower limits of the 95\% confidence interval for each axis and mapping these values back to the manifold of symmetric positive-definite matrices (\autoref{fig:matrix_variation}c), defining the inverse operation associated with \autoref{eq:map} as
 \begin{equation}
@@ -124,7 +135,7 @@ f^{-1}(\mathbf{X}) = \mathbf{M}^{\frac{1}{2}}\exp(\mathbf{X})\mathbf{M}^{\frac{1
 \end{equation}
 where the exponential operator refers to matrix exponential. We used these covariance matrices to describe matrix variation associated with each axis comparing each pair of matrices with the Selection Response Decomposition tool [@marroig_selection_2011], in order to pinpoint which traits are associated with the divergence in covariance structure associated with each pPC.
 
-In order to characterize such divergence in covariance structure with respect to the uncertainty in $\mathbf{P}$-matrix estimation, we carried out the analyses described in this section with both mean $\mathbf{P}$-matrices obtained from posterior samples, and with posterior samples themselves, obtaining $100$ sets of phylogenetic PCs and $100$ sets of paired covariance matrices for each axis, thus allowing us to estimate a posterior distribution of mean SRD scores for each trait in all pPCs. We use the phylogenetic PCA estimated over mean $\mathbf{P}$-matrices only to visualize the phylogenetic patterns described by each pPC, although these patterns do not change in the subset of posterior samples we examined.
+In order to characterize such divergence in covariance structure with respect to the uncertainty in $\mathbf{P}$-matrix estimation, we carried out the analyses described in this section with both mean $\mathbf{P}$-matrices obtained from posterior samples, and with posterior samples themselves, obtaining $100$ sets of phylogenetic PCs and $100$ sets of paired covariance matrices for each axis, thus allowing us to estimate a posterior distribution of mean SRD scores for each trait in all pPCs. We use the phylogenetic PCA estimated over mean $\mathbf{P}$-matrices in order to represent the phylogenetic patterns described by each pPC.
 
 We use the posterior distribution of mean SRD scores over traits and pPC to investigate whether these changes in trait-specific covariance structure along Anthropoid diversification are randomly distributed with respect to the skull regions delimited in \autoref{tab:dist} by comparing SRD scores estimated within each region for all pPCs.
 
@@ -147,25 +158,32 @@ With respect to the hierarchy of tests exploring the phylogenetic distribution o
 Tree.Plots $ ppca
 ```
 
-```{r ppca_eval, fig.width = 6, fig.height = 8, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.ppca_eval}
-plot_grid(
-  post.ppca $ plot.ppca.eval + xlab (''), 
-  post.ppca $ plot.mean.hyp, 
-  nrow = 2, labels = c('a', 'b'),
-  label_size = 24, rel_heights = c(1, 1.25), align = 'v'
-  )
+The eigenvalue distribution of phylogenetic Principal Components that describe $\mathbf{P}$-matrix structure (\autoref{fig:eval}) shows that individual Global components surpass their Global counterparts in terms of explained variance, such that the first Global component has a larger contribution than the first Local component to interspecific $\mathbf{P}$-matrix variation. While there are less positive than negative eigenvalues, Global components explain more than half (57\%) of the total $\mathbf{P}$-matrix variation, considering mean absolute eigenvalues obtained from their posterior distribution.
+
+```{r eval, fig.width = 6, fig.height = 6, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.eval}
+post.ppca $ plot.ppca.eval + xlab ('Phylogenetic Principal Component')
+```
+
+```{r moran, fig.width = 6, fig.height = 6, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.moran}
+post.ppca $ plot.var.moran
 ```
 
 ```{r srd_gl, echo = FALSE, fig.width = 10, fig.height = 10, fig.cap = captions $ fig.srd_gl}
 post.ppca $ plot.srd.gl12
 ```
 
+```{r loess, fig.width = 6, fig.height = 6, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.loess}
+post.ppca $ plot.mean.hyp + xlab('Phylogenetic Principal Component')
+```
+
+<!---
 ```{r srd_shape, echo = FALSE, fig.width = 8.6, fig.height = 10.2, fig.cap = captions $ fig.srd_shape}
 ppca.shape.comp
 ```
+-->
 
-```{r ss_local1, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.ss_local1}
-if (thesis) ppca.extra $ ss.local1
+```{r ss_local1, eval = thesis, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.ss_local1}
+ppca.extra $ ss.local1
 ```
 
 # Discussion
