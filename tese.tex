@@ -2255,7 +2255,7 @@ the sum of branch lengths from their last common ancestor to both tips.
 Other definition of phylogenetic distances may be used (see Jombart
 \emph{et al.}, 2010); the results we show here were not changed by
 considering different measures of phylogenetic distance, regardless of
-whether such distances consider branch lengths among OTUs.
+whether these distances consider branch lengths among OTUs or not.
 
 Such analysis produces both positive and negative eigenvalues, which are
 respectively associated with variation close to the root of the tree
@@ -2364,9 +2364,10 @@ negative eigenvalues, Global components explain more than half (57\%) of
 the total $\mathbf{P}$-matrix variation, considering mean absolute
 eigenvalues obtained from their posterior distribution. The posterior
 distribution of Moran's Index for phylogenetic Principal Components
-(\autoref{fig:moran}) is assymetric towards positive values, indicating
-that the similarity produced by shared history is greater than the
-similarity produced by convergence in $\mathbf{P}$-matrix structure.
+(\autoref{fig:moran}) is assymetric towards positive values, also
+indicating that the similarity produced by phylogenetic conservatism is
+greater than the similarity produced by convergence in
+$\mathbf{P}$-matrix structure.
 
 \begin{figure}[htbp]
 \centering
@@ -2411,18 +2412,41 @@ each skull region, according to the legend. \label{fig:srd_gl}}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Figures/loess-1.pdf}
-\caption{Distribution of mean SRD scores for each trait with respect to
-pPCs; each line represents a loess interpolation adjusted for each skull
-region, according to the legend. \label{fig:loess}}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
 \includegraphics{Figures/ss_local1-1.pdf}
 \caption{Relationship between sample sizes and the first local
 phylogenetic Principal Component. \label{fig:ss_local1}}
 \end{figure}
+
+The variation in trait-specific covariance structure described by these
+four phylogenetic Principal Components, as captured by comparing the
+posterior distribution of confidence intervals for each axis using
+Selection Response Decomposition (\autoref{fig:srd_gl}) indicates that,
+regardless of which axis is considered, traits with lower posterior SRD
+scores are usually localized in either Orbit or Basicranium, along with
+log Centroid Size, which represents the covariance structure associated
+with allometric relationships. Traits in remaining skull regions (Oral,
+Nasal, Zygomatic, Vault) consistently exhibit higher SRD scores, thus
+indicating a more stable covariance structure associated with these
+regions throughout Anthropoid diversification.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/loess-1.pdf}
+\caption{Distribution of mean SRD scores for each trait along the entire
+ordered set of phylogenetic PCs, separated into skull regions.
+\label{fig:loess}}
+\end{figure}
+
+The overall distribution of average posterior SRD scores along the
+entire set of phylogenetic PCs (\autoref{fig:loess}) indicates that this
+behavior detailed on \autoref{fig:srd_gl} for G1-3 and L1 is the norm
+also for the remaining pPCs, that is, Orbit and Basicranial traits along
+with allometric relationships consistenly have lower average SRD scores
+than other skull regions. Notice that the explained amount of variance
+for intermediate pPCs (roughly from pPC 31 to 61) is very close to zero
+(\autoref{fig:eval}); thus, although matrices describing confidence
+intervals in these axes can be recovered, the pattern expressed by then
+should not be taken into account.
 
 \section{Discussion}\label{discussion-2}
 

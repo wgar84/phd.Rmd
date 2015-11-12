@@ -135,23 +135,23 @@ browseURL('index.html', 'firefox')
 
 
 ### poe isso no ppca.extra.R depois
+
+ds.srd.pr <- post.ppca $ mean.srd.df
+
+levels(ds.srd.pr $ hyp) [1] <- 'Size'
+
 alt.spline <- 
-  ggplot(post.ppca $ mean.srd.df) +
+  ggplot(ds.srd.pr) +
   geom_point(aes (x = pm, y = mean.trait, color = hyp),
-             size = 3, alpha = 0.4, shape = '+') +
-  geom_smooth(aes (x = pm, y = mean.trait, fill = hyp, color = hyp),
-              alpha = 0.1, method = 'rlm', formula = y ~ poly(x,5),
-              size = 1) +
+                  alpha = 0.6) +
+  facet_wrap(~ hyp, nrow = 4) +
   theme_bw() +
-  scale_color_brewer(name = 'Region',
-                     labels = c('Size', 'Oral', 'Oral/Nasal', 'Nasal', 'Zygomatic',
-                       'Orbit', 'Base', 'Vault'),
-                     palette = 'Dark2') +
-  scale_fill_brewer(name = 'Region',
-                     labels = c('Size', 'Oral', 'Oral/Nasal', 'Nasal', 'Zygomatic',
-                       'Orbit', 'Base', 'Vault'),
-                     palette = 'Dark2') +
+  scale_color_brewer(palette = 'Dark2') +
+  scale_x_continuous(breaks = c(1, 31, 61, 91)) +
   xlab('pPC') + ylab('Posterior SRD Mean') +
   guides(color = guide_legend (ncol = 4), 
          fill = guide_legend (ncol = 4)) +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom") +
+  guides(color = FALSE)
+
+
