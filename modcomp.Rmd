@@ -23,7 +23,7 @@ bibliography: Bib/modcomp.bib
 
 running title: Modularity, Error and Morphometrics
 
-key words: $P$-matrix; statistical power; primates; development; genotype/phenotype map
+keywords: $P$-matrix; statistical power; primates; development; genotype/phenotype map
 
 ```{r, echo = FALSE}
 thesis <- FALSE

@@ -1,19 +1,23 @@
 alt.dist.sim <- 
 ggplot (modsim.Data $ values.df) +
-  geom_boxplot(aes(x = interaction (variable, type, sep = ' - '), y = value,
-                   fill = interaction (variable, type, sep = ' - '),
-                   color = interaction (variable, type, sep = ' - ')),
-               alpha = 0.5, position = 'identity',
-               outlier.shape = '+', outlier.size = 1) +
+  geom_boxplot(aes(x = interaction (variable, type, sep = ' - '), y = value),
+                   #fill = interaction (variable, type, sep = ' - '),
+                   #color = interaction (variable, type, sep = ' - ')),
+                   alpha = 0.5, position = 'identity',
+                   outlier.shape = '+', outlier.size = 1) +
   facet_grid(size ~ stat, scales = 'free') +
-  scale_fill_brewer(name = '', palette = 'Paired') +
-  scale_color_brewer(name = '', palette = 'Paired') +
+  scale_fill_grey(name = '') + #, palette = 'Paired') +
+  scale_color_grey(name = '') + #, palette = 'Paired') +
   ylab('') + xlab ('') +
-  scale_x_discrete(breaks = NULL) +
+  scale_x_discrete(labels =
+                   paste (rep (c('Random\n', 'Structured\n'), times = 3),
+                          rep (c('Local Shape Variables',
+                                 'Interlandmark Distances',
+                                 'Procrustes Residuals'), each = 2), sep = '')) +
   theme_bw() +
   theme (legend.position = "bottom",
       #   legend.title = element_text(size = 4),
-         legend.text = element_text(size = 4)) +
+         axis.text.x = element_text(size = 7, angle = 90, hjust = 1)) +
   guides(fill=guide_legend(ncol=2))
 
 myPalette.RV <- colorRampPalette(rev(brewer.pal(11, "Spectral")), space="Lab")
