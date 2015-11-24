@@ -31,6 +31,16 @@ captions $ fig.ss_local1 <- 'Relationship between sample sizes and the first loc
 
 1. Comparative Quantitative Genetics 101
 
+Phenotypic traits evolve in a concerted manner either because of shared genetic and developmental processes or joint effects on fitness [@gould_spandrels_1979; @lande_quantitative_1979], and response to natural selection is maximized when both effects coincide [@schluter_adaptive_1996].
+The additive genetic covariances among traits ($\mathbf{G}$) and the partial linear regression of fitness onto traits  ($\beta$) provide linear approximations for both these effects in the characterization of phenotypic change across generations [@lande_quantitative_1979; @wagner_eigenvalue_1984; @rice_general_2002].
+Thus, $\mathbf{G}$ represents covariances arising from a linear map of genotypic values onto phenotype space, structured through pleiotropy and linkage disequilibrium [@cheverud_developmental_1996; @wagner_homologues_1996].
+
+  a. Epistasis and the evolution of pleiotropy
+
+  b. Adaptive landscapes and ecological processes
+
+  c. Development as trajectories through phenotype space
+
 2. Functional/Developmental Interactions on the Skull
 
 3. Anthropoids
