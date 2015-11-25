@@ -35,7 +35,7 @@ Phenotypic traits evolve in a concerted manner either because of shared genetic 
 The additive genetic covariances among traits ($\mathbf{G}$) and the partial regression coefficients of fitness onto traits ($\beta$) provide linear approximations for both these effects in the characterization of phenotypic change across generations [@lande_quantitative_1979;  @rice_general_2002].
 Thus, the additive covariances in $\mathbf{G}$ represent the codependency among traits due to pleiotropy and linkage disequilibrium, representing a linear genotype/phenotype map centered on the mean phenotype [@cheverud_developmental_1996; @wagner_homologues_1996; @wagner_eigenvalue_1984].
 
-However, such structure of pleiotropic interactions is dependant upon non-linear effects embedded into the genotype/phenotype map, traditionally viewed in quantitative genetics as dominance and epistasis [@wolf_developmental_2001; @rice_developmental_2004]. Additive covariances then evolve in response to changes in allele frequency in *loci* whose effects modulate these interactions.
+However, this structure of pleiotropic interactions depends on non-linear effects embedded into the genotype/phenotype map, traditionally represented in quantitative genetics as either dominance or epistasis [@wolf_developmental_2001; @rice_developmental_2004]. In particular, experimental evidence has accumulated indicating that epistatic *loci* may modulated pleiotropic interactions [refs], which effectively harbor genetic variation in gene-trait mapping among individuals in a population. Genetic covariances among phenotypic traits then evolve as a consequence of shifts in allele frequencies in these *loci*.
 
   a. Epistasis and the evolution of pleiotropy
 
