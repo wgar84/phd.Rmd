@@ -21,7 +21,7 @@ captions $ fig.MI_vs_slopeW_main <- "**Allometry and modularity.** Modularity Hy
 
 if (thesis) {
  
-  captions $ fig.MI_vs_slopeW_si <- "Modularity Hypothesis Indexes (MHI) *vs.* allometric slope deviations ($b_s$). For each local trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_si}"
+  captions $ fig.MI_vs_slopeW_si <- "Modularity Indexes (MI) *vs.* allometric slope deviations ($b_s$). For each local trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_si}"
 
 }
 
