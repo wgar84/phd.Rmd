@@ -1908,10 +1908,10 @@ regression parameters. \label{fig:MI_vs_slopeW_main}}
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/MI_vs_slopeW_si-1.pdf}
-\caption{Modularity Hypothesis Indexes (MHI) \emph{vs.} allometric slope
-deviations ($b_s$). For each local trait set, the shaded region around
-regression lines indicate 95\% credible intervals around estimated
-regression parameters. \label{fig:MI_vs_slopeW_si}}
+\caption{Modularity Indexes (MI) \emph{vs.} allometric slope deviations
+($b_s$). For each local trait set, the shaded region around regression
+lines indicate 95\% credible intervals around estimated regression
+parameters. \label{fig:MI_vs_slopeW_si}}
 \end{figure}
 
 \section{Discussion}\label{discussion-1}
@@ -2067,10 +2067,46 @@ fully characterize the conditions in which this feature evolves.
 
 \section{Introduction}\label{introduction-2}
 
+Phenotypic traits evolve in a concerted manner either because of shared
+genetic and developmental processes or joint effects on fitness (Gould
+\& Lewontin, 1979; Lande, 1979; Felsenstein, 1988; Zeng, 1988), and
+response to natural selection is maximized when both effects coincide,
+while discordance between them may hinder a direct response (Schluter,
+1996). The additive genetic covariances among traits ($\mathbf{G}$) and
+the partial regression coefficients of fitness onto traits ($\beta$)
+provide linear approximations for both these effects in the
+characterization of phenotypic change across generations (Lande, 1979;
+Rice, 2002). Therefore, the additive covariances in $\mathbf{G}$
+represent the codependency among traits due to pleiotropy and linkage
+disequilibrium, characterizing a linear genotype/phenotype map centered
+on the mean phenotype (Wagner, 1984, 1996; Cheverud, 1996a).
+
+However, this structure of pleiotropic interactions depends on
+non-linear effects embedded into the genotype/phenotype map,
+traditionally represented in quantitative genetics as either dominance
+or epistasis (Wolf \emph{et al.}, 2001; Rice, 2004). The effect of
+epistatic \emph{loci} on the modulation of pleiotropic interactions has
+been identified in experimental settings (e.g. Cheverud \emph{et al.},
+2004; Wolf \emph{et al.}, 2005; Pavlicev \emph{et al.}, 2008), thus
+indicating that populations may harbor genetic variation in the linear
+components of genotype/phenotype maps. Genetic covariances among
+phenotypic traits then evolve as a consequence of shifts in allele
+frequencies in these \emph{loci}, either in response to genetic drift
+and founder effects (Goodnight, 2000; Brito \emph{et al.}, 2005) or to
+local features of adaptive landscapes.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Adaptive landscapes and ecological processes
+\item
+  Development as trajectories through phenotype space
+\end{enumerate}
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  Comparative Quantitative Genetics 101
+\setcounter{enumi}{1}
 \item
   Functional/Developmental Interactions on the Skull
 \item
@@ -2588,6 +2624,10 @@ Bookstein, F.L., Chernoff, B., Elder, R., Humphries, Smith, G. \&
 Strauss, R. 1985. \emph{Morphometrics in Evolutionary Biology}. The
 Academy of Natural Sciences of Philadelphia, Philadelphia.
 
+Brito, R.A. de, Pletscher, L.S. \& Cheverud, J.M. 2005. The evolution of
+genetic architecture. I. Diversification of genetic backgrounds by
+genetic drift. \emph{Evolution} \textbf{59}: 2333--2342.
+
 Cardini, A. \& Elton, S. 2008. Variation in guenon skulls (I): species
 divergence, ecological and genetic differences. \emph{Journal of Human
 Evolution} \textbf{54}: 615--637.
@@ -2641,6 +2681,12 @@ Assessment of Phylogenetic Constraints in Comparative Analyses: Sexual
 Dimorphism in Body Weight Among Primates. \emph{Evolution} \textbf{39}:
 1335--1351.
 
+Cheverud, J.M., Ehrich, T.H., Vaughn, T.T., Koreishi, S.F., Linsey, R.B.
+\& Pletscher, L.S. 2004. Pleiotropic effects on mandibular morphology
+II: differential epistasis and genetic variation in morphological
+integration. \emph{Journal of experimental zoology. Part B, Molecular
+and developmental evolution} \textbf{302}: 424--435.
+
 Cheverud, J.M., Kohn, L.A.P., Konigsberg, L.W. \& Leigh, S.R. 1992.
 Effects of fronto-occipital artificial cranial vault modification on the
 cranial base and face. \emph{American Journal of Physical Anthropology}
@@ -2683,6 +2729,9 @@ Developmental Evolution} \textbf{320}: 489--500.
 Falconer, D.S. \& Mackay, T.F.C. 1996. \emph{Introduction to
 Quantitative Genetics}, 4th ed. Addison Wesley Longman, Harlow, Essex.
 
+Felsenstein, J. 1988. Phylogenies and quantitative characters.
+\emph{Annual Review of Ecology and Systematics} \textbf{19}: 445--471.
+
 Fortuna, M.A., García, C., Guimarães Jr., P.R. \& Bascompte, J. 2008.
 Spatial mating networks in insect-pollinated plants. \emph{Ecology
 Letters} \textbf{11}: 490--498.
@@ -2717,6 +2766,10 @@ Goodall, C. 1991. Procrustes methods in the statistical analysis of
 shape. \emph{Journal of the Royal Statistical Society. Series B
 (Methodological)} \textbf{53}: 285--339.
 
+Goodnight, C.J. 2000. Quantitative trait loci and gene interaction: the
+quantitative genetics of metapopulations. \emph{Heredity} \textbf{84}:
+587--598.
+
 Goswami, A. \& Polly, P.D. 2010. The influence of modularity on cranial
 morphological disparity in Carnivora and Primates (Mammalia). \emph{PLoS
 ONE} \textbf{5}: e9517.
@@ -2728,8 +2781,8 @@ Gould, S.J. 1974. Allometry in primates, with emphasis on scaling and
 the evolution of the brain. \emph{Contributions to primatology}
 \textbf{5}: 244--292.
 
-Gould, S.J. \& Lewontin, R.C. 1979. The spandrels of San Marco and the
-Panglossian paradigm: a critique of the adaptationist programme.
+Gould, S.J. \& Lewontin, R.C. 1979. The Spandrels of San Marco and the
+Panglossian Paradigm: A Critique of the Adaptationist Programme.
 \emph{Proceedings of the Royal Society of London B: Biological Sciences}
 \textbf{205}: 581--598.
 
@@ -3075,6 +3128,13 @@ calvarial bone and suture development, and their relation to
 craniosynostosis. \emph{The European Journal of Orthodontics}
 \textbf{25}: 139--148.
 
+Rice, S.H. 2002. A general population genetic theory for the evolution
+of developmental interactions. \emph{Proceedings of the National Academy
+of Sciences} \textbf{99}: 15518--15523.
+
+Rice, S.H. 2004. Developmental Associations Between Traits: Covariance
+and Beyond. \emph{Genetics} \textbf{166}: 513--526.
+
 Rohlf, F.J. \& Slice, D. 1990. Extensions of the Procrustes Method for
 the Optimal Superimposition of Landmarks. \emph{Systematic Biology}
 \textbf{39}: 40--59.
@@ -3166,6 +3226,15 @@ Richtsmeier, J.T. 2009. Comparison of Mandibular Phenotypic and Genetic
 Integration between Baboon and Mouse. \emph{Evolutionary Biology}
 \textbf{36}: 19--36.
 
+Wolf, J.B., Frankino, W.A., Agrawal, A.F., Brodie III, E.D. \& Moore,
+A.J. 2001. Developmental Interactions and the Constituents of
+Quantitative Variation. \emph{Evolution} \textbf{55}: 232--245.
+
+Wolf, J.B., Leamy, L.J., Routman, E.J. \& Cheverud, J.M. 2005. Epistatic
+pleiotropy and the genetic architecture of covariation within early and
+late-developing skull trait complexes in mice. \emph{Genetics}
+\textbf{171}: 683--94.
+
 Woods, R.P. 2003. Characterizing volume and surface deformations in an
 atlas framework: theory, applications, and implementation.
 \emph{NeuroImage} \textbf{18}: 769--788.
@@ -3203,6 +3272,10 @@ Zelditch, M.L., Wood, A.R. \& Swiderski, D.L. 2009. Building
 Developmental Integration into Functional Systems: Function-Induced
 Integration of Mandibular Shape. \emph{Evolutionary Biology}
 \textbf{36}: 71--87.
+
+Zeng, Z.-B. 1988. Long-Term Correlated Response, Interpopulation
+Covariation, and Interspecific Allometry. \emph{Evolution} \textbf{42}:
+363--374.
 
 \chapter*{Apêndice: Artigos Publicados}
 \addcontentsline{toc}{chapter}{Apêndice: Artigos Publicados}
