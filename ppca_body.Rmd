@@ -33,13 +33,16 @@ Phenotypic traits evolve in a concerted manner either because of shared genetic 
 The additive genetic covariances among traits ($\mathbf{G}$) and the partial regression coefficients of fitness onto traits ($\beta$) provide linear approximations for both these effects in the characterization of phenotypic change across generations [@lande_quantitative_1979; @rice_general_2002].
 Therefore, the additive covariances in $\mathbf{G}$ represent the codependency among traits due to pleiotropy and linkage disequilibrium, characterizing a linear genotype/phenotype map centered on the mean phenotype [@cheverud_developmental_1996; @wagner_homologues_1996; @wagner_eigenvalue_1984].
 
-However, this structure of pleiotropic interactions depends on non-linear effects embedded into the genotype/phenotype map, traditionally represented in quantitative genetics as either dominance or epistasis [@wolf_developmental_2001; @rice_developmental_2004].
+However, this structure of pleiotropic interactions depends on the local curvature of the genotype/phenotype map, traditionally represented in quantitative genetics as either dominance or epistasis [@rice_evolution_1998; @wolf_developmental_2001; @rice_developmental_2004].
 The effect of epistatic *loci* on the modulation of pleiotropic interactions has been identified in experimental settings [e.g. @cheverud_pleiotropic_2004; @wolf_epistatic_2005; @pavlicev_genetic_2008], thus indicating that populations may harbor genetic variation in the linear components of genotype/phenotype maps.
-Genetic covariances among phenotypic traits then evolve as a consequence of shifts in allele frequencies in these *loci*, either in response to genetic drift and founder effects [@goodnight_quantitative_2000; @de_brito_evolution_2005] or to local features of adaptive landscapes, such as selection for conflicting functional demands acting over a phenotypic complex [@wagner_perspective:_1996; @espinosa-soto_specialization_2010; @rueffler_evolution_2012; @melo_directional_2015].
+Genetic covariances among phenotypic traits then evolve as a consequence of shifts in allele frequencies in these *loci*, for example in response to genetic drift and founder effects [@goodnight_quantitative_2000; @de_brito_evolution_2005].
 
-<!--- precisamos trabalhar nisso aqui -->
+Local features of the adaptive landscape may also impact genetic covariances among traits, as $\mathbf{G}$ is thought to match the patterns imposed by stabilizing selection and mutational effects [@lande_genetic_1980; @cheverud_quantitative_1984; @jones_mutation_2007]. Moreover, more recently, both experimental data [@careau_evolution_2015] and simulation-based models [@jones_effects_2012; @melo_directional_2015] have demonstrated the effects of directional selection on the structure described by $\mathbf{G}$.
+For example, selection for conflicting functional demands acting over a phenotypic complex may lead to the modularization of the underlying genotype/phenotype map [@wagner_perspective:_1996; @espinosa-soto_specialization_2010; @rueffler_evolution_2012; @melo_directional_2015].
 
-   b. Adaptive landscapes and ecological processes
+
+
+  
 
   c. Development as trajectories through phenotype space
 
@@ -208,3 +211,4 @@ The overall distribution of average posterior SRD scores along the entire set of
 
 # Discussion
 
+b. Adaptive landscapes and ecological processes
