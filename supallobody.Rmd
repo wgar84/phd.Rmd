@@ -1,0 +1,32 @@
+### Summarizing Shape Variation
+
+We obtained a pooled within-species covariance matrix estimate for all `r sum (Aux $ sample.size)` individuals in our sample. We consider this estimate our best surrogate for phenotypic covariance patterns for log Centroid Size (logCS) and local shape variables in the ancestral Anthropoid population. Using this estimate, we obtained the Common Allometric Component [CAC: regression coefficients of shape onto logCS; @mitteroecker_comparison_2004] by dividing the covariances between local shape variables and logCS by the standard deviation of logCS and normalizing this vector of regression coefficients.
+Hence, the CAC represents the pooled within-species overall effect of size onto shape. 
+We projected all individuals in our sample along this direction, thus obtaining individual scores over the CAC for each sample unit.
+With the model considering the relationship between CAC and logCS, we are able to test whether the strength of association between this ancestral allometric component and size has remained stable or changed during Anthropoid diversification, while a full multivariate model of local shape variables over logCS would allow testing whether the direction of within-species allometric components has changed.
+However, this reduction in dimensionality is necessary because a full multivariate random regression model using all 38 local shape variables would be computationally untractable, considering the actual state of MCMC samplers available.
+
+### Random Regression Model
+
+In order to estimate whether allometric parameters for each of the `r length (Aux $ sample.size)` species have changed during Anthropoid diversification, we used a random regression model. Thus, for individual $i$ in species $j$, the relationship between size and shape can be written as
+\begin{equation}
+y_{ij} = a_{s_j} + b_{s_j} x_{ij}
+\end{equation}
+where $x_{ij}$ and $y_{ij}$ represent logCS values and projections of local shape variables onto the CAC respectively, and $a_{s_j}$ and $b_{s_j}$ represent static [within populations; @cheverud_relationships_1982; @pelabon_relationship_2013] allometric intercepts and slopes for species $j$.
+Phylogenetic random regression models assume that the vector of $a_{s}$ and $b_{s}$ for all $2p - 2$ nodes on the phylogenetic hypothesis considered ($p$ terminal nodes plus the $p - 2$ intermediate nodes, excluding the basal node) are realizations of a multivariate normal distribution of the form
+\begin{equation}
+(a_{s}, b_{s}) \sim \mathcal{N}_{2(2p - 2)} \Big(\mathbf{1}_{2p - 2} \otimes (\bar{a}_s, \bar{b}_s), \mathbf{S} \otimes \mathbf{C} \Big)
+\end{equation}
+where $\bar{a}_s$ and $\bar{b}_s$ represent the allometric intercept and slope estimated at the basal (root) node, $\mathbf{S}$ represents the complete phylogenetic covariance matrix among all $2p - 2$ nodes, and $\mathbf{C}$ represents the covariance matrix between slopes and intercepts among species; $\mathbf{1}_{2p - 2}$ is a vector of ones of size $2p - 2$ and $\otimes$ represents the outer (Kronecker) product.
+The phylogenetic covariance matrix $\mathbf{S}$ encapsulates the relationships between terminal branches and internal nodes incorporating branch lengths between then [@hadfield_general_2010]; thus, it is implicitly assumed that both intercept and slopes evolve in a correlated manner under Brownian motion.
+In our specific case, previous tests using model comparison indicated that the evolutionary covariance between slopes and intercepts ($\mathbf{C}$) can be suppressed from the model without loss of explanatory power; the multivariate gaussian distributions of $a_s$ and $b_s$ are then independent and can be written separately as
+\begin{equation}
+a_{s} \sim \mathcal{N}_{2p - 2} \Big(\bar{a}_s\mathbf{1}_{2p - 2}, \mathbf{S}\Big)
+\end{equation}
+and
+\begin{equation}
+b_{s} \sim \mathcal{N}_{2p - 2} \Big(\bar{b}_s\mathbf{1}_{2p - 2}, \mathbf{S}\Big).
+\end{equation}
+Therefore, this model produces estimates for the posterior distribution of the parameters that describe the relationship between logCS and CAC projection for each terminal OTU and also for ancestral nodes simultaneously, enabling us to track changes in both parameters along the phylogeny.
+In order to test the robustness of such ancestral node reconstructions for $a_s$ and $b_s$, we also produced point estimates under a linear parsimony model, implemented in Mesquite [@maddison_mesquite:_2011]; estimates for all parameters (slopes and intercepts) using both models yields similar results (not shown), indicating that the Bayesian estimates we used here is robust regardless of the model chosen to reconstruct ancestral allometric parameters.
+

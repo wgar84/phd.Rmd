@@ -1,0 +1,52 @@
+# Methods
+
+## Sample
+
+Our database consists of `r sum (Aux $ sample.size)` individuals, distributed across `r length (Aux $ sample.size)` species.
+These species are spread throughout all major Anthropoid clades above the genus level, also comprising all Platyrrhini genera and a substantial portion of Catarrhini genera.
+We associated this database with an ultrametric phylogenetic hypothesis for Anthropoidea (Figure \ref{fig:phylo_model}), derived from @springer_macroevolutionary_2012.
+
+Individuals in our sample are represented by 36 registered landmarks, using a Polhemus 3Draw and a Microscribe 3DS for Platyrrhini and Catarrhini, respectively.
+Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
+Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks, from both sides, were present.
+
+This database of landmark registration data was used to estimate both interlandmark distances and shape variables. For interlandmark distances, those measurements that involve bilaterally symmetrical landmarks were averaged after computing distances; for shape variables, a symmetrical landmark configuration was obtained by taking the mean shape between each individual configuration and its reflection along the sagittal plane [@klingenberg_shape_2002].
+
+## Allometric Relationships
+
+We estimated allometric parameters using local shape variables [@marquez_measurement_2012], which are measurements of infinitesimal log volume transformations, calculated as the natural logarithm determinants of derivatives of the TPS function between each individual in our sample and a reference shape (in our case, the mean shape for the entire sample, estimated from a Generalized Procrustes algorithm).
+Such derivatives were evaluated at 38 locations, the midpoints between pairs of landmarks connected in \autoref{fig:landmarks}.
+After estimating local shape variables, we controlled for sources of variation of little interest in the present context, such as sexual dimorphism, and variation between subspecies or populations within each OTU, according to Figure \ref{fig:phylo_model}, using generalized linear models.
+
+```{r allomainmeth, child = 'allomainmeth.Rmd', eval = !thesis}
+```
+
+```{r supallobody, child = 'supallobody.Rmd', eval = thesis}
+```
+
+We used uniform prior distributions for all $a_s$ and $b_s$.
+In order to sample the posterior distribution for our model, we used a MCMC sampler with $250000$ iterations, comprising a burnin period of $50000$ iterations and a thinning interval of $200$ iterations after burnin to avoid autocorrelations in the posterior sample, thus generating $1000$ posterior samples for all parameters we estimate.
+We performed a handful of runs with different starting values and pseudo-random number generator seeds to ensure convergence; with these values for iteration steps, we achieved convergence in all MCMC runs.
+
+Using these posterior samples for static allometric parameters, we tested whether a given intercept or slope in any node of the tree (terminal or ancestral) deviates from the values estimated for the root of the tree by computing 95\% credible intervals for the difference between the parameter estimated at both points.
+If this interval excludes the null value, we considered that as evidence that the parameter ($a_s$ or $b_s$) has changed in that particular node.
+
+## Morphological Integration
+
+Using our landmark configuration database, we calculated 38 interlandmark distances (\autoref{fig:landmarks}), based on previous works on mammalian covariance patterns [@cheverud_morphological_1995; @cheverud_quantitative_1996; @marroig_comparison_2001; @oliveira_covariance_2009].
+Within each OTU, we estimated and removed fixed effects of little interest within the present context using generalized linear models (Figure \ref{fig:phylo_model}). Using residuals from each model, we estimated covariance and correlation $P$-matrices for all OTUs.
+
+In order to represent modularity patterns embedded in these $P$-matrices, we used Modularity Hypothesis Indexes [MHI; @porto_size_2013], which are scale-free measurements of variational modularity; we estimated MHIs for each trait subset depicted in \autoref{tab:dist} for all 109 $P$-matrices. We estimated MHI values using the equation
+$$
+MHI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
+$$
+where $\bar{\rho}_{+}$ represents the average correlation within a given subset, $\bar{\rho}_{-}$ represents the average correlation of the complementary set, and $ICV$ is the coefficient of variation of eigenvalues of the associated covariance matrix, which is a measurement of the overall integration between all traits [@shirai_skull_2010].
+
+We estimated the relationship between MHIs and static allometric parameters using phylogenetic mixed linear models; we adjusted such models separately for each trait subset, using MHI values as response variables and allometric parameters as predictors.
+We also use a Bayesian framework to estimate such models.
+In order to evaluate which parameters are sufficient to explain variation in MHI values, we adjusted four different models: one for static intercepts alone ($a_s$), one for static slopes ($b_s$), a third model that considers the joint effect of both parameters, without interactions ($a_s$ + $b_s$). We also fit a model that considers only realtive size variation (measured as coefficients of variation in log Centroid Size for each OTU) acting on MHI values, since it has been shown that such variation suffices in explaining variation in integration patterns, albeit on a larger phylogenetic scale [@porto_evolution_2009; @porto_size_2013].
+We compared these four models using the Deviance Information Criterion [DIC; @gelman_bayesian_2004], which increases as a function of the average posterior likelihood for a particular model and decreases as a function of the number of parameters considered; in a equivalent manner to Akaike's [-@akaike_new_1974] Information Criterion, the model with the smallest DIC is considered the best fit; models whose difference in DICs is lower than two are considered equivalent.
+
+## Software
+
+All analysis were performed under R `r paste (version $ major, version $ minor, sep = '.')` [@r_core_team_r:_2015]. Our code for the estimation of local shape variables can be found at <http://github.com/wgar84>. We performed MCMC sampling for all models using the MCMCglmm package in R [@hadfield_mcmc_2010]. In order to obtain symmetrical landmarks configurations, we used code provided by Annat Haber, available at <http://life.bio.sunysb.edu/morph/soft-R.html>.

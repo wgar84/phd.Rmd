@@ -1,0 +1,3 @@
+We projected all individuals in our sample along the Common Allometric Component [CAC; @mitteroecker_comparison_2004], which is the pooled within-species regression coefficients between local shape variables and log Centroid Size (logCS), thus
+summarizing all shape variation related to size in a single variable.
+To estimate differences in the relationship between logCS and CAC projections among Anthropoid species we used a phylogenetic random regression model under a Bayesian framework, obtaining static [within populations; @cheverud_relationships_1982; @pelabon_relationship_2013] allometric intercepts ($a_s$) and slopes ($b_s$) for all species simultaneously while considering their phylogenetic relatedness (see 'Supplemental Information' for details).

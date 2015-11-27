@@ -10,7 +10,7 @@ output:
   word_document:
     fig_caption: true
     fig_width: 6
-fontsize: 11pt
+fontsize: 12pt
 csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/ppca.bib
 ---	

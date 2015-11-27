@@ -36,13 +36,12 @@ Therefore, the additive covariances in $\mathbf{G}$ represent the codependency a
 However, this structure of pleiotropic interactions depends on the local curvature of the genotype/phenotype map, traditionally represented in quantitative genetics as either dominance or epistasis [@rice_evolution_1998; @wolf_developmental_2001; @rice_developmental_2004].
 The effect of epistatic *loci* on the modulation of pleiotropic interactions has been identified in experimental settings [e.g. @cheverud_pleiotropic_2004; @wolf_epistatic_2005; @pavlicev_genetic_2008], thus indicating that populations may harbor genetic variation in the linear components of genotype/phenotype maps.
 Genetic covariances among phenotypic traits then evolve as a consequence of shifts in allele frequencies in these *loci*, for example in response to genetic drift and founder effects [@goodnight_quantitative_2000; @de_brito_evolution_2005].
-
 Local features of the adaptive landscape may also impact genetic covariances among traits, as $\mathbf{G}$ is thought to match the patterns imposed by stabilizing selection and mutational effects [@lande_genetic_1980; @cheverud_quantitative_1984; @jones_mutation_2007]. Moreover, more recently, both experimental data [@careau_evolution_2015] and simulation-based models [@jones_effects_2012; @melo_directional_2015] have demonstrated the effects of directional selection on the structure described by $\mathbf{G}$.
-For example, selection for conflicting functional demands acting over a phenotypic complex may lead to the modularization of the underlying genotype/phenotype map [@wagner_perspective:_1996; @espinosa-soto_specialization_2010; @rueffler_evolution_2012; @melo_directional_2015].
 
+Empirical evidence on changes on genetic covariance structure [comparative quantitative genetics; @steppan_comparative_2002] rely on the correspondence between patterns embedded in $\mathbf{G}$ and its phenotypic counterpart $\mathbf{P}$, since estimating $\mathbf{G}$ demands high sample sizes and nonetheless such estimate is prone to substantial error [@meyer_estimating_1991; @houle_estimating_2015].
+Such correspondence between $\mathbf{P}$ and $\mathbf{G}$, denominated Cheverud's Conjecture [@cheverud_comparison_1988; @roff_estimation_1995], has been supported in many different contexts [e.g.: @waitt_genetic_1998; @dochtermann_testing_2011; @garcia_quantitative_2014], thus indicating that $\mathbf{P}$ can be used as a surrogate for $\mathbf{G}$.
+Thus, the comparative analysis of covariance
 
-
-  
 
   c. Development as trajectories through phenotype space
 
@@ -64,7 +63,7 @@ Individuals in our sample are represented by 36 registered landmarks, using eith
 Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
 Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks from both sides were present.
 In the present work, we considered only covariance structure for the symmetrical component of variation; therefore, prior to any analysis, we controlled the effects of variation in assymmetry.
-We followed the procedure outlined in @klingenberg_shape_2002 for bilateral structures by obtaning for each individual a symmetrical landmark configuration, averaging each actual shape with its reflection along the sagittal plane.
+We followed the procedure outlined in @klingenberg_shape_2002 for bilateral structures by obtaining for each individual a symmetrical landmark configuration, averaging each actual shape with its reflection along the sagittal plane.
 
 We used this database to obtain local shape variables [@marquez_measurement_2012], which represent infinitesimal volumetric expansions or retractions, calculated as the natural logarithm determinants of derivatives of the TPS function between each individual in our sample and a reference shape (in our case, the mean shape for the entire sample, estimated from a Generalized Procrustes algorithm).
 Such derivatives were evaluated at the midpoints between pairs of landmarks represented in \autoref{fig:landmarks}, for a total of 38 local shape variables.

@@ -76,7 +76,7 @@ Tree.Plots $ interslope
 The association between allometric parameters and modularity was measured using regression models of Modularity Hypothesis Indexes [MHI; @porto_size_2013] for two regions (Face and Neurocranium) and three sub-regions within each region (Oral, Nasal and Zygomatic in the Face; Orbit, Vault and Basicranium in the Neurocranium) on the estimated allometric parameters, and also on size variation alone, measured as the coefficient of variation in log Centroid Size.
 Model selection using Deviance Information Criteria [DIC; @gelman_bayesian_2004] shows that models considering either intercept or size variation only always have the worst fit. In most cases, models including only the slope are better than or equal ($\Delta DIC < 2$) to models with both parameters (intercept and slope), suggesting a negligible effect of the intercept.
 For the Neurocranium region and the Vault sub-region, the model including intercept and slope shows a better fit than the slope-only model; in both cases, however, the effects of the intercept are not significant when one takes into account the posterior distribution of the regression coefficients (results not shown).
-We thus consider that the models including only allometric slopes provide the best representation of the association between allometric parameters and modularity indexes (\autoref{tab:dic_allo_im}). It should be noted that none of the models tested for the Orbit and Basicranium sub-regions show any association between allometric parameters and Modularity Indexes, therefore these sub-regions were not included in the model selection.
+We thus consider that the models including only allometric slopes provide the best representation of the association between allometric parameters and MHI values (\autoref{tab:dic_allo_im}). It should be noted that none of the models tested for the Orbit and Basicranium sub-regions show any association between allometric parameters and MHI values, therefore these sub-regions were not included in the model selection.
 Allometric slopes show opposite effects on MHI values for Face and Neurocranium (\autoref{fig:MI_vs_slopeW_main}), and, with the exception of the Orbit and Basicranium, sub-regions follow the same pattern as the more inclusive partition in which they are contained (\autoref{fig:MI_vs_slopeW_si}).
 
 `r if (thesis) "\\input{Tables/dic_allo_im.tex}"`
@@ -126,3 +126,4 @@ In fact, given the availability of a strong theoretical background relating allo
 
 ```{r methods_paper, child = 'allo_meth.Rmd', eval = !thesis}
 ```
+
