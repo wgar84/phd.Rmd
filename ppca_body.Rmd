@@ -38,14 +38,18 @@ The effect of epistatic *loci* on the modulation of pleiotropic interactions has
 Genetic covariances among phenotypic traits then evolve as a consequence of shifts in allele frequencies in these *loci*, for example in response to genetic drift and founder effects [@goodnight_quantitative_2000; @de_brito_evolution_2005].
 Local features of the adaptive landscape may also impact genetic covariances among traits, as $\mathbf{G}$ is thought to match the patterns imposed by stabilizing selection and mutational effects [@lande_genetic_1980; @cheverud_quantitative_1984; @jones_mutation_2007]. Moreover, more recently, both experimental data [@careau_evolution_2015] and simulation-based models [@jones_effects_2012; @melo_directional_2015] have demonstrated the effects of directional selection on the structure described by $\mathbf{G}$.
 
-Empirical evidence on changes on genetic covariance structure [comparative quantitative genetics; @steppan_comparative_2002] rely on the correspondence between patterns embedded in $\mathbf{G}$ and its phenotypic counterpart $\mathbf{P}$, since estimating $\mathbf{G}$ demands high sample sizes and nonetheless such estimate is prone to substantial error [@meyer_estimating_1991; @houle_estimating_2015].
-Such correspondence between $\mathbf{P}$ and $\mathbf{G}$, denominated Cheverud's Conjecture [@cheverud_comparison_1988; @roff_estimation_1995], has been supported in many different contexts [e.g.: @waitt_genetic_1998; @dochtermann_testing_2011; @garcia_quantitative_2014], thus indicating that $\mathbf{P}$ can be used as a surrogate for $\mathbf{G}$.
-Thus, the comparative analysis of covariance
+Empirical evidence on long-term changes on genetic covariance structure [comparative quantitative genetics; @steppan_comparative_2002] rely on the correspondence between patterns embedded in $\mathbf{G}$ and its phenotypic counterpart $\mathbf{P}$, since estimating $\mathbf{G}$ demands high sample sizes and nonetheless such estimate is prone to substantial error, since sample units are families rather than individuals [@meyer_estimating_1991; @houle_estimating_2015].
+The similarity in covariance structure between $\mathbf{P}$ and $\mathbf{G}$ ['Cheverud's Conjecture'; @cheverud_comparison_1988; @roff_estimation_1995], has been supported in different trait systems and organisms [e.g.: @waitt_genetic_1998; @dochtermann_testing_2011; @garcia_quantitative_2014], indicating that environmental effects ($\mathbf{E}$) are either uncorrelated or exhibit patterns similar to $\mathbf{G}$, since these effects exert their influence over phenotypes through the same developmental processes in which genetic variation is structured [@rice_general_2002; @rice_developmental_2004].
 
+The comparative analysis of phenotypic covariance structure through macroevolutionary divergence shows that $\mathbf{P}$ can remain stable in these large timescales [e.g. @marroig_comparison_2001; @kolbe_convergent_2011].
+However, in situations such as dietary [e.g. @monteiro_adaptive_2010; @haber_evolution_2015] or locomotory [e.g. @young_serial_2005; @young_development_2010] divergence between sister lineages, phenotypic covariance structure can be rearranged, and such reorganization hints at changes in the underlying architecture of the genotype/phenotype map, indicating that the patterns embedded in the adaptive landscape can overcome constraints imposed by development [@jamniczky_comparison_2009].
+The relationship between adaptive landscapes and phenotypic covariance structure is mediated through performance [@arnold_morphology_1983], which may be thought as a dynamical property of phenotypes; thus, the separation between developmental and functional interactions as two distinct factors shaping phenotypic covariance structure is blurry at least [@cheverud_developmental_1996; @zelditch_epigenetic_2011].
 
-  c. Development as trajectories through phenotype space
+For example, in the mammalian skull, different precursor tissues originate two distinct regions, Face and Neurocranium, which exhibit marked contrasts in terms of their interactions with soft tissues, the functions which they perform, and their response to developmental milestones, such as birth or weaning [@hallgrimsson_mouse_2008; @lieberman_epigenetic_2011].
+This contrast is the result of distinct gene expression profiles, which are further changed by the diffusion of signaling factors, thus generating a feedback loop of cell and tissue differentiation [@turing_chemical_1952; @marcucio_molecular_2005; @meinhardt_models_2008; @franz-odendaal_epigenetics_2011].
+These signaling factors may be targeted at specific cell lineages, but the contact between adjoining tissues may produce correlated changes between them due to mechanical interactions or through mutual signaling cascades that induce specific behaviors in neighbor tissues [@cheverud_effects_1992; @ravosa_masticatory_2000; @jiang_tissue_2002; @lieberman_spatial_2008; @esteve-altava_beyond_2014].
 
-2. Functional/Developmental Interactions on the Skull
+<!--- state some predictions, enter objectives, and I guess that's it -->
 
 3. Anthropoids
 
@@ -202,7 +206,7 @@ ppca.extra $ ss.local1
 The variation in trait-specific covariance structure described by these four phylogenetic Principal Components, as captured by comparing the posterior distribution of confidence intervals for each axis using Selection Response Decomposition (\autoref{fig:srd_gl}) indicates that, regardless of which axis is considered, traits with lower posterior SRD scores are usually localized in either Orbit or Basicranium, along with log Centroid Size, which represents the covariance structure associated with allometric relationships.
 Traits in remaining skull regions (Oral, Nasal, Zygomatic, Vault) consistently exhibit higher SRD scores, thus indicating a more stable covariance structure associated with these regions throughout Anthropoid diversification. 
 
-```{r loess, fig.width = 10, fig.height = 7, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.loess}
+```{r loess, fig.width = 10, fig.height = 10, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.loess}
 alt.spline
 ```
 
@@ -210,4 +214,6 @@ The overall distribution of average posterior SRD scores along the entire set of
 
 # Discussion
 
-b. Adaptive landscapes and ecological processes
+1. Adaptive landscapes and ecological processes
+
+2. Development as trajectories through phenotype space

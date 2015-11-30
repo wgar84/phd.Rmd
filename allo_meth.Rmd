@@ -34,9 +34,9 @@ If this interval excludes the null value, we considered that as evidence that th
 ## Morphological Integration
 
 Using our landmark configuration database, we calculated 38 interlandmark distances (\autoref{fig:landmarks}), based on previous works on mammalian covariance patterns [@cheverud_morphological_1995; @cheverud_quantitative_1996; @marroig_comparison_2001; @oliveira_covariance_2009].
-Within each OTU, we estimated and removed fixed effects of little interest within the present context using generalized linear models (Figure \ref{fig:phylo_model}). Using residuals from each model, we estimated covariance and correlation $P$-matrices for all OTUs.
+Within each OTU, we estimated and removed fixed effects of little interest within the present context using generalized linear models (Figure \ref{fig:phylo_model}). Using residuals from each model, we estimated covariance and correlation $\mathbf{P}$-matrices for all OTUs.
 
-In order to represent modularity patterns embedded in these $P$-matrices, we used Modularity Hypothesis Indexes [MHI; @porto_size_2013], which are scale-free measurements of variational modularity; we estimated MHIs for each trait subset depicted in \autoref{tab:dist} for all 109 $P$-matrices. We estimated MHI values using the equation
+In order to represent modularity patterns embedded in these $\mathbf{P}$-matrices, we used Modularity Hypothesis Indexes [MHI; @porto_size_2013], which are scale-free measurements of variational modularity. We estimated MHIs for each trait subset depicted in \autoref{tab:dist} for all 109 $\mathbf{P}$-matrices, using the equation
 $$
 MHI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
 $$

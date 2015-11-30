@@ -1816,9 +1816,9 @@ the phylogeny. In order to test the robustness of such ancestral node
 reconstructions for $a_s$ and $b_s$, we also produced point estimates
 under a linear parsimony model, implemented in Mesquite (Maddison \&
 Maddison, 2011); estimates for all parameters (slopes and intercepts)
-using both models yields similar results (not shown), indicating that
-the Bayesian estimates we used here is robust regardless of the model
-chosen to reconstruct ancestral allometric parameters.
+using both models yield similar results (not shown), indicating that the
+Bayesian estimates we used here is robust regardless of the model chosen
+to reconstruct ancestral allometric parameters.
 
 We used uniform prior distributions for all $a_s$ and $b_s$. In order to
 sample the posterior distribution for our model, we used a MCMC sampler
@@ -1847,14 +1847,14 @@ works on mammalian covariance patterns (Cheverud, 1995, 1996b; Marroig
 estimated and removed fixed effects of little interest within the
 present context using generalized linear models (Figure
 \ref{fig:phylo_model}). Using residuals from each model, we estimated
-covariance and correlation $P$-matrices for all OTUs.
+covariance and correlation $\mathbf{P}$-matrices for all OTUs.
 
 In order to represent modularity patterns embedded in these
-$P$-matrices, we used Modularity Hypothesis Indexes (MHI; Porto \emph{et
-al.}, 2013), which are scale-free measurements of variational
-modularity; we estimated MHIs for each trait subset depicted in
-\autoref{tab:dist} for all 109 $P$-matrices. We estimated MHI values
-using the equation \[
+$\mathbf{P}$-matrices, we used Modularity Hypothesis Indexes (MHI; Porto
+\emph{et al.}, 2013), which are scale-free measurements of variational
+modularity. We estimated MHIs for each trait subset depicted in
+\autoref{tab:dist} for all 109 $\mathbf{P}$-matrices, using the equation
+\[
 MHI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
 \] where $\bar{\rho}_{+}$ represents the average correlation within a
 given subset, $\bar{\rho}_{-}$ represents the average correlation of the
@@ -2179,32 +2179,61 @@ al.}, 2015) and simulation-based models (Jones \emph{et al.}, 2012; Melo
 \& Marroig, 2015) have demonstrated the effects of directional selection
 on the structure described by $\mathbf{G}$.
 
-Empirical evidence on changes on genetic covariance structure
+Empirical evidence on long-term changes on genetic covariance structure
 (comparative quantitative genetics; Steppan \emph{et al.}, 2002) rely on
 the correspondence between patterns embedded in $\mathbf{G}$ and its
 phenotypic counterpart $\mathbf{P}$, since estimating $\mathbf{G}$
 demands high sample sizes and nonetheless such estimate is prone to
-substantial error (Meyer, 1991; Houle \& Meyer, 2015). Such
-correspondence between $\mathbf{P}$ and $\mathbf{G}$, denominated
-Cheverud's Conjecture (Cheverud, 1988; Roff, 1995), has been supported
-in many different contexts (e.g.: Waitt \& Levin, 1998; Dochtermann,
-2011; Garcia \emph{et al.}, 2014), thus indicating that $\mathbf{P}$ can
-be used as a surrogate for $\mathbf{G}$. Thus, the comparative analysis
-of covariance
+substantial error, since sample units are families rather than
+individuals (Meyer, 1991; Houle \& Meyer, 2015). The similarity in
+covariance structure between $\mathbf{P}$ and $\mathbf{G}$ (``Cheverud's
+Conjecture''; Cheverud, 1988; Roff, 1995), has been supported in
+different trait systems and organisms (e.g.: Waitt \& Levin, 1998;
+Dochtermann, 2011; Garcia \emph{et al.}, 2014), indicating that
+environmental effects ($\mathbf{E}$) are either uncorrelated or exhibit
+patterns similar to $\mathbf{G}$, since these effects exert their
+influence over phenotypes through the same developmental processes in
+which genetic variation is structured (Rice, 2002, 2004).
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{2}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Development as trajectories through phenotype space
-\end{enumerate}
+The comparative analysis of phenotypic covariance structure through
+macroevolutionary divergence shows that $\mathbf{P}$ can remain stable
+in these large timescales (e.g. Marroig \& Cheverud, 2001; Kolbe
+\emph{et al.}, 2011). However, in situations such as dietary (e.g.
+Monteiro \& Nogueira, 2010; Haber, 2015) or locomotory (e.g. Young \&
+Hallgrímsson, 2005; Young \emph{et al.}, 2010) divergence between sister
+lineages, phenotypic covariance structure can be rearranged, and such
+reorganization hints at changes in the underlying architecture of the
+genotype/phenotype map, indicating that the patterns embedded in the
+adaptive landscape can overcome constraints imposed by development
+(Jamniczky \& Hallgrímsson, 2009). The relationship between adaptive
+landscapes and phenotypic covariance structure is mediated through
+performance (Arnold, 1983), which may be thought as a dynamical property
+of phenotypes; thus, the separation between developmental and functional
+interactions as two distinct factors shaping phenotypic covariance
+structure is blurry at least (Cheverud, 1996a; Zelditch \& Swiderski,
+2011).
+
+For example, in the mammalian skull, different precursor tissues
+originate two distinct regions, Face and Neurocranium, which exhibit
+marked contrasts in terms of their interactions with soft tissues, the
+functions which they perform, and their response to developmental
+milestones, such as birth or weaning (Hallgrímsson \& Lieberman, 2008;
+Lieberman, 2011). This contrast is the result of distinct gene
+expression profiles, which are further changed by the diffusion of
+signaling factors, thus generating a feedback loop of cell and tissue
+differentiation (Turing, 1952; Marcucio \emph{et al.}, 2005; Meinhardt,
+2008; Franz-Odendaal, 2011). These signaling factors may be targeted at
+specific cell lineages, but the contact between adjoining tissues may
+produce correlated changes between them due to mechanical interactions
+or through mutual signaling cascades that induce specific behaviors in
+neighbor tissues (Cheverud \emph{et al.}, 1992; Ravosa \emph{et al.},
+2000; Jiang \emph{et al.}, 2002; Lieberman \emph{et al.}, 2008;
+Esteve-Altava \& Rasskin-Gutman, 2014).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\item
-  Functional/Developmental Interactions on the Skull
+\setcounter{enumi}{2}
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Anthropoids
 \end{enumerate}
@@ -2646,11 +2675,11 @@ should not be taken into account.
 \section{Discussion}\label{discussion-2}
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{1}
-\itemsep1pt\parskip0pt\parsep0pt
+\def\labelenumi{\arabic{enumi}.}
 \item
   Adaptive landscapes and ecological processes
+\item
+  Development as trajectories through phenotype space
 \end{enumerate}
 
 \def\sectionautorefname{Seção} \def\chapterautorefname{Capítulo}
@@ -2688,6 +2717,9 @@ Armbruster, W.S., Pélabon, C., Bolstad, G.H. \& Hansen, T.F. 2014.
 Integrated phenotypes: understanding trait covariation in plants and
 animals. \emph{Philosophical Transactions of the Royal Society of London
 B: Biological Sciences} \textbf{369}: 20130245.
+
+Arnold, S.J. 1983. Morphology, Performance and Fitness. \emph{American
+Zoologist} \textbf{23}: 347--361.
 
 Arnold, S.J., Bürger, R., Hohenlohe, P.A., Ajie, B.C. \& Jones, A.G.
 2008. Understanding the evolution and stability of the G-matrix.
@@ -2970,6 +3002,10 @@ Statistical Mathematics} \textbf{64}: 1227--1259.
 
 Huxley, J.S. 1932. \emph{Problems of relative growth}.
 
+Jamniczky, H.A. \& Hallgrímsson, B. 2009. A comparison of covariance
+structure in wild and laboratory muroid crania. \emph{Evolution}
+\textbf{63}: 1540--1556.
+
 Jiang, X., Iseki, S., Maxson, R.E., Sucov, H.M. \& Morriss-Kay, G.M.
 2002. Tissue Origins and Interactions in the Mammalian Skull Vault.
 \emph{Developmental Biology} \textbf{241}: 106--116.
@@ -3024,6 +3060,11 @@ Mouse Mandible. \emph{Genetics} \textbf{166}: 1909--1921.
 Kodric-Brown, A., Sibly, R.M. \& Brown, J.H. 2006. The allometry of
 ornaments and weapons. \emph{Proceedings of the National Academy of
 Sciences} \textbf{103}: 8733--8738.
+
+Kolbe, J.J., Revell, L.J., Szekely, B., Brodie III, E.D. \& Losos, J.B.
+2011. Convergent Evolution of Phenotypic Integration and Its Alignment
+with Morphological Diversification in Caribbean Anolis Ecomorphs.
+\emph{Evolution} \textbf{65}: 3608--3624.
 
 Lande, R. 1985. Genetic and Evolutionary Aspects of Allometry. In:
 \emph{Size and Scaling in Primate Biology} (W. L. Jungers, ed), pp.
@@ -3261,6 +3302,11 @@ approach. \emph{Theoretical population biology} \textbf{21}: 24--43.
 Ravasz, E., Somera, A.L., Mongru, D.A., Oltvai, Z.N. \& Barabási, A.L.
 2002. Hierarchical organization of modularity in metabolic networks.
 \emph{Science} \textbf{297}: 1551--1555.
+
+Ravosa, M.J., Noble, V.E., Hylander, W.L., Johnson, K.R. \& Kowalski,
+E.M. 2000. Masticatory stress, orbital orientation and the evolution of
+the primate postorbital bar. \emph{Journal of Human Evolution}
+\textbf{38}: 667--693.
 
 Rice, D.P.C., Rice, R. \& Thesleff, I. 2003. Molecular mechanisms in
 calvarial bone and suture development, and their relation to
