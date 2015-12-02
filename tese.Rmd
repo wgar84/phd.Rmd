@@ -30,7 +30,7 @@ thesis <- TRUE
 \fancyhf{}
 \fancyhead[RO]{\leftmark}
 \fancyhead[LE]{\rightmark}
-\fancyfoot[C]{\thepage}
+\fancyfoot[RO,LE]{\thepage}
 
 \renewcommand{\headrulewidth}{0.5pt}
 
