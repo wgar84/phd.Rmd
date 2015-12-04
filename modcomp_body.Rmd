@@ -321,7 +321,7 @@ Such interactions are the expression of local developmental factors, as they int
 Although these events of local integration overlap, and the composed effect over adult covariance patterns may be confusing [@hallgrimsson_mouse_2008; @hallgrimsson_deciphering_2009], we believe that a careful comparison of different yet equally proper ways of measuring and representing form may be informative of the underlying processes that produce covariances.
 
 Due to the minimization of quadratic distances among homologous landmarks during GPA, covariance matrices derived from Procrustes estimators lose the signal of localized effects on covariance patterns [@linde_inferring_2009].
-Therefore, the use of Procrustes estimators to investigate morphological integration or modularity implicitly implies in a divorce between the phenomenom under investigation and the chosen representation.
+Therefore, the use of Procrustes estimators to investigate morphological integration or modularity implicitly implies a dissociation between the phenomenom under investigation and the chosen representation.
 This disconnection between theory and measurement may have serious consequences for the hypotheses we wish to test [@houle_measurement_2011]; such consequences are observable in both our empirical tests and those tests performed on theoretical matrices, as we explore below.
 
 The mammalian Basicranium originates from thirteen precursor tissues derived from both paraxial mesoderm and neural crest, and they may merge to form single bones, such as the sphenoid [@jiang_tissue_2002; @lieberman_epigenetic_2011].

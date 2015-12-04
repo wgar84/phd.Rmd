@@ -32,7 +32,7 @@ We also sampled variances from each type of morphometric variable, thus construc
 We considered only positive-definite matrices; if any given matrix did not fit this criterion, we discarded that matrix and sampled new correlations; thus, we can sample observations from a multivariate normal distribution using each of these 60000 matrices as the $\Sigma$ parameter.
 For each matrix, we also randomly determine the number of traits in both sets,  establishing a minimum value of five for set size.
 
-We used this set of 60000 covariance matrices of known structure ($\mathbf{C}_s$) to built another set of covariance matrices of unknown, random structure ($\mathbf{C}_r$) by simply shuffling both lines and columns of each matrix.
+We used this set of 60000 covariance matrices of known structure ($\mathbf{C}_s$) to build another set of covariance matrices of unknown, random structure ($\mathbf{C}_r$) by simply shuffling both lines and columns of each matrix.
 For all matrices ($\mathbf{C}_r$ and $\mathbf{C}_s$) we obtained samples of increasing size (20, 40, 60, 80, 100 individuals) and re-estimated a covariance matrix for each sample, thus considering in our tests the uncertainty derived from sampling.
 For each matrix estimated, both $\mathbf{C}_r$ and $\mathbf{C}_s$, we test the hypothesis that the two sets used to generate each $\mathbf{C}_s$ matrix represent two variational modules, using both MHI and RV coefficients, as described in the section 'Empirical Tests'.
 

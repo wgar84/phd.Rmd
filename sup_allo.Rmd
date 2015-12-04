@@ -33,8 +33,6 @@ captions $ fig.cac_shape <- "Shape variation associated with the Common Allometr
 ## captions $ fig.lambda_MI <- "Distribution of Pagel's lambda for the mixed regressions between AVG Indexes for each trait set and static allometric slopes ($b_s$). \\label{fig:lambda_MI}"
 
 captions $ fig.MI_vs_slopeW_si <- "Modularity Hypothesis Indexes (MHI) *vs.* allometric slope deviations ($b_s$). For each local trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_si}"
-
-
 ```
 
 \renewcommand{\thefigure}{S\arabic{figure}}

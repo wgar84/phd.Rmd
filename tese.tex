@@ -987,7 +987,7 @@ randomly determine the number of traits in both sets, establishing a
 minimum value of five for set size.
 
 We used this set of 60000 covariance matrices of known structure
-($\mathbf{C}_s$) to built another set of covariance matrices of unknown,
+($\mathbf{C}_s$) to build another set of covariance matrices of unknown,
 random structure ($\mathbf{C}_r$) by simply shuffling both lines and
 columns of each matrix. For all matrices ($\mathbf{C}_r$ and
 $\mathbf{C}_s$) we obtained samples of increasing size (20, 40, 60, 80,
@@ -1263,8 +1263,8 @@ Due to the minimization of quadratic distances among homologous
 landmarks during GPA, covariance matrices derived from Procrustes
 estimators lose the signal of localized effects on covariance patterns
 (Linde \& Houle, 2009). Therefore, the use of Procrustes estimators to
-investigate morphological integration or modularity implicitly implies
-in a divorce between the phenomenom under investigation and the chosen
+investigate morphological integration or modularity implicitly implies a
+dissociation between the phenomenom under investigation and the chosen
 representation. This disconnection between theory and measurement may
 have serious consequences for the hypotheses we wish to test (Houle
 \emph{et al.}, 2011); such consequences are observable in both our
@@ -1733,28 +1733,28 @@ to Figure \ref{fig:phylo_model}, using generalized linear models.
 \subsubsection{Summarizing Shape
 Variation}\label{summarizing-shape-variation}
 
-We obtained a pooled within-species covariance matrix estimate for all
-5108 individuals in our sample. We consider this estimate our best
-surrogate for phenotypic covariance patterns for log Centroid Size
-(logCS) and local shape variables in the ancestral Anthropoid
-population. Using this estimate, we obtained the Common Allometric
-Component (CAC: regression coefficients of shape onto logCS;
-Mitteroecker \emph{et al.}, 2004) by dividing the covariances between
-local shape variables and logCS by the standard deviation of logCS and
-normalizing this vector of regression coefficients. Hence, the CAC
-represents the pooled within-species overall effect of size onto shape.
-We projected all individuals in our sample along this direction, thus
-obtaining individual scores over the CAC for each sample unit. With the
-model considering the relationship between CAC and logCS, we are able to
-test whether the strength of association between this ancestral
-allometric component and size has remained stable or changed during
-Anthropoid diversification, while a full multivariate model of local
-shape variables over logCS would allow testing whether the direction of
-within-species allometric components has changed. However, this
-reduction in dimensionality is necessary because a full multivariate
-random regression model using all 38 local shape variables would be
-computationally untractable, considering the actual state of MCMC
-samplers available.
+After controlling for fixed effects within each species, we obtained a
+pooled within-species covariance matrix estimate for all 5108
+individuals in our sample. We consider this estimate our best surrogate
+for phenotypic covariance patterns for log Centroid Size (logCS) and
+local shape variables in the ancestral Anthropoid population. Using this
+estimate, we obtained the Common Allometric Component (CAC: regression
+coefficients of shape onto logCS; Mitteroecker \emph{et al.}, 2004) by
+dividing the covariances between local shape variables and logCS by the
+standard deviation of logCS and normalizing this vector of regression
+coefficients. Hence, the CAC represents the pooled within-species
+overall effect of size onto shape. We projected all individuals in our
+sample along this direction, thus obtaining individual scores over the
+CAC for each sample unit. With the model considering the relationship
+between CAC and logCS, we are able to test whether the strength of
+association between this ancestral allometric component and size has
+remained stable or changed during Anthropoid diversification, while a
+full multivariate model of local shape variables over logCS would allow
+testing whether the direction of within-species allometric components
+has changed. However, this reduction in dimensionality is necessary
+because a full multivariate random regression model using all 38 local
+shape variables would be computationally untractable, considering the
+actual state of MCMC samplers available.
 
 \subsubsection{Random Regression Model}\label{random-regression-model}
 
@@ -1924,10 +1924,17 @@ composed of Callithrichinae and Aotinae, and in \emph{Alouatta} within
 Atelids, while lower intercepts are found in the clade composed of
 \emph{Homo} and \emph{Pan} within Hominidae, in \emph{Hylobates} within
 Hylobatids, and also in \emph{Ateles} within Atelids
-(\autoref{fig:phylo_W}a). Allometric slopes on the other hand deviate
-from the mean in only three species: \emph{Homo sapiens} and both
-representatives of \emph{Gorilla}, all with slopes shallower than the
-mean (\autoref{fig:phylo_W}b).
+(\autoref{fig:phylo_W}a). It is noteworthy that we mean-centered logCS
+values for the entire sample, and intercepts then refer to the point at
+which allometric trajectories for all species cross this mean value
+(\autoref{fig:cac_logCS}b); more generally, as intercepts are defined in
+the same scale as the response variable (CAC projections), lower
+intercepts represent increased neurocranial capacity and shorter faces,
+while the converse is valid for higher intercepts
+(\autoref{fig:cac_logCS}a). Allometric slopes deviate from the mean in
+only three species: \emph{Homo sapiens} and both representatives of
+\emph{Gorilla}, all with slopes shallower than the mean
+(\autoref{fig:phylo_W}b).
 
 \begin{figure}[htbp]
 \centering
@@ -1994,21 +2001,21 @@ changes in morphological, physiological and other organismal aspects
 along a size-trait gradient (e.g. Gould, 1974) has historically been
 confronted with the opposing view that allometry may be in fact much
 more dynamic and evolvable (e.g. Kodric-Brown \emph{et al.}, 2006;
-Bonduriansky, 2007; Frankino \emph{et al.}, 2009). This paradox may owe
-its existence to different meanings for allometry (Houle \emph{et al.},
-2011): one related to any relationship of a given trait with size
-measured on any scale, while the other associates allometry with the
-multiplicative nature of biological growth and local differences in
-growth driven by development (Huxley, 1932), thus defining allometry as
-relationships strictly in a log-log scale. Such strict definition allows
-linking allometric relationships to the population- and individual-level
-processes that control both the timing and rate of life-history events,
-such as birth, weaning, and sexual maturation (Houle, 2001; Voje
-\emph{et al.}, 2013; Pélabon \emph{et al.}, 2014) and their
-physiological consequences (West \emph{et al.}, 1997, 2001). Considering
-the few studies estimating evolvability of narrow-sense allometry, only
-two demonstrate changes in allometric slopes (Tobler \& Nijhout, 2010;
-Bolstad \emph{et al.}, 2015).
+Frankino \emph{et al.}, 2009). This paradox may owe its existence to
+different meanings for allometry (Houle \emph{et al.}, 2011): one
+related to any relationship of a given trait with size measured on any
+scale, while the other associates allometry with the multiplicative
+nature of biological growth and local differences in growth driven by
+development (Huxley, 1932), thus defining allometry strictly in a
+log-log scale. Such strict definition allows linking allometric
+relationships to the population- and individual-level processes that
+control both the timing and rate of life-history events, such as birth,
+weaning, and sexual maturation (Houle, 2001; Voje \emph{et al.}, 2013;
+Pélabon \emph{et al.}, 2014) and their physiological consequences (West
+\emph{et al.}, 1997, 2001). Considering the few studies estimating
+evolvability of narrow-sense allometry, only two demonstrate changes in
+allometric slopes (Tobler \& Nijhout, 2010; Bolstad \emph{et al.},
+2015).
 
 The results we obtained from the phylogenetic random regression indicate
 that substantial changes have occurred on intercepts, especially in New
@@ -2020,17 +2027,17 @@ Callithrichines and \emph{Aotus}, selection for reduced body size is
 pervasive, and associated with shifts in pre-natal growth rates,
 considering a maintenance in relative gestation lengths with respect to
 their sizes (Marroig \& Cheverud, 2009). The increased intercepts in
-this lineage may be related to a reduction in average endocranial volume
-compared to other Platyrrhines (Hartwig \emph{et al.}, 2011), since
-brain growth occurs mostly during the prenatal phase in primates
-(Lieberman, 2011). Increased intercepts has also been observed in howler
-monkeys (\emph{Alouatta}), in which reduced brain capacity both in terms
-of mass and volume has been associated with a trade-off between a
-herbivorous diet and the energetic requirements of a large brain (Aiello
-\& Wheeler, 1995; Hartwig \emph{et al.}, 2011). It is also noteworthy
-that, in some lineages of New World Monkeys, selection for changes in
-body size did not affect intercepts or slopes; for instance, selection
-for increased body size in \emph{Cebus} (Marroig \emph{et al.}, 2012)
+this lineage may be related to a reduction in endocranial volume
+relative to body size in comparison to other Platyrrhines (Hartwig
+\emph{et al.}, 2011), since brain growth occurs mostly during the
+prenatal phase in primates (Lieberman, 2011). Increased intercepts has
+also been observed in howler monkeys (\emph{Alouatta}), in which reduced
+brain capacity both in terms of mass and volume has been associated with
+a trade-off between a herbivorous diet and the energetic requirements of
+a large brain (Aiello \& Wheeler, 1995). It is also noteworthy that, in
+some lineages of New World Monkeys, selection for changes in body size
+did not affect intercepts or slopes; for instance, selection for
+increased body size in \emph{Cebus} (Marroig \emph{et al.}, 2012)
 produced only a correlated response on skull shape, along the same
 allometric relationships observed in its sister genus \emph{Saimiri}
 (Marroig, 2007). The converse is also true: while saki monkeys
@@ -2044,8 +2051,8 @@ have occurred in other lineages such as \emph{Alouatta} and
 \emph{Callithrix} (\autoref{fig:phylo_W}b). Even though \emph{Homo} and
 \emph{Gorilla} are closely related and exhibit slopes that are shallower
 than remaining Anthropoids, such slopes represent two distinct patterns
-of ontogenetic trajectories (Mitteroecker \& Bookstein, 2008). For
-\emph{Gorilla}, this change mostly represents an increase in
+of changes in ontogenetic trajectories (Mitteroecker \& Bookstein,
+2008). For \emph{Gorilla}, this change mostly represents an increase in
 neurocranial capacity near the end of their trajectory, while for
 \emph{Homo} it represents deviations occurring since the beginning of
 post-natal growth affecting mostly Oral and Vault traits, which results
@@ -2089,21 +2096,21 @@ Arnold \emph{et al.}, 2008; Jones \emph{et al.}, 2012; Melo \& Marroig,
 epistatic interactions (Pavlicev \emph{et al.}, 2008, 2011).
 
 Concurrently, these changes in \emph{Homo} may also be the result of
-changes in environmental effects associated with cooking, especially for
-Facial traits, since part of the integration observed in both regions
-can be attributed to the effect of post-natal muscular activity on bone
-growth, induced by masticatory loadings (Hallgrímsson \& Lieberman,
-2008; Zelditch \emph{et al.}, 2009; Herring, 2011). The act of cooking
-meals may already have produced changes in physiological aspects of food
-intake in humans (Wrangham \& Conklin-Brittain, 2003), as the oldest
-paleoanthropological evidence on the use of fire by Hominins dates back
-to 1.6 Million Years ago, which coincides with the emergence of modern
-forms \emph{Homo} such as \emph{H. erectus}, with reduced Facial
-morphology when compared to early representatives (Wrangham \emph{et
-al.}, 1999). Hence, this cultural aspect of our ecology may also
-contribute to shallower allometric relationships in skull traits, since
-food processing and cooking reduces masticatory loadings associated with
-its intake.
+changes in environmental effects associated with food processing,
+especially for Facial traits, since part of the integration observed in
+this region can be attributed to the effect of post-natal muscular
+activity on bone growth, induced by masticatory loadings (Hallgrímsson
+\& Lieberman, 2008; Zelditch \emph{et al.}, 2009; Herring, 2011). The
+act of processing food and cooking meals may already have produced
+changes in physiological aspects of food intake in humans (Wrangham \&
+Conklin-Brittain, 2003), as the oldest paleoanthropological evidence on
+the use of fire by Hominins dates back to 1.6 Million Years ago
+({\textbf{???}}), which coincides with the emergence of modern forms
+\emph{Homo} such as \emph{H. erectus}, with reduced Facial morphology
+(Wrangham \emph{et al.}, 1999). Hence, this cultural aspect of our
+ecology may also contribute to shallower allometric relationships in
+skull traits, since food processing and cooking reduces masticatory
+loadings associated with its intake.
 
 Shifts in allometric slopes throughout Anthropoid diversification imply
 changes in the strength of association between Facial and Neurocranial
@@ -2121,19 +2128,19 @@ slopes, such as \emph{Ateles} and \emph{Alouatta}, exhibit strong Facial
 integration and lower Neurocranial integration, while groups with
 shallower slopes, such as Callithrichines, \emph{Homo}, and
 \emph{Gorilla}, exhibit similar integration values for both regions,
-indicating that the restriction over allometric relationships are
-associated with the maintenance of the functional interactions among
-skull traits. Although the bulk of this effect over phenotypic variation
-may have an environmental origin (Cheverud, 1982b), muscular activity is
-necessary for the proper development of osteological elements (Herring,
-2011), and even though such functional interactions depend on the
-environment, they are canalized in a predictable manner given the
-existence of epigenetic effects through skull development (Lieberman,
-2011). These features of developmental systems may be a consequence of
-the selective pressures these systems suffer for both robustness and
-replicability (Wagner \& Altenberg, 1996; Hansen, 2011; Pavlicev \&
-Hansen, 2011), as they exhibit behaviors similar to machine learning
-algorithms (Watson \emph{et al.}, 2013).
+indicating that constraints over allometric relationships are associated
+with the maintenance of the functional interactions among skull traits.
+Although the bulk of this effect over phenotypic variation may have an
+environmental origin (Cheverud, 1982b), muscular activity is necessary
+for the proper development of osteological elements (Herring, 2011), and
+even though such functional interactions depend on the environment, they
+are canalized in a predictable manner given the existence of epigenetic
+effects through skull development (Lieberman, 2011). These features of
+developmental systems may be a consequence of the selective pressures
+these systems suffer for both robustness and replicability (Wagner \&
+Altenberg, 1996; Hansen, 2011; Pavlicev \& Hansen, 2011), as they
+exhibit behaviors similar to machine learning algorithms (Watson
+\emph{et al.}, 2013).
 
 Here, we demonstrated under a comparative framework that allometric
 intercepts are more labile than slopes in a macroevolutionary scale and
@@ -2275,15 +2282,8 @@ that the patterns embedded in the adaptive landscape can overcome
 constraints imposed by development (Jamniczky \& Hallgrímsson, 2009).
 The adaptive radiation of phylostomid bats, for instance, has involved
 rearrangements of mandibular phenotypic covariance structure (Monteiro
-\& Nogueira, 2010), as the dietary divergence in this group is probably
+\& Nogueira, 2010), as the dietary divergence in this group may be
 associated with a very heterogeneous adpative landscape.
-
-Currently, there is an abundance of methods dedicated to the comparison
-of covariance structure among lineages. These methods will either
-provide a sole descriptive statistic of matrix similarity or
-dissimilarity (Krzanowsky, 1979; Mitteroecker \& Bookstein, 2009;
-Bookstein \& Mitteroecker, 2014) or rely on some form of hypothesis
-testing (Phillips \& Arnold, 1999; Cheverud \& Marroig, 2007).
 
 \subsubsection{Objectives}\label{objectives-1}
 
@@ -2798,10 +2798,6 @@ der \& Houle, D.\emph{et al.} 2015. Complex constraints on allometry
 revealed by artificial selection on the wing of Drosophila melanogaster.
 \emph{Proceedings of the National Academy of Sciences} 201505357.
 
-Bonduriansky, R. 2007. Sexual Selection and Allometry: A Critical
-Reappraisal of the Evidence and Ideas. \emph{Evolution} \textbf{61}:
-838--849.
-
 Bookstein, F.L. 1982. Foundations of Morphometrics. \emph{Annual Review
 of Ecology and Systematics} \textbf{13}: 451--470.
 
@@ -2811,10 +2807,6 @@ geometry and biology}. Cambridge University Press, Cambridge.
 Bookstein, F.L. 1989. Principal warps: Thin plate splines and the
 decomposition of deformations. \emph{IEEE Transactions on Pattern
 Analysis and Machine Intelligence} \textbf{11}: 567--585.
-
-Bookstein, F.L. \& Mitteroecker, P. 2014. Comparing Covariance Matrices
-by Relative Eigenanalysis, with Applications to Organismal Biology.
-\emph{Evolutionary Biology} \textbf{41}: 336--350.
 
 Bookstein, F.L., Chernoff, B., Elder, R., Humphries, Smith, G. \&
 Strauss, R. 1985. \emph{Morphometrics in Evolutionary Biology}. The
@@ -3131,10 +3123,6 @@ Kolbe, J.J., Revell, L.J., Szekely, B., Brodie III, E.D. \& Losos, J.B.
 with Morphological Diversification in Caribbean Anolis Ecomorphs.
 \emph{Evolution} \textbf{65}: 3608--3624.
 
-Krzanowsky, W.J. 1979. Between-Groups Comparison of Principal
-Components. \emph{Journal of the American Statistical Association}
-\textbf{74}: 703--707.
-
 Lande, R. 1985. Genetic and Evolutionary Aspects of Allometry. In:
 \emph{Size and Scaling in Primate Biology} (W. L. Jungers, ed), pp.
 21--32. Springer US.
@@ -3355,10 +3343,6 @@ Allometry. \emph{The American Naturalist} \textbf{181}: 195--212.
 Pélabon, C., Firmat, C., Bolstad, G.H., Voje, K.L., Houle, D. \&
 Cassara, J.\emph{et al.} 2014. Evolution of morphological allometry.
 \emph{Annals of the New York Academy of Sciences} n/a--n/a.
-
-Phillips, P.C. \& Arnold, S.J. 1999. Hierarchical comparison of genetic
-variance-covariance matrices. I. Using the Flury hierarchy.
-\emph{Evolution} \textbf{53}: 1506--1515.
 
 Polly, P.D. 2008. Developmental Dynamics and G-Matrices: Can
 Morphometric Spaces be Used to Model Phenotypic Evolution?

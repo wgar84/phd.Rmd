@@ -53,14 +53,21 @@ The comparative analysis of phenotypic covariance structure shows that $\mathbf{
 In New World Monkeys (Platyrrhini), divergence in body size among lineages is closely associated with shifts in diet composition [@rosenberger_evolution_1992].
 Size represents the main feature of both genetic [@cheverud_morphological_1995; @cheverud_quantitative_1996] and phenotypic [@marroig_size_2005] covariance structure, and for some groups within New World Monkeys, such as Atelids and Callithrichines, divergence in body size is a direct consequence of directional selection [@marroig_size_2010; @marroig_modularity_2012].
 However, dietary or locomotory divergence between sister lineages can rearrange the patterns expressed in $\mathbf{P}$ in some situations [@young_serial_2005; @young_development_2010; @monteiro_adaptive_2010; @haber_evolution_2015], and such reorganization hints at changes in the underlying architecture of the genotype/phenotype map, indicating that the patterns embedded in the adaptive landscape can overcome constraints imposed by development [@jamniczky_comparison_2009].
-The adaptive radiation of phylostomid bats, for instance, has involved rearrangements of mandibular phenotypic covariance structure [@monteiro_adaptive_2010], as the dietary divergence in this group is probably associated with a very heterogeneous adpative landscape.
+The adaptive radiation of phylostomid bats, for instance, has involved rearrangements of mandibular phenotypic covariance structure [@monteiro_adaptive_2010], as the dietary divergence in this group may be associated with a very heterogeneous adpative landscape.
 
+Currently, there is an abundance of methods dedicated to the comparison of covariance structure among lineages [e.g. @krzanowsky_between-groups_1979; @phillips_hierarchical_1999; @cheverud_comparing_2007], and such methods are often focused on constructing null hypothesis of similarity or dissimilarity [@haber_evolution_2015].
+Moreover, although these methods provide a measure of (dis)similarity among covariance matrices, they lack a 
+
+<!---
 Currently, there is an abundance of methods dedicated to the comparison of covariance structure among lineages. 
 These methods will either provide a sole descriptive statistic of matrix similarity or dissimilarity [@krzanowsky_between-groups_1979; @mitteroecker_ontogenetic_2009; @bookstein_comparing_2014] or rely on some form of hypothesis testing [@phillips_hierarchical_1999; @cheverud_comparing_2007].
+-->
 
 ### Objectives
 
-The interplay between developmental and functional interactions, and their relationships with the structure of adaptive landscapes may both influence the divergence between covariance structure in sister lineages. Thus, in the present work, we evaluate the stability of cranial phenotypic covariance structure along the diversification of Anthropoid Primates under an explicit phylogenetic framework, considering that either developmental and functional interactions will produce different degrees of stability among different cranial regions, thus producing a non-random pattern of changes in covariance structure.
+The interplay between developmental and functional interactions, and their relationships with the structure of adaptive landscapes may both influence the divergence between covariance structure in sister lineages. Thus, in the present work, we evaluate the stability of cranial phenotypic covariance structure along the diversification of Anthropoid Primates, considering that either developmental and functional interactions will produce different degrees of stability among different cranial regions, thus producing a non-random pattern of changes in covariance structure.
+
+Here, we follow the methodology introduced by @haber_evolution_2015 for comparing phenotypic covariance structure under a explicit phylogenetic framework, but with important considerations regarding the topological properties of the set of covariance matrices
 
 # Methods
 
