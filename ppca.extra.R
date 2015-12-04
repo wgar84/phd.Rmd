@@ -90,3 +90,22 @@ ppca.Data $ post.arc %>%
   }
 
 ppca.shape.comp <- plot_grid(plotlist = ppca.shape, ncol = 2, rel_widths = c(1, 1.275))
+
+
+ds.srd.pr <- post.ppca $ mean.srd.df
+
+levels(ds.srd.pr $ hyp) [1] <- 'Size'
+
+alt.spline <- 
+  ggplot(ds.srd.pr) +
+  geom_point(aes (x = pm, y = mean.trait, color = hyp),
+                  alpha = 0.6) +
+  facet_wrap(~ hyp, nrow = 4) +
+  theme_bw() +
+  scale_color_brewer(palette = 'Dark2') +
+  scale_x_continuous(breaks = c(1, 31, 61, 91)) +
+  xlab('pPC') + ylab('Posterior SRD Mean') +
+  guides(color = guide_legend (ncol = 4), 
+         fill = guide_legend (ncol = 4)) +
+  theme(legend.position = "bottom") +
+  guides(color = FALSE)

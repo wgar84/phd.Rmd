@@ -132,25 +132,77 @@ browseURL('index.html', 'firefox')
 
 ## sum (var [var > 0]) / sum (abs (var))
 
-
 ### poe isso no ppca.extra.R depois
 
-ds.srd.pr <- post.ppca $ mean.srd.df
+gradient <- colorRampPalette(rev(brewer.pal (10, 'Spectral')))
 
-levels(ds.srd.pr $ hyp) [1] <- 'Size'
+cac.root <-
+  ggshape(
+  allo.Data $ CAC.shapes[, , 3],
+  Aux $ single.tessel.38, allo.Data $ root.CAC,
+  palette = brewer.pal(10, 'Spectral'), rotation = c(1, -1, 1),
+  culo = 0.03, thickness = 1.5) +
+  ggtitle('Common Allometric Component') +
+  scale_color_gradientn(
+    'Trait Loadings',
+    limits = c(-0.45, 0.45), colours = gradient(10),
+    breaks = c(-0.3, 0, 0.3)) +
+  scale_fill_gradientn(
+    'Trait Loadings',
+    limits = c(-0.45, 0.45), colours = gradient(10),
+    breaks = c(-0.3, 0, 0.3)) +
+  theme (legend.position = 'bottom') +
+  guides(colour = guide_colorbar(title.position = "top"),
+         fill = guide_colorbar(title.position = "top"))
 
-alt.spline <- 
-  ggplot(ds.srd.pr) +
-  geom_point(aes (x = pm, y = mean.trait, color = hyp),
-                  alpha = 0.6) +
-  facet_wrap(~ hyp, nrow = 4) +
-  theme_bw() +
-  scale_color_brewer(palette = 'Dark2') +
-  scale_x_continuous(breaks = c(1, 31, 61, 91)) +
-  xlab('pPC') + ylab('Posterior SRD Mean') +
-  guides(color = guide_legend (ncol = 4), 
-         fill = guide_legend (ncol = 4)) +
-  theme(legend.position = "bottom") +
-  guides(color = FALSE)
+cac.homo <-
+  ggshape(
+    Reference [, , 'Homo_sapiens'],
+    Aux $ single.tessel.38, allo.Data $ wAC.all.Def ['Homo_sapiens', ],
+    palette = brewer.pal(10, 'Spectral'), rotation = c(-1, 1, -1),
+    culo = 0.03, thickness = 1.5) +
+  ggtitle(expression (italic('Homo sapiens'))) +
+  scale_color_gradientn(
+    limits = c(-0.45, 0.45), colours = gradient(10)) +
+  scale_fill_gradientn(
+    limits = c(-0.45, 0.45), colours = gradient(10)) +
+  guides (color = FALSE, fill = FALSE)
+
+cac.gor <- 
+  ggshape(
+    Reference [, , 'Gorilla_gorilla'],
+    Aux $ single.tessel.38, allo.Data $ wAC.all.Def ['Gorilla_gorilla', ],
+    palette = brewer.pal(10, 'Spectral'), rotation = c(1, 1, 1),
+    culo = 0.03, thickness = 1.5) +
+  ggtitle(expression (italic('Gorilla gorilla')))+
+    scale_color_gradientn(
+      limits = c(-0.45, 0.45), colours = gradient(10)) +
+  scale_fill_gradientn(
+    limits = c(-0.45, 0.45), colours = gradient(10)) +
+  guides (color = FALSE, fill = FALSE)
+
+cac.ber <- 
+  ggshape(
+    Reference [, , 'Gorilla_beringei'],
+    Aux $ single.tessel.38, allo.Data $ wAC.all.Def ['Gorilla_beringei', ],
+    palette = brewer.pal(10, 'Spectral'), rotation = c(1, 1, 1),
+    culo = 0.03, thickness = 1.5) +
+  ggtitle(expression (italic ('Gorilla beringei'))) +
+  scale_color_gradientn(
+      limits = c(-0.45, 0.45), colours = gradient(10)) +
+  scale_fill_gradientn(
+    limits = c(-0.45, 0.45), colours = gradient(10)) +
+  guides (color = FALSE, fill = FALSE)
+
+cac.homi <- 
+  ggdraw() +
+  draw_plot(cac.homo, 0, 0.5, 0.5, 0.5) +
+  draw_plot(cac.gor, 0.5, 0.5, 0.5, 0.5) +
+  draw_plot(cac.root, 0, 0, 0.5, 0.5) +
+  draw_plot(cac.ber, 0.5, 0.1, 0.5, 0.5) +
+  draw_line(c(0.52, 0.52), c(0, 0.55)) +
+  draw_line(c(0, 0.52), c(0.55, 0.55)) +
+  draw_line(c(0, 0), c(0, 0.55)) +
+  draw_line(c(0, 0.52), c(0, 0))
 
 
