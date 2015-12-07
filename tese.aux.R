@@ -205,4 +205,3 @@ cac.homi <-
   draw_line(c(0, 0), c(0, 0.55)) +
   draw_line(c(0, 0.52), c(0, 0))
 
-

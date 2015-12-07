@@ -26,14 +26,13 @@ thesis <- TRUE
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
-
 \fancyhf{}
-\fancyhead[RO]{\leftmark}
-\fancyhead[LE]{\rightmark}
+\fancyhead[RO]{\itshape \leftmark}
+\fancyhead[LE]{\itshape \rightmark}
 \fancyfoot[RO,LE]{\thepage}
-
 \renewcommand{\headrulewidth}{0.5pt}
-
+\renewcommand{\footrulewidth}{0pt}
+	
 \linenumbers
 \modulolinenumbers[5]
 

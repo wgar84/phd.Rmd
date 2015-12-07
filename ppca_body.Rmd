@@ -5,7 +5,7 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 ```
 
 ```{r captions_ppca, include = FALSE}
-captions $ fig.matrix_variation <- 'Representation of the steps used to characterize covariance matrix variation. In (a), the set of covariance matrices $\\mathbf{A}$, $\\mathbf{B}$ and $\\mathbf{C}$ in the neighbourhood of $\\mathbf{M}$ are projected into an Euclidean space and eigentensors are estimated (PM1 and PM2); in (b), these eigentensors are rotated to incorporate phylogenetic relatedness; in (c), covariance matrices corresponding to the upper and lower bounds of the confidence intervals for each axis are returned back to the original manifold. See text for more details. \\label{fig:matrix_variation}'
+captions $ fig.matrix_variation <- 'Representation of the steps used to characterize covariance matrix variation. In (a), the set of covariance matrices $\\mathbf{A}$, $\\mathbf{B}$ and $\\mathbf{C}$ in the neighbourhood of $\\mathbf{M}$ are projected into an Euclidean space and eigentensors are estimated (PM1 and PM2); in (b), these eigentensors are rotated to incorporate phylogenetic relatedness; in (c), covariance matrices at the upper and lower bounds of the confidence intervals for each axis are returned back to the original manifold. See text for more details. \\label{fig:matrix_variation}'
 
 captions $ fig.eval <- 'Posterior distribution of eigenvalues obtained for pPCs; positive eigenvalues are associated with phylogenetic signal; negative eigenvalues are associated with convergence. \\label{fig:eval}'
 
@@ -33,7 +33,7 @@ Phenotypic traits evolve in a concerted manner either because of shared genetic 
 The additive genetic covariances among traits ($\mathbf{G}$) and the partial regression coefficients of fitness onto traits ($\beta$) provide linear approximations for both these effects in the characterization of phenotypic change across generations [@lande_quantitative_1979; @rice_general_2002].
 Therefore, the additive covariances in $\mathbf{G}$ represent the codependency among traits due to pleiotropy and linkage disequilibrium, characterizing a linear genotype/phenotype map centered on the mean phenotype [@cheverud_developmental_1996; @wagner_homologues_1996; @wagner_eigenvalue_1984].
 
-However, this structure of pleiotropic interactions depends on the local curvature of the genotype/phenotype map, traditionally represented in quantitative genetics as either dominance or epistasis [@rice_evolution_1998; @wolf_developmental_2001; @rice_developmental_2004].
+However, the structure of pleiotropic interactions depends on the local curvature of the genotype/phenotype map, traditionally represented in quantitative genetics as either dominance or epistasis [@rice_evolution_1998; @wolf_developmental_2001; @rice_developmental_2004].
 The effect of epistatic *loci* on the modulation of pleiotropic interactions has been identified in experimental settings [e.g. @cheverud_pleiotropic_2004; @wolf_epistatic_2005; @pavlicev_genetic_2008], thus indicating that populations may harbor genetic variation in the linear components of genotype/phenotype maps.
 Genetic covariances among phenotypic traits then evolve as a consequence of shifts in allele frequencies in these *loci*, for example in response to genetic drift and founder effects [@goodnight_quantitative_2000; @de_brito_evolution_2005].
 Local features of the adaptive landscape may also impact genetic covariances among traits, as $\mathbf{G}$ is thought to match the patterns imposed by stabilizing selection and mutational effects [@lande_genetic_1980; @cheverud_quantitative_1984; @jones_mutation_2007]. Moreover, more recently, both experimental data [@careau_evolution_2015] and simulation-based models [@jones_effects_2012; @melo_directional_2015] have demonstrated the effects of directional selection on the structure described by $\mathbf{G}$.
@@ -52,22 +52,17 @@ The similarity in covariance structure between $\mathbf{P}$ and $\mathbf{G}$ ['C
 The comparative analysis of phenotypic covariance structure shows that $\mathbf{P}$ can remain stable in macroevolutionary scales [e.g. @marroig_comparison_2001; @oliveira_covariance_2009; @kolbe_convergent_2011], and such stability may be a consequence of alignment between phenotypic covariance structure and the local features of the adaptive landscape acting over different lineages.
 In New World Monkeys (Platyrrhini), divergence in body size among lineages is closely associated with shifts in diet composition [@rosenberger_evolution_1992].
 Size represents the main feature of both genetic [@cheverud_morphological_1995; @cheverud_quantitative_1996] and phenotypic [@marroig_size_2005] covariance structure, and for some groups within New World Monkeys, such as Atelids and Callithrichines, divergence in body size is a direct consequence of directional selection [@marroig_size_2010; @marroig_modularity_2012].
-However, dietary or locomotory divergence between sister lineages can rearrange the patterns expressed in $\mathbf{P}$ in some situations [@young_serial_2005; @young_development_2010; @monteiro_adaptive_2010; @haber_evolution_2015], and such reorganization hints at changes in the underlying architecture of the genotype/phenotype map, indicating that the patterns embedded in the adaptive landscape can overcome constraints imposed by development [@jamniczky_comparison_2009].
+On the other hand, dietary or locomotory divergence between sister lineages can rearrange the patterns expressed in $\mathbf{P}$ in some situations [@young_serial_2005; @young_development_2010; @monteiro_adaptive_2010; @haber_evolution_2015], and such reorganization hints at changes in the underlying architecture of the genotype/phenotype map, indicating that the patterns embedded in the adaptive landscape can overcome constraints imposed by development [@jamniczky_comparison_2009].
 The adaptive radiation of phylostomid bats, for instance, has involved rearrangements of mandibular phenotypic covariance structure [@monteiro_adaptive_2010], as the dietary divergence in this group may be associated with a very heterogeneous adpative landscape.
 
-Currently, there is an abundance of methods dedicated to the comparison of covariance structure among lineages [e.g. @krzanowsky_between-groups_1979; @phillips_hierarchical_1999; @cheverud_comparing_2007], and such methods are often focused on constructing null hypothesis of similarity or dissimilarity [@haber_evolution_2015].
-Moreover, although these methods provide a measure of (dis)similarity among covariance matrices, they lack a 
-
-<!---
-Currently, there is an abundance of methods dedicated to the comparison of covariance structure among lineages. 
-These methods will either provide a sole descriptive statistic of matrix similarity or dissimilarity [@krzanowsky_between-groups_1979; @mitteroecker_ontogenetic_2009; @bookstein_comparing_2014] or rely on some form of hypothesis testing [@phillips_hierarchical_1999; @cheverud_comparing_2007].
--->
+Currently, there is an abundance of methods dedicated to the comparison of covariance structure among lineages [e.g. @krzanowsky_between-groups_1979; @phillips_hierarchical_1999; @cheverud_comparing_2007], and such methods are often focused on constructing hypothesis of similarity or dissimilarity; however, in some situations, either hypotheses can be rejected in the same comparison [@ackermann_phenotypic_2000; @marroig_comparison_2001; @haber_evolution_2015].
+By expressing covariance matrix (dis)similarities with a single metric, these methods lack an explicit way of describing the differences in covariance structure between pairs of covariance matrices; furthermore, these methods also lack a direct manner to incorporate phylogenetic relatedness in pairwise comparisons.
+While extensions for these methods have been proposed to deal with the first limitation [e.g. @marroig_selection_2011], the second issue is usually resolved by comparing the set of pairwise matrix comparisons with the set of phylogenetic distances among lineages [e.g. @marroig_comparison_2001; @oliveira_covariance_2009].
+Although such comparison provides a first approximation to this problem, it has the same problems as comparing covariance matrices themselves, that is, summarising the relationship between patterns expressed in $\mathbf{P}$ or $\mathbf{G}$ and phylogenetic relatedness to a single value.
 
 ### Objectives
 
 The interplay between developmental and functional interactions, and their relationships with the structure of adaptive landscapes may both influence the divergence between covariance structure in sister lineages. Thus, in the present work, we evaluate the stability of cranial phenotypic covariance structure along the diversification of Anthropoid Primates, considering that either developmental and functional interactions will produce different degrees of stability among different cranial regions, thus producing a non-random pattern of changes in covariance structure.
-
-Here, we follow the methodology introduced by @haber_evolution_2015 for comparing phenotypic covariance structure under a explicit phylogenetic framework, but with important considerations regarding the topological properties of the set of covariance matrices
 
 # Methods
 
@@ -154,7 +149,7 @@ We defined the average matrix among all sampled $\mathbf{P}$-matrices as the loc
 We then used these $\mathbf{P}$-matrices to produce axes of matrix variation using an eigentensor decomposition [@basser_spectral_2007; @hine_characterizing_2009] obtaining a set of eigentensors and eigenvalues that summarise matrix variation (\autoref{fig:matrix_variation}a).
 As a consequence of using the mean covariance matrix for the entire sample over \autoref{eq:map}, the projections over eigentensors we obtained are naturally centered on $\mathbf{M}$. 
 
-We used the projections of $\mathbf{P}$-matrices over these eigentensors as traits in a phylogenetic Principal Component Analysis [pPCA; @jombart_putting_2010], which produces a new set of axes of matrix variation that considers both trait dispersal and phylogenetic relationships among OTUs simultaneously. If $\mathbf{Z}$ represents a matrix with projections of $\mathbf{P}$-matrices over each eigentensor on its columns, phylogenetic PCs are the eigenvectors obtained from
+We used the projections of $\mathbf{P}$-matrices over these eigentensors as traits in a phylogenetic Principal Component Analysis [pPCA; @jombart_putting_2010], which produces a new set of axes of matrix variation that considers both trait dispersal and phylogenetic relationships among OTUs simultaneously. If $\mathbf{Z}$ represents a matrix with projections of $n \mathbf{P}$-matrices over each eigentensor on its columns, phylogenetic PCs are the eigenvectors obtained from
 \begin{equation}
 \frac{1}{2n} \mathbf{Z}^t(\mathbf{W} + \mathbf{W}^t) \mathbf{Z}
 \end{equation}

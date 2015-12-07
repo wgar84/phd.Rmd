@@ -124,6 +124,7 @@
 %\clubpenalty10000
 
 \usepackage{mathpazo} % fonte palatino
+% \usepackage{baskervald} % fonte com cara de manuscrito 1920
 \usepackage{hyperref}
 
 % Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo
@@ -174,6 +175,8 @@
 \geometry{bindingoffset=20pt}
 %\geometry{paperwidth=290mm, paperheight=297mm, margin=1in}
 %\setlength{\marginparwidth=80mm}
+
+\renewcommand{\floatpagefraction}{0.1}
 
 
 \begin{document}
@@ -453,15 +456,16 @@ modularity, morphological integration, anthropoid primates
 
 \onehalfspacing
 
+\renewcommand{\floatpagefraction}{0.1}
+
 \pagestyle{fancy}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 
-\fancyhf{} \fancyhead[RO]{\leftmark} \fancyhead[LE]{\rightmark}
-\fancyfoot[RO,LE]{\thepage}
-
-\renewcommand{\headrulewidth}{0.5pt}
+\fancyhf{} \fancyhead[RO]{\itshape \leftmark}
+\fancyhead[LE]{\itshape \rightmark} \fancyfoot[RO,LE]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt} \renewcommand{\footrulewidth}{0pt}
 
 \linenumbers
 \modulolinenumbers[5]
@@ -2100,17 +2104,20 @@ changes in environmental effects associated with food processing,
 especially for Facial traits, since part of the integration observed in
 this region can be attributed to the effect of post-natal muscular
 activity on bone growth, induced by masticatory loadings (Hallgrímsson
-\& Lieberman, 2008; Zelditch \emph{et al.}, 2009; Herring, 2011). The
-act of processing food and cooking meals may already have produced
-changes in physiological aspects of food intake in humans (Wrangham \&
-Conklin-Brittain, 2003), as the oldest paleoanthropological evidence on
-the use of fire by Hominins dates back to 1.6 Million Years ago
-({\textbf{???}}), which coincides with the emergence of modern forms
-\emph{Homo} such as \emph{H. erectus}, with reduced Facial morphology
-(Wrangham \emph{et al.}, 1999). Hence, this cultural aspect of our
-ecology may also contribute to shallower allometric relationships in
-skull traits, since food processing and cooking reduces masticatory
-loadings associated with its intake.
+\& Lieberman, 2008; Zelditch \emph{et al.}, 2009; Herring, 2011).
+Furthermore, there is evidence for differences in integration for Facial
+traits associated with differences in diet among human populations
+(Paschetta \emph{et al.}, 2015). The act of processing food and cooking
+meals may already have produced changes in physiological aspects of food
+intake in humans (Wrangham \& Conklin-Brittain, 2003), as the oldest
+paleoanthropological evidence on the use of fire by Hominins dates back
+to 1.6 Million Years ago (Roebroeks \& Villa, 2011), which coincides
+with the emergence of modern forms \emph{Homo} such as \emph{H.
+erectus}, with reduced Facial morphology (Wrangham \emph{et al.}, 1999).
+Hence, this cultural aspect of our ecology may also contribute to
+shallower allometric relationships in skull traits, since food
+processing and cooking reduces masticatory loadings associated with its
+intake.
 
 Shifts in allometric slopes throughout Anthropoid diversification imply
 changes in the strength of association between Facial and Neurocranial
@@ -2186,7 +2193,7 @@ represent the codependency among traits due to pleiotropy and linkage
 disequilibrium, characterizing a linear genotype/phenotype map centered
 on the mean phenotype (Wagner, 1984, 1996; Cheverud, 1996a).
 
-However, this structure of pleiotropic interactions depends on the local
+However, the structure of pleiotropic interactions depends on the local
 curvature of the genotype/phenotype map, traditionally represented in
 quantitative genetics as either dominance or epistasis (Rice, 1998,
 2004; Wolf \emph{et al.}, 2001). The effect of epistatic \emph{loci} on
@@ -2273,17 +2280,38 @@ phenotypic (Marroig \& Cheverud, 2005) covariance structure, and for
 some groups within New World Monkeys, such as Atelids and
 Callithrichines, divergence in body size is a direct consequence of
 directional selection (Marroig \& Cheverud, 2010; Marroig \emph{et al.},
-2012). However, dietary or locomotory divergence between sister lineages
-can rearrange the patterns expressed in $\mathbf{P}$ in some situations
-(Young \& Hallgrímsson, 2005; Young \emph{et al.}, 2010; Monteiro \&
-Nogueira, 2010; Haber, 2015), and such reorganization hints at changes
-in the underlying architecture of the genotype/phenotype map, indicating
-that the patterns embedded in the adaptive landscape can overcome
-constraints imposed by development (Jamniczky \& Hallgrímsson, 2009).
-The adaptive radiation of phylostomid bats, for instance, has involved
-rearrangements of mandibular phenotypic covariance structure (Monteiro
-\& Nogueira, 2010), as the dietary divergence in this group may be
-associated with a very heterogeneous adpative landscape.
+2012). On the other hand, dietary or locomotory divergence between
+sister lineages can rearrange the patterns expressed in $\mathbf{P}$ in
+some situations (Young \& Hallgrímsson, 2005; Young \emph{et al.}, 2010;
+Monteiro \& Nogueira, 2010; Haber, 2015), and such reorganization hints
+at changes in the underlying architecture of the genotype/phenotype map,
+indicating that the patterns embedded in the adaptive landscape can
+overcome constraints imposed by development (Jamniczky \& Hallgrímsson,
+2009). The adaptive radiation of phylostomid bats, for instance, has
+involved rearrangements of mandibular phenotypic covariance structure
+(Monteiro \& Nogueira, 2010), as the dietary divergence in this group
+may be associated with a very heterogeneous adpative landscape.
+
+Currently, there is an abundance of methods dedicated to the comparison
+of covariance structure among lineages (e.g. Krzanowsky, 1979; Phillips
+\& Arnold, 1999; Cheverud \& Marroig, 2007), and such methods are often
+focused on constructing hypothesis of similarity or dissimilarity;
+however, in some situations, either hypotheses can be rejected in the
+same comparison (Ackermann \& Cheverud, 2000; Marroig \& Cheverud, 2001;
+Haber, 2015). By expressing covariance matrix (dis)similarities with a
+single metric, these methods lack an explicit way of describing the
+differences in covariance structure between pairs of covariance
+matrices; furthermore, these methods also lack a direct manner to
+incorporate phylogenetic relatedness in pairwise comparisons. While
+extensions for these methods have been proposed to deal with the first
+limitation (e.g. Marroig \emph{et al.}, 2011), the second issue is
+usually resolved by comparing the set of pairwise matrix comparisons
+with the set of phylogenetic distances among lineages (e.g. Marroig \&
+Cheverud, 2001; Oliveira \emph{et al.}, 2009). Although such comparison
+provides a first approximation to this problem, it has the same problems
+as comparing covariance matrices themselves, that is, summarising the
+relationship between patterns expressed in $\mathbf{P}$ or $\mathbf{G}$
+and phylogenetic relatedness to a single value.
 
 \subsubsection{Objectives}\label{objectives-1}
 
@@ -2292,10 +2320,10 @@ their relationships with the structure of adaptive landscapes may both
 influence the divergence between covariance structure in sister
 lineages. Thus, in the present work, we evaluate the stability of
 cranial phenotypic covariance structure along the diversification of
-Anthropoid Primates under an explicit phylogenetic framework,
-considering that either developmental and functional interactions will
-produce different degrees of stability among different cranial regions,
-thus producing a non-random pattern of changes in covariance structure.
+Anthropoid Primates, considering that either developmental and
+functional interactions will produce different degrees of stability
+among different cranial regions, thus producing a non-random pattern of
+changes in covariance structure.
 
 \section{Methods}\label{methods-2}
 
@@ -2496,9 +2524,9 @@ matrix variation. In (a), the set of covariance matrices $\mathbf{A}$,
 $\mathbf{B}$ and $\mathbf{C}$ in the neighbourhood of $\mathbf{M}$ are
 projected into an Euclidean space and eigentensors are estimated (PM1
 and PM2); in (b), these eigentensors are rotated to incorporate
-phylogenetic relatedness; in (c), covariance matrices corresponding to
-the upper and lower bounds of the confidence intervals for each axis are
-returned back to the original manifold. See text for more details.
+phylogenetic relatedness; in (c), covariance matrices at the upper and
+lower bounds of the confidence intervals for each axis are returned back
+to the original manifold. See text for more details.
 \label{fig:matrix_variation}}
 \end{figure}
 
@@ -2518,7 +2546,7 @@ as traits in a phylogenetic Principal Component Analysis (pPCA; Jombart
 \emph{et al.}, 2010), which produces a new set of axes of matrix
 variation that considers both trait dispersal and phylogenetic
 relationships among OTUs simultaneously. If $\mathbf{Z}$ represents a
-matrix with projections of $\mathbf{P}$-matrices over each eigentensor
+matrix with projections of $n \mathbf{P}$-matrices over each eigentensor
 on its columns, phylogenetic PCs are the eigenvectors obtained from
 
 \begin{equation}
@@ -2748,6 +2776,11 @@ should not be taken into account.
 Ackermann, R.R. \& Cheverud, J.M. 2004. Detecting genetic drift versus
 selection in human evolution. \emph{Proceedings of the National Academy
 of Sciences of the United States of America} \textbf{101}: 17946--17951.
+
+Ackermann, R.R. \& Cheverud, J.M. 2000. Phenotypic covariance structure
+in tamarins (genus Saguinus): A comparison of variation patterns using
+matrix correlation and common principal component analysis.
+\emph{American Journal of Physical Anthropology} \textbf{111}: 489--501.
 
 Adams, D.C. \& Otárola-Castillo, E. 2013. geomorph: an r package for the
 collection and analysis of geometric morphometric shape data.
@@ -3123,6 +3156,10 @@ Kolbe, J.J., Revell, L.J., Szekely, B., Brodie III, E.D. \& Losos, J.B.
 with Morphological Diversification in Caribbean Anolis Ecomorphs.
 \emph{Evolution} \textbf{65}: 3608--3624.
 
+Krzanowsky, W.J. 1979. Between-Groups Comparison of Principal
+Components. \emph{Journal of the American Statistical Association}
+\textbf{74}: 703--707.
+
 Lande, R. 1985. Genetic and Evolutionary Aspects of Allometry. In:
 \emph{Size and Scaling in Primate Biology} (W. L. Jungers, ed), pp.
 21--32. Springer US.
@@ -3309,6 +3346,11 @@ University of Chicago Press, Chicago.
 Opperman, L.A. 2000. Cranial sutures as intramembranous bone growth
 sites. \emph{Developmental Dynamics} \textbf{219}: 472--485.
 
+Paschetta, C., De Azevedo, S., González, M., Quinto-Sánchez, M., Cintas,
+C. \& Varela, H.\emph{et al.} 2015. Shifts in subsistence type and its
+impact on the human skull's morphological integration. \emph{American
+Journal of Human Biology} n/a--n/a.
+
 Pavlicev, M. \& Hansen, T.F. 2011. Genotype-Phenotype Maps Maximizing
 Evolvability: Modularity Revisited. \emph{Evolutionary Biology}
 \textbf{38}: 371--389.
@@ -3343,6 +3385,10 @@ Allometry. \emph{The American Naturalist} \textbf{181}: 195--212.
 Pélabon, C., Firmat, C., Bolstad, G.H., Voje, K.L., Houle, D. \&
 Cassara, J.\emph{et al.} 2014. Evolution of morphological allometry.
 \emph{Annals of the New York Academy of Sciences} n/a--n/a.
+
+Phillips, P.C. \& Arnold, S.J. 1999. Hierarchical comparison of genetic
+variance-covariance matrices. I. Using the Flury hierarchy.
+\emph{Evolution} \textbf{53}: 1506--1515.
 
 Polly, P.D. 2008. Developmental Dynamics and G-Matrices: Can
 Morphometric Spaces be Used to Model Phenotypic Evolution?
@@ -3387,6 +3433,10 @@ and Beyond. \emph{Genetics} \textbf{166}: 513--526.
 Rice, S.H. 1998. The Evolution of Canalization and the Breaking of Von
 Baer's Laws: Modeling the Evolution of Development with Epistasis.
 \emph{Evolution} \textbf{52}: 647--656.
+
+Roebroeks, W. \& Villa, P. 2011. On the earliest evidence for habitual
+use of fire in Europe. \emph{Proceedings of the National Academy of
+Sciences} \textbf{108}: 5209--5214.
 
 Roff, D.A. 1995. The estimation of genetic correlations from phenotypic
 correlations: a test of Cheverud's conjecture. \emph{Heredity}
