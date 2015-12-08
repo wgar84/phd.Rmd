@@ -90,7 +90,7 @@ Furthermore, aside from the issues regarding Procrustes estimators, these works 
 
 ### Objectives
 
-In the present work, we compare the methods described by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns using anthropoid primates as a model organism.
+In the present work, we compare the methods described by @cheverud_methods_1989 and @klingenberg_morphometric_2009 to test *a priori* defined modularity patterns using Anthropoid Primates as a model organism.
 In order to compare the performance of these methods with respect to different representations of form, individuals in our sample are represented both as interlandmark distances and shape variables.
 Furthermore, we used an approach based on the construction of theoretical covariance matrices; such matrices are used in order to estimate Type I and Type II error rates for both methods.
 This work aims to analyze both methods, which have been proposed in different contexts, under the same conceptual and statistical framework, in order to produce meaningful comparisons.

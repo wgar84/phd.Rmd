@@ -23,7 +23,7 @@ bibliography: Bib/allo.bib
 
 running title: Allometry in Anthropoids
 
-key words: 
+key words: modularity; integration; geometric morphometrics; phylogenetic regression; MCMC methods
 
 ```{r, echo = FALSE}
 thesis <- FALSE
