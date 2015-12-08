@@ -18,7 +18,7 @@ bibliography: Bib/tese.bib
 ---	
 
 ```{r options, include = FALSE}
-opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
+opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf', fig.pos = 'ht')
 thesis <- TRUE
 ```
 

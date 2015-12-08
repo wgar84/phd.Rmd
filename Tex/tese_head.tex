@@ -43,8 +43,8 @@
 %\widowpenalty10000
 %\clubpenalty10000
 
-\usepackage{mathpazo} % fonte palatino
-% \usepackage{baskervald} % fonte com cara de manuscrito 1920
+% \usepackage{mathpazo} % fonte palatino
+\usepackage{baskervald} % fonte com cara de manuscrito 1920
 \usepackage{hyperref}
 
 % Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo
@@ -93,7 +93,16 @@
     Craniana, Roedores}, pdfproducer={Latex}, pdfcreator={pdflatex}}
  
 \geometry{bindingoffset=20pt}
+
 %\geometry{paperwidth=290mm, paperheight=297mm, margin=1in}
 %\setlength{\marginparwidth=80mm}
 
-\renewcommand{\floatpagefraction}{0.1}
+\setcounter{topnumber}{1}
+\setcounter{bottomnumber}{1}
+\setcounter{totalnumber}{1}
+\renewcommand{\topfraction}{0.7}
+\renewcommand{\bottomfraction}{0.3}
+\renewcommand{\textfraction}{0.335}
+\renewcommand{\floatpagefraction}{0.5}
+
+\setlength{\headheight}{15pt} 

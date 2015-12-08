@@ -1,5 +1,5 @@
 ---
-title: "A Phylogenetic Analysis of Shape Covariance Structure in Anthropoid Primates - Supplemental Material"
+title: "A Phylogenetic Analysis of Shape Covariance Structure in Anthropoid Primates - Supplemental Information"
 output:
   pdf_document:
     includes:

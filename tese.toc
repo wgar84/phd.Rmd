@@ -6,33 +6,43 @@
 \select@language {english}
 \contentsline {chapter}{\numberline {2}Modularity and Morphometrics: Error Rates in Hypothesis Testing}{6}{chapter.2}
 \contentsline {section}{Abstract}{6}{section*.6}
-\contentsline {section}{Introduction}{8}{section*.7}
-\contentsline {subsubsection}{Morphometrics}{11}{section*.8}
-\contentsline {section}{Methods}{14}{section*.9}
-\contentsline {subsection}{Sample}{14}{section*.10}
-\contentsline {subsection}{Empirical Modularity Hypothesis Tests}{18}{section*.13}
-\contentsline {subsection}{Estimation of Error Rates}{20}{section*.14}
-\contentsline {subsubsection}{Software}{24}{section*.16}
-\contentsline {section}{Results}{24}{section*.17}
-\contentsline {subsection}{Empirical Tests}{24}{section*.18}
-\contentsline {subsection}{Error Rates}{27}{section*.21}
-\contentsline {section}{Discussion}{35}{section*.27}
-\contentsline {subsection}{Theoretical Matrices and Error Rates}{39}{section*.28}
-\contentsline {subsection}{Conclusion}{44}{section*.29}
-\contentsline {chapter}{\numberline {3}Allometric Constraints and Modularity}{45}{chapter.3}
-\contentsline {section}{Introduction}{45}{section*.30}
-\contentsline {section}{Methods}{47}{section*.31}
-\contentsline {subsection}{Sample}{47}{section*.32}
-\contentsline {subsection}{Allometric Slopes and Intercepts}{48}{section*.33}
-\contentsline {subsection}{Morphological Integration}{50}{section*.34}
-\contentsline {subsection}{Software}{51}{section*.35}
-\contentsline {section}{Results}{51}{section*.36}
-\contentsline {section}{Discussion}{57}{section*.45}
-\contentsline {chapter}{\numberline {4}A Phylogenetic Analysis of Shape Covariance Structure}{60}{chapter.4}
-\contentsline {section}{Introdu\IeC {\c c}\IeC {\~a}o}{60}{section*.46}
-\contentsline {section}{M\IeC {\'e}todos}{61}{section*.47}
-\contentsline {section}{Resultados}{61}{section*.48}
-\contentsline {section}{Discuss\IeC {\~a}o}{66}{section*.56}
+\contentsline {section}{Introduction}{7}{section*.7}
+\contentsline {subsubsection}{Morphometrics}{8}{section*.8}
+\contentsline {subsubsection}{Objectives}{10}{section*.9}
+\contentsline {section}{Methods}{11}{section*.10}
+\contentsline {subsection}{Sample}{11}{section*.11}
+\contentsline {subsection}{Empirical Tests}{13}{section*.14}
+\contentsline {subsection}{Estimation of Error Rates}{15}{section*.15}
+\contentsline {subsubsection}{Software}{18}{section*.17}
+\contentsline {section}{Results}{18}{section*.18}
+\contentsline {subsection}{Empirical Tests}{18}{section*.19}
+\contentsline {subsection}{Error Rates}{22}{section*.22}
+\contentsline {section}{Discussion}{26}{section*.28}
+\contentsline {subsection}{Theoretical Matrices and Error Rates}{31}{section*.29}
+\contentsline {subsection}{Conclusion}{35}{section*.30}
+\contentsline {chapter}{\numberline {3}The Evolution of Skull Allometry in Anthropoid Primates}{36}{chapter.3}
+\contentsline {section}{Abstract}{36}{section*.31}
+\contentsline {section}{Introduction}{37}{section*.32}
+\contentsline {section}{Methods}{38}{section*.33}
+\contentsline {subsection}{Sample}{38}{section*.34}
+\contentsline {subsection}{Allometric Relationships}{39}{section*.35}
+\contentsline {subsubsection}{Summarizing Shape Variation}{39}{section*.36}
+\contentsline {subsubsection}{Random Regression Model}{40}{section*.37}
+\contentsline {subsection}{Morphological Integration}{41}{section*.38}
+\contentsline {subsection}{Software}{42}{section*.39}
+\contentsline {section}{Results}{43}{section*.40}
+\contentsline {section}{Discussion}{46}{section*.46}
+\contentsline {chapter}{\numberline {4}A Phylogenetic Analysis of Shape Covariance Structure}{53}{chapter.4}
+\contentsline {section}{Abstract}{53}{section*.48}
+\contentsline {section}{Introduction}{53}{section*.49}
+\contentsline {subsubsection}{Objectives}{56}{section*.50}
+\contentsline {section}{Methods}{56}{section*.51}
+\contentsline {subsection}{Sample}{56}{section*.52}
+\contentsline {subsection}{Phylogenetic Decompostion of Matrix Diversity}{57}{section*.53}
+\contentsline {subsection}{Characterizing Covariance Matrix Variation}{60}{section*.55}
+\contentsline {subsubsection}{Software}{63}{section*.57}
+\contentsline {section}{Results}{64}{section*.58}
+\contentsline {section}{Discussion}{68}{section*.67}
 \select@language {brazilian}
-\contentsline {chapter}{Refer\IeC {\^e}ncias Bibliogr\IeC {\'a}ficas}{69}{chapter*.57}
-\contentsline {chapter}{Ap\IeC {\^e}ndice: Artigos Publicados}{82}{chapter*.58}
+\contentsline {chapter}{Refer\IeC {\^e}ncias Bibliogr\IeC {\'a}ficas}{72}{chapter*.68}
+\contentsline {chapter}{Ap\IeC {\^e}ndice: Artigos Publicados}{87}{chapter*.69}

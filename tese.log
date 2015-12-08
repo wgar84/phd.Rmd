@@ -1,9 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.28)  7 DEC 2015 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.5.28)  8 DEC 2015 20:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**\input tese.tex
-(./tese.tex (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+**tese.tex
+(./tese.tex
+LaTeX2e <2011/06/27>
+Babel <3.9k> and hyphenation patterns for 75 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
@@ -850,24 +853,6 @@ Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \f@ncyO@olf=\skip63
 \f@ncyO@orf=\skip64
 )
-! Illegal parameter number in definition of \ps@fancy.
-<to be read again> 
-                   1
-l.117 }
-       
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Illegal parameter number in definition of \ps@fancy.
-<to be read again> 
-                   1
-l.117 }
-       
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen152
 \WF@size=\dimen153
@@ -1275,43 +1260,47 @@ Package: fixme 2013/01/28 v4.2 Collaborative annotations for LaTeX2e
 \c@fxerrorcount=\count180
 \c@fxfatalcount=\count181
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 185.
+Package hyperref Info: Option `colorlinks' set `true' on input line 173.
 
 
 Package hyperref Warning: Option `pagecolor' is not available anymore.
 
-(./tese.aux)
+(./tese.aux
+
+LaTeX Warning: Label `abstract' multiply defined.
+
+)
 \openout1 = `tese.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 192.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 192.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 190.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 190.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Try loading font information for T1+ybv on input line 192.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Try loading font information for T1+ybv on input line 190.
 
 (/usr/share/texlive/texmf-dist/tex/latex/baskervald/t1ybv.fd
 File: t1ybv.fd 2010/07/13 Fontinst v1.933 font definitions for T1/ybv.
 )
-LaTeX Info: Redefining \microtypecontext on input line 192.
+LaTeX Info: Redefining \microtypecontext on input line 190.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -1344,7 +1333,7 @@ Package microtype Info: Loading generic settings for font family
 * \oddsidemargin=20.0pt
 * \evensidemargin=0.0pt
 * \topmargin=-37.0pt
-* \headheight=12.0pt
+* \headheight=15.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
@@ -1390,7 +1379,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box70
-Package hyperref Info: Link coloring ON on input line 192.
+Package hyperref Info: Link coloring ON on input line 190.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1400,9 +1389,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count188
 )
-LaTeX Info: Redefining \ref on input line 192.
-LaTeX Info: Redefining \pageref on input line 192.
-LaTeX Info: Redefining \nameref on input line 192.
+LaTeX Info: Redefining \ref on input line 190.
+LaTeX Info: Redefining \pageref on input line 190.
+LaTeX Info: Redefining \nameref on input line 190.
 
 (./tese.out) (./tese.out)
 \@outlinefile=\write4
@@ -1416,7 +1405,7 @@ Package caption Info: rotating package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 192.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 190.
 
  (/usr/share/texlive/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1424,10 +1413,1404 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 192.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 190.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 190
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 190
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 190.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 190.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 190.
+LaTeX Font Info:    Try loading font information for U+msa on input line 190.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 190.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+Package xypdf Info: Line width: 0.39998pt on input line 190.
+\c@lstlisting=\count189
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             macros/latex/contrib/pageslts/ 
+(lastpage)             or
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             install/macros/latex/contrib/pageslts.tds.zip
+(lastpage)             ! on input line 190.
+ [1
+
+]
+LaTeX Font Info:    Font shape `T1/ybv/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/ybv/b/n' tried instead on input line 198.
+LaTeX Font Info:    Font shape `T1/ybv/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ybv/b/n' tried instead on input line 203.
+
+<Figures/spiral.png, id=149, 1003.75pt x 635.37375pt>
+File: Figures/spiral.png Graphic file (type png)
+ <use Figures/spiral.png>
+Package pdftex.def Info: Figures/spiral.png used on input line 206.
+(pdftex.def)             Requested size: 284.52481pt x 180.1042pt.
+LaTeX Font Info:    Font shape `T1/ybv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ybv/b/n' tried instead on input line 208.
+
+[2{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map} <./Figures
+/spiral.png>]
+LaTeX Font Info:    Font shape `T1/ybv/bx/n' in size <12> not available
+(Font)              Font shape `T1/ybv/b/n' tried instead on input line 242.
+ [1
+
+] [2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    Font shape `T1/ybv/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ybv/b/n' tried instead on input line 453.
+ (./tese.toc)
+\tf@toc=\write5
+\openout5 = `tese.toc'.
+
+ [8
+
+]
+Cap\'{\i }tulo 1.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 480.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
+File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
+) (./Tables/lms.tex)
+<Figures/landmarks.png, id=224, 597.6729pt x 722.9409pt>
+File: Figures/landmarks.png Graphic file (type png)
+
+<use Figures/landmarks.png>
+Package pdftex.def Info: Figures/landmarks.png used on input line 487.
+(pdftex.def)             Requested size: 449.75833pt x 544.02449pt.
+ (./Tables/dist.tex)
+<Figures/phylo_model-1.pdf, id=225, 982.67125pt x 1152.305pt>
+File: Figures/phylo_model-1.pdf Graphic file (type pdf)
+
+<use Figures/phylo_model-1.pdf>
+Package pdftex.def Info: Figures/phylo_model-1.pdf used on input line 500.
+(pdftex.def)             Requested size: 449.75513pt x 527.39417pt.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.510 \newpage
+               [1
+
+]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.510 \newpage
+               [2] [3 <./Figures/landmarks.png>] [4] [5 <./Figures/phylo_model-
+1.pdf>]
+Chapter 2.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6
+
+]
+[7] [8] [9] [10] (./Tables/modcomp_otu.tex
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 35.
+) [11] [12] [13] [14] [15]
+<Figures/cor_dist-1.pdf, id=335, 484.81125pt x 412.54124pt>
+File: Figures/cor_dist-1.pdf Graphic file (type pdf)
+
+<use Figures/cor_dist-1.pdf>
+Package pdftex.def Info: Figures/cor_dist-1.pdf used on input line 980.
+(pdftex.def)             Requested size: 449.77495pt x 382.72775pt.
+
+Underfull \vbox (badness 3312) has occurred while \output is active []
+
+ [16]
+[17 <./Figures/cor_dist-1.pdf>] [18]
+<Figures/Func-1.pdf, id=362, 1042.89626pt x 1043.9pt>
+File: Figures/Func-1.pdf Graphic file (type pdf)
+ <use Figures/Func-1.pdf>
+Package pdftex.def Info: Figures/Func-1.pdf used on input line 1083.
+(pdftex.def)             Requested size: 449.75746pt x 450.19032pt.
+
+<Figures/Dev-1.pdf, id=366, 1041.8925pt x 682.55pt>
+File: Figures/Dev-1.pdf Graphic file (type pdf)
+ <use Figures/Dev-1.pdf>
+Package pdftex.def Info: Figures/Dev-1.pdf used on input line 1130.
+(pdftex.def)             Requested size: 449.75383pt x 294.63641pt.
+
+[19] [20 <./Figures/Func-1.pdf>] [21 <./Figures/Dev-1.pdf>]
+<Figures/stat_dist_sim-1.pdf, id=406, 396.48125pt x 399.4925pt>
+File: Figures/stat_dist_sim-1.pdf Graphic file (type pdf)
+
+<use Figures/stat_dist_sim-1.pdf>
+Package pdftex.def Info: Figures/stat_dist_sim-1.pdf used on input line 1165.
+(pdftex.def)             Requested size: 396.48631pt x 399.4976pt.
+
+<Figures/type1-1.pdf, id=408, 470.75874pt x 412.54124pt>
+File: Figures/type1-1.pdf Graphic file (type pdf)
+
+<use Figures/type1-1.pdf>
+Package pdftex.def Info: Figures/type1-1.pdf used on input line 1180.
+(pdftex.def)             Requested size: 449.76112pt x 394.14034pt.
+
+<Figures/type2_def-1.pdf, id=410, 466.74374pt x 409.53pt>
+File: Figures/type2_def-1.pdf Graphic file (type pdf)
+
+<use Figures/type2_def-1.pdf>
+Package pdftex.def Info: Figures/type2_def-1.pdf used on input line 1203.
+(pdftex.def)             Requested size: 449.77104pt x 394.63782pt.
+ [22] [23 <./Figures/stat_dist_sim-1.pdf>]
+[24 <./Figures/type1-1.pdf>] [25 <./Figures/type2_def-1.pdf>]
+<Figures/type2_ed-1.pdf, id=459, 466.74374pt x 409.53pt>
+File: Figures/type2_ed-1.pdf Graphic file (type pdf)
+
+<use Figures/type2_ed-1.pdf>
+Package pdftex.def Info: Figures/type2_ed-1.pdf used on input line 1227.
+(pdftex.def)             Requested size: 449.77104pt x 394.63782pt.
+
+<Figures/type2_sym-1.pdf, id=461, 466.74374pt x 409.53pt>
+File: Figures/type2_sym-1.pdf Graphic file (type pdf)
+
+<use Figures/type2_sym-1.pdf>
+Package pdftex.def Info: Figures/type2_sym-1.pdf used on input line 1247.
+(pdftex.def)             Requested size: 449.77104pt x 394.63782pt.
+ [26] [27 <./Figures/type2_ed-1.pdf>] [28 <./Figures/type2_sym-1.pdf>]
+Underfull \vbox (badness 4872) has occurred while \output is active []
+
+ [29]
+Underfull \vbox (badness 4872) has occurred while \output is active []
+
+ [30]
+[31] [32] [33]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34]
+[35]
+Chapter 3.
+[36
+
+] [37] [38] [39] [40] [41]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [42]
+<Figures/cac_logCS-1.pdf, id=594, 795.97375pt x 674.52pt>
+File: Figures/cac_logCS-1.pdf Graphic file (type pdf)
+
+<use Figures/cac_logCS-1.pdf>
+Package pdftex.def Info: Figures/cac_logCS-1.pdf used on input line 1920.
+(pdftex.def)             Requested size: 449.7503pt x 381.12509pt.
+
+<Figures/phylo_new-1.pdf, id=601, 670.505pt x 805.0075pt>
+File: Figures/phylo_new-1.pdf Graphic file (type pdf)
+
+<use Figures/phylo_new-1.pdf>
+Package pdftex.def Info: Figures/phylo_new-1.pdf used on input line 1954.
+(pdftex.def)             Requested size: 449.74757pt x 539.96642pt.
+ [43] [44 <./Figures/cac_logCS-1.pdf>] [45 <./Figures/phylo_new-1.pdf>] (./Tabl
+es/dic_allo_im.tex
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 6.
+)
+<Figures/MI_vs_slopeW_main-1.pdf, id=648, 481.8pt x 261.97874pt>
+File: Figures/MI_vs_slopeW_main-1.pdf Graphic file (type pdf)
+
+<use Figures/MI_vs_slopeW_main-1.pdf>
+Package pdftex.def Info: Figures/MI_vs_slopeW_main-1.pdf used on input line 199
+2.
+(pdftex.def)             Requested size: 449.7676pt x 244.56113pt.
+
+<Figures/MI_vs_slopeW_si-1.pdf, id=649, 481.8pt x 551.05875pt>
+File: Figures/MI_vs_slopeW_si-1.pdf Graphic file (type pdf)
+
+<use Figures/MI_vs_slopeW_si-1.pdf>
+Package pdftex.def Info: Figures/MI_vs_slopeW_si-1.pdf used on input line 2002.
+
+(pdftex.def)             Requested size: 449.7676pt x 514.42168pt.
+ [46]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47 <./Figures/MI_vs_slopeW_main-1.pdf>] [48 <./Figures/MI_vs_slopeW_si-1.pdf>
+]
+<Figures/cac_homi-1.pdf, id=692, 681.54625pt x 741.77126pt>
+File: Figures/cac_homi-1.pdf Graphic file (type pdf)
+
+<use Figures/cac_homi-1.pdf>
+Package pdftex.def Info: Figures/cac_homi-1.pdf used on input line 2082.
+(pdftex.def)             Requested size: 449.75952pt x 489.50264pt.
+LaTeX Font Info:    Font shape `T1/ybv/bx/it' in size <12> not available
+(Font)              Font shape `T1/ybv/b/it' tried instead on input line 2089.
+ [49] [50 <./Figures/cac_homi-1.pdf>]
+Underfull \vbox (badness 4872) has occurred while \output is active []
+
+ [51]
+[52]
+Chapter 4.
+[53
+
+] [54]
+Underfull \vbox (badness 4872) has occurred while \output is active []
+
+ [55]
+[56] [57] <Figures/rs_riem-1.pdf, id=756, 543.02875pt x 557.08125pt>
+File: Figures/rs_riem-1.pdf Graphic file (type pdf)
+
+<use Figures/rs_riem-1.pdf>
+Package pdftex.def Info: Figures/rs_riem-1.pdf used on input line 2427.
+(pdftex.def)             Requested size: 449.77742pt x 461.41678pt.
+ [58] [59 <./Figures/rs_riem-1.pdf>] [60]
+<Figures/matrix_variation.pdf, id=791, 401.5pt x 562.1pt>
+File: Figures/matrix_variation.pdf Graphic file (type pdf)
+
+<use Figures/matrix_variation.pdf>
+Package pdftex.def Info: Figures/matrix_variation.pdf used on input line 2529.
+(pdftex.def)             Requested size: 401.5235pt x 562.13293pt.
+
+
+LaTeX Warning: Float too large for page by 8.70291pt on input line 2539.
+
+[61] [62 <./Figures/matrix_variation.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [63]
+(./Tables/riem_decdiv.tex)
+<Figures/phylo_full-1.pdf, id=1149, 674.52pt x 780.9175pt>
+File: Figures/phylo_full-1.pdf Graphic file (type pdf)
+
+<use Figures/phylo_full-1.pdf>
+Package pdftex.def Info: Figures/phylo_full-1.pdf used on input line 2658.
+(pdftex.def)             Requested size: 449.76466pt x 520.70969pt.
+
+<Figures/eval-1.pdf, id=1152, 409.53pt x 412.54124pt>
+File: Figures/eval-1.pdf Graphic file (type pdf)
+ <use Figures/eval-1.pdf>
+Package pdftex.def Info: Figures/eval-1.pdf used on input line 2686.
+(pdftex.def)             Requested size: 409.53523pt x 412.54652pt.
+
+<Figures/moran-1.pdf, id=1153, 412.54124pt x 409.53pt>
+File: Figures/moran-1.pdf Graphic file (type pdf)
+
+<use Figures/moran-1.pdf>
+Package pdftex.def Info: Figures/moran-1.pdf used on input line 2694.
+(pdftex.def)             Requested size: 412.54652pt x 409.53523pt.
+ [64] [65 <./Figures/phylo_full-1.pdf>] [66 <./Figures/eval-1.pdf>] [67 <./Figu
+res/moran-1.pdf>]
+<Figures/srd_gl-1.pdf, id=1210, 686.565pt x 698.61pt>
+File: Figures/srd_gl-1.pdf Graphic file (type pdf)
+
+<use Figures/srd_gl-1.pdf>
+Package pdftex.def Info: Figures/srd_gl-1.pdf used on input line 2717.
+(pdftex.def)             Requested size: 449.75052pt x 457.64087pt.
+
+<Figures/ss_local1-1.pdf, id=1211, 557.08125pt x 554.07pt>
+File: Figures/ss_local1-1.pdf Graphic file (type pdf)
+
+<use Figures/ss_local1-1.pdf>
+Package pdftex.def Info: Figures/ss_local1-1.pdf used on input line 2727.
+(pdftex.def)             Requested size: 449.76279pt x 447.33163pt.
+
+<Figures/loess-1.pdf, id=1213, 701.62125pt x 700.6175pt>
+File: Figures/loess-1.pdf Graphic file (type pdf)
+
+<use Figures/loess-1.pdf>
+Package pdftex.def Info: Figures/loess-1.pdf used on input line 2746.
+(pdftex.def)             Requested size: 449.76405pt x 449.12062pt.
+ [68] [69 <./Figures/srd_gl-1.pdf>] [70 <./Figures/ss_local1-1.pdf>] [71 <./Fig
+ures/loess-1.pdf>] [72
+
+] [73] [74] [75]
+LaTeX Font Info:    Try loading font information for TS1+ybv on input line 3005
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/baskervald/ts1ybv.fd
+File: ts1ybv.fd 2010/07/13 Fontinst v1.933 font definitions for TS1/ybv.
+) [76] [77]
+[78] [79] [80] [81] [82] [83] [84] [85] [86]
+<Appendix/Marroig2012.pdf, id=1331, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf>
+Package pdftex.def Info: Appendix/Marroig2012.pdf used on input line 3654.
+(pdftex.def)             Requested size: 449.75171pt x 581.28288pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf>
+Package pdftex.def Info: Appendix/Marroig2012.pdf used on input line 3654.
+(pdftex.def)             Requested size: 449.75171pt x 581.28288pt.
+ [87
+
+]
+<Appendix/Marroig2012.pdf, id=1339, page=1, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 1>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page1 used on input line 365
+4.
+(pdftex.def)             Requested size: 537.78503pt x 695.0618pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 1>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page1 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 1>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page1 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 1>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page1 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 1>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page1 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [88 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1385, page=2, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 2>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page2 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 2>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page2 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 2>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page2 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [89 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1401, page=3, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 3>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page3 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 3>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page3 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 3>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page3 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [90 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1409, page=4, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 4>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page4 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 4>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page4 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 4>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page4 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [91 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1420, page=5, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 5>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page5 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 5>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page5 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 5>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page5 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [92 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1429, page=6, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 6>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page6 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 6>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page6 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 6>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page6 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [93 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1435, page=7, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 7>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page7 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 7>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page7 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 7>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page7 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [94 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1443, page=8, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 8>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page8 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 8>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page8 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 8>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page8 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [95 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1450, page=9, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 9>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page9 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+ <use Appendix/Marroig2012.pdf, page 9>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page9 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 9>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page9 used on input line 365
+4.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [96 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1464, page=10, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 10>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page10 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 10>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page10 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 10>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page10 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [97 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1469, page=11, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 11>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page11 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 11>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page11 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 11>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page11 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [98 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1476, page=12, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 12>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page12 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 12>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page12 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 12>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page12 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [99 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1484, page=13, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 13>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page13 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 13>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page13 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 13>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page13 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [100 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1491, page=14, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 14>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page14 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 14>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page14 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 14>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page14 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [101 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1498, page=15, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 15>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page15 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 15>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page15 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 15>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page15 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [102 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1505, page=16, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 16>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page16 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 16>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page16 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 16>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page16 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [103 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1510, page=17, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 17>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page17 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 17>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page17 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 17>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page17 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [104 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1515, page=18, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 18>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page18 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 18>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page18 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 18>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page18 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [105 <./Appendix/Marroig2012.pdf>]
+<Appendix/Marroig2012.pdf, id=1521, page=19, 612.8496pt x 792.0792pt>
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 19>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page19 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 19>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page19 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+File: Appendix/Marroig2012.pdf Graphic file (type pdf)
+
+<use Appendix/Marroig2012.pdf, page 19>
+Package pdftex.def Info: Appendix/Marroig2012.pdf, page19 used on input line 36
+54.
+(pdftex.def)             Requested size: 700.99362pt x 906.0012pt.
+ [106 <./Appendix/Marroig2012.pdf>]
+<Appendix/Garcia2014.pdf, id=1526, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf>
+Package pdftex.def Info: Appendix/Garcia2014.pdf used on input line 3662.
+(pdftex.def)             Requested size: 449.75298pt x 597.52846pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf>
+Package pdftex.def Info: Appendix/Garcia2014.pdf used on input line 3662.
+(pdftex.def)             Requested size: 449.75298pt x 597.52846pt.
+
+<Appendix/Garcia2014.pdf, id=1529, page=1, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 1>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page1 used on input line 3662
+.
+(pdftex.def)             Requested size: 537.7616pt x 714.45412pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 1>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page1 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 1>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page1 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 1>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page1 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 1>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page1 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [107 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1572, page=2, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 2>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page2 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 2>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page2 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 2>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page2 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [108 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1590, page=3, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 3>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page3 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 3>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page3 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 3>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page3 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [109 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1596, page=4, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 4>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page4 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 4>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page4 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 4>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page4 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [110 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1603, page=5, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 5>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page5 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 5>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page5 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 5>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page5 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [111 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1609, page=6, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 6>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page6 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 6>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page6 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 6>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page6 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [112 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1615, page=7, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 7>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page7 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 7>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page7 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 7>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page7 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [113 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1620, page=8, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 8>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page8 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 8>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page8 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 8>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page8 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [114 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1633, page=9, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 9>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page9 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 9>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page9 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 9>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page9 used on input line 3662
+.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [115 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1641, page=10, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 10>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page10 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 10>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page10 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 10>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page10 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [116 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1654, page=11, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 11>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page11 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 11>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page11 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 11>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page11 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [117 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1661, page=12, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 12>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page12 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 12>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page12 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 12>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page12 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [118 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1666, page=13, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 13>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page13 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 13>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page13 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 13>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page13 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [119 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1671, page=14, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 14>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page14 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 14>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page14 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 14>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page14 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [120 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1676, page=15, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 15>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page15 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 15>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page15 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 15>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page15 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [121 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1681, page=16, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 16>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page16 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 16>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page16 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 16>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page16 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [122 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1686, page=17, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 17>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page17 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 17>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page17 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 17>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page17 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [123 <./Appendix/Garcia2014.pdf>]
+<Appendix/Garcia2014.pdf, id=1692, page=18, 597.50829pt x 793.83177pt>
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 18>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page18 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+ <use Appendix/Garcia2014.pdf, page 18>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page18 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+File: Appendix/Garcia2014.pdf Graphic file (type pdf)
+
+<use Appendix/Garcia2014.pdf, page 18>
+Package pdftex.def Info: Appendix/Garcia2014.pdf, page18 used on input line 366
+2.
+(pdftex.def)             Requested size: 665.26607pt x 883.85277pt.
+ [124 <./Appendix/Garcia2014.pdf>]
+<Appendix/Melo2015.pdf, id=1697, 614.295pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf>
+Package pdftex.def Info: Appendix/Melo2015.pdf used on input line 3670.
+(pdftex.def)             Requested size: 449.76263pt x 582.04578pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf>
+Package pdftex.def Info: Appendix/Melo2015.pdf used on input line 3670.
+(pdftex.def)             Requested size: 449.76263pt x 582.04578pt.
+
+<Appendix/Melo2015.pdf, id=1700, page=1, 614.295pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 1>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page1 used on input line 3670.
+(pdftex.def)             Requested size: 537.788pt x 695.96095pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 1>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page1 used on input line 3670.
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 1>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page1 used on input line 3670.
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 1>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page1 used on input line 3670.
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 1>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page1 used on input line 3670.
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+ [125 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=1756, page=2, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 2>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page2 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 2>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page2 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 2>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page2 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [126 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=1796, page=3, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 3>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page3 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 3>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page3 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 3>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page3 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [127 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=1843, page=4, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 4>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page4 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 4>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page4 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 4>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page4 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [128 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=1949, page=5, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 5>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page5 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 5>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page5 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 5>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page5 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [129 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2061, page=6, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 6>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page6 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 6>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page6 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 6>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page6 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [130 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2095, page=7, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 7>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page7 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 7>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page7 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 7>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page7 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [131 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2160, page=8, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 8>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page8 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 8>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page8 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 8>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page8 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [132 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2190, page=9, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 9>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page9 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 9>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page9 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 9>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page9 used on input line 3670.
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [133 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2199, page=10, 614.57909pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 10>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page10 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 10>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page10 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 10>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page10 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.97188pt x 909.30779pt.
+ [134 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2204, page=11, 614.295pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 11>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page11 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 11>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page11 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 11>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page11 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+ [135 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2236, page=12, 614.295pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 12>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page12 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 12>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page12 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 12>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page12 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+ [136 <./Appendix/Melo2015.pdf>]
+<Appendix/Melo2015.pdf, id=2248, page=13, 614.295pt x 794.97pt>
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 13>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page13 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+ <use Appendix/Melo2015.pdf, page 13>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page13 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+File: Appendix/Melo2015.pdf Graphic file (type pdf)
+
+<use Appendix/Melo2015.pdf, page 13>
+Package pdftex.def Info: Appendix/Melo2015.pdf, page13 used on input line 3670.
+
+(pdftex.def)             Requested size: 702.64691pt x 909.30779pt.
+ [137 <./Appendix/Melo2015.pdf>]
+
+Package caption Warning: Unused \captionsetup[subfigure] on input line 87.
+See the caption package documentation for explanation.
+
+
+AED: lastpage setting LastPage
+
+FiXme Summary: Number of notes: 0,
+(FiXme)        Number of warnings: 0,
+(FiXme)        Number of errors: 0,
+(FiXme)        Number of fatal errors: 0,
+(FiXme)        Total: 0.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3672.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3672.
+(./tese.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3672.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3672.
+
+Package rerunfilecheck Info: File `tese.out' has not changed.
+(rerunfilecheck)             Checksum: 91531661E7C85BA8E05631637643BB41;5226.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3672.
+ ) 
+Here is how much of TeX's memory you used:
+ 22319 strings out of 493321
+ 318857 string characters out of 6140561
+ 521312 words of memory out of 5000000
+ 24593 multiletter control sequences out of 15000+600000
+ 222413 words of font info for 411 fonts, out of 8000000 for 9000
+ 953 hyphenation exceptions out of 8191
+ 44i,18n,76p,3292b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texli
+ve/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/
+enc/dvips/lm/lm-mathit.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm
+-mathsy.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/u
+sr/share/texlive/texmf-dist/fonts/enc/dvips/baskervald/supp-ybv.enc}</usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/lm/lmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/lm/lmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/lm/lmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/lm/lmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr6.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/arkandis
+/baskervald/ybvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/arkandis/bask
+ervald/ybvbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/arkandis/baskerva
+ld/ybvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/arkandis/baskervald/yb
+vri8a.pfb>
+Output written on tese.pdf (147 pages, 7338865 bytes).
+PDF statistics:
+ 2380 PDF objects out of 2487 (max. 8388607)
+ 1672 compressed objects within 17 object streams
+ 241 named destinations out of 1000 (max. 500000)
+ 43704 words of extra memory for PDF output out of 51595 (max. 10000000)
+

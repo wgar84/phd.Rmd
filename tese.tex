@@ -123,8 +123,8 @@
 %\widowpenalty10000
 %\clubpenalty10000
 
-\usepackage{mathpazo} % fonte palatino
-% \usepackage{baskervald} % fonte com cara de manuscrito 1920
+% \usepackage{mathpazo} % fonte palatino
+\usepackage{baskervald} % fonte com cara de manuscrito 1920
 \usepackage{hyperref}
 
 % Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo
@@ -173,10 +173,19 @@
     Craniana, Roedores}, pdfproducer={Latex}, pdfcreator={pdflatex}}
  
 \geometry{bindingoffset=20pt}
+
 %\geometry{paperwidth=290mm, paperheight=297mm, margin=1in}
 %\setlength{\marginparwidth=80mm}
 
-\renewcommand{\floatpagefraction}{0.1}
+\setcounter{topnumber}{1}
+\setcounter{bottomnumber}{1}
+\setcounter{totalnumber}{1}
+\renewcommand{\topfraction}{0.7}
+\renewcommand{\bottomfraction}{0.3}
+\renewcommand{\textfraction}{0.335}
+\renewcommand{\floatpagefraction}{0.5}
+
+\setlength{\headheight}{15pt}
 
 
 \begin{document}
@@ -184,16 +193,18 @@
 \maketitle
 
 
+\pagestyle{empty}
+
+\clearpage
+\hbox{}
+\newpage
 % Capa
 \begin{center}
 \par
-\LARGE {\bf \nomedoaluno} \\
+\Huge {\nomedoaluno} \\
 \vspace\fill
-\LARGE {\titulo} \\
-\vspace\fill \large {On the recognition of modularity patterns and its implications for the morphological evolution of complex phenotypes} \\
-\vspace\fill
-\Large {\bf \advisor} \\
-\large {Orientador} \\
+\Huge {\bf \titulo} \\
+\vspace\fill \Large {On the recognition of modularity patterns and its implications for the morphological evolution of complex phenotypes} \\
 \vspace\fill
 \includegraphics[width=10cm]{Figures/spiral} \\
 \vspace\fill
@@ -201,9 +212,9 @@
   {\large \ano}}
 \end{center}
 
-\pagestyle{empty}
+\clearpage
+\hbox{}
 \newpage
-\cleardoublepage
 
 \pagestyle{plain}
 
@@ -212,10 +223,10 @@
 
 % Página de Rosto
 \begin{center}
-\LARGE{\nomedoaluno}
+\Huge{\nomedoaluno}
 \par
 \vspace\fill
-\Huge {\titulo}
+\Huge {\bf \titulo}
 \end{center}
 \par
 \vspace\fill \hspace*{150pt}\parbox{10cm}{{\large Tese
@@ -455,8 +466,6 @@ modularity, morphological integration, anthropoid primates
 \def\tableautorefname{Tabela}
 
 \onehalfspacing
-
-\renewcommand{\floatpagefraction}{0.1}
 
 \pagestyle{fancy}
 
@@ -733,17 +742,17 @@ statistical framework, in order to produce meaningful comparisons.
 \subsection{Sample}\label{sample}
 
 The database we used here (\autoref{tab:modcomp_otu}) consists of 21
-species, distributed across all taxonomic ranks within Anthropoidea
-above the genus level. We selected these operational taxonomic units
-(OTU) from a broader database (Marroig \& Cheverud, 2001; Oliveira
-\emph{et al.}, 2009) in order to reduce the effects of low sample sizes
-over estimates of modularity patterns. Individuals in our sample are
-represented by 36 registered landmarks, measured using a Polhemus 3Draw
-(for Platyrrhini) and a Microscribe 3DS (for Catarrhini). Twenty-two
-unique landmarks represent each individual (\autoref{fig:landmarks},
-\autoref{tab:lms}), since 14 of the 36 registered landmarks are
-bilaterally symmetrical. For more details on landmark registration, see
-Marroig \& Cheverud (2001) and Oliveira et al. (2009).
+species, distributed across all major Anthropoid clades above the genus
+level. We selected these operational taxonomic units (OTU) from a
+broader database (Marroig \& Cheverud, 2001; Oliveira \emph{et al.},
+2009) in order to reduce the effects of low sample sizes over estimates
+of modularity patterns. Individuals in our sample are represented by 36
+registered landmarks, measured using a Polhemus 3Draw (for Platyrrhini)
+and a Microscribe 3DS (for Catarrhini). Twenty-two unique landmarks
+represent each individual (\autoref{fig:landmarks}, \autoref{tab:lms}),
+since 14 of the 36 registered landmarks are bilaterally symmetrical. For
+more details on landmark registration, see Marroig \& Cheverud (2001)
+and Oliveira et al. (2009).
 
 \input{Tables/modcomp_otu}
 
@@ -1592,9 +1601,9 @@ represent --- not fully capturing the phenomena we may be interested in.
 
 Anthropoid Primates display an impressive body size variation, which
 implies many morphological, ecological and physiological differences
-among species in this group. These allometric relationships may impose
-constraints on phenotypic evolution; for instance, most of the skull
-shape morphological diversity in Anthropoids is regarded as an indirect
+among lineages. These allometric relationships may impose constraints on
+phenotypic evolution; for instance, most of the morphological diversity
+in skull shape in Anthropoids can be explained as an indirect
 consequence of body size evolution, except within Hominids. In the
 present work, we tested whether allometric relationships for skull shape
 in Anthropoids have remained stable during the diversification of this
@@ -1604,17 +1613,19 @@ number of times, mostly within New World Monkeys, and that slopes have
 changed significantly only within Hominidae, in two independent
 instances, \emph{Homo} and \emph{Gorilla}. Furthermore, the variation in
 allometric slopes contributes to Facial and Neurocranial integration in
-opposing directions. Thus, the constancy of allometric slopes we
-observed seems to be related to the maintenance of functional
-interactions during development imposed by stabilizing selection, so
-that the few changes in slopes may be associated with shifts in the
-adaptive landscape in the course of Hominid diversification.
+opposing directions. Thus, the constancy of allometric slopes seems to
+be related to the maintenance of functional interactions during
+development imposed by stabilizing selection, so that the few changes in
+slopes may be associated with shifts in the adaptive landscape in the
+course of Hominid diversification.
+
+\newpage
 
 \section{Introduction}\label{introduction-1}
 
 Anthropoid primates display an approximately thousand-fold variation on
-body size, from pygmy marmosets ($\sim 110g$) to lowland gorillas
-($\sim 120kg$). This astonishing diversity implies substantial
+body size, from pygmy marmosets ($\sim$ 110g) to lowland gorillas
+($\sim$ 120kg). This impressive diversity implies substantial
 morphological, physiological and ecological differences among these
 organisms, since changes in body size fundamentally affect how living
 organisms interact with their environments (Gould, 1966; West \emph{et
@@ -1623,7 +1634,9 @@ traits and body size are referred to as allometry (Huxley, 1932; Gould,
 1966; Cheverud, 1982b; Lande, 1985) and may be represented as power
 laws, which become linear on a log-log scale (Huxley, 1932; but see
 Nijhout \& German, 2012). Allometry may thus be represented by two
-parameters: (allometric) slopes and intercepts.
+parameters: (allometric) slopes and intercepts, and these parameters are
+associated with the timing and rate of developmental milestones (Houle,
+2001; Voje \emph{et al.}, 2013; Pélabon \emph{et al.}, 2014).
 
 Allometry may act as a constraint, diverting evolutionary trajectories
 in natural populations (Gould \& Lewontin, 1979; Lande, 1979; Schluter,
@@ -1632,7 +1645,7 @@ habits has dominated diversification in New World monkeys, and
 differences in skull morphology among species in this group appear to be
 an indirect consequence of the allometric relationships between skull
 traits and body size (Marroig \& Cheverud, 2005, 2010; Marroig \emph{et
-al.}, 2012); within Old World Monkeys, the same scenario can explain
+al.}, 2012); within Old World Monkeys, the same scenario could explain
 skull morphological diversity in Cercopithecids (Cardini \emph{et al.},
 2007; Cardini \& Elton, 2008). Regarding Hominids, selection for
 reduction of facial elements and increased neurocranial capacity has
@@ -1657,7 +1670,7 @@ then cascade to populational allometric relationships (e.g. Frankino
 Bolstad \emph{et al.}, 2015), although methodological issues may hamper
 some of this evidence (Houle \emph{et al.}, 2011; Voje \emph{et al.},
 2013). Therefore, whether and to which extent allometric slopes can
-evolve remain as open questions.
+evolve remain open questions.
 
 In the present work, we investigate the relationship between skull size
 and shape in a phylogenetic framework using Anthropoid Primates as model
@@ -1667,16 +1680,16 @@ group. Moreover, integration patterns in skull form are quite stable in
 both New World (Marroig \& Cheverud, 2001) and Old World Monkeys, with
 the exception of some Hominids (Oliveira \emph{et al.}, 2009). Several
 authors (e.g. Porto \emph{et al.}, 2013; Armbruster \emph{et al.}, 2014)
-have argued that such association is imposed through the joint effect of
-both size variation and allometric relationships within populations;
-thus, we test the hypothesis that variation in allometric parameters
-among Anthropoid species, if present, will contribute to variation in
-the strength of association between skull traits. Considering both the
-spatial and temporal dynamics of mammalian skull development (Zelditch
-\& Carmichael, 1989; Hallgrímsson \emph{et al.}, 2009; Cardini \& Polly,
-2013), we expect that such changes will affect Facial and Neurocranial
-traits in opposing ways, due to the distinction between early- and
-late-developmental factors in skull development.
+have argued that integration in this group is a consequence of the joint
+effect of both size variation and allometric relationships within
+populations; thus, we test the hypothesis that variation in allometric
+parameters among Anthropoid species, if present, will contribute to
+variation in the strength of association between skull traits.
+Considering both the spatial and temporal dynamics of mammalian skull
+development (Zelditch \& Carmichael, 1989; Hallgrímsson \emph{et al.},
+2009; Cardini \& Polly, 2013), we expect that such changes will affect
+Facial and Neurocranial traits in opposing ways, due to the distinction
+between early- and late-developmental factors in skull development.
 
 Using a Bayesian phylogenetic random regression model of allometric
 shape against size, we estimate allometric parameters along the
@@ -1694,12 +1707,12 @@ absolute and, in some situations, may be overcome.
 
 \subsection{Sample}\label{sample-1}
 
-Our database consists of 5108 individuals, distributed across 109
-species. These species are spread throughout all major Anthropoid clades
-above the genus level, also comprising all Platyrrhini genera and a
-substantial portion of Catarrhini genera. We associated this database
-with an ultrametric phylogenetic hypothesis for Anthropoidea (Figure
-\ref{fig:phylo_model}), derived from Springer et al. (2012).
+Our database consists of 5108 individuals from 109 species, distributed
+across all major Anthropoid clades above the genus level, comprising all
+Platyrrhini genera and a substantial portion of Catarrhini genera. We
+associated this database with an ultrametric phylogenetic hypothesis for
+Anthropoidea (Figure \ref{fig:phylo_model}), derived from Springer et
+al. (2012).
 
 Individuals in our sample are represented by 36 registered landmarks,
 using a Polhemus 3Draw and a Microscribe 3DS for Platyrrhini and
@@ -1708,8 +1721,8 @@ individual (Figure \ref{fig:landmarks}), since fourteen of the 36
 registered landmarks are bilaterally symmetrical. For more details on
 landmark registration, see Marroig \& Cheverud (2001) and Oliveira et
 al. (2009). Databases from both previous studies were merged into a
-single database, retaining only those individuals in which all
-landmarks, from both sides, were present.
+single database, retaining only individuals in which all landmarks, from
+both sides, were present.
 
 This database of landmark registration data was used to estimate both
 interlandmark distances and shape variables. For interlandmark
@@ -1826,13 +1839,13 @@ to reconstruct ancestral allometric parameters.
 
 We used uniform prior distributions for all $a_s$ and $b_s$. In order to
 sample the posterior distribution for our model, we used a MCMC sampler
-with $250000$ iterations, comprising a burnin period of $50000$
-iterations and a thinning interval of $200$ iterations after burnin to
-avoid autocorrelations in the posterior sample, thus generating $1000$
-posterior samples for all parameters we estimate. We performed a handful
-of runs with different starting values and pseudo-random number
-generator seeds to ensure convergence; with these values for iteration
-steps, we achieved convergence in all MCMC runs.
+with 250000 iterations, comprising a burnin period of 50000 iterations
+and a thinning interval of 200 iterations after burnin to avoid
+autocorrelations in the posterior sample, thus generating 1000 posterior
+samples for all parameters we estimate. We performed a handful of runs
+with different starting values and pseudo-random number generator seeds
+to ensure convergence; with these values for iteration steps, we
+achieved convergence in all MCMC runs.
 
 Using these posterior samples for static allometric parameters, we
 tested whether a given intercept or slope in any node of the tree
@@ -1859,10 +1872,10 @@ $\mathbf{P}$-matrices, we used Modularity Hypothesis Indexes (MHI; Porto
 modularity. We estimated MHIs for each trait subset depicted in
 \autoref{tab:dist} for all 109 $\mathbf{P}$-matrices, using the equation
 \[
-MHI = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {ICV}
+\text{MHI} = \frac {\bar{\rho}_{+} - \bar{\rho}_{-}} {\text{ICV}}
 \] where $\bar{\rho}_{+}$ represents the average correlation within a
 given subset, $\bar{\rho}_{-}$ represents the average correlation of the
-complementary set, and $ICV$ is the coefficient of variation of
+complementary set, and $\text{ICV}$ is the coefficient of variation of
 eigenvalues of the associated covariance matrix, which is a measurement
 of the overall integration between all traits (Shirai \& Marroig, 2010).
 
@@ -1876,12 +1889,12 @@ adjusted four different models: one for static intercepts alone ($a_s$),
 one for static slopes ($b_s$), a third model that considers the joint
 effect of both parameters, without interactions ($a_s$ + $b_s$). We
 compared these three models using the Deviance Information Criterion
-(DIC; Gelman \emph{et al.}, 2004), which increases as a function of the
-average posterior likelihood for a particular model and decreases as a
-function of the number of parameters considered; in a equivalent manner
-to Akaike's (1974) Information Criterion, the model with the smallest
-DIC is considered the best fit; models whose difference in DICs is lower
-than two are considered equivalent.
+(DIC; Gelman \emph{et al.}, 2004), which decreases as a function of the
+average posterior log likelihood and increases as a function of the
+number of parameters considered; in a equivalent manner to Akaike's
+(1974) Information Criterion, the model with the smallest DIC is
+considered the best fit; models whose difference in DICs is lower than
+two are considered equivalent.
 
 \subsection{Software}\label{software-1}
 
@@ -1920,24 +1933,23 @@ relationships, we carried out a Bayesian mixed model, considering that
 slopes and intercepts for the regression between individuals projected
 over the CAC and log Centroid Size (logCS) within each species
 (\autoref{fig:cac_logCS}b) are codependent upon their phylogenetic
-relationships. The posterior distribution of deviations from mean for
-intercepts and slopes (\autoref{fig:phylo_W}) indicates that intercepts
-deviate from the mean in at least seven lineages: increases occur in
-\emph{Pithecia} and \emph{Callicebus} within Pitheciids, in the clade
-composed of Callithrichinae and Aotinae, and in \emph{Alouatta} within
-Atelids, while lower intercepts are found in the clade composed of
-\emph{Homo} and \emph{Pan} within Hominidae, in \emph{Hylobates} within
-Hylobatids, and also in \emph{Ateles} within Atelids
-(\autoref{fig:phylo_W}a). It is noteworthy that we mean-centered logCS
-values for the entire sample, and intercepts then refer to the point at
-which allometric trajectories for all species cross this mean value
-(\autoref{fig:cac_logCS}b); more generally, as intercepts are defined in
-the same scale as the response variable (CAC projections), lower
-intercepts represent increased neurocranial capacity and shorter faces,
-while the converse is valid for higher intercepts
-(\autoref{fig:cac_logCS}a). Allometric slopes deviate from the mean in
-only three species: \emph{Homo sapiens} and both representatives of
-\emph{Gorilla}, all with slopes shallower than the mean
+relationships. The posterior distribution of mean-centered intercepts
+and slopes (\autoref{fig:phylo_W}) indicates that intercepts deviate
+from the mean in at least seven lineages: increases occur independently
+in \emph{Pithecia} and \emph{Callicebus} within Pitheciids, in the clade
+composed of Callithrichinae and \emph{Aotus}, and in \emph{Alouatta}
+within Atelids, while lower intercepts are found in \emph{Homo} and
+\emph{Pan} within Hominidae, in \emph{Hylobates} within Hylobatids, and
+also in \emph{Ateles} within Atelids (\autoref{fig:phylo_W}a). It is
+noteworthy that we mean-centered logCS values for the entire sample, and
+intercepts then refer to the point at which allometric trajectories for
+all species cross this mean value (\autoref{fig:cac_logCS}b); more
+generally, as intercepts are defined in the same scale as the response
+variable (CAC projections), lower intercepts represent increased
+neurocranial capacity and shorter faces, while the converse is valid for
+higher intercepts (\autoref{fig:cac_logCS}a). Allometric slopes deviate
+from the mean in only three species: \emph{Homo sapiens} and both
+representatives of \emph{Gorilla}, all with slopes below the mean
 (\autoref{fig:phylo_W}b).
 
 \begin{figure}[htbp]
@@ -1953,27 +1965,26 @@ measured using regression models of Modularity Hypothesis Indexes (MHI;
 Porto \emph{et al.}, 2013) for two regions (Face and Neurocranium) and
 three sub-regions within each region (Oral, Nasal and Zygomatic in the
 Face; Orbit, Vault and Basicranium in the Neurocranium) on the estimated
-allometric parameters, and also on size variation alone, measured as the
-coefficient of variation in log Centroid Size. Model selection using
-Deviance Information Criteria (DIC; Gelman \emph{et al.}, 2004) shows
-that models considering either intercept or size variation only always
-have the worst fit. In most cases, models including only the slope are
-better than or equal ($\Delta DIC < 2$) to models with both parameters
-(intercept and slope), suggesting a negligible effect of the intercept.
-For the Neurocranium region and the Vault sub-region, the model
-including intercept and slope shows a better fit than the slope-only
-model; in both cases, however, the effects of the intercept are not
-significant when one takes into account the posterior distribution of
-the regression coefficients (results not shown). We thus consider that
-the models including only allometric slopes provide the best
-representation of the association between allometric parameters and MHI
-values (\autoref{tab:dic_allo_im}). It should be noted that none of the
-models tested for the Orbit and Basicranium sub-regions show any
-association between allometric parameters and MHI values, therefore
-these sub-regions were not included in the model selection. Allometric
-slopes show opposite effects on MHI values for Face and Neurocranium
+allometric parameters. Model selection using Deviance Information
+Criteria (DIC; Gelman \emph{et al.}, 2004) showed that models
+considering only intercept variation only always have the worst fit. In
+most cases, models including only the slope were better than or equal
+($\Delta \text{DIC} < 2$) to models with both parameters (intercept and
+slope), suggesting a negligible effect of the intercept. For the
+Neurocranium region and the Vault sub-region, the model including
+intercept and slope yielded a better fit than the slope-only model; in
+both cases, however, the effects of the intercept were not significant
+when one takes into account the posterior distribution of the regression
+coefficients (results not shown). Thus, the models including only
+allometric slopes provided the best representation of the association
+between allometric parameters and MHI values
+(\autoref{tab:dic_allo_im}). It should be noted that none of the models
+tested for the Orbit and Basicranium sub-regions showed any association
+between allometric parameters and MHI values, therefore these
+sub-regions were not included in the model selection. Allometric slopes
+showed opposite effects on MHI values for Face and Neurocranium
 (\autoref{fig:MI_vs_slopeW_main}), and, with the exception of the Orbit
-and Basicranium, sub-regions follow the same pattern as the more
+and Basicranium, sub-regions followed the same pattern as the more
 inclusive partition in which they are contained
 (\autoref{fig:MI_vs_slopeW_si}).
 
@@ -2005,58 +2016,58 @@ changes in morphological, physiological and other organismal aspects
 along a size-trait gradient (e.g. Gould, 1974) has historically been
 confronted with the opposing view that allometry may be in fact much
 more dynamic and evolvable (e.g. Kodric-Brown \emph{et al.}, 2006;
-Frankino \emph{et al.}, 2009). This paradox may owe its existence to
-different meanings for allometry (Houle \emph{et al.}, 2011): one
-related to any relationship of a given trait with size measured on any
-scale, while the other associates allometry with the multiplicative
-nature of biological growth and local differences in growth driven by
-development (Huxley, 1932), thus defining allometry strictly in a
-log-log scale. Such strict definition allows linking allometric
-relationships to the population- and individual-level processes that
-control both the timing and rate of life-history events, such as birth,
-weaning, and sexual maturation (Houle, 2001; Voje \emph{et al.}, 2013;
-Pélabon \emph{et al.}, 2014) and their physiological consequences (West
-\emph{et al.}, 1997, 2001). Considering the few studies estimating
-evolvability of narrow-sense allometry, only two demonstrate changes in
-allometric slopes (Tobler \& Nijhout, 2010; Bolstad \emph{et al.},
-2015).
+Frankino \emph{et al.}, 2009). This paradox may exist due to different
+meanings for allometry (Houle \emph{et al.}, 2011): one related to any
+relationship of a given trait with size measured on any scale, while the
+other associates allometry with the multiplicative nature of biological
+growth and local differences in growth driven by development (Huxley,
+1932), thus defining allometry strictly in a log-log scale. Huxley's
+original definition allows linking allometric relationships to the
+population- and individual-level processes that control both the timing
+and rate of life-history events, such as birth, weaning, and sexual
+maturation (Houle, 2001; Voje \emph{et al.}, 2013; Pélabon \emph{et
+al.}, 2014) and their physiological consequences (West \emph{et al.},
+1997, 2001). Considering the few studies estimating evolvability of
+narrow-sense allometry, only two demonstrate changes in allometric
+slopes (Tobler \& Nijhout, 2010; Bolstad \emph{et al.}, 2015).
 
-The results we obtained from the phylogenetic random regression indicate
-that substantial changes have occurred on intercepts, especially in New
-World Monkeys (\autoref{fig:phylo_W}a). As we expected, the role of
-natural selection on the evolution of body size in this group (Marroig
-\& Cheverud, 2005, 2010; Marroig \emph{et al.}, 2012) can be related to
+The results from the phylogenetic random regression indicate that
+substantial changes have occurred on intercepts, especially in New World
+Monkeys (\autoref{fig:phylo_W}a). As we expected, the role of natural
+selection on the evolution of body size in this group (Marroig \&
+Cheverud, 2005, 2010; Marroig \emph{et al.}, 2012) can be related to
 some of these changes. For example, in the lineage composed of
-Callithrichines and \emph{Aotus}, selection for reduced body size is
-pervasive, and associated with shifts in pre-natal growth rates,
-considering a maintenance in relative gestation lengths with respect to
-their sizes (Marroig \& Cheverud, 2009). The increased intercepts in
-this lineage may be related to a reduction in endocranial volume
-relative to body size in comparison to other Platyrrhines (Hartwig
-\emph{et al.}, 2011), since brain growth occurs mostly during the
-prenatal phase in primates (Lieberman, 2011). Increased intercepts has
-also been observed in howler monkeys (\emph{Alouatta}), in which reduced
-brain capacity both in terms of mass and volume has been associated with
-a trade-off between a herbivorous diet and the energetic requirements of
-a large brain (Aiello \& Wheeler, 1995). It is also noteworthy that, in
-some lineages of New World Monkeys, selection for changes in body size
-did not affect intercepts or slopes; for instance, selection for
-increased body size in \emph{Cebus} (Marroig \emph{et al.}, 2012)
-produced only a correlated response on skull shape, along the same
-allometric relationships observed in its sister genus \emph{Saimiri}
-(Marroig, 2007). The converse is also true: while saki monkeys
-(\emph{Pithecia}) show increased intercepts, diversification in this
-group can be explained solely as a consequence of drift, at least with
-respect to skull morphology (Marroig \& Cheverud, 2004).
+marmosets, tamarins and owl monkeys (Callithrichinae and Aotinae),
+selection for reduced body size is pervasive, and associated with shifts
+in prenatal growth rates, considering a maintenance in relative
+gestation lengths with respect to their sizes (Marroig \& Cheverud,
+2009). The increased intercepts in this lineage may be related to a
+reduction in endocranial volume relative to body size in comparison to
+other Platyrrhines (Hartwig \emph{et al.}, 2011), since brain growth
+occurs mostly during the prenatal phase in primates (Lieberman, 2011).
+Increased intercepts has also been observed in howler monkeys
+(\emph{Alouatta}), in which reduced brain capacity both in terms of mass
+and volume has been associated with a trade-off between a herbivorous
+diet and the energetic requirements of a large brain (Aiello \& Wheeler,
+1995). It is also noteworthy that, in some lineages of New World
+Monkeys, selection for changes in body size did not affect intercepts or
+slopes; for instance, selection for increased body size in \emph{Cebus}
+(Marroig \emph{et al.}, 2012) produced only a correlated response on
+skull shape, along the same allometric relationships observed in its
+sister genus \emph{Saimiri} (Marroig, 2007). The converse is also true:
+while increased intercepts were observed in saki monkeys
+(\emph{Pithecia}), diversification in this group can be explained solely
+as a consequence of drift, at least with respect to skull morphology
+(Marroig \& Cheverud, 2004).
 
 We have detected significant divergence in allometric slopes in only two
-lineages, \emph{Homo} and \emph{Gorilla}, although some changes may also
-have occurred in other lineages such as \emph{Alouatta} and
+lineages, \emph{Homo} and \emph{Gorilla}, although some changes might
+also have occurred in other lineages such as \emph{Alouatta} and
 \emph{Callithrix} (\autoref{fig:phylo_W}b). Even though \emph{Homo} and
-\emph{Gorilla} are closely related and exhibit slopes that are shallower
-than remaining Anthropoids, such slopes represent two distinct patterns
-of changes in ontogenetic trajectories (Mitteroecker \& Bookstein,
-2008). For \emph{Gorilla}, this change mostly represents an increase in
+\emph{Gorilla} are closely related and their estimated slopes are lower
+than average, these lineages exhibit two distinct patterns of changes in
+ontogenetic trajectories (Mitteroecker \& Bookstein, 2008). For
+\emph{Gorilla}, this change mostly represents an increase in
 neurocranial capacity near the end of their trajectory, while for
 \emph{Homo} it represents deviations occurring since the beginning of
 post-natal growth affecting mostly Oral and Vault traits, which results
@@ -2088,15 +2099,15 @@ diversification (Ackermann \& Cheverud, 2004; Schroeder \emph{et al.},
 2014) and given the ancestral allometric relationships for Anthropoids
 (CAC; \autoref{fig:cac_logCS}a), this pattern of selection would produce
 a correlated response for reduction in skull size (Lande, 1979). Thus,
-since skull size for \emph{Homo} is comparable to its sister lineages
+since skull size for \emph{Homo} is similar to its sister lineages
 (\autoref{fig:cac_logCS}b), the shift in allometric relationships on the
 former may be indicative of a joint effect of directional selection for
 reduction of the average CAC value and stabilizing selection on skull
-size, given that the changes in allometric slopes we observe in
-\emph{Homo} may be the result of shifts in the relationship between size
-and shape in the adaptive landscape for this lineage (Jones, 2007;
+size, given that the changes in allometric slopes detected in
+\emph{Homo} might be the result of shifts in the relationship between
+size and shape in the adaptive landscape for this lineage (Jones, 2007;
 Arnold \emph{et al.}, 2008; Jones \emph{et al.}, 2012; Melo \& Marroig,
-2015), which may result in changes in pleiotropic effects mediated by
+2015), which cascades into changes in pleiotropic effects mediated by
 epistatic interactions (Pavlicev \emph{et al.}, 2008, 2011).
 
 Concurrently, these changes in \emph{Homo} may also be the result of
@@ -2156,20 +2167,20 @@ morphological integration in Anthropoid Primates. The consistence of
 allometric slopes through Anthropoid diversification and the remarkable
 changes in \emph{Homo} and \emph{Gorilla} therefore provide novel
 evidence showing that allometric slopes may represent an important
-constraint for mammals, but one that is not absolute and may be overcome
-in particular situations. The approach we used here to estimate
-allometric parameters benefits from properly separating variation within
-and among populations, considering the interdependence arising from
-phylogenetic relatedness simultaneously. For instance, the same approach
-could be used to evaluate variation in allometric parameters between
-individuals in a population whose genealogy is available, enabling us to
-quantify the influence of both genetic and environmental factors over
-these parameters. In fact, given the availability of a strong
-theoretical background relating allometries defined at different levels
-of biological organization (Pélabon \emph{et al.}, 2013), further work
-in understanding the genetic basis of variation in allometry and how
-developmental systems interact with such variation may be critical to
-fully characterize the conditions in which this feature evolves.
+constraint for mammals; however, such constraint is not absolute and may
+be overcome in particular situations. The approach we used here to
+estimate allometric parameters benefits from properly separating
+variation within and among populations, considering the interdependence
+arising from phylogenetic relatedness simultaneously. For instance, the
+same approach could be used to evaluate variation in allometric
+parameters between individuals in a population whose genealogy is
+available, enabling us to quantify the influence of both genetic and
+environmental factors over these parameters. In fact, given the
+availability of a strong theoretical background relating allometries
+defined at different levels of biological organization (Pélabon \emph{et
+al.}, 2013), further work on the genetic basis of variation in allometry
+and its interactions with developmental systems may be critical to fully
+understand the conditions in which this feature evolves.
 
 \newpage
 \chapter{A Phylogenetic Analysis of Shape Covariance Structure}

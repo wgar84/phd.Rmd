@@ -99,7 +99,7 @@ This work aims to analyze both methods, which have been proposed in different co
 
 ## Sample
 
-The database we used here (\autoref{tab:modcomp_otu}) consists of 21 species, distributed across all taxonomic ranks within Anthropoidea above the genus level.
+The database we used here (\autoref{tab:modcomp_otu}) consists of 21 species, distributed across all major Anthropoid clades above the genus level.
 We selected these operational taxonomic units (OTU) from a broader database [@marroig_comparison_2001; @oliveira_covariance_2009] in order to reduce the effects of low sample sizes over estimates of modularity patterns.
 Individuals in our sample are represented by 36 registered landmarks, measured using a Polhemus 3Draw (for Platyrrhini) and a Microscribe 3DS (for Catarrhini). Twenty-two unique landmarks represent each individual (\autoref{fig:landmarks}, \autoref{tab:lms}), since 14 of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
 
