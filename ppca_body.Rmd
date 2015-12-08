@@ -70,7 +70,7 @@ The interplay between developmental and functional interactions, and their relat
 
 Our sample consists of `r sum (Aux $ sample.size)` individuals, distributes across `r length (Aux $ sample.size)` species. 
 These species are distributed throughout all major Anthropoid clades above the genus level, comprising all Platyrrhini genera and a substantial portion of Catarrhini genera.
-We associate this database with a ultrametric phylogenetic hypothesis for Anthropoidea (\autoref{fig:phylo_model}), derived from @springer_macroevolutionary_2012.
+We associate this database with a ultrametric phylogenetic hypothesis for Anthropoidea (\autoref{fig:phylo_model}), derived from Springer *et al.* [-@springer_macroevolutionary_2012].
 
 Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively.
 Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.

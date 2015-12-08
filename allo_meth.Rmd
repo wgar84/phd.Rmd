@@ -3,7 +3,7 @@
 ## Sample
 
 Our database consists of `r sum (Aux $ sample.size)` individuals from `r length (Aux $ sample.size)` species, distributed across all major Anthropoid clades above the genus level, comprising all Platyrrhini genera and a substantial portion of Catarrhini genera.
-We associated this database with an ultrametric phylogenetic hypothesis for Anthropoidea (Figure \ref{fig:phylo_model}), derived from @springer_macroevolutionary_2012.
+We associated this database with an ultrametric phylogenetic hypothesis for Anthropoidea (Figure \ref{fig:phylo_model}), derived from Springer *et al.* [-@springer_macroevolutionary_2012].
 
 Individuals in our sample are represented by 36 registered landmarks, using a Polhemus 3Draw and a Microscribe 3DS for Platyrrhini and Catarrhini, respectively.
 Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
