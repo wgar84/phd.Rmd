@@ -43,7 +43,7 @@ where $\bar{\rho}_{+}$ represents the average correlation within a given subset,
 
 We estimated the relationship between MHIs and static allometric parameters using phylogenetic mixed linear models; we adjusted such models separately for each trait subset, using MHI values as response variables and allometric parameters as predictors.
 We also use a Bayesian framework to estimate such models.
-In order to evaluate which parameters are sufficient to explain variation in MHI values, we adjusted four different models: one for static intercepts alone ($a_s$), one for static slopes ($b_s$), a third model that considers the joint effect of both parameters, without interactions ($a_s$ + $b_s$).
+In order to evaluate which parameters are sufficient to explain variation in MHI values, we adjusted four different models: one for static intercepts alone ($a_s$), one for static slopes ($b_s$), and a third model that considers the joint effect of both parameters, without interactions ($a_s$ + $b_s$).
 We compared these three models using the Deviance Information Criterion [DIC; @gelman_bayesian_2004], which decreases as a function of the average posterior log likelihood and increases as a function of the number of parameters considered; in a equivalent manner to Akaike's [-@akaike_new_1974] Information Criterion, the model with the smallest DIC is considered the best fit; models whose difference in DICs is lower than two are considered equivalent.
 
 ## Software

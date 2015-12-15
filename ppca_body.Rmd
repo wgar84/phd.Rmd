@@ -43,7 +43,7 @@ For example, in the mammalian skull, precursor tissues (paraxial mesoderm and ne
 Such contrast is the result of distinct gene expression profiles, which are further changed by the diffusion of signaling factors, thus generating a feedback loop of cell and tissue differentiation [@turing_chemical_1952; @marcucio_molecular_2005; @meinhardt_models_2008; @franz-odendaal_epigenetics_2011; @xu_correlations_2015].
 
 These signaling factors may be targeted at specific cell lineages, but the contact between adjoining tissues may produce correlated changes between them due to mechanical interactions and through mutual signaling cascades that induce specific behaviors in neighbor tissues, and such interactions are necessary for the proper development of both neighbors [@cheverud_effects_1992; @ravosa_masticatory_2000; @jiang_tissue_2002; @marcucio_mechanisms_2011].
-For instance, cranial vault growth, which occurs on the final stages of pre-natal development, is a result of the tension exerted by the growing brain on its encircling membranes, inducing them to secrete growth factors which promote bone growth [@opperman_cranial_2000; @rice_molecular_2003]; furthermore, post-natal facial growth is induced by muscular activity related to masticatory function, and this effect dominates post-natal skull growth [@zelditch_ontogeny_1992; @herring_muscle-bone_2011]
+For instance, cranial vault growth, which occurs on the final stages of pre-natal development, is a result of the tension exerted by the growing brain on its encircling membranes, inducing them to secrete signaling factors which promote bone growth [@opperman_cranial_2000; @rice_molecular_2003]; furthermore, post-natal facial growth is induced by muscular activity related to masticatory function, and this effect dominates post-natal skull growth [@zelditch_ontogeny_1992; @herring_muscle-bone_2011]
 Thus, development is composed of a series of such events, and it may be difficult to isolate the effect each individual process has on covariance structure, given their spatial overlap [@hallgrimsson_deciphering_2009]; hence, both the temporal hierarchy and the spatial organization of developmental and functional interactions influence the patterns embedded in genetic covariance structure.
 
 Empirical evidence on long-term changes on genetic covariance structure [comparative quantitative genetics; @steppan_comparative_2002] rely on the correspondence between patterns embedded in $\mathbf{G}$ and its phenotypic counterpart $\mathbf{P}$, since estimating $\mathbf{G}$ demands high sample sizes and nonetheless such estimate is prone to substantial error, since sample units are families rather than individuals [@meyer_estimating_1991; @houle_estimating_2015].
@@ -58,21 +58,20 @@ The adaptive radiation of phylostomid bats, for instance, has involved rearrange
 Currently, there is an abundance of methods dedicated to the comparison of covariance structure among lineages [e.g. @krzanowsky_between-groups_1979; @phillips_hierarchical_1999; @cheverud_comparing_2007], and such methods are often focused on constructing hypothesis of similarity or dissimilarity; however, in some situations, either hypotheses can be rejected in the same comparison [@ackermann_phenotypic_2000; @marroig_comparison_2001; @haber_evolution_2015].
 By expressing covariance matrix (dis)similarities with a single metric, these methods lack an explicit way of describing the differences in covariance structure between pairs of covariance matrices; furthermore, these methods also lack a direct manner to incorporate phylogenetic relatedness in pairwise comparisons.
 While extensions for these methods have been proposed to deal with the first limitation [e.g. @marroig_selection_2011], the second issue is usually resolved by comparing the set of pairwise matrix comparisons with the set of phylogenetic distances among lineages [e.g. @marroig_comparison_2001; @oliveira_covariance_2009].
-Although such comparison provides a first approximation to this problem, it has the same problems as comparing covariance matrices themselves, that is, summarising the relationship between patterns expressed in $\mathbf{P}$ or $\mathbf{G}$ and phylogenetic relatedness to a single value.
+Although such comparison provides a first approximation to this problem, it has the same problems as comparing covariance matrices themselves, that is, summarising the relationship between patterns expressed in $\mathbf{P}$ or $\mathbf{G}$ in a set of lineages and their phylogenetic relatedness to a single value.
 
 ### Objectives
 
-The interplay between developmental and functional interactions, and their relationships with the structure of adaptive landscapes may both influence the divergence between covariance structure in sister lineages. Thus, in the present work, we evaluate the stability of cranial phenotypic covariance structure along the diversification of Anthropoid Primates, considering that either developmental and functional interactions will produce different degrees of stability among different cranial regions, thus producing a non-random pattern of changes in covariance structure.
+The interplay between developmental and functional interactions, and their relationships with the topology of adaptive landscapes may influence the divergence between covariance structure in sister lineages. In the present work, we evaluate the stability of cranial phenotypic covariance structure along the diversification of Anthropoid Primates. Here, we build upon approaches proposed by other authors [@marroig_selection_2011; @aguirre_comparing_2013; @haber_evolution_2015] in order to explicitly incorporate phylogenetic relationships into the comparative analysis of covariance structure, under the hypothesis that different cranial regions will exhibit different degrees of stability among sister lineages, thus producing a non-random pattern of changes in covariance structure.
 
 # Methods
 
 ## Sample
 
-Our sample consists of `r sum (Aux $ sample.size)` individuals, distributes across `r length (Aux $ sample.size)` species. 
-These species are distributed throughout all major Anthropoid clades above the genus level, comprising all Platyrrhini genera and a substantial portion of Catarrhini genera.
+Our sample consists of `r sum (Aux $ sample.size)` individuals in `r length (Aux $ sample.size)` species, distributed throughout all major Anthropoid clades above the genus level, comprising all Platyrrhini genera and a substantial portion of Catarrhini genera.
 We associate this database with a ultrametric phylogenetic hypothesis for Anthropoidea (\autoref{fig:phylo_model}), derived from Springer *et al.* [-@springer_macroevolutionary_2012].
 
-Individuals in our sample are represented by 36 registered landmarks, using either a Polhemus 3Draw or a Microscribe 3DS for Platyrrhini and Catarrhini, respectively.
+Individuals in our sample are represented by 36 landmarks; these landmarks were registered using a Polhemus 3Draw and a Microscribe 3DS for Platyrrhini and Catarrhini, respectively.
 Twenty-two unique landmarks represent each individual (Figure \ref{fig:landmarks}), since fourteen of the 36 registered landmarks are bilaterally symmetrical. For more details on landmark registration, see @marroig_comparison_2001 and @oliveira_covariance_2009.
 Databases from both previous studies were merged into a single database, retaining only those individuals in which all landmarks from both sides were present.
 In the present work, we considered only covariance structure for the symmetrical component of variation; therefore, prior to any analysis, we controlled the effects of variation in assymmetry.
@@ -149,7 +148,7 @@ We defined the average matrix among all sampled $\mathbf{P}$-matrices as the loc
 We then used these $\mathbf{P}$-matrices to produce axes of matrix variation using an eigentensor decomposition [@basser_spectral_2007; @hine_characterizing_2009] obtaining a set of eigentensors and eigenvalues that summarise matrix variation (\autoref{fig:matrix_variation}a).
 As a consequence of using the mean covariance matrix for the entire sample over \autoref{eq:map}, the projections over eigentensors we obtained are naturally centered on $\mathbf{M}$. 
 
-We used the projections of $\mathbf{P}$-matrices over these eigentensors as traits in a phylogenetic Principal Component Analysis [pPCA; @jombart_putting_2010], which produces a new set of axes of matrix variation that considers both trait dispersal and phylogenetic relationships among OTUs simultaneously. If $\mathbf{Z}$ represents a matrix with projections of $n \mathbf{P}$-matrices over each eigentensor on its columns, phylogenetic PCs are the eigenvectors obtained from
+We used the projections of $\mathbf{P}$-matrices over these eigentensors as traits in a phylogenetic Principal Component Analysis [pPCA; @jombart_putting_2010], which produces a new set of axes of matrix variation that considers both trait dispersal and phylogenetic relationships among OTUs simultaneously. If $\mathbf{Z}$ represents a matrix with projections of $n$ $\mathbf{P}$-matrices over each eigentensor on its columns, phylogenetic PCs are the eigenvectors obtained from
 \begin{equation}
 \frac{1}{2n} \mathbf{Z}^t(\mathbf{W} + \mathbf{W}^t) \mathbf{Z}
 \end{equation}
@@ -223,6 +222,10 @@ The overall distribution of average posterior SRD scores along the entire set of
 
 # Discussion
 
-1. Adaptive landscapes and ecological processes
+1. Skull development
+
+  a. Basicranium
+
+  b. Orbit
 
 2. Development as trajectories through phenotype space

@@ -62,7 +62,7 @@ Despite the general stability in allometric slopes, we find remarkable changes o
 # Results
 
 We obtained local shape variables [@marquez_measurement_2012] to represent skull shape variation, and projected them over the Common Allometric Component [CAC; @mitteroecker_comparison_2004], which represents the pooled within-species allometric shape variation.
-We used such component as a proxy for the ancestral allometric relationships for Anthropoid Primates (see 'Methods' for details).
+We used such component as a proxy for the ancestral allometric relationships for Anthropoid Primates`r if (!thesis) " (see \\'Methods\\' for details)"`.
 This axis is associated with positive loadings for Facial traits and negative loadings for Neurocranial traits, thus representing a contrast between these regional sets (\autoref{fig:cac_logCS}a). 
 
 ```{r cac_logCS, echo = FALSE, fig.cap = captions $ fig.cac_logCS, fig.width = 12, fig.height = 9.8}
