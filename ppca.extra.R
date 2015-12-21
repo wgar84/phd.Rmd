@@ -91,7 +91,6 @@ ppca.Data $ post.arc %>%
 
 ppca.shape.comp <- plot_grid(plotlist = ppca.shape, ncol = 2, rel_widths = c(1, 1.275))
 
-
 ds.srd.pr <- post.ppca $ mean.srd.df
 
 levels(ds.srd.pr $ hyp) [1] <- 'Size'
@@ -109,3 +108,22 @@ alt.spline <-
          fill = guide_legend (ncol = 4)) +
   theme(legend.position = "bottom") +
   guides(color = FALSE)
+
+ds.srd.pr $ var <- rep (post.ppca $ var.moran.mean [, 2], each = 39)
+
+
+var.ppc.srd <-
+  ggplot(ds.srd.pr) +
+  geom_point(aes (x = var, y = mean.trait, color = hyp),
+             alpha = 0.6) +
+  geom_smooth(aes(x = var, y = mean.trait, color = hyp, fill = hyp), method = 'lm') +
+#  facet_wrap(~ hyp, nrow = 4) +
+  theme_bw() +
+  scale_color_brewer('Region', palette = 'Dark2') +
+  scale_fill_brewer('Region', palette = 'Dark2') +
+  scale_x_continuous(breaks = 10^c(-5, -3, -1), trans = 'log') +
+  xlab('log pPC Variance') + ylab('Posterior SRD Mean') +
+  guides(color = guide_legend (ncol = 4), 
+         fill = guide_legend (ncol = 4)) +
+  theme(legend.position = "bottom")
+

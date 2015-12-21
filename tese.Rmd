@@ -22,6 +22,9 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf', fig.pos = 'ht')
 thesis <- TRUE
 ```
 
+\onehalfspacing
+<!-- \doublespacing -->
+
 \pagestyle{fancy}
 
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -73,6 +76,8 @@ thesis <- TRUE
 \def\tableautorefname{Tabela}
 
 \selectlanguage{brazilian}
+
+\newpage
 
 \pagestyle{plain}
 

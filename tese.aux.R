@@ -13,7 +13,7 @@ require (phytools)
 require (geiger)
 require (mvtnorm)
 require (MCMCglmm)
-# require (grid)
+require (grid)
 # require (gridExtra)
 # require (gridBase)
 # require (surface)
@@ -204,4 +204,3 @@ cac.homi <-
   draw_line(c(0, 0.52), c(0.55, 0.55)) +
   draw_line(c(0, 0), c(0, 0.55)) +
   draw_line(c(0, 0.52), c(0, 0))
-

@@ -21,9 +21,9 @@ bibliography: Bib/ppca.bib
 
 ^2^<wgar@usp.br>
 
-running title: PCA of a PCA
+running title: Covariances in Space and Time! 
 
-key words: $P$-matrix; modularity; primates; development;
+key words: $P$-matrix; primates; developmental systems; bayesian statistics; quantitative genetics
 
 ```{r, echo = FALSE}
 thesis <- FALSE

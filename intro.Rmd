@@ -7,6 +7,18 @@ captions $ fig.phylo_model <- "Tamanhos amostrais e efeitos fixos controlados pa
 
 ```
 
+Caracteres fenotípicos em uma população evoluem conjuntamente seja devido à processos genéticos e de desenvolvimento compartilhados ou a efeitos comuns sobre a aptidão [@gould_spandrels_1979; @lande_quantitative_1979; @felsenstein_phylogenies_1988; @zeng_long-term_1988] e a resposta à seleção natural é máxima quando ambos os efeitos coincidem, enquanto a discordância entre eles pode dificultar uma resposta direta [@schluter_adaptive_1996]. Lande [-@lande_quantitative_1979] demonstrou que, assumindo uma distribuição gaussiana de efeitos alélicos, a diferença no fenótipo médio entre gerações em uma população sujeita a seleção direcional ($\Delta\bar{\mathbf{z}}$) pode ser representada como
+\begin{equation}
+\Delta\bar{\mathbf{z}} = \mathbf{G}\boldsymbol{\beta}
+\label{eq:lande}
+\end{equation}
+onde $\mathbf{G}$ representa a matriz de covariâncias aditivas genéticas entre caracteres e $\beta$ representa a direção de incremento máximo na aptidão, ou seja, o gradiente da paisagem adaptativa média centrado no fenótipo médio ($\boldsymbol{\beta} = \nabla \ln \bar{W}$); portanto, esta equação representa a resposta à seleção devido ao componente linear da paisagem adapativa. Da mesma forma, as covariâncias aditivas expressas em $\mathbf{G}$ representam a co-dependência entre caracteres devido a pleiotropia e desequilíbrio de ligação [@cheverud_developmental_1996; @wagner_homologues_1996], de modo que o mapa genótipo/fenótipo, nesta equação, é reduzido à sua aproximação linear centrada no fenótipo médio da população [@wagner_eigenvalue_1984].
+
+No entanto, a estrutura de interações pleiotrópicas depende da curvatura local do mapa genótipo/fenótipo, tradicionalmente representada em genética quantitativa na forma de dominância ou epistasia [@rice_evolution_1998; @wolf_developmental_2001; @rice_developmental_2004], ou seja, interações não lineares dentre alelos em um mesmo *locus* ou entre alelos em *loci* distintos, respectivamente.
+O efeito de epistasia na modulação de interações pleiotrópicas foi identificado em contextos experimentais [e.g. @cheverud_pleiotropic_2004; @wolf_epistatic_2005; @pavlicev_genetic_2008], indicando assim que populações podem abrigar variação genética nos componentes lineares do mapa genótipo/fenótipo.
+Covariâncias genéticas entre caracteres fenotípicos portanto podem evoluir como conseqüência de mudanças nas freqüências alélicas nestes *loci*, por exemplo em resposta à deriva genética e efeito de fundador [@goodnight_quantitative_2000; @brito_evolution_2005].
+Características locais da paisagem adaptativa também podem afetar covariâncias genéticas entre caracteres, visto que $\mathbf{G}$ deve refletir os padrões impostos por seleção estabilizadora e efeitos mutacionais [@lande_genetic_1980; @cheverud_quantitative_1984; @jones_mutation_2007]. Além disso, mais recentemente, tanto dados experimentais [@careau_evolution_2015] e modelos baseados em simulção de indivíduos [@jones_effects_2012; @melo_directional_2015] demonstraram os efeitos da seleção direcional sobre a estrutura descrita por $\mathbf{G}$.
+
 \input{Tables/lms}
 
 ![`r captions $ fig.landmarks`](Figures/landmarks.png)

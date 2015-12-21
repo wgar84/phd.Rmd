@@ -172,7 +172,7 @@
     Biologia Evolutiva}, pdfkeywords={Genética Quantitiva, Morfologia
     Craniana, Roedores}, pdfproducer={Latex}, pdfcreator={pdflatex}}
  
-\geometry{bindingoffset=20pt}
+\geometry{bindingoffset=30pt}
 
 %\geometry{paperwidth=290mm, paperheight=297mm, margin=1in}
 %\setlength{\marginparwidth=80mm}
@@ -483,6 +483,57 @@ modularity, morphological integration, anthropoid primates
 \chapter{Introdução}
 \label{ch:intro}
 
+Caracteres fenotípicos em uma população evoluem conjuntamente seja
+devido à processos genéticos e de desenvolvimento compartilhados ou a
+efeitos comuns sobre a aptidão (Gould \& Lewontin, 1979; Lande, 1979;
+Felsenstein, 1988; Zeng, 1988) e a resposta à seleção natural é máxima
+quando ambos os efeitos coincidem, enquanto a discordância entre eles
+pode dificultar uma resposta direta (Schluter, 1996). Lande (1979)
+demonstrou que, assumindo uma distribuição gaussiana de efeitos
+alélicos, a diferença no fenótipo médio entre gerações em uma população
+sujeita a seleção direcional ($\Delta\bar{\mathbf{z}}$) pode ser
+representada como
+
+\begin{equation}
+\Delta\bar{\mathbf{z}} = \mathbf{G}\boldsymbol{\beta}
+\label{eq:lande}
+\end{equation}
+
+onde $\mathbf{G}$ representa a matriz de covariâncias aditivas genéticas
+entre caracteres e $\beta$ representa a direção de incremento máximo na
+aptidão, ou seja, o gradiente da paisagem adaptativa média centrado no
+fenótipo médio ($\boldsymbol{\beta} = \nabla \ln \bar{W}$); portanto,
+esta equação representa a resposta à seleção devido ao componente linear
+da paisagem adapativa. Da mesma forma, as covariâncias aditivas
+expressas em $\mathbf{G}$ representam a co-dependência entre caracteres
+devido a pleiotropia e desequilíbrio de ligação (Cheverud, 1996a;
+Wagner, 1996), de modo que o mapa genótipo/fenótipo, nesta equação, é
+reduzido à sua aproximação linear centrada no fenótipo médio da
+população (Wagner, 1984).
+
+No entanto, a estrutura de interações pleiotrópicas depende da curvatura
+local do mapa genótipo/fenótipo, tradicionalmente representada em
+genética quantitativa na forma de dominância ou epistasia (Rice, 1998,
+2004; Wolf \emph{et al.}, 2001), ou seja, interações não lineares dentre
+alelos em um mesmo \emph{locus} ou entre alelos em \emph{loci}
+distintos, respectivamente. O efeito de epistasia na modulação de
+interações pleiotrópicas foi identificado em contextos experimentais
+(e.g. Cheverud \emph{et al.}, 2004; Wolf \emph{et al.}, 2005; Pavlicev
+\emph{et al.}, 2008), indicando assim que populações podem abrigar
+variação genética nos componentes lineares do mapa genótipo/fenótipo.
+Covariâncias genéticas entre caracteres fenotípicos portanto podem
+evoluir como conseqüência de mudanças nas freqüências alélicas nestes
+\emph{loci}, por exemplo em resposta à deriva genética e efeito de
+fundador (Goodnight, 2000; Brito \emph{et al.}, 2005). Características
+locais da paisagem adaptativa também podem afetar covariâncias genéticas
+entre caracteres, visto que $\mathbf{G}$ deve refletir os padrões
+impostos por seleção estabilizadora e efeitos mutacionais (Lande, 1980;
+Cheverud, 1984; Jones, 2007). Além disso, mais recentemente, tanto dados
+experimentais (Careau \emph{et al.}, 2015) e modelos baseados em
+simulção de indivíduos (Jones \emph{et al.}, 2012; Melo \& Marroig,
+2015) demonstraram os efeitos da seleção direcional sobre a estrutura
+descrita por $\mathbf{G}$.
+
 \input{Tables/lms}
 
 \begin{figure}[htbp]
@@ -608,7 +659,7 @@ between morphological traits (Wagner, 1984; Young \& Hallgrímsson,
 2005), and the magnitude of integration has important consequences for
 both the evolution of mean phenotypes (Schluter, 1996; Marroig \&
 Cheverud, 2005, 2010; Cardini \& Polly, 2013) and the evolution of
-morphological integration itself (Oliveira \emph{et al.}, 2009; Porto
+morphological integration itself (Oliveira \emph{et al.}, 2009b; Porto
 \emph{et al.}, 2009, 2013; Shirai \& Marroig, 2010).
 
 In this context, adaptive landscapes may be the central component
@@ -617,15 +668,15 @@ both stabilizing and directional selection have been shown to produce
 changes in integration patterns (Jones, 2007; Arnold \emph{et al.},
 2008; Jones \emph{et al.}, 2012; Melo \& Marroig, 2015). The empirical
 evidence available demonstrates that both stability (e.g. Marroig \&
-Cheverud, 2001; Oliveira \emph{et al.}, 2009; Porto \emph{et al.}, 2009;
-Willmore \emph{et al.}, 2009) and divergence (e.g. Monteiro \& Nogueira,
-2010; Grabowski \emph{et al.}, 2011; Sanger \emph{et al.}, 2012; Haber,
-2015) of integration patterns are possible outcomes of the evolutionary
-process. Therefore, the question of whether any of these two scenarios
-is the rule or exception at macroevolutionary scales remains open,
-although some theoretical and methodological differences between these
-works with respect to the representation of morphological features need
-to be considered.
+Cheverud, 2001; Oliveira \emph{et al.}, 2009b; Porto \emph{et al.},
+2009; Willmore \emph{et al.}, 2009) and divergence (e.g. Monteiro \&
+Nogueira, 2010; Grabowski \emph{et al.}, 2011; Sanger \emph{et al.},
+2012; Haber, 2015) of integration patterns are possible outcomes of the
+evolutionary process. Therefore, the question of whether any of these
+two scenarios is the rule or exception at macroevolutionary scales
+remains open, although some theoretical and methodological differences
+between these works with respect to the representation of morphological
+features need to be considered.
 
 \subsubsection{Morphometrics}\label{morphometrics}
 
@@ -704,10 +755,10 @@ Klingenberg, 2010; Goswami \& Polly, 2010; Martínez-Abadías \emph{et
 al.}, 2011; Sanger \emph{et al.}, 2012). The results found by these
 authors are sometimes in stark constrast with similar works using
 interlandmark distances (e.g. Cheverud \emph{et al.}, 1997; Oliveira
-\emph{et al.}, 2009; Porto \emph{et al.}, 2009). For instance,
+\emph{et al.}, 2009b; Porto \emph{et al.}, 2009). For instance,
 Martínez-Abadías et al. (2011) found a pattern of strong integration
 among partitions in human skull covariance patterns, while Oliveira et
-al. (2009) and Porto et al. (2009) demonstrated that humans are among
+al. (2009b) and Porto et al. (2009) demonstrated that humans are among
 the most modular examples of mammalian skull covariance patterns.
 Likewise, while Cheverud et al. (1997) had shown that 70\% of the
 pleiotropic effects are confined to either anterior or posterior
@@ -745,14 +796,14 @@ The database we used here (\autoref{tab:modcomp_otu}) consists of 21
 species, distributed across all major Anthropoid clades above the genus
 level. We selected these operational taxonomic units (OTU) from a
 broader database (Marroig \& Cheverud, 2001; Oliveira \emph{et al.},
-2009) in order to reduce the effects of low sample sizes over estimates
+2009b) in order to reduce the effects of low sample sizes over estimates
 of modularity patterns. Individuals in our sample are represented by 36
 registered landmarks, measured using a Polhemus 3Draw (for Platyrrhini)
 and a Microscribe 3DS (for Catarrhini). Twenty-two unique landmarks
 represent each individual (\autoref{fig:landmarks}, \autoref{tab:lms}),
 since 14 of the 36 registered landmarks are bilaterally symmetrical. For
 more details on landmark registration, see Marroig \& Cheverud (2001)
-and Oliveira et al. (2009).
+and Oliveira et al. (2009b).
 
 \input{Tables/modcomp_otu}
 
@@ -1045,7 +1096,7 @@ increasing $b^2$ values, as effect size would also decrease.
 
 \subsubsection{Software}\label{software}
 
-All analysis were performed under R 3.2.2 (R Core Team, 2015). Source
+All analysis were performed under R 3.2.1 (R Core Team, 2015). Source
 code for all analyses can be found at \url{http://github.com/wgar84}.
 Previous tests indicated no differences between our estimation of
 empirical RV coefficients, based upon our own code, and estimates
@@ -1386,7 +1437,7 @@ species seems to indicate that RV values are sensitive to the magnitude
 of morphological integration, since species with high RV values, such as
 \emph{Papio anubis} and \emph{Macaca fascicularis}, are within genera
 that also exhibit higher magintudes among Catarrhines (Oliveira \emph{et
-al.}, 2009), at least when we consider interlandmark distances.
+al.}, 2009b), at least when we consider interlandmark distances.
 Interestingly enough, this effect of magnitude of integration (which is
 thought to emerge as a consequence of size variation; Wagner, 1984;
 Marroig \& Cheverud, 2001, 2005; Porto \emph{et al.}, 2013) seems to
@@ -1519,7 +1570,7 @@ these authors' conclusion of pervasive genetic integration in the human
 skull might be misleading, considering that skull covariance patterns in
 humans are one of the most modular examples of such patterns when
 compared to other mammals (Porto \emph{et al.}, 2009) or catarrhine
-primates (Oliveira \emph{et al.}, 2009).
+primates (Oliveira \emph{et al.}, 2009b).
 
 The approach we explore in the present work is only one of the different
 alternatives to investigate the association between genetic, functional
@@ -1678,7 +1729,7 @@ organisms. We focus on testing whether and to which proportion
 intercepts and slopes have changed during the diversification of this
 group. Moreover, integration patterns in skull form are quite stable in
 both New World (Marroig \& Cheverud, 2001) and Old World Monkeys, with
-the exception of some Hominids (Oliveira \emph{et al.}, 2009). Several
+the exception of some Hominids (Oliveira \emph{et al.}, 2009b). Several
 authors (e.g. Porto \emph{et al.}, 2013; Armbruster \emph{et al.}, 2014)
 have argued that integration in this group is a consequence of the joint
 effect of both size variation and allometric relationships within
@@ -1720,7 +1771,7 @@ Catarrhini, respectively. Twenty-two unique landmarks represent each
 individual (Figure \ref{fig:landmarks}), since fourteen of the 36
 registered landmarks are bilaterally symmetrical. For more details on
 landmark registration, see Marroig \& Cheverud (2001) and Oliveira et
-al. (2009). Databases from both previous studies were merged into a
+al. (2009b). Databases from both previous studies were merged into a
 single database, retaining only individuals in which all landmarks, from
 both sides, were present.
 
@@ -1860,7 +1911,7 @@ parameter ($a_s$ or $b_s$) has changed in that particular node.
 Using our landmark configuration database, we calculated 38
 interlandmark distances (\autoref{fig:landmarks}), based on previous
 works on mammalian covariance patterns (Cheverud, 1995, 1996b; Marroig
-\& Cheverud, 2001; Oliveira \emph{et al.}, 2009). Within each OTU, we
+\& Cheverud, 2001; Oliveira \emph{et al.}, 2009b). Within each OTU, we
 estimated and removed fixed effects of little interest within the
 present context using generalized linear models (Figure
 \ref{fig:phylo_model}). Using residuals from each model, we estimated
@@ -1898,7 +1949,7 @@ two are considered equivalent.
 
 \subsection{Software}\label{software-1}
 
-All analysis were performed under R 3.2.2 (R Core Team, 2015). Our code
+All analysis were performed under R 3.2.1 (R Core Team, 2015). Our code
 for the estimation of local shape variables can be found at
 \url{http://github.com/wgar84}. We performed MCMC sampling for all
 models using the MCMCglmm package in R (Hadfield, 2010). In order to
@@ -2215,14 +2266,14 @@ populations may harbor genetic variation in the linear components of
 genotype/phenotype maps. Genetic covariances among phenotypic traits
 then evolve as a consequence of shifts in allele frequencies in these
 \emph{loci}, for example in response to genetic drift and founder
-effects (Goodnight, 2000; Brito\} \emph{et al.}, 2005). Local features
-of the adaptive landscape may also impact genetic covariances among
-traits, as $\mathbf{G}$ is thought to match the patterns imposed by
-stabilizing selection and mutational effects (Lande, 1980; Cheverud,
-1984; Jones, 2007). Moreover, more recently, both experimental data
-(Careau \emph{et al.}, 2015) and simulation-based models (Jones \emph{et
-al.}, 2012; Melo \& Marroig, 2015) have demonstrated the effects of
-directional selection on the structure described by $\mathbf{G}$.
+effects (Goodnight, 2000; Brito \emph{et al.}, 2005). Local features of
+the adaptive landscape may also impact genetic covariances among traits,
+as $\mathbf{G}$ is thought to match the patterns imposed by stabilizing
+selection and mutational effects (Lande, 1980; Cheverud, 1984; Jones,
+2007). Moreover, more recently, both experimental data (Careau \emph{et
+al.}, 2015) and simulation-based models (Jones \emph{et al.}, 2012; Melo
+\& Marroig, 2015) have demonstrated the effects of directional selection
+on the structure described by $\mathbf{G}$.
 
 The relationship between adaptive landscapes and intrapopulational
 covariance structure is mediated through performance (Arnold, 1983),
@@ -2260,27 +2311,33 @@ difficult to isolate the effect each individual process has on
 covariance structure, given their spatial overlap (Hallgrímsson \emph{et
 al.}, 2009); hence, both the temporal hierarchy and the spatial
 organization of developmental and functional interactions influence the
-patterns embedded in genetic covariance structure.
+patterns embedded in genetic covariance structure. Furthermore, these
+molecular aspects of developmental regulation motivate distinct
+definitions for pleiotropy (Zelditch \& Swiderski, 2011): one in which
+the focal \emph{locus} affects a series of developmental processes
+within a single cell lineage (\emph{intrinsic, genetic effect}), and
+another in which processes in one lineage depends on the expression of
+the focal \emph{locus} on another (\emph{extrinsic, epigenetic effect}).
 
 Empirical evidence on long-term changes on genetic covariance structure
 (comparative quantitative genetics; Steppan \emph{et al.}, 2002) rely on
-the correspondence between patterns embedded in $\mathbf{G}$ and its
-phenotypic counterpart $\mathbf{P}$, since estimating $\mathbf{G}$
-demands high sample sizes and nonetheless such estimate is prone to
-substantial error, since sample units are families rather than
-individuals (Meyer, 1991; Houle \& Meyer, 2015). The similarity in
-covariance structure between $\mathbf{P}$ and $\mathbf{G}$ (``Cheverud's
-Conjecture''; Cheverud, 1988; Roff, 1995), has been supported in
-different trait systems and organisms (e.g.: Waitt \& Levin, 1998;
-Dochtermann, 2011; Garcia \emph{et al.}, 2014), indicating that
-environmental effects ($\mathbf{E}$) are either uncorrelated or exhibit
-patterns similar to $\mathbf{G}$, since these effects exert their
-influence over phenotypes through the same developmental processes in
-which genetic variation is structured (Rice, 2002, 2004).
+the correspondence between $\mathbf{G}$ and its phenotypic counterpart
+$\mathbf{P}$, since estimating $\mathbf{G}$ demands high sample sizes
+and nonetheless such estimate is prone to substantial error, since
+sample units are families rather than individuals (Meyer, 1991; Houle \&
+Meyer, 2015). The similarity in covariance structure between
+$\mathbf{P}$ and $\mathbf{G}$ (``Cheverud's Conjecture''; Cheverud,
+1988; Roff, 1995), has been supported in different trait systems and
+organisms (e.g.: Waitt \& Levin, 1998; Dochtermann, 2011; Garcia
+\emph{et al.}, 2014), indicating that environmental effects
+($\mathbf{E}$) are either uncorrelated or exhibit patterns similar to
+$\mathbf{G}$, since these effects exert their influence over phenotypes
+through the same developmental processes in which genetic variation is
+structured (Rice, 2002, 2004).
 
 The comparative analysis of phenotypic covariance structure shows that
 $\mathbf{P}$ can remain stable in macroevolutionary scales (e.g. Marroig
-\& Cheverud, 2001; Oliveira \emph{et al.}, 2009; Kolbe \emph{et al.},
+\& Cheverud, 2001; Oliveira \emph{et al.}, 2009b; Kolbe \emph{et al.},
 2011), and such stability may be a consequence of alignment between
 phenotypic covariance structure and the local features of the adaptive
 landscape acting over different lineages. In New World Monkeys
@@ -2318,7 +2375,7 @@ extensions for these methods have been proposed to deal with the first
 limitation (e.g. Marroig \emph{et al.}, 2011), the second issue is
 usually resolved by comparing the set of pairwise matrix comparisons
 with the set of phylogenetic distances among lineages (e.g. Marroig \&
-Cheverud, 2001; Oliveira \emph{et al.}, 2009). Although such comparison
+Cheverud, 2001; Oliveira \emph{et al.}, 2009b). Although such comparison
 provides a first approximation to this problem, it has the same problems
 as comparing covariance matrices themselves, that is, summarising the
 relationship between patterns expressed in $\mathbf{P}$ or $\mathbf{G}$
@@ -2332,9 +2389,9 @@ their relationships with the topology of adaptive landscapes may
 influence the divergence between covariance structure in sister
 lineages. In the present work, we evaluate the stability of cranial
 phenotypic covariance structure along the diversification of Anthropoid
-Primates. Here, we build upon approaches proposed by other authors
-(Marroig \emph{et al.}, 2011; Aguirre \emph{et al.}, 2013; Haber, 2015)
-in order to explicitly incorporate phylogenetic relationships into the
+Primates. We build upon approaches proposed by other authors (Marroig
+\emph{et al.}, 2011; Aguirre \emph{et al.}, 2013; Haber, 2015) in order
+to explicitly incorporate phylogenetic relationships into the
 comparative analysis of covariance structure, under the hypothesis that
 different cranial regions will exhibit different degrees of stability
 among sister lineages, thus producing a non-random pattern of changes in
@@ -2357,7 +2414,7 @@ for Platyrrhini and Catarrhini, respectively. Twenty-two unique
 landmarks represent each individual (Figure \ref{fig:landmarks}), since
 fourteen of the 36 registered landmarks are bilaterally symmetrical. For
 more details on landmark registration, see Marroig \& Cheverud (2001)
-and Oliveira et al. (2009). Databases from both previous studies were
+and Oliveira et al. (2009b). Databases from both previous studies were
 merged into a single database, retaining only those individuals in which
 all landmarks from both sides were present. In the present work, we
 considered only covariance structure for the symmetrical component of
@@ -2628,7 +2685,7 @@ comparing SRD scores estimated within each region for all pPCs.
 
 \subsubsection{Software}\label{software-2}
 
-We performed all analyses under R 3.2.2 (R Core Team, 2015). We fitted
+We performed all analyses under R 3.2.1 (R Core Team, 2015). We fitted
 Bayesian linear models for estimating posterior $\mathbf{P}$-matrix
 samples using the \emph{MCMCglmm} package (Hadfield, 2010). Source code
 for the eigentensor decomposition can be found at
@@ -2770,33 +2827,229 @@ should not be taken into account.
 
 \section{Discussion}\label{discussion-2}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Skull development
-\end{enumerate}
+Since its conception, the hypothesis that functional interactions among
+morphological traits shape their phenotypic covariance structure (Olson
+\& Miller, 1958) has been complemented with the notion that
+developmental interactions mediate the functional relationships among
+traits dynamically; thus, it is difficult to separate the relative
+contribution of either development or function to phenotypic integration
+(Cheverud, 1996a), especially considering that the structure of
+developmental interactions is thought to match the pattern of optimal
+functional interactions (Lande, 1980; Cheverud, 1984; Wagner, 1996;
+Jones, 2007), which further entangles both phenomena. Thus, changes in
+covariance structure between sister lineages should be associated with
+the interplay between functional and developmental interactions.
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\item
-  Basicranium
-\item
-  Orbit
-\end{enumerate}
+Our results indicate that the changes in phenotypic covariance structure
+associated with all phylogenetic principal components follow a similar
+pattern with respect to changes in trait-specific covariances (Figures
+\ref{fig:srd_gl} and \ref{fig:loess}). Such changes are mostly
+associated with either Basicranial and Orbital trait sets, along with
+allometric relationships, represented by the covariances between log
+Centroid Size and local shape variables. It is noteworthy that while the
+comparison between covariance matrices in the limits of each
+phylogenetic PC represents the overall pattern of dissimilarity in
+trait-specific covariance structure associated with each axis, the
+actual values obtained represent only a fraction of the overall
+divergence between Anthropoid lineages. Given any two
+$\mathbf{P}$-matrices associated with a pair of species, the actual SRD
+comparison between then will be some linear combination of their
+divergences along each pPC axis.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Development as trajectories through phenotype space
-\end{enumerate}
+Orbital traits are mostly associated with the development of the
+postorbital bar in Euprimates, as opposed to Plesiadapiforms, and in
+Anthropoids it fully develops into the orbital cavity and postorbital
+wall (Ravosa \& Savakova, 2004). The origins of such structure have been
+linked to the distribution of masticatory loadings around the
+comparatively large primate eye for the maintenance of a stable,
+forward-facing visual field even during feeding behavior (Ravosa
+\emph{et al.}, 2000). Although most of the cranial Vault originates from
+intramembranous ossification induced by the growing brain and thus
+derived from the neural crest, the influence of mesoderm-derived
+condensations and its pattern of endochondral ossification is necessary
+for the proper development of the fronto-nasal and fronto-zygomatic
+sutures, which affect the brow ridge and both medial and lateral orbital
+walls (Jiang \emph{et al.}, 2002).
+
+In the same manner, the Basicranium originates from a set of thirteen
+condensations derived from both precursors, which exhibit a mosaic
+pattern of both endochondral and intramembranous ossification
+(Lieberman, 2011). Such processes occurs early during skull development,
+and the spatial overlap of developmental processes (Hallgrímsson
+\emph{et al.}, 2009) may also explain Basicranium variation in
+covariance structure. Moreover, the angulation between anterior and
+posterior elements of the Basicranium has significantly changed during
+primate evolution, and such property appears to have evolved in
+coordination with Facial growth relative to the cranial Vault,
+accomodating both structures on each other (Scott, 1958; Lieberman
+\emph{et al.}, 2000, 2008). Therefore, both Orbit and Basicranium are
+located in the boundary between the domains of the two precursor tissues
+that originate osteological elements in the skull, and their proper
+development is affected by both of them; furthermore, their functional
+significance is also associated with the accomodation of remaining
+structures. These characteristics properties of their development may
+thus be sufficient to explain their divergence among lineages in terms
+of covariance structure.
+
+On the other hand, the structure of phenotypic covariances for Oral,
+Nasal and Vault traits remained stable through the course of Anthropoid
+diversification. These regions exhibit more consistent patterns of
+developmental processes, when compared to the Orbit or Basicranium. Both
+Oral and Nasal regions originate from mesoderm-derived tissue, and
+exhibit a great degree of interactions with soft tissue during prenatal
+development; the Oral region further suffers the influence of
+muscleskeletal interactions associated with Facial growth in postnatal
+development, which also contributes to its pattern of stability in
+covariance structure (Zelditch \emph{et al.}, 1992; Herring, 2011;
+Lieberman, 2011). The cranial Vault originates mostly from precursors
+derived from the neural crest and exhibits a more regular pattern of
+growth, induced by the underlying brain (Lieberman, 2011; Esteve-Altava
+\& Rasskin-Gutman, 2014). While there are prenatal developmental
+processes associated with the integration of both structures (Marcucio
+\emph{et al.}, 2005, 2011) and postnatal muscle-bone interactions may be
+understood as a overall integrating factor, since the skull as whole is
+affected by such interactions, each of these regions is located within
+the bounds of precursor components, thus exhibiting a stable association
+between developmental processes that originate these regions and their
+functional aspects.
+
+Finally, allometric relationship exhibit changes in covariance structure
+across phylogenetic principal components with magnitudes equivalent to
+Basicranial traits (Figures \ref{fig:srd_gl} and \ref{fig:loess}). While
+such relationships are explored elsewhere (Chapter 3), it is noteworthy
+that these changes may be associated with the role of directional
+selection for body size, which shaped the extant diversity of New World
+(Marroig \& Cheverud, 2005, 2010) and Old World Monkeys (Cardini
+\emph{et al.}, 2007; Cardini \& Elton, 2008), as well as the more
+complex relationships between size and shape observed within Hominidae
+(Ackermann \& Cheverud, 2004; Mitteroecker \emph{et al.}, 2004;
+Mitteroecker \& Bookstein, 2008; Schroeder \emph{et al.}, 2014). To some
+extent, selection for body size produces mean shape differences among
+lineages in a manner consistent with the ancestral allometric
+relationships (Lande, 1979; Schluter, 1996), but selective pressures for
+size may alter such relationships depending on the structure of
+interactions between size, shape and ontogeny (Pélabon \emph{et al.},
+2013, 2014).
+
+The phylogenetic distribution of changes in covariance strucuture
+(\autoref{fig:phylo_full}) reveals an even distribution of such changes
+throughout Anthropoid diversification, with three different instances in
+which more substantial changes have occurred, in order of the estimated
+$\mathbf{P}$-matrix diversity at each point (\autoref{fig:phylo_full}a):
+the divergence between New World and Old World Monkeys, between Atelidae
+and Cebidae, and between Hominoidea and Cercopithecoidea. Results from
+the phylogenetic principal component analysis
+(\autoref{fig:phylo_full}b) recover a similar pattern, considering the
+contribution of these lineages to each axis of matrix variation, and the
+posterior distributions of the associated eigenvalues for the first,
+second and third phylogenetic principal components (\autoref{fig:eval})
+indicate that these cladogenetic events can be set apart in terms of
+their relative contributions to $\mathbf{P}$-matrix diversity.
+
+Although the phenotypic covariance structure for Hominids has been
+regarded as the most disparate when compared to remaining Catarrhines
+(Oliveira \emph{et al.}, 2009b) and to mammals in general (Porto
+\emph{et al.}, 2009), these findings may differ qualitatively from our
+results due to the use of traditional morphometric measurements, as
+opposed to the geometric morphometrics approach we use here. Without any
+means to scale the relative contribution of size variation,
+interlandmark distances will overestimate the influence of this source
+of variation over subtle shape relationships; thus, as the divergence in
+Hominid covariance structure is mostly related to differences in
+allometric relationships in this lineage (\autoref{fig:cac_homi}),
+interlandmark distances will put more emphasis on these differences.
+However, it is also noteworthy that the actual pattern of divergence in
+the third phylogenetic component (\autoref{fig:phylo_full}b) contrasts
+the Hominoid lineage apart not only from its sister group,
+Cercopithecoidea, but also from remaining Platyrrhine lineages, thus,
+the apparent greater contribution from the divergence between Atelids
+and Cebids to $\mathbf{P}$-matrix diversity may be a consequence of the
+phylogenetic structure imposed by either analyses, as the constrast
+produced by the third pPC is not a proper constrast between sister
+lineages, but rather between Hominoidea and the paraphyletic grouping
+obtained from removing this group. However, both events are overshadowed
+by the separation between New World and Old World Monkeys. Considering
+the subtle differences in $\mathbf{P}$-matrix diversity such divergence
+represents, and that the ancestral population for all Platyrrhines
+arrived at South America traversing the young Atlantic Ocean probably by
+island hopping (Oliveira \emph{et al.}, 2009a), the most simple
+explanation for such divergence in $\mathbf{P}$-matrix structure lies in
+changes in the genetic architecture of cranial traits due to founder
+effects (Goodnight, 2000), as the effective population sizes in the
+ancestral population for all Platyrrhines probably plummeted during such
+transition.
+
+It is noteworthy that the pattern recovered by the first local component
+(lower right panel of \autoref{fig:srd_gl}) also describes a pattern
+similar to that of global components, considering that the distribution
+of lineages in this component scales with sample sizes on a logarithmic
+scale (\autoref{fig:ss_local1}). Basicranial and Orbital traits exhibit
+overall lower covariances, both among themselves and between other such
+regions. However, we would like to stress out that these directions
+depicted as changes in trait-specific covariance structure using the SRD
+method are orthogonal in the Euclidean image of the
+exponential-logarithm map, and as such, they represent different aspects
+of covariance divergence among lineages, which here are concentrated in
+the same traits regardless of the phylogenetic structure considered.
+Thus, the association between the first local component with sample
+sizes hinders its own interpretation as biologically meaningful, in the
+terms of Jombart's (2010) notion that local components should be related
+to convergence among phylogenetically disparate lineages; furthermore,
+such association implies that the pPCA method may rather put emphasis on
+local divergences among sister lineages. Although these two phenomena
+may be different (local divergence \emph{versus} paraphyletic
+convergence), the prevalence of variation associated with positive,
+global components in relation to variation in negative, local components
+(Figures \ref{fig:eval} and \ref{fig:moran}) implies that the
+contribution of historical constraints is greater than the contribution
+of local processes.
+
+\subsubsection{Conclusions}\label{conclusions}
+
+The stability of shape covariance structure in Anthropoids may be a
+consequence of either constraints on mammalian skull development or the
+prevalence of a constant pattern of functional relationships imposed by
+stabilizing selection; such dichotomy has already been pointed out by
+other authors (e.g. Marroig \& Cheverud, 2001; Porto \emph{et al.},
+2009; Oliveira \emph{et al.}, 2009b). In the present work, we tend to
+favor the second view, given the evidence for the evolution of genetic
+or phenotypic covariances under directional selection (Jones \emph{et
+al.}, 2012; Melo \& Marroig, 2015; Careau \emph{et al.}, 2015) or under
+relaxation of stabilizing selection (Jamniczky \& Hallgrímsson, 2009).
+Furthermore, some available comparative data (Monteiro \& Nogueira,
+2010; Haber, 2015) indicate that some mammal lineages, such as
+phylostomid bats and ruminants, have diverged in phenotypic covariance
+structure probably due to an heterogeneity in the shape of adaptive
+landscapes resulting from differences in ecological processes acting on
+different lineages. On the other hand, for Anthropoids, their stability
+in $\mathbf{P}$-matrix structure may thus be possible as a consequence
+of stability of the functional relationships imposed over by the
+adaptive landscape in this lineage, as it seems that in this group,
+dietary shifts imposed changes on body size only, at least for
+Platyrrhines (Marroig \& Cheverud, 2010). From an information theory
+point of view (Brooks \emph{et al.}, 1989), natural selection will
+increase the correlation between information encoded in a population and
+the information that represents its environment; the recent suggestion
+that developmental systems share properties with machine learning
+algorithms (Watson \emph{et al.}, 2013) only reinforces such view;
+furthermore, the regulation of developmental systems, through both
+genetic and epigenetic effects, may also be targeted by selection for
+both robustness and replicability (Hansen, 2011). Since natural
+selection is a stochastic process, these different ways of thinking
+about developmental and functional interactions mean that the
+probabilistic distribution of phenotypes, as a consequence of either
+genetic information or epigenetic effects, will tend to match the
+properties of the distribution of fitness in a particular environment.
+Thus, the maintenance of the same distribution over macroevolutionay
+timescales may indicate that the fitness distribution itself is somewhat
+stable as well.
 
 \def\sectionautorefname{Seção} \def\chapterautorefname{Capítulo}
 \def\figureautorefname{Figura} \def\tableautorefname{Tabela}
 
 \selectlanguage{brazilian}
+
+\newpage
 
 \pagestyle{plain}
 
@@ -2880,9 +3133,13 @@ Bookstein, F.L., Chernoff, B., Elder, R., Humphries, Smith, G. \&
 Strauss, R. 1985. \emph{Morphometrics in Evolutionary Biology}. The
 Academy of Natural Sciences of Philadelphia, Philadelphia.
 
-Brito\}, R.A. \{de, Pletscher, L.S. \& Cheverud, J.M. 2005. The
-evolution of genetic architecture. I. Diversification of genetic
-backgrounds by genetic drift. \emph{Evolution} \textbf{59}: 2333--2342.
+Brito, R.A., Pletscher, L.S. \& Cheverud, J.M. 2005. The evolution of
+genetic architecture. I. Diversification of genetic backgrounds by
+genetic drift. \emph{Evolution} \textbf{59}: 2333--2342.
+
+Brooks, D.R., Collier, J., Maurer, B.A., Smith, J.D.H. \& Wiley, E.O.
+1989. Entropy and information in evolving biological systems.
+\emph{Biology and Philosophy} \textbf{4}: 407--432.
 
 Cardini, A. \& Elton, S. 2008. Variation in guenon skulls (I): species
 divergence, ecological and genetic differences. \emph{Journal of Human
@@ -3371,7 +3628,13 @@ Nijhout, H.F. \& German, R.Z. 2012. Developmental Causes of Allometry:
 New Models and Implications for Phenotypic Plasticity and Evolution.
 \emph{Integrative and Comparative Biology} \textbf{52}: 43--52.
 
-Oliveira, F.B., Porto, A. \& Marroig, G. 2009. Covariance structure in
+Oliveira, F.B. de, Molina, E.C. \& Marroig, G. 2009a. Paleogeography of
+the South Atlantic: a Route for Primates and Rodents into the New World?
+In: \emph{South American Primates} (P. A. Garber, A. Estrada, J. C.
+Bicca-Marques, E. W. Heymann, \& K. B. Strier, eds), pp. 55--68.
+Springer New York.
+
+Oliveira, F.B., Porto, A. \& Marroig, G. 2009b. Covariance structure in
 the skull of Catarrhini: a case of pattern stasis and magnitude
 evolution. \emph{Journal of Human Evolution} \textbf{56}: 417--430.
 
@@ -3447,6 +3710,9 @@ approach. \emph{Theoretical population biology} \textbf{21}: 24--43.
 Ravasz, E., Somera, A.L., Mongru, D.A., Oltvai, Z.N. \& Barabási, A.L.
 2002. Hierarchical organization of modularity in metabolic networks.
 \emph{Science} \textbf{297}: 1551--1555.
+
+Ravosa, M.J. \& Savakova, D.G. 2004. Euprimate origins: the eyes have
+it. \emph{Journal of Human Evolution} \textbf{46}: 355--362.
 
 Ravosa, M.J., Noble, V.E., Hylander, W.L., Johnson, K.R. \& Kowalski,
 E.M. 2000. Masticatory stress, orbital orientation and the evolution of
