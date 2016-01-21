@@ -1,4 +1,4 @@
-# Abstract
+## Abstract
 
 The study of modularity in morphological systems has increased in the past twenty years, parallel to the popularization of geometric morphometrics, which has led
 to the emergence of different criteria for detecting modularity on landmark data.
@@ -9,13 +9,15 @@ Over Procrustes residuals, both tests fail to detect modularity patterns, while 
 To estimate type I and II error rates, we built covariance matrices of known structure; these tests indicate that, considering both effect and sample sizes, tests using MHI are more robust than those using RV.
 However, both metrics have low statistical power when used on Procrustes residuals; thus, we conclude that the influence of development and function is poorly represented on Procrustes estimators for covariance matrices.
 
+\newpage
+
 ```{r options_modcomp, include = FALSE}
 opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf', fig.pos = 'tbp')
 ```
 
 ```{r captions_modcomp, include = FALSE}
 
-captions $ fig.cor_dist <- 'Distribution of within-set and between-set mean correlations derived from the six types of empirical correlation matrices. \\label{fig:cor_dist}'
+captions $ fig.cor_dist <- 'Distribution of within-set and between-set mean correlations. Such correlations are derived from the six types of empirical correlation matrices. \\label{fig:cor_dist}'
 
 captions $ fig.stat_dist_sim <-
   'Distribution of Modularity Hypothesis Index and RV Coefficient for theoretical correlation matrices. \\label{fig:stat_dist_sim}'
@@ -27,16 +29,16 @@ captions $ fig.Dev <-
   'MHI (a) and RV (b) values for regional trait sets. Circles indicate whether a trait set is recognized in a given OTU, with $P(\\alpha)$ indicated by the legend. Notice that values represented in blue are either high MHI values and low RV values, as the alternate hypothesis for each statistic is formulated accordingly; see \'Methods\' for details. \\label{fig:Dev}'
 
 captions $ fig.type1 <-
-  'Type I error rates as a function of the chosen significance level regarding tests for variational modularity applied on $\\mathbf{C}_r$ correlation matrices. The solid black line represents the identity relationship. \\label{fig:type1}'
+  'Type I error rates. Rates are represented as a function of the chosen significance level regarding tests for variational modularity applied on $\\mathbf{C}_r$ correlation matrices. The solid black line represents the identity relationship. \\label{fig:type1}'
 
 captions $ fig.type2_ed <-
-  'Power for both MHI and RV statistics as a function of the chosen significance levels with respect to tests for variational modularity applied on $\\mathbf{C}_s$ correlation matrices sampled from the distribution of correlations between interlandmark distances. Lines are colored with respect to quantiles of the $b^2$ distribution. The solid black line represents the identity relationship. \\label{fig:type2_ed}'
+  'Power for MHI and RV statistics for interlandmark distances. Power is represented as a function of the chosen significance levels with respect to tests for variational modularity applied on sampled $\\mathbf{C}_s$ correlation matrices. Lines are colored with respect to quantiles of the $b^2$ distribution. The solid black line represents the identity relationship. \\label{fig:type2_ed}'
 
 captions $ fig.type2_def <-
-    'Power for both MHI and RV statistics as a function of the chosen significance levels with respect to tests for variational modularity applied on $\\mathbf{C}_s$ matrices sampled from the distribution of correlations between local shape variables. Lines are colored with respect to quantiles of the $b^2$ distribution. \\label{fig:type2_def}'
+    'Power for MHI and RV statistics for local shape variables. Power is represented as a function of the chosen significance levels with respect to tests for variational modularity applied on sampled $\\mathbf{C}_s$ correlation matrices. Lines are colored with respect to quantiles of the $b^2$ distribution. \\label{fig:type2_def}'
 
 captions $ fig.type2_sym <-
-  'Power for both MHI and RV statistics as a function of the chosen significance levels with respect to tests for variational modularity applied on $\\mathbf{C}_s$ matrices sampled from the distribution of correlations between Procrustes residuals. Lines are colored with respect to quantiles of the $b^2$ distribution. The solid black line represents the identity relationship. \\label{fig:type2_sym}'
+  'Power for MHI and RV statistics for Procrustes residuals. Power is represented as a function of the chosen significance levels with respect to tests for variational modularity applied on sampled $\\mathbf{C}_s$ correlation matrices. Lines are colored with respect to quantiles of the $b^2$ distribution. The solid black line represents the identity relationship. \\label{fig:type2_sym}'
 
 ```
 
@@ -110,7 +112,7 @@ In this context, we used thin plate splines as interpolating functions [@bookste
 We obtained 38 transformations corresponding to the locations of the midpoints between pairs of landmarks used to define interlandmark distances, in order to produce a dataset that represents shape [i.e., form without isometric variation; @bookstein_morphometric_1991; @zelditch_geometric_2004] while retaining the overall properties of the interlandmark distance dataset, such as dimensionality for example.
 Furthermore, we were able to use the same hypotheses of trait associations for both types of variables since the position of local shape variables through the skull mirrors the position of interlandmark distances, although they are conceptually different types of measurements.
 
-Here we considered only covariance or correlation structure for the symmetrical component of variation; therefore, prior to any analysis, we controlled the effects of variation in assymmetry. 
+Here we considered only covariance or correlation structure for the symmetrical component of variation; therefore, prior to any analysis, we controlled the effects of variation in asymmetry. 
 For interlandmark distances, we averaged bilateral measurements within each individual.
 For both Procrustes residuals and local shape variables, we followed the procedure outlined in @klingenberg_shape_2002 for bilateral structures by obtaning for each individual a symmetrical landmark configuration, averaging each actual shape with its reflection along the sagittal plane; we estimate local shape variables afterwards.
 With respect to Procrustes residuals, landmarks placed along the sagittal plane will have zero variation in the direction normal to this plane; we aligned all specimens' sagittal plane to the $xz$ plane, thus removing the $y$ component for each of these landmarks from covariance/correlation matrices.
@@ -118,7 +120,7 @@ With respect to Procrustes residuals, landmarks placed along the sagittal plane 
 For each dataset, we estimated covariance and correlation matrices after removing effects of little interest in the present context, such as sexual dimorphism, for example.
 For interlandmark distances and local shape variables these effects were removed through a multivariate linear model adjusted for each species, according to \autoref{tab:modcomp_otu}; for Procrustes residuals, the same effects were removed by centering all group means to each species' mean shape since the loss of degrees of freedom imposed by the GPA prohibits the use of a full multivariate linear model over this kind of data to remove fixed effects.
 
-In order to consider the effects of size variation on modularity patterns we used  different procedures to remove the influence of size from each type of variable.
+In order to consider the effects of size variation on modularity patterns we used different procedures to remove the influence of size from each type of variable.
 For interlandmark distances we used the approach established by @bookstein_morphometrics_1985; if $\mathbf{C}$ is a correlation matrix, we obtained a correlation matrix $\mathbf{R}$ without the effect of size using the equation
 \begin{equation}
 \mathbf{R} = \mathbf{C} - \lambda_1 v_1 v^{t}_1
@@ -370,7 +372,7 @@ The same behavior can also be observed in interlandmark distances when size is r
 These results indicate that RV coefficents are more sensitive to the absolute value of both within-set and between-set correlation distributions than MHI values.
 For interlandmark distances (\autoref{fig:type2_ed}), removing size variation reduced the average value of both correlation distributions by a similar amount (\autoref{fig:cor_dist}); the difference between average correlations in these two sets actually increases, going from 0.042 to 0.061 when size is removed.
 However, since the actual average correlations for these two distributions approach zero, tests based on RV lose power more rapidly than tests based on MHI. This sensitivity might be associated to the use of squared covariances, as shown by Equation \ref{eq:rv}, while Modularity Hypothesis Indexes use correlations directly (Equation \ref{eq:mi}).
-Furthermore, as observed by @fruciano_resampling-based_2013, sample sizes influence the estimation of RV coefficients, and we demostrate here that such sensitivity also extends to estimates of power for tests using this metric.
+Furthermore, as observed by @fruciano_resampling-based_2013, sample sizes influence the estimation of RV coefficients, and we demonstrate here that such sensitivity also extends to estimates of power for tests using this metric.
 
 Our estimates of power for tests using MHI indicate that it is more robust to differences in absolute correlation values or sample sizes, thus allowing comparisons across more heterogeneous settings, such as our comparison between different representations of form, with substantial variation in sample sizes.
 The detection of variational modularity is akin to Student's *t* test, since we try to determine whether two groups of observations (correlations between traits in the same subset *versus* correlations between traits in different subsets) have a significant difference in average values; we use resampling procedures to estimate significance in this case only due to the interdependency between pairwise correlations.

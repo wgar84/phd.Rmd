@@ -78,6 +78,12 @@ thesis <- TRUE
 \selectlanguage{brazilian}
 
 \newpage
+\chapter{Considerações Finais}
+\label{ch:fin}
+```{r chapter_fin, child = 'fin.Rmd'}
+```
+
+\newpage
 
 \pagestyle{plain}
 

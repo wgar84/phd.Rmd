@@ -85,12 +85,12 @@
 
 \newcommand{\titulo}{Perspectivas sobre o reconhecimento de padrões de modularidade e suas implicações para a evolução de morfologias complexas}
 \newcommand{\nomedoaluno}{Guilherme Garcia}
-\newcommand{\advisor}{Gabriel Marroig} \newcommand{\ano}{2015}
+\newcommand{\advisor}{Gabriel Marroig} \newcommand{\ano}{2016}
 \hypersetup{colorlinks=true, linkcolor=black, citecolor=black,
   filecolor=black, pagecolor=black, urlcolor=black,
   pdfauthor={\nomedoaluno}, pdftitle={\titulo}, pdfsubject={Genética e
     Biologia Evolutiva}, pdfkeywords={Genética Quantitiva, Morfologia
-    Craniana, Roedores}, pdfproducer={Latex}, pdfcreator={pdflatex}}
+    Craniana, Modularidade, Primatas}, pdfproducer={Latex}, pdfcreator={pdflatex}}
  
 \geometry{bindingoffset=30pt}
 
@@ -106,3 +106,7 @@
 \renewcommand{\floatpagefraction}{0.5}
 
 \setlength{\headheight}{15pt} 
+
+\let\oldcaption\caption
+\def\splitter #1. #2@@{\oldcaption[#1]{#1. #2}}
+\def\caption#1{\splitter #1@@}

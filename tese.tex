@@ -165,12 +165,12 @@
 
 \newcommand{\titulo}{Perspectivas sobre o reconhecimento de padrões de modularidade e suas implicações para a evolução de morfologias complexas}
 \newcommand{\nomedoaluno}{Guilherme Garcia}
-\newcommand{\advisor}{Gabriel Marroig} \newcommand{\ano}{2015}
+\newcommand{\advisor}{Gabriel Marroig} \newcommand{\ano}{2016}
 \hypersetup{colorlinks=true, linkcolor=black, citecolor=black,
   filecolor=black, pagecolor=black, urlcolor=black,
   pdfauthor={\nomedoaluno}, pdftitle={\titulo}, pdfsubject={Genética e
     Biologia Evolutiva}, pdfkeywords={Genética Quantitiva, Morfologia
-    Craniana, Roedores}, pdfproducer={Latex}, pdfcreator={pdflatex}}
+    Craniana, Modularidade, Primatas}, pdfproducer={Latex}, pdfcreator={pdflatex}}
  
 \geometry{bindingoffset=30pt}
 
@@ -185,7 +185,11 @@
 \renewcommand{\textfraction}{0.335}
 \renewcommand{\floatpagefraction}{0.5}
 
-\setlength{\headheight}{15pt}
+\setlength{\headheight}{15pt} 
+
+\let\oldcaption\caption
+\def\splitter #1. #2@@{\oldcaption[#1]{#1. #2}}
+\def\caption#1{\splitter #1@@}
 
 
 \begin{document}
@@ -266,7 +270,7 @@ Ficha Catalográfica \\
     \item Evolução Morfológica;
     \item Morfologia Craniana;
     \item Modularidade;
-    \item Integração Morfológica;
+    \item Genética Quantitativa;
     \item Primatas Antropóides.
     \end{enumerate}
     I. Universidade de São Paulo. 
@@ -454,8 +458,8 @@ modularity, morphological integration, anthropoid primates
 
 % Índice
 \tableofcontents
-%\listoffigures
-%\listoftables
+{\footnotesize \listoffigures}
+\listoftables
 \newpage
 
 \pagenumbering{arabic}
@@ -483,16 +487,45 @@ modularity, morphological integration, anthropoid primates
 \chapter{Introdução}
 \label{ch:intro}
 
-Caracteres fenotípicos em uma população evoluem conjuntamente seja
-devido à processos genéticos e de desenvolvimento compartilhados ou a
-efeitos comuns sobre a aptidão (Gould \& Lewontin, 1979; Lande, 1979;
-Felsenstein, 1988; Zeng, 1988) e a resposta à seleção natural é máxima
-quando ambos os efeitos coincidem, enquanto a discordância entre eles
-pode dificultar uma resposta direta (Schluter, 1996). Lande (1979)
-demonstrou que, assumindo uma distribuição gaussiana de efeitos
-alélicos, a diferença no fenótipo médio entre gerações em uma população
-sujeita a seleção direcional ($\Delta\bar{\mathbf{z}}$) pode ser
-representada como
+Modularidade é uma propriedade característica que sistemas biológicos
+apresentam em relação à distribuição de interações entre seus elementos
+constituintes; isto é, em um dado sistema, subconjuntos de elementos,
+denominados módulos, interagem entre si mais do que com outros conjuntos
+similares (Newman, 2006; Mitteroecker \& Bookstein, 2007; Wagner
+\emph{et al.}, 2007). Esta propriedade foi documentada em diferentes
+níveis de organização biológica, por exemplo em relação à dinâmica de
+redes metabólicas (e.g. Ravasz \emph{et al.}, 2002; Andrade \emph{et
+al.}, 2011) e em relação à estrutura de interações entre os indivíduos
+em populações (e.g. Fortuna \emph{et al.}, 2008) e entre espécies em
+comunidades ecológicas (e.g. Genini \emph{et al.}, 2010).
+
+Em relação a sistemas morfológicos, o conceito de modularidade está
+associado com o quadro conceitual da integração morfológica (Olson \&
+Miller, 1958; Cheverud, 1996a), que se refere à organização de
+covariâncias ou correlações entre elementos morfológicos e as hipóteses
+a respeito de suas relações. Neste contexto, a modularidade está
+relacionada com a distribuição desigual de efeitos genéticos sobre a
+variação fenotípica, articulada através do desenvolvimento (mapa
+genótipo/fenótipo; Wagner, 1996); sob a perspectiva da genética
+quantitativa, estes efeitos genéticos são o resultado de pleiotropia e
+desequilíbrio de ligação (Falconer \& Mackay, 1996; Lynch \& Walsh,
+1998). Um mapa genótipo/fenótipo composto por grupos de genes que afetam
+grupos de caracteres apresenta portanto uma organização modular; neste
+contexto, tal estrutura de interações pleiotrópicas emerge devido à
+seleção para tarefas conflitantes (Wagner \& Altenberg, 1996;
+Espinosa-Soto \& Wagner, 2010; Rueffler \emph{et al.}, 2012; Melo \&
+Marroig, 2015).
+
+De modo mais geral, caracteres fenotípicos em uma população evoluem
+conjuntamente seja devido à processos genéticos e de desenvolvimento
+compartilhados ou a efeitos comuns sobre a aptidão (Gould \& Lewontin,
+1979; Lande, 1979; Felsenstein, 1988; Zeng, 1988) e a resposta à seleção
+natural é máxima quando ambos os efeitos coincidem, enquanto a
+discordância entre eles pode dificultar uma resposta direta (Schluter,
+1996). Lande (1979) demonstrou que, assumindo uma distribuição gaussiana
+de efeitos alélicos, a diferença no fenótipo médio entre gerações em uma
+população sujeita a seleção direcional ($\Delta\bar{\mathbf{z}}$) pode
+ser representada como
 
 \begin{equation}
 \Delta\bar{\mathbf{z}} = \mathbf{G}\boldsymbol{\beta}
@@ -535,56 +568,445 @@ associadas à estrutura não-linear das paisagens adaptativas (Turelli,
 1988), sem a necessidade de considerar a existência de pleiotropia
 epistática. No entanto, dados experimentais recentes (Careau \emph{et
 al.}, 2015) e modelos baseados em simulação (Jones \emph{et al.}, 2012;
-Melo \& Marroig, 2015) têm demonstrado os efeitos da seleção direcional
+Melo \& Marroig, 2015) demonstraram os efeitos da seleção direcional
 sobre a estrutura descrita por $\mathbf{G}$, indicando que o componente
 linear da paisagem adaptativa também pode impactar as covariâncias
 genéticas dada a existência de variação genética nas interações
 pleiotrópicas.
 
-\subsubsection{Modularidade}\label{modularidade}
+A relação entre paisagens adaptativas e estrutura de covariância
+intrapopulacional é mediada através do desempenho (Arnold, 1983), que
+pode ser entendido como uma propriedade dinâmica do fenótipo; dessa
+forma, torna-se difícil a distinção entre interações ontogenéticas e
+funcionais na estrutura descrita por covariâncias fenotípicas (Cheverud,
+1996a; Zelditch \& Swiderski, 2011). Em relação ao crânio de mamíferos,
+tecidos precursores (mesoderme paraxial e crista neural) originam duas
+regiões distintas, Face e Neurocrânio, que exibem contrastes marcantes
+em termos das funções que executam, interações com tecidos moles e
+respostas a marcos de desenvolvimento, tais como o nascimento ou o
+desmame (Hallgrímsson \& Lieberman, 2008; Lieberman, 2011). Assim, as
+regiões Oral, Nasal, e Zigomática estão associadas à Face e são
+responsáveis pelas funções de mastigação, respiração e fixação do
+aparato muscular envolvido na articulação mandibular, respectivamente.
+As regiões da Abóbada, Órbita e Basicrânio estão associadas ao
+Neurocrânio e são responsáveis por envolver e proteger cérebro e olhos,
+pelo suporte do crânio e por suas conexões com os sistemas organismais
+restantes; a Abóbada também abriga locais de ancoramento da musculatura
+associada à articulação da mandíbula, o que indica que, em algum grau,
+cada região pode estar envolvida em mais do que uma função e que algumas
+funções são compartilhadas entre diferentes regiões.
 
-Neste contexto, Wagner (1996) argumenta a respeito da estrutura De modo
-mais geral, modularidade é uma propriedade característica que sistemas
-biológicos apresentam em relação à distribuição de interações entre seus
-elementos constituintes; isto é, em um dado sistema, subconjuntos de
-elementos, denominados módulos, interagem entre si mais do que com
-outros subconjuntos similares (Newman, 2006; Mitteroecker \& Bookstein,
-2007; Wagner \emph{et al.}, 2007). Esta propriedade foi documentada em
-diferentes níveis de organização biológica, por exemplo em relação à
-dinâmica de redes metabólicas (e.g. Ravasz \emph{et al.}, 2002; Andrade
-\emph{et al.}, 2011) e em relação à estrutura de interações entre os
-indivíduos em populações (e.g. Fortuna \emph{et al.}, 2008) e entre
-espécies em comunidades ecológicas (e.g. Genini \emph{et al.}, 2010). Em
-relação a sistemas morfológicos, o conceito de modularidade está
-associado com o quadro conceitual da integração morfológica (Olson \&
-Miller, 1958; Cheverud, 1996a), que se refere à organização de
-covariâncias ou correlações entre elementos morfológicos e as hipóteses
-a respeito de suas relações.
+Dessa forma, o reconhecimento de módulos variacionais (Wagner \&
+Altenberg, 1996; Wagner \emph{et al.}, 2007) utilizando padrões de
+covariância ou de correlação em populações adultas envolve um
+entendimento da dinâmica ontogénetica/funcional subjacente às
+características morfológicas (Polly, 2008; Zelditch \& Swiderski, 2011).
+O desenvolvimento do crânio em mamíferos ocorre através de uma série de
+passos, tais como o crescimento do Neurocrânio induzido pelo crescimento
+do cérebro e do crescimento mediado por interações entre músculos e
+ossos, com uma relativa sobreposição espaço-temporal (Hallgrímsson \&
+Lieberman, 2008; Herring, 2011; Cardini \& Polly, 2013). Estes processos
+específicos resultam de padrões distintos de expressão gênica, os quais
+são subsequentemente alterados pela difusão de fatores de transcrição,
+gerando assim um processo de retroalimentação que produz diferenciação
+entre células e tecidos (Turing, 1952; Marcucio \emph{et al.}, 2005;
+Meinhardt, 2008; Franz-Odendaal, 2011; Xu \emph{et al.}, 2015). Esses
+fatores de transcrição afetam linhagens de células específicas, de forma
+que cada processo pode ser entendido como modular; no entanto, o contato
+entre tecidos adjacentes podem produzir alterações correlacionadas
+devido a interacções mecânicas e também através de cascatas de
+sinalização mútuas que induzem comportamentos específicos em tecidos
+vizinhos, e estas interações são necessárias para o desenvolvimento
+correto de ambos tecidos (Cheverud \emph{et al.}, 1992; Ravosa \emph{et
+al.}, 2000; Jiang \emph{et al.}, 2002; Marcucio \emph{et al.}, 2011).
 
-Desta forma, um mapa genótipo/fenótipo composto por grupos de genes que
-afetam grupos de caracteres apresenta uma organização modular. Por
-exemplo, a dissociação entre a função dos membros anteriores e
-posteriores em certas linhagens de mamíferos como morcegos (Young \&
-Hallgrímsson, 2005) e hominídeos (Young \emph{et al.}, 2010) está
-associado à modularização do mapa genótipo/fenótipo destas estruturas,
-evidenciada pela redução das correlações fenotípicas entre membros
-anteriores e posteriores e um aumento das correlações entre elementos
-constituintes de ambos os membros.
+Por exemplo, o crescimento da Abóbada, que ocorre nas fases finais de
+desenvolvimento pré-natal, é um resultado da tensão exercida pelo
+cérebro crescendo sobre suas membranas envoltórias, induzindo-as a
+secretar fatores de sinalização que promovem um padrão complexo de
+deposição de tecido ósseo na porção dorsal da Abóbada e reabsorção dos
+mesmos na porção ventral (Opperman, 2000; Rice \emph{et al.}, 2003;
+Lieberman, 2011). Ademais, o crescimento pós-natal da Face é induzido
+pela atividade muscular relacionada com a mastigação; este efeito domina
+o crescimento pós-natal do crânio (Zelditch \emph{et al.}, 1992;
+Herring, 2011), visto que a atividade muscular afeta principalmente a
+região Oral em que são exercidas forças musculares, mas outras regiões
+do crânio em que estes músculos estão ancorados, como o Zigomático e a
+Abóbada, também são afetadas em menor grau. Portanto, o desenvolvimento
+é composto de uma série destes eventos, e pode ser difícil isolar o
+efeito de cada processo individual tem sobre a estrutura de covariância,
+dada a sua sobreposição espacial (Hallgrímsson \emph{et al.}, 2009);
+assim, tanto a hierarquia temporal quanto a organização espacial das
+interações ontogenéticas e funcionais podem influenciar os padrões
+embutidos na estrutura de covariância genética. Ademais, estes aspectos
+moleculares de regulação do desenvolvimento motivam distintas definições
+de pleiotropia (Zelditch \& Swiderski, 2011): uma em que o \emph{locus}
+em foco afeta uma série de processos de desenvolvimento dentro de uma
+única linhagem de células (\emph{efeito genético intrínsico}), e outra
+em que processos em uma linhagem de células dependem da expressão do
+\emph{locus} em foco em outra linhagem (\emph{efeito epigenético
+extrínsico}); portanto, tais definições conferem estrutura espacial para
+as interações pleiotrópicas e epistáticas.
 
-\input{Tables/lms}
+A variação das taxas de crescimento pós-natal implica na emergência da
+variação de tamanho (Pélabon \emph{et al.}, 2013; Porto \emph{et al.},
+2013) e tal fonte de variação tem uma importância particular no contexto
+dos sistemas morfológicos em mamíferos, afetando o nível geral de
+correlações entre caracteres morfológicos (Wagner, 1984; Young \&
+Hallgrímsson, 2005). Esta magnitude de integração tem consequências
+importantes tanto para a evolução dos fenótipos médios (Schluter, 1996;
+Marroig \& Cheverud, 2005, 2010; Cardini \& Polly, 2013) quanto para a
+evolução da própria integração morfológica (Oliveira \emph{et al.},
+2009b; Porto \emph{et al.}, 2009, 2013; Shirai \& Marroig, 2010).
+Variação no tamanho corporal entre diferentes linhagens implicam em
+diferenças substanciais em aspectos fisiológicos e ecológicos de suas
+história de vida, visto que mudanças no tamanho corporal afetam a forma
+como estas linhagens interagem com seus ambientes (Gould, 1966; West
+\emph{et al.}, 1997).
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{Figures/landmarks.png}
-\caption{Configuração de Marcos Anatômicos. As linhas conectando os
-marcos indicam os caracteres considerados, tanto sob a forma de
-distâncias euclidianas quanto variáveis locais de forma. Linhas
-pontilhadas e tracejadas indicam a associação dos caracteres às
-hipóteses \emph{a priori} de integração (Face e Neurocrânio,
-respectivamente). \label{fig:landmarks}}
-\end{figure}
+Relações de escala distintas entre caracteres organísmicos e tamanho do
+corpo são denominadas alometria (Huxley, 1932; Gould, 1966; Cheverud,
+1982b; Lande, 1985) e podem ser representadas como leis de potência, que
+se tornam lineares em escala logarítmica (Huxley, 1932; mas ver Nijhout
+\& German, 2012). No contexto delimitado até o momento, alometria pode
+ser entendida como um tipo particular de relação entre caracteres entre
+duas escalas distintas de organização, visto que tamanho é um
+propriedade emergente do organismo como um todo, enquanto o impacto
+diferencial desta propriedade sobre diferentes partes do organismo
+produzem aquilo que reconhecemos como alometria (Young \& Hallgrímsson,
+2005), de modo que a variação de tamanho em conjunto com as relações
+alométricas é o componente que abriga grande parte da variação
+morfológica, especialmente em mamíferos (Wagner, 1984; Marroig \&
+Cheverud, 2001).
 
-\input{Tables/dist}
+Neste sentido, relações alométricas podem agir como restrição à evolução
+de sistemas morfológicos, desviando trajetórias evolutivas em populações
+naturais (Gould \& Lewontin, 1979; Lande, 1979; Schluter, 1996). Por
+exemplo, seleção direcional para mudanças no tamanho corporal
+impulsionada por mudanças em hábitos alimentares dominou grande parte da
+diversificação de Platyrrhini, e diferenças na morfologia craniana entre
+as espécies deste grupo provavelmente são uma consequência indireta das
+relações alométricas entre caracteres cranianos e tamanho corporal
+(Marroig \& Cheverud, 2005, 2010; Marroig \emph{et al.}, 2012); dentre
+as linhagens do grupo irmão Catarrhini, o mesmo cenário poderia explicar
+a diversidade morfológica no crânio em Cercopithecidae (Cardini \emph{et
+al.}, 2007; Cardini \& Elton, 2008). Em relação aos hominídeos, seleção
+direcional para a redução de elementos da Face e aumento da capacidade
+do Neurocrânio desempenhou um papel limitado na divergência entre
+\emph{Homo} e \emph{Australopithecus} (Ackermann \& Cheverud, 2004;
+Schroeder \emph{et al.}, 2014). No entanto, relações alométricas são
+dependentes da taxa de crescimento médio de indivíduos em uma população
+e também da covariância entre estas taxas de crescimento e o tamanho
+corporal atingido na idade adulta; assim, seleção sobre o tamanho
+corporal também pode mudar estas relações (Pélabon \emph{et al.}, 2013;
+Voje \emph{et al.}, 2013). Evidências experimentais sobre a evolução das
+relações alométricas (e.g. Frankino \emph{et al.}, 2005; Tobler \&
+Nijhout, 2010; Egset \emph{et al.}, 2012; Bolstad \emph{et al.}, 2015)
+indicam que estes parâmetros de crescimento abrigam variação genética e
+estão portanto sujeito aos efeitos da seleção natural; mudanças nestes
+parâmetros de crescimento então levam à mudanças nas relações
+alométricas na população.
+
+A evidência empírica sobre as mudanças a longo prazo na estrutura de
+covariância genética (genética quantitativa comparativa; Steppan
+\emph{et al.}, 2002) conta com a correspondência entre $\mathbf{G}$ e
+sua contraparte fenotípica $\mathbf{P}$, uma vez que estimativas de
+$\mathbf{G}$ demandam tamanhos amostrais elevados e, mesmo assim, tal
+estimativa é propensa a erros, visto que as unidades amostrais destas
+estimativas são famílias em vez de indivíduos (Meyer, 1991; Houle \&
+Meyer, 2015). A semelhança na estrutura de covariância entre
+$\mathbf{P}$ e $\mathbf{G}$ (``Conjectura de Cheverud''; Cheverud, 1988;
+Roff, 1995), foi suportada em diferentes sistemas de caracteres e
+organismos (e.g.: Waitt \& Levin, 1998; Dochtermann, 2011; Garcia
+\emph{et al.}, 2014), indicando que os efeitos ambientais ($\mathbf{E}$)
+possivelmente apresentam uma estrutura de correlacões semelhantes a
+$\mathbf{G}$, dado que estes efeitos exercem sua influência sobre
+fenótipos através dos mesmos processos de desenvolvimento sobre os quais
+a variação genética se estrutura (Rice, 2002, 2004).
+
+A análise comparativa da estrutura de covariância fenotípica mostra que
+$\mathbf{P}$ pode permanecer estável na escala macroevolutiva (e.g:
+Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009b; Kolbe \emph{et
+al.}, 2011), e essa estabilidade pode ser uma consequência do
+alinhamento entre a estrutura de covariância fenotípica e as
+características locais da paisagem adaptativa que atuam sobre diferentes
+linhagens. Por outro lado, a divergência em aspectos ecológicos entre
+linhagens irmãs pode reorganizar os padrões expressos em $\mathbf{P}$ em
+certos contextos (Young \& Hallgrímsson, 2005; Young \emph{et al.},
+2010; Monteiro \& Nogueira, 2010; Haber, 2015), indicando mudanças na
+arquitetura subjacente do mapa genótipo/fenótipo; portanto, os padrões
+incorporados na paisagem adaptativa pode superar as restrições impostas
+pelo desenvolvimento (Jamniczky \& Hallgrímsson, 2009).
+
+Por exemplo, a radiação adaptativa de morcegos da família Phyllostomidae
+possivelmente envolveu rearranjos na estrutura de covariância fenotípica
+mandibular (Monteiro \& Nogueira, 2010), visto que a divergência em
+dieta neste grupo a partir de um ancestral insetívoro em direção a
+regimes alimentares mais especializados, tais como frugivoria ou
+hematofagia, implicam relações funcionais distintas entre os componentes
+mandibulares; assim, essa reorganização pode indicar heterogeneidade nos
+aspectos não-lineares da paisagem adaptativa dentre as diferentes
+linhagens deste grupo. Em morcegos em geral, a dissociação entre a
+função dos membros anteriores e posteriores está associada à
+modularização do mapa genótipo/fenótipo destas estruturas, evidenciada
+pela redução das correlações fenotípicas entre membros anteriores e
+posteriores e um aumento das correlações entre elementos constituintes
+de ambos os membros, em relação às demais linhagens de mamíferos (Young
+\& Hallgrímsson, 2005). Um padrão similar é exibido pelos hominídeos
+(Young \emph{et al.}, 2010), onde uma redução geral das correlações
+entre todos os elementos é observada em relação ao padrão observado nas
+demais linhagens de Anthropoidea. Outro exemplo de divergência na
+estrutura de covariância entre as linhagens devido a mudanças nas
+exigências funcionais é aquela observada em ruminantes (Haber, 2015),
+relacionada ao aumento nas demandas metabólicas associada à ocupação de
+habitats abertos, visto que a divergência de Bovidae em relação à
+Cervidae está associada a uma maior integração na região Nasal. Assim, a
+divergência entre linhagens irmãs podem impor uma reorganização de ambas
+estruturas de covariância (genética e fenotípica) se tal divergência
+está associada a relações funcionais distintas, representados pelos
+componentes não-lineares de paisagem adaptativa. Portanto, estabilidade
+ou divergência na estrutura de covariância em escalas macroevolutivas
+são ambos cenários possíveis, e a questão de qual cenário é regra ou
+exceção permanece aberta, embora algumas diferenças teóricas e
+metodológicas entre diferentes autores no que diz respeito à
+representação de caracteres morfológicos precisam ser consideradas de
+modo a produzir uma comparação razoável entre a plausibilidade destes
+cenários.
+
+\subsubsection{Morfometria}\label{morfometria}
+
+Tradicionalmente, caracteres morfológicos são medidos utilizando
+distâncias entre elementos definidos em termos gerais, como
+``comprimento do fêmur'' ou ``largura do crânio''. Pearson \& Davin
+(1924) introduziu a noção de que as medidas devem ser restritas aos
+elementos osteológicos individuais, de preferência como distâncias entre
+características homólogas que poderiam ser identificadas em linhagens
+distintas. Cheverud (1982a) associa tal noção ao âmbito da integração
+morfológica, considerando-se assim as medições sobre os ossos
+individuais como representações locais de fenômenos regionais, isto é,
+as interações funcionais, ontogéneticas e genéticas que produzem
+covariâncias entre esses elementos. A influência de tais interações
+sobre matrizes de covariância ou correlação podem ser avaliadas através
+da definição de um subconjunto de medidas que estão associadas a
+processos específicos, estimando-se uma métrica que resume tal
+particionamento; a hipótese nula de que esta partição é indistinguível
+de partições aleatoriamente definidas pode então ser testada
+utilizando-se métodos de Monte Carlo (Mantel, 1967; Cheverud \emph{et
+al.}, 1989).
+
+Nas últimas três décadas, a morfometria geométrica (Bookstein, 1982,
+1991; Kendall, 1984; Rohlf \& Slice, 1990; Goodall, 1991) se consolidou
+como um quadro conceitual para a representação da forma biológica como
+configurações geométricas de marcos anatômicos homólogos
+(\emph{landmarks}; Bookstein, 1991). Dois princípios são fundamentais
+nesta abordagem: em primeiro lugar, a separação conceitual e estatística
+do tamanho e da forma como componentes da variação morfológica; Em
+segundo lugar, a utilização de métodos baseados em superposição (GPA:
+Análise Generalizada de Procrustes; Rohlf \& Slice, 1990; Goodall, 1991)
+para a estimativa de parâmetros representativos de tal variação, como
+média e matriz de covariância. Estimadores de Procrustes foram propostos
+como uma solução para o problema que configurações de marcos exibem em
+relação às suas relações espaciais; tanto a posição e os ângulos de
+rotação entre são impossíveis de estimar sem quaisquer premissas
+(Goodall, 1991; Lele \& McCulloch, 2002), uma situação conhecida como o
+problema de identificabilidade (Neyman \& Scott, 1948).
+
+Embora o uso de estimadores de Procrustes é amplamente difundido na
+morfometria geométrica, parte devido à distribuição de aplicativos
+dedicados ao tratamento estatístico deste tipo de representação (e.g.,
+Klingenberg, 2011; Adams \& Otárola-Castillo, 2013), críticas foram
+elaboradas tanto em relação à estimativa de formas médias (por exemplo,
+Lele, 1993; Kent \& Mardia, 1997; Huckemann, 2012) e matrizes de
+covariância entre coordenadas de marcos anatômicos (Walker, 2000; Adams
+\emph{et al.}, 2004; Linde \& Houle, 2009; Márquez \emph{et al.}, 2012).
+Para configurações no espaço bidimensional, estimadores de Procrustes
+para a forma média possuem um bom desempenho sob a premissa de estrutura
+de covariância isotrópica (Kent \& Mardia, 1997), a situação em que
+covariância entre coordenadas são nulas; no entanto, quando esta
+premissa não se sustenta, estimadores de Procrustes para a forma média
+podem sofrem impactos tanto na precisão quanto na acurácia,
+especialmente quando a variação de forma é alta (Huckemann, 2011). O
+exemplo fornecido por Linde \& Houle (2009) demonstra que, quando tal
+suposição é quebrada, o padrão de covariâncias entre coordenadas também
+são mal estimados; se a matriz de covariância entre coordenadas
+desconhecida está estruturada devido às diferenças regionais em
+processos responsáveis por gerar covariâncias, essa variação pode se
+distribuir por toda a configuração, efetivamente apagando o sinal dos
+processos funcionais e ontogenéticos subjacentes.
+
+Diversas alternativas para a estimativa de matrizes de covariância
+representativas da variação de forma já foram sugeridas; algumas destas
+alternativas (e.g. Monteiro \emph{et al.}, 2005; Theobald \& Wuttke,
+2006; Linde \& Houle, 2009; Zelditch \emph{et al.}, 2009), propor
+alterações à Análise Generalizada de Procrustes, a fim de lidar com a
+heterogeneidade na estrutura de covariância dentre marcos anatômicos.
+Márquez et al. (2012) propôs uma outra definição de descritores de forma
+usando técnicas baseadas em interpolação (Cheverud \& Richtsmeier, 1986;
+Bookstein, 1989) como ponto de partida. Estes descritores (denominados
+no presente contexto como variáveis locais de forma) referem-se a
+expansões ou retrações infinitesimais em referência a uma forma média
+desconhecido (Woods, 2003) estimada em locais definidos em meio aos
+marcos anatômicos representados na amostra. Os autores argumentam que
+tais descritores são mensurações adequadas de variação local de forma,
+de modo que estes podem ser diretamente ligados aos processos biológicos
+que geram covariância entre elementos morfológicos.
+
+Apesar destes problemas, o uso de estimadores de Procrustes para
+investigar aspectos da integração morfológica aumentou nos últimos dez
+anos (e.g. Klingenberg \emph{et al.}, 2004; Drake \& Klingenberg, 2010;
+Goswami \& Polly, 2010; Martínez-Abadías \emph{et al.}, 2011; Sanger
+\emph{et al.}, 2012), e os resultados encontrados por alguns destes
+autores se contrastam de maneira gritante com trabalhos similares
+utilizando distâncias entre marcos anatômicos (e.g, Cheverud \emph{et
+al.}, 1997; Oliveira \emph{et al.}, 2009b; Porto \emph{et al.}, 2009).
+Por exemplo, Martínez-Abadías et al. (2011) encontrou um padrão de
+integração forte entre partições nos padrões de covariância do crânio de
+\emph{Homo}, enquanto Oliveira et al. (2009b) e Porto et al. (2009)
+demonstraram que humanos estão entre os exemplos mais modulares de
+padrões de covariância no crânio de mamíferos. Da mesma forma, enquanto
+Cheverud et al. (1997) mostrou que 70\% dos efeitos pleiotrópicos estão
+confinados aos componentes mandibulares anteriores ou posteriores,
+Klingenberg et al. (2004) não encontrou nenhuma evidência para uma
+distribuição modular de efeitos pleiotrópicos entre as partições da
+mandíbula, utlizando a mesma amostra.
+
+\section{Objetivo}\label{objetivo}
+
+A presente tese tem como objetivo investigar a relação entre as
+representações utilizadas para caracterizar variação morfológica e as
+inferências feitas a partir destas representações a respeito de
+propriedades variacionais em escala macroevolutiva. Em particular, tal
+relação é investigada considerando-se a morfologia craniana em Primatas
+da infraordem Anthropoidea, dada a disponibilidade de uma ampla base de
+dados (Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009b), sob a
+forma de coordenadas tridimensionais de marcos anatômicos, dos quais
+podem ser derivadas outras representações. Explicitamente, consideram-se
+três representações distintas: distâncias euclidianas entre marcos
+anatômicos, configurações geométricas destes marcos (utilizando-se
+estimadores de Procrustes), e variáveis locais de forma, estimadas como
+expansões ou retrações infinitesimais a partir de deformações de placa
+fina. Incidentalmente, a presente tese também versa sobre a evolução de
+propriedades variacionais em Anthropoidea, a partir de um entendimento
+de como estas diferentes representações articulam diferentes aspectos da
+estrutura de covariância subjacente aos caracteres morfológicos.
+
+\newpage
+
+\subsection{Perfil da Tese}\label{perfil-da-tese}
+
+O primeiro capítulo (\emph{Modularity and Morphometrics: Error Rates in
+Hypothesis Testing}) compara três tipos de representações distintas no
+que diz respeito a testes de hipótese de detecção de módulos
+variacionais a partir de matrizes de covariância construídas, de modo a
+estimar taxas de falsos positivos e negativos. Tais estimativas balizam
+as comparações entre matrizes de covariância obtidas a partir dos dados
+empíricos, representados de diferentes maneiras, considerando-se também
+a relação entre estes padrões obtidos para as diferentes espécies e o
+conhecimento atual a respeito do desenvolvimento craniano em primatas e
+em mamíferos em geral. Este capítulo demonstra que, considerando-se as
+diferenças inerentes às representações, distâncias entre marcos e
+variáveis locais de forma apresentam resultados similares em relação à
+detecção de módulos variacionais; tais resultados também são condizentes
+com o entendimento atual a respeito da ontogênese craniana em mamíferos,
+enquanto estimadores de Procrustes não capturam o padrão de estruturação
+modular presente na variação morfológica craniana. Testes de hipótese
+sobre esta última representação apresentam taxas elevadas de falsos
+negativos em relação às outras, indicando uma possível razão para estes
+problemas de detecção de módulos variacionais.
+
+O segundo capítulo (\emph{The Evolution of Skull Allometry in Anthropoid
+Primates}) se dedica a explorar as mudanças nas relações alométricas em
+Anthropoidea, considerando um tratamento explicitamente filogenético
+baseado em modelos mistos para as estimativas de parâmetros alométricos
+dentre as ddiferentes espécies desta linhagem. Considerando-se os
+resultados obtidos no capítulo anterior e as diferenças entre distâncias
+entre marcos anatômicos e variáveiss locais de forma, este capítulo
+demonstra que os padrões de modularidade observados para distâncias
+entre marcos são uma consequência da estruturação imposta pelas relações
+alométricas em Anthropoidea. Em particular, os exemplos mais extremos de
+modularidade variacional nesta linhagem, \emph{Homo} e \emph{Gorilla},
+estão associados a mudanças significativas nas relações alométricas
+nestas duas linhagem em relação ao padrão ancestral de associação entre
+forma e tamanho.
+
+O terceiro capítulo (\emph{A Phylogenetic Analysis of Shape Covariance
+Structure}) tenta abordar a questão da estabilidade dos padrões de
+covariância fenotípica em Anthropoidea sob uma perspectiva distinta
+daquela baseada em testes de hipótese, focada na distribuição
+filogenética dos padrões de covariância de tamanho e forma, esta última
+representada por variáveis locais de forma, de modo a prover uma
+reavaliação dos resultados obtidos anteriormente para Platyrrhini
+(Marroig \& Cheverud, 2001) e Catarrhini (Oliveira \emph{et al.},
+2009b). Neste contexto, a estruturação da variação morfológica craniana
+nas regiões avaliadas no primeiro capítulo como módulos variacionais
+através de testes de hipótese \emph{a priori} é incorporada \emph{a
+posteriori}, como um quadro de referência sobre a qual a estabilidade da
+estrutura de covariância destes descritores é interpretada. A partir de
+uma análise baseada na decomposição da variação em matrizes de
+covariância dentre as diferentes linhagens de Anthropoidea,
+considerando-se a estruturação filogenética subjacente ao grupo,
+observa-se que as principais diferenças no padrão de covariância entre
+linhagens em Anthropoidea estão confinadas a um subconjunto dos
+descritores de forma, localizados na regiões do Basicrânio e Órbita;
+ademais, a relação entre tamanho e forma craniana, representativa das
+relações alométricas, também se mostra instável em escala
+macroevolutiva. Este padrão repete-se nos diferentes eventos de
+cladogênese que compõem a diversidade de Anthropoidea, e a instabilidade
+associada à estas regiões reflete o padrão de interações entre tecidos
+no desenvolmento craniano. Os resultados deste capítulo refletem em
+certo grau aqueles observados no primeiro capítulo, onde aquelas regiões
+detectadas como módulos variacionais (Oral, Nasal e Abóbada) apresentam
+uma estrutura de covariância estável, e atribui-se tal estabilidade à
+manutenção de interações funcionais e ontogenéticas ao longo da
+diversificação de Anthropoidea.
+
+\subsection{Objeto de Estudo:
+Anthropoidea}\label{objeto-de-estudo-anthropoidea}
+
+A infraordem Anthropoidea originou-se no Eoceno da Ásia, com uma rápida
+expansão e subsequente diversificação na África (Marivaux \emph{et al.},
+2014) e na América do Sul (Bond \emph{et al.}, 2015), ainda durante o
+Eoceno. Este grupo diferencia-se em relação aos clados mais basais de
+Primatas pela fusão completa dos frontais bilateralmente simétricos em
+um único osso, pela fusão das hemimandíbulas na região da sínfise
+mandibular, e pela formação de uma cavidade pós-orbital em contrapartida
+à barra pós-orbital encontrada nos Strepsirrhini, que se encontra
+parcialmente formada no grupo irmão vivente de Anthropoidea, o gênero
+\emph{Tarsius}. O surgimento desta última estrutura está provavelmente
+associado à manutenção de um campo visual estável e direcionado à
+frente, mesmo durante a alimentação, considerando seu papel na
+distribuição das forças de mastigação ao redor dos olhos (Ravosa
+\emph{et al.}, 2000; Ravosa \& Savakova, 2004).
+
+A diversidade atual de antropóides se encontra dividida em Platyrrhini,
+os Macacos do Novo Mundo, presentes atualmente na região intertropical
+das Américas, e Catarrhini, um grupo que se distribui ao longo da África
+Subsaariana, no Subcontinente Indiano e também no Sudeste Asiático
+(Fleagle, 2013). A ocupação destas regiões por ambas as linhagens se deu
+de forma bastante distinta: enquanto hipotetiza-se que a colonização da
+América do Sul pelos Platyrrhini envolveu um único evento, possivelmente
+a partir da África, através da sucessiva colonização de ilhas
+distribuídas ao longo do Atlântico Sul durante o Paleógeno (Oliveira
+\emph{et al.}, 2009a), a diversidade atual de Catarrhini se origina na
+África, a partir da qual diferentes linhagens colonizaram a Ásia em
+eventos independentes (Springer \emph{et al.}, 2012).
+
+De modo geral, antropóides apresentam dietas generalistas, apesar da
+preferência por itens alimentares distintos ser variável dentre as
+diferentes linhagens (Fleagle, 2013). Apenas um clado particular,
+Colobinae, possui especializações para uma dieta estritamente folívora,
+na forma de um trato digestório similar aquele encontrado em ruminantes,
+apesar de outras linhagens também preferirem este tipo de dieta; somente
+dois gêneros (\emph{Homo} e \emph{Pan}) incorporam carne de outros
+vertebrados em suas dietas, incluindo outros antropóides em algumas
+localidades (Noë \& Bshary, 1997). À exclusão de um gênero Neotropical
+(\emph{Aotus}), todas as espécies desta linhagem apresentam hábitos
+diurnos; aliada à acuidade visual característica do grupo, esta
+prevalência de hábitos diurnos permite aos antropóides apresentarem uma
+ampla diversidade de estruturação social, tanto em relação à composição
+dos grupos quanto à dinâmica espacial e temporal da associação entre
+indivíduos (Kappeler \& Schaik, 2002; Mitani \emph{et al.}, 2012;
+Kamilar \& Baden, 2014).
 
 \begin{figure}[htbp]
 \centering
@@ -592,6 +1014,106 @@ respectivamente). \label{fig:landmarks}}
 \caption{Tamanhos amostrais e efeitos fixos controlados para as 109 OTUs
 de primatas antropóides. \label{fig:phylo_model}}
 \end{figure}
+
+\subsection{Amostra}\label{amostra}
+
+A amostra utilizada aqui é composta por 5108 indivíduos pertencentes a
+109 espécies, distribuídas em todas as linhagens de Anthropoidea acima
+do nível do género, abrangendo todos os gêneros de Platyrrhini e uma
+parte substancial dos gêneros de Catarrhini. Associa-se esse banco de
+dados à hipótese filogenética ultramétrica para Anthropoidea
+(\autoref {fig:phylo_model}), derivada de Springer \emph{et al} (2012).
+
+Os indivíduos nesta amostra são representados por 36 marcos anatômicos,
+registrados utilizando um digitalizador de marca Polhemus 3Draw para os
+representantes de Platyrrhini, e um digitalizador de marca MicroScribe
+3DS para os representantes de Catarrhini. Vinte e dois marcos únicos
+representam cada indivíduo (\autoref{fig:landmarks}, \autoref{tab:lms}),
+uma vez que 14 dos 36 marcos registrados são bilateralmente simétricos;
+para mais detalhes sobre o registro de marcos anatômicos, ver Marroig \&
+Cheverud (2001) e Oliveira et al. (2009b). As bases de dados destes dois
+trabalhos anteriores foram reunídas em uma único base de dados, mantendo
+apenas aqueles indivíduos em que todos os marcos anatômicos de ambos os
+lados se encontravam presentes.
+
+\input{Tables/lms}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Figures/landmarks.png}
+\caption{Configuração de Marcos Anatômicos, representada sobre um crânio
+de \emph{Callithrix}. As linhas conectando os marcos indicam os
+caracteres considerados, tanto sob a forma de distâncias euclidianas
+quanto variáveis locais de forma. Linhas pontilhadas e tracejadas
+indicam a associação dos caracteres às hipóteses \emph{a priori} de
+integração (Face e Neurocrânio, respectivamente). \label{fig:landmarks}}
+\end{figure}
+
+\subsubsection{Descritores de Forma}\label{descritores-de-forma}
+
+Considera-se ao longo da presente tese três tipos distintos de variáveis
+descritoras de forma: resíduos de espaço tangente, estimados a partir de
+uma superposição de Procrustes para toda a amostra, usando o conjunto de
+marcos anatômicos descritos na \autoref{tab:lms} e na
+\autoref{fig:landmarks} (doravante denominados resíduos Procrustes);
+distâncias euclidianas entre marcos anatômicos, descritos na
+\autoref{tab:dist}; e variáveis locais de forma (Márquez \emph{et al.},
+2012), que representam medidas de transformações infinitesimais de
+volume em escala logarítmica entre cada unidade de amostra e uma forma
+de referência, com base em uma função de interpolação que estima a
+variação de forma entre os marcos anatômicos amostrados.
+
+Utiliza-se como função de interpolação para a estimativa deste tipo de
+variável deformações de placa fina (\emph{thin plate splines};
+Bookstein, 1989), que considera o comportamento dos tecidos adjacentes
+aos marcos anatômicos similar ao comportamento de uma placa metálica de
+espessura infinitesimal sob tensão. Assim sendo, a variação de cada
+indíviduo é descrita por esta função como uma deformação de toda a
+configuração em referência à forma média considerada, de modo que esta
+função associa qualquer posição arbitrária, representada por suas
+coordenadas tridimensionais na forma de referência à uma posição
+equivalente naquela unidade amostral, também representada por três
+coordenadas. As variáveis locais de forma então referem-se às expansões
+ou retrações locais, estimadas como sendo o logaritmo natural do
+determinante do jacobiano da função de interpolação, estimado em pontos
+de referência escolhidos a partir de algum critério; jacobianos são
+matrizes que estendem o conceito de derivada à funções multivariadas, ou
+seja, descrevem a taxa de variação nas diferentes direções definidas
+pelo dominío de tal função, de modo que determinantes destas matrizes
+descrevem a taxa de variação no volume em uma posição arbitrária dentre
+os marcos anatômicos amostrados.
+
+Para cada unidade amostral foram obtidas 38 transformações
+correspondente às localizações dos pontos médios entre os pares de
+marcos anatômicos utilizados para definir as distâncias entre marcos
+(\autoref{fig:landmarks} e \autoref{tab:dist}), a fim de produzir um
+conjunto de dados que representa forma (isto é, desprovidos de variação
+isométrica; Bookstein, 1991; Zelditch \emph{et al.}, 2004) embora
+mantendo as propriedades globais do conjunto de dados de distâncias
+entre marcos, como por exemplo dimensionalidade e a correspondência
+destes descritores com as hipóteses de relacionamento derivadas de
+interações funcionais e ontogenéticas.
+
+Na presente tese, considerou-se apenas as propriedades associadas ao
+componente simétrico de variação; portanto, antes de qualquer análise,
+os efeitos de variação na assimetria foram controlados, seguindo-se o
+procedimento descrito em Klingenberg et al. (2002) para estruturas
+bilaterais, através da obtenção de uma configuração simétrica de marcos
+anatômicos para cada indivíduo, estimando-se uma média entre cada forma
+real e sua reflexão ao longo do plano sagital Para cada conjunto de
+dados, também foram removidos efeitos de pouco interesse no contexto
+desta tese, como dimorfismo sexual, por exemplo. Para distâncias
+euclidianas entre marcos anatômicos e variáveis locais de forma estes
+efeitos foram removidos através de modelos lineares multivariados
+ajustados separadamente para cada espécie, de acordo com
+\autoref{tab:modcomp_otu}; para os resíduos de Procrustes, os mesmos
+efeitos foram removidos centralizando-se todas as médias dos fatores
+considerado sobre a forma média de cada espécie, visto que a perda de
+graus de liberdade imposta pela GPA impede o uso de modelos lineares
+multivariados sobre esse tipo de dados com o intuito de remover efeitos
+fixos.
+
+\input{Tables/dist}
 
 \def\sectionautorefname{Section} \def\chapterautorefname{Chapter}
 \def\figureautorefname{Figure} \def\tableautorefname{Table}
@@ -602,7 +1124,7 @@ de primatas antropóides. \label{fig:phylo_model}}
 \chapter{Modularity and Morphometrics: Error Rates in Hypothesis Testing}
 \label{ch:modcomp}
 
-\section{Abstract}\label{abstract}
+\subsection{Abstract}\label{abstract}
 
 The study of modularity in morphological systems has increased in the
 past twenty years, parallel to the popularization of geometric
@@ -625,6 +1147,8 @@ However, both metrics have low statistical power when used on Procrustes
 residuals; thus, we conclude that the influence of development and
 function is poorly represented on Procrustes estimators for covariance
 matrices.
+
+\newpage
 
 \section{Introduction}\label{introduction}
 
@@ -868,7 +1392,7 @@ are conceptually different types of measurements.
 
 Here we considered only covariance or correlation structure for the
 symmetrical component of variation; therefore, prior to any analysis, we
-controlled the effects of variation in assymmetry. For interlandmark
+controlled the effects of variation in asymmetry. For interlandmark
 distances, we averaged bilateral measurements within each individual.
 For both Procrustes residuals and local shape variables, we followed the
 procedure outlined in Klingenberg et al. (2002) for bilateral structures
@@ -1069,9 +1593,9 @@ retain their statistical properties.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/cor_dist-1.pdf}
-\caption{Distribution of within-set and between-set mean correlations
-derived from the six types of empirical correlation matrices.
-\label{fig:cor_dist}}
+\caption{Distribution of within-set and between-set mean correlations.
+Such correlations are derived from the six types of empirical
+correlation matrices. \label{fig:cor_dist}}
 \end{figure}
 
 For each pair of correlation distributions, we built 10000 correlation
@@ -1269,10 +1793,10 @@ change Type I error rates.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type1-1.pdf}
-\caption{Type I error rates as a function of the chosen significance
-level regarding tests for variational modularity applied on
-$\mathbf{C}_r$ correlation matrices. The solid black line represents the
-identity relationship. \label{fig:type1}}
+\caption{Type I error rates. Rates are represented as a function of the
+chosen significance level regarding tests for variational modularity
+applied on $\mathbf{C}_r$ correlation matrices. The solid black line
+represents the identity relationship. \label{fig:type1}}
 \end{figure}
 
 With respect to the relationship between power and significance levels
@@ -1292,12 +1816,11 @@ in power for both statistics.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_def-1.pdf}
-\caption{Power for both MHI and RV statistics as a function of the
-chosen significance levels with respect to tests for variational
-modularity applied on $\mathbf{C}_s$ matrices sampled from the
-distribution of correlations between local shape variables. Lines are
-colored with respect to quantiles of the $b^2$ distribution.
-\label{fig:type2_def}}
+\caption{Power for MHI and RV statistics for local shape variables.
+Power is represented as a function of the chosen significance levels
+with respect to tests for variational modularity applied on sampled
+$\mathbf{C}_s$ correlation matrices. Lines are colored with respect to
+quantiles of the $b^2$ distribution. \label{fig:type2_def}}
 \end{figure}
 
 For interlandmark distances (\autoref{fig:type2_ed}) there were
@@ -1316,13 +1839,12 @@ increasing this quantity also increases power when higher effect sizes
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_ed-1.pdf}
-\caption{Power for both MHI and RV statistics as a function of the
-chosen significance levels with respect to tests for variational
-modularity applied on $\mathbf{C}_s$ correlation matrices sampled from
-the distribution of correlations between interlandmark distances. Lines
-are colored with respect to quantiles of the $b^2$ distribution. The
-solid black line represents the identity relationship.
-\label{fig:type2_ed}}
+\caption{Power for MHI and RV statistics for interlandmark distances.
+Power is represented as a function of the chosen significance levels
+with respect to tests for variational modularity applied on sampled
+$\mathbf{C}_s$ correlation matrices. Lines are colored with respect to
+quantiles of the $b^2$ distribution. The solid black line represents the
+identity relationship. \label{fig:type2_ed}}
 \end{figure}
 
 With respect to Procrustes residuals (\autoref{fig:type2_sym}), tests
@@ -1336,12 +1858,12 @@ not increase power above 50\% in any case.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/type2_sym-1.pdf}
-\caption{Power for both MHI and RV statistics as a function of the
-chosen significance levels with respect to tests for variational
-modularity applied on $\mathbf{C}_s$ matrices sampled from the
-distribution of correlations between Procrustes residuals. Lines are
-colored with respect to quantiles of the $b^2$ distribution. The solid
-black line represents the identity relationship. \label{fig:type2_sym}}
+\caption{Power for MHI and RV statistics for Procrustes residuals. Power
+is represented as a function of the chosen significance levels with
+respect to tests for variational modularity applied on sampled
+$\mathbf{C}_s$ correlation matrices. Lines are colored with respect to
+quantiles of the $b^2$ distribution. The solid black line represents the
+identity relationship. \label{fig:type2_sym}}
 \end{figure}
 
 \section{Discussion}\label{discussion}
@@ -1552,7 +2074,7 @@ than tests based on MHI. This sensitivity might be associated to the use
 of squared covariances, as shown by Equation \ref{eq:rv}, while
 Modularity Hypothesis Indexes use correlations directly (Equation
 \ref{eq:mi}). Furthermore, as observed by Fruciano et al. (2013), sample
-sizes influence the estimation of RV coefficients, and we demostrate
+sizes influence the estimation of RV coefficients, and we demonstrate
 here that such sensitivity also extends to estimates of power for tests
 using this metric.
 
@@ -1685,7 +2207,7 @@ represent --- not fully capturing the phenomena we may be interested in.
 \chapter{The Evolution of Skull Allometry in Anthropoid Primates}
 \label{ch:allo}
 
-\section{Abstract}\label{abstract-1}
+\subsection{Abstract}\label{abstract-1}
 
 Anthropoid Primates display an impressive body size variation, which
 implies many morphological, ecological and physiological differences
@@ -2009,11 +2531,11 @@ representing a contrast between these regional sets
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/cac_logCS-1.pdf}
-\caption{\textbf{Allometric shape variation.} (a) Shape variation
-associated with the Common Allometric Component (CAC). (b) Random
-regression of projections on the CAC over log Centroid Size. A
-regression line is adjusted for each species, and dots represent their
-mean values. \label{fig:cac_logCS}}
+\caption{Allometric shape variation. (a) Shape variation associated with
+the Common Allometric Component (CAC). (b) Random regression of
+projections on the CAC over log Centroid Size. A regression line is
+adjusted for each species, and dots represent their mean values.
+\label{fig:cac_logCS}}
 \end{figure}
 
 To investigate whether species deviate from such ancestral
@@ -2043,9 +2565,9 @@ representatives of \emph{Gorilla}, all with slopes below the mean
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/phylo_new-1.pdf}
-\caption{\textbf{Deviations from ancestral allometry.} (a) Intercepts;
-(b) Slopes. Asterisks indicate whether a given deviation is distinct
-from zero, considering 95\% credible intervals. \label{fig:phylo_W}}
+\caption{Deviations from ancestral allometry. (a) Intercepts; (b)
+Slopes. Asterisks indicate whether a given deviation is distinct from
+zero, considering 95\% credible intervals. \label{fig:phylo_W}}
 \end{figure}
 
 The association between allometric parameters and modularity was
@@ -2081,11 +2603,11 @@ inclusive partition in which they are contained
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/MI_vs_slopeW_main-1.pdf}
-\caption{\textbf{Allometry and Integration.} Modularity Hypothesis Index
-(MHI) regressed over allometric slope deviations ($b_s$). For each
-global trait set (Face and Neurocranium), the shaded region around
-regression lines indicate 95\% credible intervals around estimated
-regression parameters. \label{fig:MI_vs_slopeW_main}}
+\caption{Allometry and Integration. Modularity Hypothesis Index (MHI)
+regressed over allometric slope deviations ($b_s$). For each global
+trait set (Face and Neurocranium), the shaded region around regression
+lines indicate 95\% credible intervals around estimated regression
+parameters. \label{fig:MI_vs_slopeW_main}}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -2171,8 +2693,8 @@ Allometric Component (\autoref{fig:cac_homi}).
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/cac_homi-1.pdf}
-\caption{\textbf{Direction of Multivariate Allometry in \emph{Homo} and
-\emph{Gorilla}}. Colors represent loadings of the allometric component
+\caption{Direction of Multivariate Allometry in \emph{Homo} and
+\emph{Gorilla}. Colors represent loadings of the allometric component
 for local shape variables in both representatives of \emph{Gorilla} and
 in \emph{Homo sapiens}, depicted over the mean shape for each species.
 The direction of the Common Allometric Component
@@ -2274,7 +2796,36 @@ understand the conditions in which this feature evolves.
 \chapter{A Phylogenetic Analysis of Shape Covariance Structure}
 \label{ch:ppca}
 
-\section{Abstract}\label{abstract-2}
+\subsection{Abstract}\label{abstract-2}
+
+Phenotypic traits evolve in a concerted manner due to developmental and
+functional interactions, mediated by the dynamics of adaptive
+landscapes; the codependence among traits arising from these three
+factors is captured by genetic ($\mathbf{G}$) and phenotypic
+($\mathbf{P}$) covariance matrices. Mammalian skull development produces
+an intricate pattern of tissue organization and mutual signaling that
+integrates this structure, although the set of functions it performs is
+quite disparate. The interplay between these interactions, and their
+relationships with the adaptive landscape may thus influence divergence
+in covariance structure among sister lineages. Here, we evaluate the
+stability of phenotypic covariance structure in skull size and shape
+along the diversification of Anthropoid Primates under a phylogenetic
+framework. We estimate diversity in covariance structure, testing
+hypotheses concerning the phylogenetic distribution of
+$\mathbf{P}$-matrix variation; a second approach allows us to pinpoint
+which traits are associated with such variation. Tests for the
+divergence in matrix structure indicate that most changes occurred in
+the basal split between Platyrrhini and Catarrhini; such changes occur
+within both Orbital and Basicranial trait sets, while Oral, Nasal and
+Vault trait sets present stable associations along the Anthropoid
+phylogeny. Therefore, changes in $\mathbf{P}$-matrix structure among
+Anthropoids are restricted to trait sets whose functional significance
+is associated with the accomodation of the two precursor tissues that
+compose the skull, while the stability in the remaining regions hints at
+the stability of the underlying functional relationships imposed by the
+adaptive landscape.
+
+\newpage
 
 \section{Introduction}\label{introduction-2}
 
@@ -2334,22 +2885,22 @@ associated with the Face and are responsible for mastication,
 respiration, and the attachment of the muscular apparatus involved in
 mandibular articulation. The Vault, Orbit and Base regions are
 associated with the Neurocranium and are responsible for encasing and
-protecting both brain and eye, and with the overall bearing of the skull
-and its connections with the remaining organismal systems; the Vault
-also houses muscle attachment sites associated with mandibular
-articulation, indicating that, to some degree, regions may be involved
-in more than one function. The contrast between these regions is the
-result of distinct gene expression profiles, which are further changed
-by the diffusion of signaling factors, thus generating a feedback loop
-of cell and tissue differentiation (Turing, 1952; Marcucio \emph{et
-al.}, 2005; Meinhardt, 2008; Franz-Odendaal, 2011; Xu \emph{et al.},
-2015).
+protecting both brain and eye, and for supporting and connecting the
+skull with the remaining organismal systems; the Vault also houses
+muscle attachment sites associated with mandibular articulation,
+indicating that, to some degree, regions may be involved in more than
+one function and that some functions may be shared between them. The
+contrast between these regions is the result of distinct gene expression
+profiles, which are further changed by the diffusion of signaling
+factors, thus generating a feedback loop of cell and tissue
+differentiation (Turing, 1952; Marcucio \emph{et al.}, 2005; Meinhardt,
+2008; Franz-Odendaal, 2011; Xu \emph{et al.}, 2015).
 
-These signaling factors may be targeted at specific cell lineages, but
-the contact between adjoining tissues may produce correlated changes
-between them due to mechanical interactions and through mutual signaling
+These signaling factors may target specific cell lineages, but the
+contact between adjoining tissues may produce correlated changes between
+them due to mechanical interactions and through mutual signaling
 cascades that induce specific behaviors in neighbor tissues, and such
-interactions are necessary for the proper development of both neighbors
+interactions are necessary for the proper development of both tissues
 (Cheverud \emph{et al.}, 1992; Ravosa \emph{et al.}, 2000; Jiang
 \emph{et al.}, 2002; Marcucio \emph{et al.}, 2011). For instance,
 cranial Vault growth, which occurs on the final stages of pre-natal
@@ -2414,12 +2965,14 @@ Monteiro \& Nogueira, 2010; Haber, 2015), and such reorganization hints
 at changes in the underlying architecture of the genotype/phenotype map,
 indicating that the patterns embedded in the adaptive landscape can
 overcome constraints imposed by development (Jamniczky \& Hallgrímsson,
-2009). The adaptive radiation of phylostomid bats, for instance, has
-involved rearrangements of mandibular phenotypic covariance structure
-(Monteiro \& Nogueira, 2010), as the dietary divergence in this group
-from a probable insectivore ancestor towards more specialized diets,
-such as frugivory or sanguivory, imply distinct functional relationships
-among mandibular components; thus, such reorganization may indicate
+2009).
+
+The adaptive radiation of phylostomid bats, for instance, has involved
+rearrangements of mandibular phenotypic covariance structure (Monteiro
+\& Nogueira, 2010), as the dietary divergence in this group from a
+probable insectivore ancestor towards more specialized diets, such as
+frugivory or sanguivory, imply distinct functional relationships among
+mandibular components; thus, such reorganization may indicate
 heterogeneity in the non-linear aspects of the adaptive landscape for
 different phylostomid lineages. For bats in general, their specialized
 locomotory behavior is associated with the decoupling between fore- and
@@ -2438,42 +2991,41 @@ distinct functional relationships, represented by the non-linear
 components of adaptive landscape.
 
 Currently, there is an abundance of methods dedicated to the comparison
-of covariance structures {[}e.g. Krzanowsky (1979); Phillips \& Arnold
-(1999); Cheverud \& Marroig (2007);{]}, and such methods are often
-focused on constructing hypothesis of similarity or dissimilarity;
-however, in some situations, either hypotheses can be rejected in the
-same comparison (Ackermann \& Cheverud, 2000; Marroig \& Cheverud, 2001;
-Haber, 2015). By expressing covariance matrix (dis)similarities with a
-single metric, these methods lack an explicit way of describing the
-differences in covariance structure between pairs of covariance
-matrices; furthermore, these methods also lack a direct manner to
-incorporate phylogenetic relatedness in pairwise comparisons. While
-extensions for these methods have been proposed to deal with the first
-limitation (e.g. Hansen \& Houle, 2008; Hine \emph{et al.}, 2009;
-Marroig \emph{et al.}, 2011), the second issue is usually resolved by
-comparing the set of pairwise matrix comparisons with the set of
-phylogenetic distances among lineages (e.g. Marroig \& Cheverud, 2001;
-Oliveira \emph{et al.}, 2009b). Although such comparison provides a
-first approximation to this problem, it has the same problems as
-comparing covariance matrices themselves, that is, summarising the
-relationship between patterns expressed in $\mathbf{P}$ or $\mathbf{G}$
-in a set of lineages and their phylogenetic relatedness to a single
-value.
+of covariance structures (e.g. Krzanowsky, 1979; Phillips \& Arnold,
+1999; Cheverud \& Marroig, 2007), and such methods are often focused on
+constructing hypothesis of similarity or dissimilarity; however, in some
+situations, either hypotheses can be rejected in the same comparison
+(Ackermann \& Cheverud, 2000; Marroig \& Cheverud, 2001; Haber, 2015).
+By expressing covariance matrix (dis)similarities with a single metric,
+these methods lack an explicit way of describing the differences in
+covariance structure between pairs of covariance matrices; furthermore,
+these methods also lack a direct manner to incorporate phylogenetic
+relatedness in pairwise comparisons. While extensions for these methods
+have been proposed to deal with the first limitation (e.g. Hansen \&
+Houle, 2008; Hine \emph{et al.}, 2009; Marroig \emph{et al.}, 2011), the
+second issue is usually resolved by comparing the set of pairwise matrix
+comparisons with the set of phylogenetic distances among lineages (e.g.
+Marroig \& Cheverud, 2001; Oliveira \emph{et al.}, 2009b). Although such
+comparison provides a first approximation to this problem, it has the
+same problems as comparing covariance matrices themselves, that is,
+summarising the relationship between patterns expressed in $\mathbf{P}$
+or $\mathbf{G}$ in a set of lineages and their phylogenetic relatedness
+to a single value.
 
 \subsubsection{Objectives}\label{objectives-1}
 
 The interplay between developmental and functional interactions, and
 their relationships with the topology of adaptive landscapes may
 influence the divergence between covariance structure in sister
-lineages. In the present work, we evaluate the stability of cranial
-phenotypic covariance structure along the diversification of Anthropoid
-Primates. We build upon approaches proposed by other authors (Marroig
-\emph{et al.}, 2011; Aguirre \emph{et al.}, 2013; Haber, 2015) in order
-to explicitly incorporate phylogenetic relationships into the
-comparative analysis of covariance structure, under the hypothesis that
-different cranial regions will exhibit different degrees of stability
-among sister lineages, thus producing a non-random pattern of changes in
-covariance structure.
+lineages. In the present work, we evaluate the stability of phenotypic
+covariance structure in skull size and shape along the diversification
+of Anthropoid PrimatesX. We build upon approaches proposed by other
+authors (Marroig \emph{et al.}, 2011; Aguirre \emph{et al.}, 2013;
+Haber, 2015) in order to explicitly incorporate phylogenetic
+relationships into the comparative analysis of covariance structure,
+under the hypothesis that different cranial regions will exhibit
+different degrees of stability among sister lineages, thus producing a
+non-random pattern of changes in covariance structure.
 
 \section{Methods}\label{methods-2}
 
@@ -2829,8 +3381,8 @@ $\mathbf{P}$-matrix structure.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Figures/eval-1.pdf}
-\caption{Posterior distribution of eigenvalues obtained for pPCs;
-positive eigenvalues are associated with phylogenetic signal; negative
+\caption{Posterior distribution of eigenvalues obtained for pPCs.
+Positive eigenvalues are associated with phylogenetic signal; negative
 eigenvalues are associated with convergence. \label{fig:eval}}
 \end{figure}
 
@@ -2890,8 +3442,8 @@ regions throughout Anthropoid diversification.
 \centering
 \includegraphics{Figures/loess-1.pdf}
 \caption{Distribution of mean SRD scores for each trait along the entire
-ordered set of phylogenetic PCs, separated into skull regions.
-\label{fig:loess}}
+ordered set of phylogenetic PCs. Skull regions are indicated by the
+color legend. \label{fig:loess}}
 \end{figure}
 
 The overall distribution of average posterior SRD scores along the
@@ -2963,8 +3515,8 @@ primate evolution, and such property appears to have evolved in
 coordination with Facial growth relative to the cranial Vault,
 accomodating both structures on each other (Scott, 1958; Lieberman
 \emph{et al.}, 2000, 2008). Therefore, both Orbit and Basicranium are
-located in the boundary between the domains of the two precursor tissues
-that originate osteological elements in the skull, and their proper
+located in the boundary between domains of two precursor tissues that
+originate osteological elements in the skull, and their proper
 development is affected by both of them; furthermore, their functional
 significance is also associated with the accomodation of remaining
 structures. These characteristic properties of their development may
@@ -3051,17 +3603,16 @@ paraphyletic grouping obtained from removing this group.
 However, both events are overshadowed by the separation between New
 World and Old World Monkeys, since this divergence is associated with an
 unequivocally higher eigenvalue, as indicated by their posterior
-distribution (\autoref{fig:eval}). Considering the subtle differences in
-$\mathbf{P}$-matrix diversity such divergence represents, and that the
-ancestral population for all Platyrrhines arrived at South America
-traversing the young Atlantic Ocean through the colonization of
-successive island environments that may have occurred between Africa and
-South America during the Miocene (Oliveira \emph{et al.}, 2009a), the
-most simple explanation for such divergence in $\mathbf{P}$-matrix
-structure lies in changes in the genetic architecture of cranial traits
-due to founder effects (Goodnight, 2000), as the effective population
-sizes in the ancestral population for all Platyrrhines probably
-plummeted during such transition.
+distribution (\autoref{fig:eval}). The subtle differences in
+$\mathbf{P}$-matrix diversity such separation represents may indicate
+that changes in the genetic architecture of cranial traits due to
+founder effects (Goodnight, 2000) may be a sufficient explanation for
+this divergence, considering that the effective population sizes in the
+ancestral population for all Platyrrhines probably plummeted during the
+transition between Africa and South America. Such transition probably
+occured through the colonization of successive island environments that
+may have occurred in the South Atlantic Ocean during the Eocene
+(Oliveira \emph{et al.}, 2009a).
 
 It is noteworthy that the pattern recovered by the first Local component
 (lower right panel of \autoref{fig:srd_gl}) also describes a pattern
@@ -3133,13 +3684,19 @@ functional interactions mean that the probabilistic distribution of
 phenotypes, as a consequence of either genetic information or epigenetic
 effects, will tend to match the properties of the distribution of
 fitness in a particular environment. Thus, the maintenance of the same
-distribution over macroevolutionay timescales may indicate that the
-fitness distribution itself may be stable as well.
+distribution over macroevolutionay timescales indicates that the fitness
+distribution itself may be stable as well.
 
 \def\sectionautorefname{Seção} \def\chapterautorefname{Capítulo}
 \def\figureautorefname{Figura} \def\tableautorefname{Tabela}
 
 \selectlanguage{brazilian}
+
+\newpage
+\chapter{Considerações Finais}
+\label{ch:fin}
+
+O Fim dessa Merda.
 
 \newpage
 
@@ -3210,6 +3767,11 @@ Bolstad, G.H., Cassara, J.A., Márquez, E., Hansen, T.F., Linde, K. van
 der \& Houle, D.\emph{et al.} 2015. Complex constraints on allometry
 revealed by artificial selection on the wing of Drosophila melanogaster.
 \emph{Proceedings of the National Academy of Sciences} 201505357.
+
+Bond, M., Tejedor, M.F., Campbell Jr, K.E., Chornogubsky, L., Novo, N.
+\& Goin, F. 2015. Eocene primates of South America and the African
+origins of New World monkeys. \emph{Nature} \textbf{advance online
+publication}.
 
 Bookstein, F.L. 1982. Foundations of Morphometrics. \emph{Annual Review
 of Ecology and Systematics} \textbf{13}: 451--470.
@@ -3348,6 +3910,9 @@ Quantitative Genetics}, 4th ed. Addison Wesley Longman, Harlow, Essex.
 
 Felsenstein, J. 1988. Phylogenies and quantitative characters.
 \emph{Annual Review of Ecology and Systematics} \textbf{19}: 445--471.
+
+Fleagle, J.G. 2013. \emph{Primate Adaptation and Evolution: 3rd
+Edition}. Academic Press.
 
 Fortuna, M.A., García, C., Guimarães Jr., P.R. \& Bascompte, J. 2008.
 Spatial mating networks in insect-pollinated plants. \emph{Ecology
@@ -3507,6 +4072,14 @@ Jones, A.G., Bürger, R., Arnold, S.J., Hohenlohe, P.A. \& Uyeda, J.C.
 the evolution of the G-matrix and the response of the trait mean to
 selection. \emph{Journal of evolutionary biology} 1--22.
 
+Kamilar, J.M. \& Baden, A.L. 2014. What drives flexibility in primate
+social organization? \emph{Behavioral Ecology and Sociobiology}
+\textbf{68}: 1677--1692.
+
+Kappeler, P.M. \& Schaik, C.P. van. 2002. Evolution of Primate Social
+Systems. \emph{International Journal of Primatology} \textbf{23}:
+707--740.
+
 Kendall, D.G. 1984. Shape manifolds, procrustean metrics, and complex
 projective spaces. \emph{Bulletin of the London Mathematical Society}
 \textbf{16}: 81--121.
@@ -3603,6 +4176,12 @@ Marcucio, R.S., Young, N.M., Hu, D. \& Hallgrimsson, B. 2011. Mechanisms
 that underlie co-variation of the brain and face. \emph{genesis}
 \textbf{49}: 177--189.
 
+Marivaux, L., Essid, E.M., Marzougui, W., Khayati Ammar, H., Adnet, S.
+\& Marandat, B.\emph{et al.} 2014. A morphological intermediate between
+eosimiiform and simiiform primates from the late middle Eocene of
+Tunisia: Macroevolutionary and paleobiogeographic implications of early
+anthropoids. \emph{American Journal of Physical Anthropology} n/a--n/a.
+
 Marroig, G. 2007. When size makes a difference: allometry, life-history
 and morphological evolution of capuchins (Cebus) and squirrels (Saimiri)
 monkeys (Cebinae, Platyrrhini). \emph{BMC Evolutionary Biology}
@@ -3674,6 +4253,10 @@ Minelli, A. 2011. A principle of developmental inertia.
 \emph{Epigenetics: Linking Genotype and Phenotype in Development and
 Evolution} 116--133.
 
+Mitani, J.C., Call, J., Kappeler, P.M., Palombit, R.A. \& Silk, J.B.
+2012. \emph{The Evolution of Primate Societies}. University of Chicago
+Press.
+
 Mitteroecker, P. \& Bookstein, F.L. 2007. The conceptual and statistical
 relationship between modularity and morphological integration.
 \emph{Systematic Biology} \textbf{56}: 818--836.
@@ -3723,6 +4306,11 @@ Consistent Observations. \emph{Econometrica} \textbf{16}: 1--32.
 Nijhout, H.F. \& German, R.Z. 2012. Developmental Causes of Allometry:
 New Models and Implications for Phenotypic Plasticity and Evolution.
 \emph{Integrative and Comparative Biology} \textbf{52}: 43--52.
+
+Noë, R. \& Bshary, R. 1997. The formation of red colobus--diana monkey
+associations under predation pressure from chimpanzees.
+\emph{Proceedings of the Royal Society of London B: Biological Sciences}
+\textbf{264}: 253--259.
 
 Oliveira, F.B. de, Molina, E.C. \& Marroig, G. 2009a. Paleogeography of
 the South Atlantic: a Route for Primates and Rodents into the New World?

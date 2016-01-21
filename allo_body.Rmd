@@ -1,4 +1,4 @@
-# Abstract
+## Abstract
 
 Anthropoid Primates display an impressive body size variation, which implies many morphological, ecological and physiological differences among lineages.
 These allometric relationships may impose constraints on phenotypic evolution; for instance, most of the morphological diversity in skull shape in Anthropoids can be explained as an indirect consequence of body size evolution, except within Hominids.
@@ -15,16 +15,24 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 
 ```{r captions_allo, include = FALSE}
 
-captions $ fig.cac_logCS <- "**Allometric shape variation.** (a) Shape variation associated with the Common Allometric Component (CAC). (b) Random regression of projections on the CAC over log Centroid Size. A regression line is adjusted for each species, and dots represent their mean values. \\label{fig:cac_logCS}"
+captions $ fig.cac_logCS <- "**Allometric shape variation**. (a) Shape variation associated with the Common Allometric Component (CAC). (b) Random regression of projections on the CAC over log Centroid Size. A regression line is adjusted for each species, and dots represent their mean values. \\label{fig:cac_logCS}"
 
-captions $ fig.phylo_W <- "**Deviations from ancestral allometry.** (a) Intercepts; (b) Slopes. Asterisks indicate whether a given deviation is distinct from zero, considering 95\\% credible intervals. \\label{fig:phylo_W}"
+captions $ fig.phylo_W <- "**Deviations from ancestral allometry**. (a) Intercepts; (b) Slopes. Asterisks indicate whether a given deviation is distinct from zero, considering 95\\% credible intervals. \\label{fig:phylo_W}"
 
-captions $ fig.MI_vs_slopeW_main <- "**Allometry and Integration.** Modularity Hypothesis Index (MHI) regressed over allometric slope deviations ($b_s$). For each global trait set (Face and Neurocranium), the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_main}"
+captions $ fig.MI_vs_slopeW_main <- "**Allometry and Integration**. Modularity Hypothesis Index (MHI) regressed over allometric slope deviations ($b_s$). For each global trait set (Face and Neurocranium), the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_main}"
 
 captions $ fig.cac_homi <- "**Direction of Multivariate Allometry in \\emph{Homo} and \\emph{Gorilla}**. Colors represent loadings of the allometric component for local shape variables in both representatives of *Gorilla* and in *Homo sapiens*, depicted over the mean shape for each species. The direction of the Common Allometric Component (\\autoref{fig:cac_logCS}a) is also represented for comparison. \\label{fig:cac_homi}"
 
 if (thesis) {
- 
+
+captions $ fig.cac_logCS <- "Allometric shape variation. (a) Shape variation associated with the Common Allometric Component (CAC). (b) Random regression of projections on the CAC over log Centroid Size. A regression line is adjusted for each species, and dots represent their mean values. \\label{fig:cac_logCS}"
+
+captions $ fig.phylo_W <- "Deviations from ancestral allometry. (a) Intercepts; (b) Slopes. Asterisks indicate whether a given deviation is distinct from zero, considering 95\\% credible intervals. \\label{fig:phylo_W}"
+
+captions $ fig.MI_vs_slopeW_main <- "Allometry and Integration. Modularity Hypothesis Index (MHI) regressed over allometric slope deviations ($b_s$). For each global trait set (Face and Neurocranium), the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_main}"
+
+captions $ fig.cac_homi <- "Direction of Multivariate Allometry in \\emph{Homo} and \\emph{Gorilla}. Colors represent loadings of the allometric component for local shape variables in both representatives of *Gorilla* and in *Homo sapiens*, depicted over the mean shape for each species. The direction of the Common Allometric Component (\\autoref{fig:cac_logCS}a) is also represented for comparison. \\label{fig:cac_homi}"
+  
   captions $ fig.MI_vs_slopeW_si <- "Modularity Hypothesis Indexes (MHI) *vs.* allometric slope deviations ($b_s$). For each local trait set, the shaded region around regression lines indicate 95\\% credible intervals around estimated regression parameters. \\label{fig:MI_vs_slopeW_si}"
 
 }
