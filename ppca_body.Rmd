@@ -82,7 +82,7 @@ Although such comparison provides a first approximation to this problem, it has 
 
 ### Objectives
 
-The interplay between developmental and functional interactions, and their relationships with the topology of adaptive landscapes may influence the divergence between covariance structure in sister lineages. In the present work, we evaluate the stability of phenotypic covariance structure in skull size and shape along the diversification of Anthropoid PrimatesX.
+The interplay between developmental and functional interactions, and their relationships with the topology of adaptive landscapes may influence the divergence between covariance structure in sister lineages. In the present work, we evaluate the stability of phenotypic covariance structure in skull size and shape along the diversification of Anthropoid Primates.
 We build upon approaches proposed by other authors [@marroig_selection_2011; @aguirre_comparing_2013; @haber_evolution_2015] in order to explicitly incorporate phylogenetic relationships into the comparative analysis of covariance structure, under the hypothesis that different cranial regions will exhibit different degrees of stability among sister lineages, thus producing a non-random pattern of changes in covariance structure.
 
 # Methods
