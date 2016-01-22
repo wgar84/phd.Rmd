@@ -98,12 +98,14 @@ Apesar destes problemas, o uso de estimadores de Procrustes para investigar aspe
 Por exemplo, @martinez-abadias_pervasive_2011 encontrou um padrão de integração forte entre partições nos padrões de covariância do crânio de *Homo*, enquanto @oliveira_covariance_2009 e @porto_evolution_2009 demonstraram que humanos estão entre os exemplos mais modulares de padrões de covariância no crânio de mamíferos.
 Da mesma forma, enquanto @cheverud_pleiotropic_1997 mostrou que 70\% dos efeitos pleiotrópicos estão confinados aos componentes mandibulares anteriores ou posteriores, @klingenberg_integration_2004 não encontrou nenhuma evidência para uma distribuição modular de efeitos pleiotrópicos entre as partições da mandíbula, utlizando a mesma amostra.
 
-# Objetivo
+# Objetivos
 
-A presente tese tem como objetivo investigar a relação entre as representações utilizadas para caracterizar variação morfológica e as inferências feitas a partir destas representações a respeito de propriedades variacionais em escala macroevolutiva.
+A presente tese tem como objetivo inicial investigar a relação entre as representações utilizadas para caracterizar variação morfológica e as inferências feitas a partir destas representações a respeito de propriedades variacionais em escala macroevolutiva.
 Em particular, tal relação é investigada considerando-se a morfologia craniana em Primatas da infraordem Anthropoidea, dada a disponibilidade de uma ampla base de dados [@marroig_comparison_2001; @oliveira_covariance_2009], sob a forma de coordenadas tridimensionais de marcos anatômicos, das quais podem ser derivadas outras representações.
 Explicitamente, consideram-se três representações distintas: distâncias euclidianas entre marcos anatômicos, configurações geométricas destes marcos (utilizando-se estimadores de Procrustes), e variáveis locais de forma, estimadas como expansões ou retrações infinitesimais a partir de deformações de placa fina.
 Incidentalmente, a presente tese também versa sobre a evolução de propriedades variacionais em Anthropoidea, a partir de um entendimento de como estas diferentes representações articulam diferentes aspectos da estrutura de covariância subjacente aos caracteres morfológicos.
+
+\newpage
 
 ## Perfil da Tese
 
@@ -153,18 +155,21 @@ As bases de dados destes dois trabalhos anteriores foram reunídas em uma único
 
 ![`r captions $ fig.landmarks`](Figures/landmarks.png)
 
-### Descritores de Forma
+### Representações de Variação Morfológica
 
-Considera-se ao longo da presente tese três tipos distintos de variáveis descritoras de forma: resíduos de espaço tangente, estimados a partir de uma superposição de Procrustes para toda a amostra, utilizando-se o conjunto de marcos anatômicos (doravante denominados resíduos de Procrustes; \autoref{tab:lms} e \autoref{fig:landmarks}); distâncias euclidianas entre marcos anatômicos(\autoref{tab:dist} e \autoref{fig:landmarks}); e variáveis locais de forma [@marquez_measurement_2012], que representam medidas de transformações infinitesimais de volume em escala logarítmica entre cada unidade de amostra e uma forma de referência, com base em uma função de interpolação que estima a variação de forma entre os marcos anatômicos amostrados.
+Considera-se ao longo da presente tese três tipos distintos de variáveis descritoras de forma: resíduos de espaço tangente, estimados a partir de uma superposição de Procrustes para toda a amostra, utilizando-se o conjunto de marcos anatômicos (doravante denominados resíduos de Procrustes; \autoref{tab:lms} e \autoref{fig:landmarks}); distâncias euclidianas entre marcos anatômicos (\autoref{tab:dist} e \autoref{fig:landmarks}); e variáveis locais de forma [@marquez_measurement_2012], que representam medidas de transformações infinitesimais de volume em escala logarítmica entre cada unidade de amostra e uma forma de referência, com base em uma função de interpolação que estima a variação de forma entre os marcos anatômicos amostrados.
 
 Utiliza-se como função de interpolação para a estimativa deste tipo de variável deformações de placa fina [*thin plate splines*; @bookstein_principal_1989], que considera o comportamento dos tecidos adjacentes aos marcos anatômicos similar ao comportamento de uma placa metálica de espessura infinitesimal sob tensão.
-Assim sendo, a variação de cada indíviduo é descrita por esta função como uma deformação de toda a configuração em referência à forma média considerada, de modo que esta função associa qualquer posição arbitrária, representada por suas coordenadas tridimensionais na forma de referência à uma posição equivalente naquela unidade amostral, também representada por três coordenadas.
+Assim sendo, a variação de cada indíviduo é descrita por esta função como uma deformação de toda a configuração em relação à forma de referência, de modo que esta função associa qualquer posição arbitrária, representada por suas coordenadas tridimensionais na forma de referência à uma posição equivalente na unidade amostral considerada, também representada por três coordenadas.
 As variáveis locais de forma então referem-se às expansões ou retrações locais, estimadas como sendo o logaritmo natural do determinante do jacobiano da função de interpolação, estimado em pontos de referência escolhidos a partir de algum critério; jacobianos são matrizes que estendem o conceito de derivada às funções multivariadas, ou seja, descrevem a taxa de variação nas diferentes direções definidas pelo dominío de tal função, de modo que determinantes destas matrizes descrevem a taxa de variação no volume em uma posição arbitrária dentre os marcos anatômicos amostrados.
 
 Para cada unidade amostral foram obtidas 38 destas variáveis, correspondentes às localizações dos pontos médios entre os pares de marcos anatômicos utilizados para definir as distâncias entre marcos (\autoref{fig:landmarks} e \autoref{tab:dist}), a fim de produzir um conjunto de dados que representa forma [isto é, desprovido de variação isométrica; @bookstein_morphometric_1991; @zelditch_geometric_2004] enquanto certas propriedades globais do conjunto de dados de distâncias entre marcos são mantidas, como a dimensionalidade e a correspondência destes descritores com as hipóteses de relacionamento derivadas de interações funcionais e ontogenéticas, por exemplo.
 
+\input{Tables/dist}
+
+Ambas representações de forma (resíduos de Procrustes e variáveis locais de forma) são associadas a uma mensuração de tamanho isométrico, na forma do logaritmo do tamanho do centróide (logCS), que possui a propriedade de ser uma mensuração de tamanho que é de fato independente de variação de forma [@bookstein_morphometric_1991]. 
+
 Na presente tese, considerou-se apenas aquelas propriedades associadas ao componente simétrico de variação; portanto, antes de qualquer análise, os efeitos de variação na assimetria foram controlados seguindo-se o procedimento descrito em @klingenberg_shape_2002 para estruturas bilaterais, através da obtenção de uma configuração simétrica de marcos anatômicos para cada indivíduo, estimando-se uma média entre cada forma real e sua reflexão ao longo do plano sagital
 Para cada conjunto de dados, também foram removidos efeitos de pouco interesse no contexto desta tese, como dimorfismo sexual, por exemplo.
-Para distâncias euclidianas entre marcos anatômicos e variáveis locais de forma estes efeitos foram removidos através de modelos lineares multivariados ajustados separadamente para cada espécie, de acordo com \autoref{tab:modcomp_otu}; para os resíduos de Procrustes, os mesmos efeitos foram removidos centralizando-se todas as médias dos fatores considerado sobre a forma média de cada espécie, visto que a perda de graus de liberdade imposta pela GPA impede o uso de modelos lineares multivariados sobre esse tipo de representação com o intuito de remover efeitos fixos.
+Para distâncias euclidianas entre marcos anatômicos, variáveis locais de forma e também para o logCS estes efeitos foram removidos através de modelos lineares multivariados ajustados separadamente para cada espécie, de acordo com \autoref{tab:modcomp_otu}; para os resíduos de Procrustes, os mesmos efeitos foram removidos centralizando-se todas as médias dos fatores considerado sobre a forma média de cada espécie, visto que a perda de graus de liberdade imposta pela GPA impede o uso de modelos lineares multivariados sobre esse tipo de representação com o intuito de remover efeitos fixos.
 
-\input{Tables/dist}
