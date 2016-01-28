@@ -28,5 +28,5 @@ and
 b_{s} \sim \mathcal{N}_{2p - 2} \Big(\bar{b}_s\mathbf{1}_{2p - 2}, \mathbf{S}\Big).
 \end{equation}
 Therefore, this model produces estimates for the posterior distribution of the parameters that describe the relationship between logCS and CAC projection for each terminal OTU and also for ancestral nodes simultaneously, enabling us to track changes in both parameters along the phylogeny.
-In order to test the robustness of such ancestral node reconstructions for $a_s$ and $b_s$, we also produced point estimates under a linear parsimony model, implemented in Mesquite [@maddison_mesquite:_2011]; estimates for all parameters (slopes and intercepts) using both models yield similar results (not shown), indicating that the Bayesian estimates we used here is robust regardless of the model chosen to reconstruct ancestral allometric parameters.
+In order to test the robustness of such ancestral node reconstructions for $a_s$ and $b_s$, we also produced point estimates under a linear parsimony model, implemented in Mesquite [@maddison_mesquite:_2011]; estimates for all parameters (slopes and intercepts) using both models yield similar results (not shown), indicating that the Bayesian estimates we used here are robust regardless of the model chosen to reconstruct ancestral allometric parameters.
 
