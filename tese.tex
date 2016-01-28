@@ -172,7 +172,7 @@
     Biologia Evolutiva}, pdfkeywords={Genética Quantitiva, Morfologia
     Craniana, Modularidade, Primatas}, pdfproducer={Latex}, pdfcreator={pdflatex}}
  
-\geometry{bindingoffset=30pt}
+\geometry{bindingoffset=25pt}
 
 %\geometry{paperwidth=290mm, paperheight=297mm, margin=1in}
 %\setlength{\marginparwidth=80mm}
@@ -182,7 +182,7 @@
 \setcounter{totalnumber}{1}
 \renewcommand{\topfraction}{0.7}
 \renewcommand{\bottomfraction}{0.3}
-\renewcommand{\textfraction}{0.335}
+\renewcommand{\textfraction}{0.33}
 \renewcommand{\floatpagefraction}{0.5}
 
 \setlength{\headheight}{15pt} 
@@ -267,10 +267,10 @@ Ficha Catalográfica \\
     Departamento de Genética e Biologia Evolutiva.
     
     \begin{enumerate}
-    \item Evolução Morfológica;
-    \item Morfologia Craniana;
-    \item Modularidade;
+    \item Morfometria;
     \item Genética Quantitativa;
+    \item Integração Morfológica;
+    \item Crânio;
     \item Primatas Antropóides.
     \end{enumerate}
     I. Universidade de São Paulo. 
@@ -416,51 +416,40 @@ Spiral out. Keep going. \\
 
 \newpage
 
-% Agradecimentos
+\noindent{\LARGE\textbf{Agradecimentos}}
 
-% Espaçamento duplo
-
-% \noindent{\LARGE\textbf{Agradecimentos}}
-
-% \vspace{1.0 cm} 
-% \emph{``If I have seen further, it is by standing in
-%   the shoulder of giants.''}
-% \begin{flushright}
-% \emph {Isaac Newton}
-% \end{flushright}
-% \vspace{1.0 cm}
-% \noindent{
-%   \input{thx.tex}
-% }
+\input{Tex/thx}
 
 \newpage
 
-% \vspace*{10pt}
-% \begin{center}
-%   \emph{\begin{large}Resumo\end{large}}\label{resumo}
-% \vspace{2pt}
-% \end{center}
+\selectlanguage{brazilian}
 
-% \noindent
-% \par
-% \vspace{1em}
-% \noindent\textbf{Palavras-chave:} evolução morfológica, morfologia craniana, 
-% modularidade, integração morfológica, primatas antropóides
+\begin{center}
+  \emph{\begin{large}Resumo\end{large}}\label{resumo}
+\vspace{2pt}
+\end{center}
 
-% \newpage
+\begin{small}
+\input{Tex/resumo}
+\end{small}
 
-% \selectlanguage{english}
-% \vspace*{10pt}
-% \begin{center}
-%   \emph{\begin{large}Abstract\end{large}}\label{abstract}
-% \vspace{2pt}
-% \end{center}
+\newpage
 
-% \noindent
-% \par
-% \vspace{1em}
-% \noindent\textbf{Keywords:} morphological evolution, cranial morphology, 
-% modularity, morphological integration, anthropoid primates
+\selectlanguage{english}
+
+\begin{center}
+  \emph{\begin{large}Abstract\end{large}}\label{abstract}
+\vspace{2pt}
+\end{center}
+
+\begin{small}
+\input{Tex/abstract}
+\end{small}
+
+\noindent
+\par
+\vspace{1em}
+\noindent\textbf{Keywords:} morphometrics, morphological integration, quantitative genetics, skull, anthropoid primates
 
 \selectlanguage{brazilian}
 
@@ -470,6 +459,7 @@ Spiral out. Keep going. \\
 \tableofcontents
 {\footnotesize \listoffigures}
 \listoftables
+
 \newpage
 
 \pagenumbering{arabic}
@@ -3463,8 +3453,7 @@ regions throughout Anthropoid diversification.
 \centering
 \includegraphics{Figures/loess-1.pdf}
 \caption{Distribution of mean SRD scores for each trait along the entire
-ordered set of phylogenetic PCs. Skull regions are indicated by the
-color legend. \label{fig:loess}}
+ordered set of phylogenetic PCs. \label{fig:loess}}
 \end{figure}
 
 The overall distribution of average posterior SRD scores along the
@@ -3772,9 +3761,10 @@ separa tamanho e forma, especialmente se esta última for representada
 através das variáveis locais de forma, evidencia um contraste entre
 fenômenos globais de desenvolvimento, responsáveis pelo crescimento, e a
 diferenciação produzida por fenômenos locais. Dessa forma, ainda que
-seja possível separar estas duas fontes de variação, a influência do
-tamanho sobre a forma nunca deveria deixar de ser considerada quando
-propriedades variacionais são avaliadas, em qualquer representação.
+seja possível separar estas duas fontes de variação do ponto de vista
+analítico, a influência do tamanho sobre a forma nunca deveria deixar de
+ser considerada quando propriedades variacionais são avaliadas, em
+qualquer representação.
 
 O Capítulo 4 coloca a questão da similaridade em padrões de covariância
 em tamanho e forma craniana sob uma perspectiva explicitamente

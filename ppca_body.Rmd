@@ -19,7 +19,7 @@ captions $ fig.matrix_variation <- 'Representation of the steps used to characte
 
 captions $ fig.eval <- 'Posterior distribution of eigenvalues obtained for pPCs. Positive eigenvalues are associated with phylogenetic signal; negative eigenvalues are associated with convergence. \\label{fig:eval}'
 
-captions $ fig.loess <- 'Distribution of mean SRD scores for each trait along the entire ordered set of phylogenetic PCs. Skull regions are indicated by the color legend. \\label{fig:loess}'
+captions $ fig.loess <- 'Distribution of mean SRD scores for each trait along the entire ordered set of phylogenetic PCs. \\label{fig:loess}'
 
 captions $ fig.moran <- 'Posterior bivariate distribution of variances explained by each phylogenetic PC *versus* Moran\'s Indexes estimated for each axis. \\label{fig:moran}'
 
