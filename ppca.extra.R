@@ -15,15 +15,38 @@ gradient <- colorRampPalette(brewer.pal(11, "Spectral"), space="Lab")
 
 ppca.extra <- list ()
 
+sup.rs.riem <-
+    sup.rs.riem %>%
+    separate(., otus, into = c('otu1', 'otu2'), sep = '\\.')
+
+ppca.extra $ rs.riem.homo <- 
+                 ggplot (sup.rs.riem) +
+                 geom_point(aes (x = meanRiemDist, y = meanRS, color = min.ss)) +
+                 geom_point(aes (x = meanRiemDist, y = meanRS),
+                            subset(sup.rs.riem,
+                                   grepl('Alouatta', otu1) | grepl('Ateles', otu1)),
+                            color = 'black', shape = '+', size = 5) +
+                 geom_point(aes (x = meanRiemDist, y = meanRS),
+                            subset(sup.rs.riem,
+                                   grepl('Cebus', otu1) | grepl('Saimiri', otu1)),
+                            color = 'black', shape = '+', size = 5) +
+                 theme_bw() +
+                 scale_color_gradientn(name = 'Lower\nSample Size',
+                                       colours = gradient(100), trans = 'log',
+                                       breaks = c(25, 50, 100)) +
+                 xlab('Posterior Mean Riemannian Distance') +
+                 ylab('Posterior Mean Random Skewers')
+
 ppca.extra $ rs.riem <- 
-ggplot (sup.rs.riem) +
-  geom_point(aes (x = meanRiemDist, y = meanRS, color = min.ss)) +
-  theme_bw() +
-  scale_color_gradientn(name = 'Lower\nSample Size',
-                        colours = gradient(100), trans = 'log',
-                        breaks = c(25, 50, 100)) +
-  xlab('Posterior Mean Riemannian Distance') +
-  ylab('Posterior Mean Random Skewers')
+                 ggplot (sup.rs.riem) +
+                 geom_point(aes (x = meanRiemDist, y = meanRS, color = min.ss)) +
+                 theme_bw() +
+                 scale_color_gradientn(name = 'Lower\nSample Size',
+                                       colours = gradient(100), trans = 'log',
+                                       breaks = c(25, 50, 100)) +
+                 xlab('Posterior Mean Riemannian Distance') +
+                 ylab('Posterior Mean Random Skewers')
+
 
 ppca.extra $ ss.local1 <- 
   ggplot (data.frame (
@@ -127,3 +150,4 @@ var.ppc.srd <-
          fill = guide_legend (ncol = 4)) +
   theme(legend.position = "bottom")
 
+ggsave('rs_riem_homo_highlight.pdf', ppca.extra $ rs.riem.homo)

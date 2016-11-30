@@ -17,24 +17,10 @@ tree.df <-
 taxo.list <- llply (dlply(allo.Data $ onedef.mean, .(taxo.group)),
                     function (L) L $ animal)
 
-
 node.vec <- unlist (llply (taxo.list, getMRCA, phy = Tree [[1]]))
 
 allo.tree <- ggtree(tree.df, aes (color = post.dev), size = 1.2)
 
-for (i in 1:length (node.vec))
-  allo.tree <-
-  annotation_clade(allo.tree, node = node.vec [i], angle = 0, color = '#777777FF',
-                   label = names (node.vec) [i], offset = 0.008, hjust = -0.01)
-
-node.vec <- unlist (llply (taxo.list, getMRCA, phy = Tree [[1]]))
-
-allo.tree <- ggtree(tree.df, aes (color = post.dev), size = 1.2)
-
-for (i in 1:length (node.vec))
-  allo.tree <-
-  annotation_clade(allo.tree, node = node.vec [i], angle = 0, color = '#777777FF',
-                   label = names (node.vec) [i], offset = 0.008, hjust = -0.01)
 
 intercept.df <-
   data.frame (
@@ -63,6 +49,15 @@ Tree.Plots $ inter.tree <-
   annotate('text', x = 0.02, y = 9, label = '4 My', size = 3)
   theme(legend.position = c(0.01, 0.75))
 
+for(i in 1:length(node.vec))
+    Tree.Plots $ inter.tree <-
+                     Tree.Plots $ inter.tree +
+                                      geom_cladelabel(node = node.vec [i], angle = 0,
+                                                      color = '#777777FF',
+                                                      label = names (node.vec) [i],
+                                                      offset = 0.008, hjust = -0.01)
+
+
 
 Tree.Plots $ slope.tree <-
   allo.tree %<+% slope.df +
@@ -74,6 +69,14 @@ Tree.Plots $ slope.tree <-
   annotate('segment', x = 0, y = 7, xend = 0.04, yend = 7) +
   annotate('text', x = 0.02, y = 9, label = '4 My', size = 3)
   theme(legend.position = c(0.01, 0.75))
+
+for(i in 1:length(node.vec))
+    Tree.Plots $ slope.tree <-
+                     Tree.Plots $ slope.tree +
+                                      geom_cladelabel(node = node.vec [i], angle = 0,
+                                                      color = '#777777FF',
+                                                      label = names (node.vec) [i],
+                                                      offset = 0.008, hjust = -0.01)
 
 
 Tree.Plots $ interslope <-
@@ -111,9 +114,9 @@ models.df $ tip <- paste (models.df $ tip, ' (', models.df $ sample.size, ')', s
 model.tree <- ggtree(tree.df, color = 'black', size = 1, alpha = 0.8)
 
 for (i in 1:length (node.vec))
-  model.tree <- 
-  annotation_clade(model.tree, node = node.vec [i], angle = 0, color = '#777777FF',
-                   label = names (node.vec) [i], offset = 0.105, hjust = -0.01)
+  model.tree <- model.tree +
+      geom_cladelabel(node = node.vec [i], angle = 0, color = '#777777FF',
+                      label = names (node.vec) [i], offset = 0.105, hjust = -0.01)
 
 model.tree <- model.tree +
   annotate('segment', x = 0, y = 7, xend = 0.04, yend = 7) +
@@ -181,8 +184,8 @@ div.tree <-
   theme(legend.position = 'right')
 
 for (i in 1:length (node.vec))
-  div.tree <- 
-  annotation_clade(div.tree, node = node.vec [i], angle = 0, color = '#777777FF',
+  div.tree <- div.tree + 
+      geom_cladelabel(node = node.vec [i], angle = 0, color = '#777777FF',
                    label = names (node.vec) [i], offset = 0.16, hjust = -0.01)
 
 Tree.Plots $ ppca <-

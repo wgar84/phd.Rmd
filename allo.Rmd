@@ -5,15 +5,15 @@ date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   pdf_document:
     includes:
-      in_header: Tex/allo_head.tex
-      before_body: Tex/chap_info.tex
+        in_header: Tex/allo_head.tex
+        before_body: Tex/chap_info.tex
     fig_caption: true
     keep_tex: true
   word_document:
     fig_caption: true
     fig_width: 6
 fontsize: 12pt
-csl: Bib/nature.csl
+csl: Bib/evolution.csl
 bibliography: Bib/allo.bib
 ---	
 

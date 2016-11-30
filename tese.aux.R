@@ -33,9 +33,11 @@ require (cowplot)
 require (ggtree)
 require (phylobase)
 
-registerDoMC (cores = 10)
+registerDoMC (cores = 3)
 
-## require (devtools)
+require (devtools)
+#install_github('jjallaire/revealjs')
+
 ## install_github('muschellij2/slidify')
 ## install_github('ramnathv/slidifyLibraries')
 ## install_github('uyedaj/bayou')
@@ -71,7 +73,7 @@ captions <- list()
 
 ## TEX
 
-render('tese.Rmd', output_file = 'tese.pdf')
+### render('tese.Rmd', output_file = 'tese.pdf')
 render('allo.Rmd', output_file = 'allo.pdf')
 render('sup_allo.Rmd', output_file = 'sup_allo.pdf')
 render('ppca.Rmd', output_file = 'ppca.pdf')
@@ -81,6 +83,8 @@ render('sup_modcomp.Rmd', output_file = 'sup_modcomp.pdf')
 #render('sup_base.Rmd', output_file = 'sup_base.pdf')
 #render('rel_gen.Rmd', output_file = 'rel_gen.pdf')
 #system('evince rel_gen.pdf &')
+
+knit('allo.Rmd')
 
 system('evince tese.pdf &')
 system('evince allo.pdf &')
@@ -120,9 +124,14 @@ author('Presentation/Evolution2015', F, F)
 slidify('index.Rmd')
 browseURL('index.html', 'firefox')
 
+author('Presentation/Miudoless', F, F)
+slidify('index.Rmd')
+browseURL('index.html', 'google-chrome')
+
+
 #### GGTREE
-### source("https://bioconductor.org/biocLite.R")
-### biocLite("ggtree")
+source("https://bioconductor.org/biocLite.R")
+biocLite("ggtree")
 #### fftw-devel, libtiff-devel
 
 ## var <- ddply (post.ppca $ plot.ppca.eval $ data, .(axis), plyr::summarise,

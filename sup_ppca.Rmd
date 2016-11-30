@@ -22,7 +22,7 @@ opts_chunk $ set (fig.path = 'Figures/', dev = 'pdf')
 ```{r captions_intro, include = FALSE}
 captions <- list()
 
-captions $ fig.landmarks <- 'Landmark configuration. Lines connecting landmarks indicate traits considered, either as interlandmark distances or local shape variables. Dotted and dashed lines indicate the association of each trait to *a priori* regional hypotheses of association (Face and Neurocranium, respectively). \\label{fig:landmarks}'
+captions $ fig.landmarks <- 'Landmark configuration. Lines connecting landmarks indicate traits considered, as local shape variables. Dotted and dashed lines indicate the association of each trait to *a priori* regional hypotheses of association (Face and Neurocranium, respectively). \\label{fig:landmarks}'
 
 captions $ fig.phylo_model <- "Sample sizes and controlled fixed effects for 109 OTUs of anthropoid primates, depicted in a phylogenetic hypothesis from @springer_macroevolutionary_2012. \\label{fig:phylo_model}"
 

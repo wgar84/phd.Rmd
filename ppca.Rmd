@@ -1,5 +1,5 @@
 ---
-title: "A Phylogenetic Analysis of Covariance Structure in Anthropoids"
+title: "A Phylogenetic Analysis of Shape Covariance Structure in Anthropoids"
 author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -21,9 +21,9 @@ bibliography: Bib/ppca.bib
 
 ^2^<wgar@usp.br>
 
-running title: Covariances in Space and Time! 
+running title: Evolution of Integration in Anthropoids
 
-key words: $P$-matrix; primates; developmental systems; bayesian statistics; quantitative genetics
+key words: $P$-matrix; primates; developmental systems; Bayesian statistics; quantitative genetics
 
 ```{r, echo = FALSE}
 thesis <- FALSE
