@@ -30,6 +30,8 @@ captions $ fig.rs_riem <- 'The relationship between Riemannian Distances and Ran
 
 captions $ fig.ss_local1 <- 'Relationship between sample sizes and the first local phylogenetic Principal Component. \\label{fig:ss_local1}'
 
+captions $ fig.loess <- 'Distribution of mean SRD scores for each trait along the entire ordered set of phylogenetic PCs. \\label{fig:loess}'
+
 ```
 
 \renewcommand{\thefigure}{S\arabic{figure}}
@@ -52,6 +54,11 @@ ppca.extra $ rs.riem
 ```{r ss_local1, echo = FALSE, fig.width = 8, fig.height = 8, fig.cap = captions $ fig.ss_local1}
 ppca.extra $ ss.local1
 ```
+
+```{r loess, fig.width = 10, fig.height = 10, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.loess}
+alt.spline
+```
+
 
 
 # References

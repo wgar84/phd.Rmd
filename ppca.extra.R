@@ -19,26 +19,18 @@ sup.rs.riem <-
     sup.rs.riem %>%
     separate(., otus, into = c('otu1', 'otu2'), sep = '\\.')
 
-ppca.extra $ rs.riem.homo <- 
-                 ggplot (sup.rs.riem) +
-                 geom_point(aes (x = meanRiemDist, y = meanRS, color = min.ss)) +
-                 geom_point(aes (x = meanRiemDist, y = meanRS),
-                            subset(sup.rs.riem,
-                                   grepl('Alouatta', otu1) | grepl('Ateles', otu1)),
-                            color = 'black', shape = '+', size = 5) +
-                 geom_point(aes (x = meanRiemDist, y = meanRS),
-                            subset(sup.rs.riem,
-                                   grepl('Cebus', otu1) | grepl('Saimiri', otu1)),
-                            color = 'black', shape = '+', size = 5) +
-                 theme_bw() +
-                 scale_color_gradientn(name = 'Lower\nSample Size',
-                                       colours = gradient(100), trans = 'log',
-                                       breaks = c(25, 50, 100)) +
-                 xlab('Posterior Mean Riemannian Distance') +
-                 ylab('Posterior Mean Random Skewers')
+load('ed.ppca.RData')
+
+ed.ppca $ sup.rs.riem.mean $ type <- rep('Euclidean', times = nrow(ed.ppca $ sup.rs.riem.mean))
+sup.rs.riem $ type <- rep('Marquez', times = nrow(sup.rs.riem))
+
+colnames (sup.rs.riem)
+colnames (ed.ppca $ sup.rs.riem.mean)
+
+sup.rs.riem <- rbind(sup.rs.riem, ed.ppca $ sup.rs.riem.mean)
 
 ppca.extra $ rs.riem <- 
-                 ggplot (sup.rs.riem) +
+                 ggplot (subset(sup.rs.riem, type == 'Marquez')) +
                  geom_point(aes (x = meanRiemDist, y = meanRS, color = min.ss)) +
                  theme_bw() +
                  scale_color_gradientn(name = 'Lower\nSample Size',
@@ -150,4 +142,56 @@ var.ppc.srd <-
          fill = guide_legend (ncol = 4)) +
   theme(legend.position = "bottom")
 
-ggsave('rs_riem_homo_highlight.pdf', ppca.extra $ rs.riem.homo)
+load('ed.ppca.RData')
+
+ed.ppca $ sup.rs.riem.mean $ type <- rep('Euclidean', times = nrow(ed.ppca $ sup.rs.riem.mean))
+sup.rs.riem $ type <- rep('Marquez', times = nrow(sup.rs.riem))
+
+colnames (sup.rs.riem)
+colnames (ed.ppca $ sup.rs.riem.mean)
+
+rs.riem.comp.homo <- 
+    ggplot (sup.rs.riem) +
+    geom_point(aes (x = meanRiemDist, y = meanRS, color = min.ss)) +
+    geom_point(aes (x = meanRiemDist, y = meanRS),
+               subset(sup.rs.riem, grepl('Homo', otu1)),
+               color = 'black', shape = '+', size = 5) +
+    geom_point(aes (x = meanRiemDist, y = meanRS),
+               subset(sup.rs.riem, grepl('Homo', otu2)),
+               color = 'black', shape = '+', size = 5) +
+    facet_wrap(~ type) +
+    theme_bw() +
+    scale_color_gradientn(name = 'Lower\nSample Size',
+                          colours = gradient(100), trans = 'log',
+                          breaks = c(25, 50, 100)) +
+    xlab('Posterior Mean Riemannian Distance') +
+    ylab('Posterior Mean Random Skewers')
+
+
+ed.vs.marquez.rs <- data.frame('Marquez' = subset(sup.rs.riem, type == 'Marquez') $ meanRS,
+                               'Euclidean' = subset(sup.rs.riem, type == 'Euclidean') $ meanRS,
+                               'otu1' = subset(sup.rs.riem, type == 'Marquez') $ otu1,
+                               'otu2' = subset(sup.rs.riem, type == 'Marquez') $ otu2,
+                               'min.ss' = subset(sup.rs.riem, type == 'Marquez') $ min.ss)
+
+
+ggplot(ed.vs.marquez.rs) +
+    geom_point(aes(x = Euclidean, y = Marquez, color = min.ss)) +
+    theme_bw() +
+    scale_color_gradientn(name = 'Lower\nSample Size',
+                          colours = gradient(100), trans = 'log',
+                          breaks = c(25, 50, 100)) +
+    geom_point(aes(x = Euclidean, y = Marquez),
+               subset (ed.vs.marquez.rs, grepl('Homo', otu1)),
+               shape = '+', size = 5) +
+    geom_point(aes(x = Euclidean, y = Marquez),
+               subset (ed.vs.marquez.rs, grepl('Homo', otu2)),
+               shape = '+', size = 5) +
+    geom_smooth(data = subset (ed.vs.marquez.rs, grepl('Homo', otu1) | grepl('Homo', otu2)),
+                mapping = aes(x = Euclidean, y = Marquez),
+                #formula = Marquez ~ Euclidean - 1,
+                method = 'lm') +
+    geom_abline(slope = 1, intercept = 0, linetype = 'dashed')
+
+confint(lm(Marquez ~ Euclidean - 1,
+           subset (ed.vs.marquez.rs, grepl('Homo', otu1) | grepl('Homo', otu2))))

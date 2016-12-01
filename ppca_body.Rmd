@@ -19,8 +19,6 @@ captions $ fig.matrix_variation <- 'Representation of the steps used to characte
 
 captions $ fig.eval <- 'Posterior distribution of eigenvalues obtained for pPCs. Positive eigenvalues are associated with phylogenetic signal; negative eigenvalues are associated with convergence. \\label{fig:eval}'
 
-captions $ fig.loess <- 'Distribution of mean SRD scores for each trait along the entire ordered set of phylogenetic PCs. \\label{fig:loess}'
-
 captions $ fig.moran <- 'Posterior bivariate distribution of variances explained by each phylogenetic PC *versus* Moran\'s Indexes estimated for each axis. \\label{fig:moran}'
 
 captions $ fig.phylo_full <- 'Phylogenetic decomposition of $\\mathbf{P}$-matrix variation. (a) Decomposition of matrix diversity over the phylogenetic hypothesis for Anthropoidea; the size of each circle indicates the percentage of diversity on each node, according to the legend. (b) Mean $\\mathbf{P}$-matrices of each species projected over the first three and the last phylogenetic Principal Components (G1-3 and L1, respectively); cell colors represent projection values, according to the legend. \\label{fig:phylo_full}'
@@ -30,6 +28,8 @@ captions $ fig.srd_gl <- 'Covariance structure variation associated with the fir
 captions $ fig.srd_shape <- 'Mean SRD scores for the first three and the last phylogenetic PCs. Global pPCs 1-3 and Local pPC 1, respectively, are represented over the mean skull shape of diana guenons (*Cercopithecus diana*). \\label{fig:srd_shape}'
 
 ### if thesis
+
+captions $ fig.loess <- 'Distribution of mean SRD scores for each trait along the entire ordered set of phylogenetic PCs. \\label{fig:loess}'
 
 captions $ fig.rs_riem <- 'The relationship between Riemannian Distances and Random Skewers among pairs of $\\mathbf{P}$-matrices. Each observation is the posterior mean value for each statistic, estimated from $100$ posterior samples obtained for each species. Colors indicate the lower sample size in each pair, according to the legend. \\label{fig:rs_riem}'
 
@@ -246,7 +246,7 @@ ppca.extra $ ss.local1
 The variation in trait-specific covariance structure described by these four phylogenetic Principal Components, as captured by comparing the posterior distribution of confidence intervals for each axis using Selection Response Decomposition (\autoref{fig:srd_gl}) indicates that, regardless of which axis is considered, traits with lower posterior SRD scores are usually localized in either Orbit or Basicranium, along with log Centroid Size, which represents the covariance structure associated with allometric relationships.
 Traits in remaining skull regions (Oral, Nasal, Zygomatic, Vault) consistently exhibit higher SRD scores, thus indicating a more stable covariance structure associated with these regions throughout Anthropoid diversification. 
 
-```{r loess, fig.width = 10, fig.height = 10, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.loess}
+```{r loess, eval = thesis, fig.width = 10, fig.height = 10, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = captions $ fig.loess}
 alt.spline
 ```
 
@@ -284,38 +284,43 @@ To some extent, selection for body size produces mean shape differences among li
 
 The phylogenetic distribution of changes in covariance strucuture (\autoref{fig:phylo_full}) reveals an even distribution of such changes throughout Anthropoid diversification, with three different instances in which more substantial changes have occurred, in order of the estimated $\mathbf{P}$-matrix diversity at each point (\autoref{fig:phylo_full}a): the divergence between New World and Old World Monkeys, between Atelidae and Cebidae, and between Hominoidea and the remaining Anthropoids.
 Results from the phylogenetic principal component analysis (\autoref{fig:phylo_full}b) recover a similar pattern, considering the contribution of these lineages to each axis of matrix variation, and the posterior distributions of the associated eigenvalues for the first, second and third phylogenetic principal components (\autoref{fig:eval}) indicate that these cladogenetic events can be set apart in terms of their relative contributions to $\mathbf{P}$-matrix diversity.
-
 However, the apparent greater contribution of the divergence between Atelids and Cebids to $\mathbf{P}$-matrix diversity may be a consequence of the phylogenetic structure imposed by either analyses, given that the actual pattern of divergence in the third phylogenetic component (\autoref{fig:phylo_full}b) puts the Hominoid lineage apart not only from its sister group, Cercopithecoidea, but also from remaining lineages.
 Since the third pPC is not a proper constrast between sister lineages, but rather between Hominoidea and the paraphyletic grouping obtained from removing this group, the imposed phylogenetic structure of both models might reduce the contribution of this lineage to overall $\mathbf{P}$-matrix diversity in either analyses.
+
+<!---
 On the other hand, although the phenotypic covariance structure for Hominids has been regarded as the most disparate when compared to remaining Catarrhines [@oliveira_covariance_2009] and to mammals in general [@porto_evolution_2009], these findings may differ qualitatively from our results due to the use of traditional morphometric measurements, as opposed to the geometric morphometrics approach we use here.
 Without any means of controlling the contribution of size variation, interlandmark distances will overestimate the influence of this source of variation over subtle shape relationships; thus, as the divergence in Hominid covariance structure is mostly related to differences in allometric relationships in this lineage (`r if (thesis) '\\autoref{fig:cac_homi}' else 'Garcia *et al.*, in prep'`), interlandmark distances will put more emphasis on these differences.
 Hence, this difference might also explain the reduced contribution of the divergence between Hominoids and Cercopithecoids to the overall $\mathbf{P}$-matrix divergence with respect to previous findings.
+-->
 
 Nonetheless, both events are overshadowed by the separation between New World and Old World Monkeys, since this divergence is associated with an unequivocally higher eigenvalue, as indicated by their posterior distribution (\autoref{fig:eval}).
-The subtle differences in $\mathbf{P}$-matrix diversity such separation represents may indicate that changes in the genetic architecture of cranial traits due to drift and/or founder effects [@goodnight_quantitative_2000; @brito_evolution_2005] may be a sufficient explanation for this divergence, considering that the effective population sizes in the ancestral population for all Platyrrhines probably plummeted during the transition between Africa and South America.
-Such transition probably occured through the colonization of successive island environments that may have occurred in the South Atlantic Ocean during the Eocene [@oliveira_paleogeography_2009].
+Considering that the migration from Africa to South America probably occured through the colonization of successive island environments that may have occurred in the South Atlantic Ocean during the Eocene [@oliveira_paleogeography_2009], the effective population sizes in the ancestral population for all Platyrrhines probably plummeted during this vicariant event. 
+Thus, the subtle differences in $\mathbf{P}$-matrix diversity such separation represents may indicate that changes in the genetic architecture of cranial traits due to drift and/or founder effects [@goodnight_quantitative_2000; @brito_evolution_2005] may be a null hypothesis with enough explanatory power for this divergence, against an alternative hypothesis of differences in covariance structure between Platyrrhines and Catarrhines due to either directional or stabilizing selective pressures.
+Although these hypotheses could be tested using comparative methods, for instance [e.g. @haber_evolution_2015], it is unclear at this point whether these methods are adequate to test hypothesis with respect to the evolution of morphological integration, given that they were conceived to model the evolution of mean phenotypes under the general assumption of constant genetic variances [@hansen_translating_1996].
+The descriptive approach we use here, focussing on comparing credible intervals between covariance matrices while incorporating phylogenetic structure has the advantage of imposing minimal assumptions.
+However, regardless of whether comparative methods are suited to deal with the evolution of morphological integration or not, addressing this question requires adequate sampling both within and between lineages [@melo_evolqg_2015].
 
-The pattern recovered by the first Local component (lower right panel of \autoref{fig:srd_gl}) also describes a pattern similar to that of Global components, considering that the distribution of lineages in this component scales with the logarithm of sample sizes (\autoref{fig:ss_local1}).
+The pattern recovered by the first Local component (lower right panel of \autoref{fig:srd_gl}) also describes a pattern similar to that of Global components. 
+However, the distribution of lineages in this component scales with the logarithm of sample sizes (\autoref{fig:ss_local1}), thus indicating the influence of sampling effects upon this component.
 Basicranial and Orbital traits exhibit overall lower covariances, both among themselves and between other regions, probably owing to the influence of multiple and disparate developmental processes; however, such lower correlation values also imply more uncertainty in their estimation.
-On the other hand, it is also important to consider that these directions depicted as changes in trait-specific covariance structure using the SRD method are orthogonal in the Euclidean image of the exponential-logarithm map; as such, they represent different aspects of covariance divergence among lineages, which in this particular case are concentrated in the same traits regardless of the phylogenetic scale considered.
+On the other hand, it is also important to consider that these directions depicted as changes in trait-specific covariance structure using the SRD method are orthogonal in the Euclidean image of the exponential-logarithm map.
+Thus, these components represent different aspects of covariance divergence among lineages, which in this particular case are concentrated in the same traits regardless of the phylogenetic scale considered.
 The association between the first Local component with sample sizes hinders its interpretation as biologically meaningful, given that Local components should be related to convergence among phylogenetically disparate lineages [@jombart_putting_2010]; rather, this component seems to be associated with divergence in the statistical properties of estimated covariance matrices for sister lineages.
 
-Regardless of the pattern described by the first Local component, the prevalence of variation associated with positive, Global components in relation to variation in negative, Local components (Figures \ref{fig:eval} and \ref{fig:moran}) implies that the contribution of historical constraints is greater than the contribution of convergence among disparate lineages.
-Considering that both sets of components are associated with the same structure of changes in covariance structure (Figures \ref{fig:srd_gl} and \ref{fig:loess}) related to some of the properties of skull development, these results highlight the overall stability of shape covariance structure in Anthropoids, in agreement with previous works using traditional morphometrics [@marroig_comparison_2001; @oliveira_covariance_2009].
-<!--- move along, nothing else to say here -->
+Considering both the pattern associated with the first Local component and the prevalence of variation associated with Global components over Local components (Figures \ref{fig:eval} and \ref{fig:moran}), the contribution of historical constraints is greater than the contribution of convergence among disparate lineages.
+Given that both sets of components are associated with the same structure of changes in covariance structure (Figures \ref{fig:srd_gl} and \ref{fig:loess}) related to some of the properties of skull development, these results highlight the overall stability of shape covariance structure in Anthropoids, in agreement with previous works using traditional morphometrics [@marroig_comparison_2001; @oliveira_covariance_2009].
 
 ### Conclusions
 
 The stability of shape covariance structure in Anthropoids may be a consequence of either constraints on mammalian skull development or the prevalence of a constant pattern of functional relationships imposed by stabilizing selection; such dichotomy has already been pointed out by other authors [e.g. @marroig_comparison_2001; @porto_evolution_2009; @oliveira_covariance_2009].
 Here, we favor the second point of view, in light of the evidence for the evolution of genetic or phenotypic covariances under directional selection [@jones_effects_2012; @melo_directional_2015; @careau_evolution_2015] or under relaxation of stabilizing selection [@jamniczky_comparison_2009].
-Furthermore, some available comparative data [@monteiro_adaptive_2010; @haber_evolution_2015] indicate that some mammal lineages, such as phylostomid bats and ruminants, have diverged in phenotypic covariance structure probably due to changes in the adaptive landscapes resulting from differences in ecological processes acting on different lineages.
-On the other hand, for Anthropoids, their stability in $\mathbf{P}$-matrix structure may thus be possible as a consequence of stability of the functional relationships imposed over by the adaptive landscape in this lineage, as it seems that in this group, dietary shifts imposed changes on body size only, at least for Platyrrhines [@marroig_size_2010].
+Furthermore, the available comparative data [@monteiro_adaptive_2010; @haber_evolution_2015] indicate that some mammal lineages, such as phylostomid bats and ruminants, have diverged in phenotypic covariance structure probably due to changes in the adaptive landscapes resulting from differences in ecological processes acting on different lineages.
+On the other hand, for Anthropoids, their stability in $\mathbf{P}$-matrix structure may thus be possible as a consequence of stability of the functional relationships imposed over by the adaptive landscape in this lineage, as it seems that in this group, dietary shifts produced changes on body size only, at least for Platyrrhines [@marroig_size_2010].
 
-From an information theory point of view [@brooks_entropy_1989], natural selection will increase the correlation between information encoded in a population and the information that represents its environment.
-The suggestion that developmental systems share properties with machine learning algorithms [@watson_evolution_2013] only reinforces such view.
+From an information theory point of view [@brooks_entropy_1989; @frank_natural_2009], natural selection will increase the correlation between information encoded in a population and the information that represents its environment, and the suggestion that developmental systems share properties with machine learning algorithms [@watson_evolution_2014] only reinforces such view.
 Furthermore, the regulation of developmental systems, through both genetic and epigenetic effects, may also be targeted by selection for both robustness and replicability [@hansen_epigenetics:_2011].
 These different ways of thinking about developmental and functional interactions mean that the probabilistic distribution of phenotypes, as a consequence of either genetic information or epigenetic effects, will tend to match the properties of the distribution of fitness in a particular environment.
-Thus, the maintenance of the same distribution over macroevolutionary timescales indicates that the fitness distribution itself may be stable as well.
+Thus, the maintenance of the same phenotypic distribution over macroevolutionary timescales indicates that the fitness distribution itself may be stable as well.
 
 #### Acknowledgements
 
