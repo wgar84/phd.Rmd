@@ -1,6 +1,7 @@
-## Abstract
+\newpage
 
-Phenotypic traits evolve in a coordinated manner due to developmental and functional interactions, mediated by the dynamics of natural selection; the codependence between traits arising from these three factors is captured by genetic ($\mathbf{G}$) and phenotypic ($\mathbf{P}$) covariance matrices.
+## Abstract
+Phenotypic traits evolve in a coordinated manner due to developmental and functional interactions, mediated by the dynamics of natural selection; the dependence between traits arising from these three factors is captured by genetic ($\mathbf{G}$) and phenotypic ($\mathbf{P}$) covariance matrices.
 Mammalian skull development produces an intricate pattern of tissue organization and mutual signaling that integrates this structure, although the set of functions it performs is quite disparate.
 Therefore, the interplay between these interactions, and their relationships with the adaptive landscape may thus influence divergence in covariance structure among sister lineages.
 Here, we evaluate the stability of phenotypic covariance structure in skull size and shape along the diversification of Anthropoid Primates under a explicit phylogenetic framework.

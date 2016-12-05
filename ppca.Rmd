@@ -1,5 +1,5 @@
 ---
-title: "A Phylogenetic Analysis of Shape Covariance Structure in Anthropoids"
+title: "A Phylogenetic Analysis of Shape Covariance Structure in the Anthropoid Skull"
 author: Guilherme Garcia^1,2^, Felipe Bandoni de Oliveira^1^ & Gabriel Marroig^1^
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -16,14 +16,6 @@ fontsize: 12pt
 csl: Bib/journal-of-evolutionary-biology.csl
 bibliography: Bib/ppca.bib
 ---	
-
-^1^Laboratório de Evolução de Mamíferos, Departamento de Genética e Biologia Evolutiva, Instituto de Biociências, Universidade de São Paulo, CP 11.461, CEP 05422-970, São Paulo, Brasil
-
-^2^<wgar@usp.br>
-
-running title: Evolution of Integration in Anthropoids
-
-key words: $P$-matrix; primates; developmental systems; Bayesian statistics; quantitative genetics
 
 ```{r, echo = FALSE}
 thesis <- FALSE

@@ -95,6 +95,12 @@ system('evince modcomp.pdf &')
 system('evince sup_modcomp.pdf &')
 system('evince sup_base.pdf &')
 
+## DATA OUT
+
+posterior_P <- post.ppca $ W
+
+save(posterior_P, file = 'posterior_P.RData')
+
 ### PRES
 
 render('Presentation/PhyloComp/pres_PhyloComp.Rmd',
